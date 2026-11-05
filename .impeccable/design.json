@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-05T00:00:00.000Z",
+  "title": "Design System: care2repair.eu — E6 Service Hub",
+  "extensions": {
+    "colorMeta": {
+      "olive-atelier": {
+        "role": "primary",
+        "displayName": "Olive d'Atelier",
+        "canonical": "#6e9922",
+        "tonalRamp": ["#2f3f0e", "#3f5513", "#4f6c18", "#5e821c", "#6e9922", "#99d45f", "#b3df87", "#e6f4d7"]
+      },
+      "olive-atelier-press": {
+        "role": "primary",
+        "displayName": "Olive Pressé",
+        "canonical": "#5e821c",
+        "tonalRamp": ["#2f3f0e", "#3f5513", "#4f6c18", "#5e821c", "#6e9922", "#99d45f", "#b3df87", "#e6f4d7"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papier",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#121317", "#1a1c23", "#24262d", "#4c4f52", "#707275", "#9e9e9e", "#e5e7eb", "#ffffff"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Encre",
+        "canonical": "#24262d",
+        "tonalRamp": ["#121317", "#1a1c23", "#24262d", "#4c4f52", "#707275", "#9e9e9e", "#d5d6d7", "#f9fafb"]
+      },
+      "wayfind-devices": {
+        "role": "tertiary",
+        "displayName": "Bleu Appareils",
+        "canonical": "#1c64f2",
+        "tonalRamp": ["#233876", "#1e429f", "#1a56db", "#1c64f2", "#3f83f8", "#76a9fa", "#c3ddfd", "#e1effe"]
+      },
+      "wayfind-map": {
+        "role": "tertiary",
+        "displayName": "Violet Carte",
+        "canonical": "#7e3af2",
+        "tonalRamp": ["#4a1d96", "#5521b5", "#6c2bd9", "#7e3af2", "#9061f9", "#ac94fa", "#dcd7fe", "#edebfe"]
+      },
+      "wayfind-tutorials": {
+        "role": "tertiary",
+        "displayName": "Orange Tutoriels",
+        "canonical": "#d03801",
+        "tonalRamp": ["#771d1d", "#8a2c0d", "#b43403", "#d03801", "#ff5a1f", "#ff8a4c", "#fcd9bd", "#feecdc"]
+      },
+      "wayfind-impact": {
+        "role": "tertiary",
+        "displayName": "Vert Impact",
+        "canonical": "#057a55",
+        "tonalRamp": ["#014737", "#03543f", "#046c4e", "#057a55", "#0e9f6e", "#31c48d", "#bcf0da", "#def7ec"]
+      },
+      "wayfind-data": {
+        "role": "tertiary",
+        "displayName": "Sarcelle Données",
+        "canonical": "#047481",
+        "tonalRamp": ["#014451", "#05505c", "#036672", "#047481", "#0694a2", "#16bdca", "#afecef", "#d5f5f6"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Titre de héros, une seule fois par page. 30px en mobile, 48px en desktop." },
+      "headline": { "displayName": "Headline", "purpose": "Titres de section majeurs." },
+      "title": { "displayName": "Title", "purpose": "Titres de cartes et libellé du champ de recherche." },
+      "body": { "displayName": "Body", "purpose": "Texte courant et descriptions. Le sous-titre de héros monte à 18px." },
+      "label": { "displayName": "Label", "purpose": "En-têtes de section secondaires en capitales, compteurs, métadonnées." }
+    },
+    "shadows": [
+      { "name": "repos", "value": "0 1px 2px 0 rgba(0,0,0,0.05)", "purpose": "Cartes et surfaces au repos. Presque imperceptible." },
+      { "name": "saillie", "value": "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)", "purpose": "Le champ de recherche, qui doit se détacher de son fond coloré." },
+      { "name": "superposition", "value": "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)", "purpose": "Listes de suggestions et menus recouvrant le contenu." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Courbe par défaut de toutes les transitions d'état." },
+      { "name": "duration-state", "value": "150ms", "purpose": "Survol et changement de couleur. Doit rester perceptible." },
+      { "name": "theme-swap-guard", "value": "150ms", "purpose": "Durée pendant laquelle body.theme-switching neutralise les transitions lors d'une bascule de thème." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "L'unique action primaire d'un écran. Le survol doit être franchement visible.",
+      "html": "<button class=\"ds-btn-primary\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"/></svg>Démarrer le parcours de réparation</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 6px; background: #6e9922; color: #fff; padding: 10px 20px; border: none; border-radius: 8px; font-family: Montserrat, Inter, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { background: #5e821c; } .ds-btn-primary:focus-visible { outline: 2px solid #6e9922; outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Action de second rang. Contour olive, fond transparent.",
+      "html": "<button class=\"ds-btn-secondary\">Trouver des réparateurs</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: #4f6c18; padding: 8px 16px; border: 1px solid #6e9922; border-radius: 8px; font-family: Montserrat, Inter, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-secondary:hover { background: #f5fbef; } .ds-btn-secondary:focus-visible { outline: 2px solid #6e9922; outline-offset: 2px; }"
+    },
+    {
+      "name": "Category Chip",
+      "kind": "chip",
+      "refersTo": "chip-filter",
+      "description": "Jeton de catégorie. Le compteur fait partie du composant : sans lui, l'utilisateur ne sait pas si la pastille mène quelque part.",
+      "html": "<button class=\"ds-chip\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"#6e9922\" aria-hidden=\"true\"><path d=\"M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z\"/></svg>Ordinateur portable<span class=\"ds-chip-count\">646 k</span></button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 6px; background: #f4f5f7; color: #24262d; padding: 6px 12px; border: none; border-radius: 9999px; font-family: Montserrat, Inter, sans-serif; font-size: 14px; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-chip:hover { background: #f5fbef; color: #4f6c18; } .ds-chip:focus-visible { outline: 2px solid #6e9922; outline-offset: 2px; } .ds-chip-count { font-size: 12px; color: #9e9e9e; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "La barre de recherche de héros. L'anneau de focus s'applique au conteneur, pas au champ seul.",
+      "html": "<div class=\"ds-search\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"#6e9922\" aria-hidden=\"true\"><path d=\"M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z\"/></svg><input class=\"ds-search-input\" type=\"text\" placeholder=\"Quel appareil souhaitez-vous réparer ?\" /></div>",
+      "css": ".ds-search { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); } .ds-search:focus-within { box-shadow: 0 0 0 2px #6e9922; } .ds-search-input { flex: 1; border: none; outline: none; background: transparent; color: #24262d; font-family: Montserrat, Inter, sans-serif; font-size: 16px; } .ds-search-input::placeholder { color: #9e9e9e; }"
+    },
+    {
+      "name": "Surface Card",
+      "kind": "card",
+      "refersTo": "card-surface",
+      "description": "Bloc de page. Délimité par un trait, pas par une ombre.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Bibliothèque d'appareils</h3><p class=\"ds-card-body\">Parcourez et gérez vos appareils avec des informations détaillées.</p></div>",
+      "css": ".ds-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); transition: border-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-card:hover { border-color: #6e9922; } .ds-card-title { margin: 0 0 4px; font-family: Montserrat, Inter, sans-serif; font-size: 16px; font-weight: 600; color: #24262d; } .ds-card-body { margin: 0; font-family: Montserrat, Inter, sans-serif; font-size: 14px; line-height: 1.6; color: #707275; }"
+    },
+    {
+      "name": "Tool Nav Item",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Entrée de la barre latérale. L'état actif porte un filet vertical à la teinte de repérage de l'outil.",
+      "html": "<a class=\"ds-nav-item ds-nav-item--active\" href=\"#\"><span class=\"ds-nav-rule\"></span><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z\"/></svg><span>Accueil</span></a>",
+      "css": ".ds-nav-item { position: relative; display: inline-flex; align-items: center; gap: 12px; width: 100%; padding: 8px 12px; border-radius: 8px; color: #707275; font-family: Montserrat, Inter, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; transition: background-color 200ms cubic-bezier(0.4,0,0.2,1), color 200ms cubic-bezier(0.4,0,0.2,1); } .ds-nav-item:hover { background: #f5fbef; color: #4f6c18; } .ds-nav-item--active { color: #6e9922; } .ds-nav-rule { position: absolute; inset-block: 0; left: 0; width: 2px; background: #6e9922; border-top-right-radius: 8px; border-bottom-right-radius: 8px; }"
+    },
+    {
+      "name": "Journey Step",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Composant signature : une étape de la frise du parcours de réparation. Disque bordé, pastille de numéro en débord.",
+      "html": "<div class=\"ds-step\"><div class=\"ds-step-disc\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"#4f6c18\" aria-hidden=\"true\"><path d=\"M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z\"/></svg><span class=\"ds-step-num\">1</span></div><span class=\"ds-step-label\">Identifier</span></div>",
+      "css": ".ds-step { display: inline-flex; flex-direction: column; align-items: center; gap: 8px; width: 80px; } .ds-step-disc { position: relative; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 9999px; background: #e6f4d7; border: 2px solid #b3df87; } .ds-step-num { position: absolute; top: -6px; right: -6px; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 9999px; background: #6e9922; color: #fff; font-family: Montserrat, Inter, sans-serif; font-size: 11px; font-weight: 700; } .ds-step-label { font-family: Montserrat, Inter, sans-serif; font-size: 14px; font-weight: 500; color: #24262d; text-align: center; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le Guichet Européen",
+    "overview": "C'est un service public numérique, pas un produit. Un guichet : on y arrive avec un problème concret — un appareil en panne — et il doit répondre avec clarté, dans quatre langues, sans faire d'esprit. La neutralité institutionnelle n'est pas de la tiédeur : c'est ce qui rend le service crédible quand il annonce couvrir 1,1 million de modèles et qu'il est financé par des fonds publics européens.\n\nLe système est dense et fonctionnel. La plateforme agrège neuf outils ; le repérage prime sur l'expression. La marque ne s'exprime pas par du décor mais par la précision : un vert unique employé avec parcimonie, une trame de bordures régulière, une échelle typographique franche. Là où le guichet a besoin de signalétique — orienter vers l'un des neuf outils — il utilise une palette de repérage sobre, jamais décorative.\n\nLes composants sont vifs et tactiles : le survol répond franchement, les transitions se sentent. C'est le seul endroit où le système s'autorise de la vivacité, et c'est délibéré — un guichet qui ne réagit pas donne l'impression d'être en panne.\n\nClair et sombre sont à parité stricte. Aucun des deux n'est le thème de référence, aucune décision ne se prend en regardant un seul des deux.",
+    "keyCharacteristics": [
+      "Un accent unique (Olive d'Atelier) porté par les actions, jamais par le décor",
+      "Une palette de repérage à cinq teintes, réservée à la signalétique des outils",
+      "Surfaces plates au repos, délimitées par un trait ; l'ombre signale un état",
+      "Densité assumée : compteurs, volumes et chiffres réels affichés plutôt que suggérés",
+      "Parité clair/sombre absolue",
+      "Quatre langues (FR/EN/DE/NL) aux longueurs de libellés très variables"
+    ],
+    "rules": [
+      { "name": "La Règle de l'Accent Unique", "body": "L'Olive d'Atelier ne porte qu'une seule action primaire par écran. Deux boutons olive côte à côte annulent la hiérarchie qu'ils sont censés créer.", "section": "colors" },
+      { "name": "La Règle de la Signalétique", "body": "Les cinq teintes de repérage ne s'appliquent qu'à l'identification d'un outil — pastille d'icône, filet d'accent. Elles ne touchent jamais un bouton primaire, un anneau de focus, un lien ou un état de formulaire. Un champ de saisie dans la carte des réparateurs a un focus olive, pas violet.", "section": "colors" },
+      { "name": "La Règle du Faux Vert", "body": "frontend/src/assets/css/custom.css déclare six variables :root dont --primary-color: #38e07b. Elles ont zéro usage dans tout le code. Ce n'est pas la couleur de marque. Ne jamais s'en servir, et se méfier de tout agent qui lirait ce fichier en premier.", "section": "colors" },
+      { "name": "La Règle des Deux Polices", "body": "Le shell applique font-montserrat, mais custom.css impose Spline Sans sur body et Tailwind déclare Inter en sans par défaut. Résultat : les pages dans le shell sont en Montserrat, celles hors shell (connexion, création de compte) en Spline Sans. C'est un défaut hérité, pas une intention. Toute nouvelle surface s'écrit en Montserrat.", "section": "typography" },
+      { "name": "La Règle du Libellé le Plus Long", "body": "Un libellé se vérifie en allemand avant d'être considéré comme fini. « Suivi des réparations » fait 21 caractères, son équivalent allemand en fait souvent 35.", "section": "typography" },
+      { "name": "La Règle de la Hauteur Réservée", "body": "Tout bloc dont le contenu dépend d'un appel réseau réserve sa hauteur par un squelette. Sans cela, il s'insère après coup et pousse la page vers le bas au moment précis où l'utilisateur commence à lire.", "section": "layout" },
+      { "name": "La Règle du Plat au Repos", "body": "Aucune surface ne porte d'ombre supérieure à Repos tant qu'elle n'a pas été survolée ou qu'elle ne recouvre pas autre chose.", "section": "elevation" },
+      { "name": "La Règle des Coins Cohérents", "body": "Un rayon se choisit par fonction, pas par goût : contrôle 8, champ 12, surface 16. Un bouton à 16 px dans une carte à 16 px efface la distinction entre le contenant et le contenu.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do écrire toute nouvelle UI en syntaxe Tailwind 2. shrink-0, grow, size-full et les modificateurs d'opacité bg-x/20 sont de la syntaxe v3 : ils ne génèrent aucune règle et échouent en silence. Utiliser flex-shrink-0, flex-grow, w-full h-full.",
+      "Do vérifier chaque écran dans les deux thèmes avant de le considérer fini, en basculant par le bouton de l'application.",
+      "Do propager toute modification de la rampe olive aux trois fichiers qui la déclarent : tailwind.config.js, src/styles/sidebar-colors.css et la palette Mantine de src/index.tsx.",
+      "Do afficher les volumes réels (compteurs de catégories, nombre de modèles) : la densité chiffrée est ce qui rend le guichet crédible.",
+      "Do réserver la hauteur de tout bloc alimenté par un appel réseau.",
+      "Do rendre le survol franchement perceptible sur les éléments interactifs."
+    ],
+    "donts": [
+      "Don't empiler transition-* et des variantes dark: sans le garde-fou de body.theme-switching : l'élément reste bloqué sur les couleurs du thème précédent.",
+      "Don't ajouter un second conteneur (max-w-*, mx-auto, px-*) dans une page : Main.tsx le fournit déjà.",
+      "Don't utiliser les teintes de repérage pour un bouton, un lien, un anneau de focus ou un état de formulaire.",
+      "Don't ressembler à un dashboard SaaS générique : pas de dégradés violets décoratifs, pas de glassmorphism, pas de néons sur fond sombre.",
+      "Don't ressembler à un site marchand : pas d'urgence commerciale, de badges promotionnels ni de comptes à rebours. La plateforme oriente, elle ne vend pas.",
+      "Don't toucher aux variables :root de custom.css ni s'y référer : elles sont mortes et annoncent une fausse couleur de marque.",
+      "Don't promettre plus que les données : la couverture réparateurs est de trois pays, pas six.",
+      "Don't laisser un parcours se terminer sur une impasse sans alternative proposée."
+    ]
+  }
+}

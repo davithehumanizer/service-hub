@@ -1,0 +1,17 @@
+/* Injectée dans le shadow root du framework Retorik via la prop `customCSS`.
+   Les styles de l'application ne peuvent pas atteindre l'intérieur du shadow
+   root, et la règle vise un style inline : d'où le fichier séparé et les
+   `!important`.
+
+   En mobile, le framework fixe height / min-height / max-height à
+   window.innerHeight sur son conteneur, en supposant qu'il occupe l'écran
+   entier. Sous l'en-tête du Service Hub il dépasse donc sa boîte de la
+   hauteur de celui-ci, et la zone de saisie sort du champ visible.
+
+   Sur les autres formats la règle ne change rien : le conteneur y est déjà
+   en height: 100%. */
+:host > div {
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+}

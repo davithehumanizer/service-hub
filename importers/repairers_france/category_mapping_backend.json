@@ -1,0 +1,26 @@
+{
+  "luminaire": "led_lamp",
+  "materiel_hifi_et_video": "audio",
+  "materiel_informatique": "personal_computer",
+  "petit_electromenager": "home_appliance",
+  "jouet": "toy",
+  "bijou_et_montre": "wrist_watch",
+  "ecran": "monitor",
+  "abj_electrique": "power_supply",
+  "outil_de_bricolage_et_jardinage": "power_tool",
+  "machines_et_appareils_motorises_thermiques": "power_tool",
+  "lunettes_de_vue_aides_techniques": "hearing_aid",
+  "gros_electromenager_hors_refrigerant": "home_appliance",
+  "gros_electromenager_refrigerant": "fridge_combi_freezer",
+  "autre_equipement_electronique": "other_electronics",
+  "materiel_photo_et_cinema": "photo_camera",
+  "smartphone_tablette_et_console": "smartphone",
+  "jels_mobilite_electrique": "bicycle_battery",
+  "poele_casserole": "kitchen_appliance",
+  "vaisselle": "kitchen_appliance",
+  "instrument_musique_electrique": "electric_guitar",
+  "cd_dvd_et_jeu_video": "dvd_player_recorder",
+  "panneaux_photovoltaiques": "solar_panel",
+  "batteries_de_mtl": "battery"
+}
+

@@ -1,0 +1,21 @@
+:root[class~='dark'] {
+    .pill{
+       /*background:red !important;*/
+       background-color:var(--mantine-color-customgreen-0);
+    }
+}
+.pill{
+    background-color:var(--mantine-color-customgreen-0);
+    color:white;
+
+    /*--button-color: var(--mantine-color-blue);*/
+}
+
+.pill_blue {
+    background-color: rgb(37 99 235);
+    color: white;
+}
+
+:root[class~='dark'] .pill_blue {
+    background-color: rgb(96 165 250);
+}

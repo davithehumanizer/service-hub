@@ -1,0 +1,10 @@
+server.publicBaseUrl: https://care2repair.eu/kibana
+server.basePath: "/kibana"
+# Kibana sits behind the Apache /kibana proxy: it must strip the base path from
+# incoming requests and listen on all interfaces so the proxy can reach it.
+# These two lines had drifted — they were applied directly on the server and
+# never committed, so every checkout reset would have broken Kibana.
+server.rewriteBasePath: true
+server.host: "0.0.0.0"
+
+elasticsearch.hosts: http://elasticsearch:9200

@@ -1,0 +1,81 @@
+import { MigrationInterface, QueryRunner } from 'typeorm';
+import * as fs from 'fs';
+import * as path from 'path';
+
+export class ImportJnrRepairers1762269646445 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    const jsonPath = path.join(
+      process.cwd(),
+      'src',
+      'data',
+      'repairers_journee_nationales_reparation_2025.json',
+    );
+
+    const raw = fs.readFileSync(jsonPath, 'utf-8');
+    const items = JSON.parse(raw) as any[];
+
+    for (const item of items) {
+      const pinpoint = item.pinpoint;
+      if (!pinpoint) continue;
+
+      // Extract fields, providing safe fallbacks for non-nullable DB columns
+      const importId = pinpoint.id ? String(pinpoint.id) : null;
+      const name = (pinpoint.name || pinpoint.title || '') as string;
+      const description = (pinpoint.description || item.description || '') as string;
+      const address = (pinpoint.address || '') as string;
+      const city = (pinpoint.city || '') as string;
+      const country = (pinpoint.country || '') as string;
+      const postal_code = (pinpoint.postal_code || pinpoint.zip || '') as string;
+
+      const website = (pinpoint.website || pinpoint.link_url || pinpoint.facebook_url || '') as string;
+      const email = (pinpoint.email || '') as string;
+      const phone = (pinpoint.phone || '') as string;
+
+      const latitude = typeof pinpoint.latitude === 'number' ? pinpoint.latitude : (pinpoint.lat || null);
+      const longitude = typeof pinpoint.longitude === 'number' ? pinpoint.longitude : (pinpoint.lon || pinpoint.lng || null);
+
+      // Avoid duplicates: prefer import id, fallback to name+lat+lon
+      const existing = (await queryRunner.query(
+        `SELECT repairer_id FROM repairers WHERE repairer_import_id = $1 OR (name = $2 AND latitude = $3 AND longitude = $4)`,
+        [importId, name, latitude, longitude],
+      )) as any[];
+
+      if (existing.length > 0) {
+        continue;
+      }
+
+      await queryRunner.query(
+        `INSERT INTO repairers (repairer_import_id, name, description, address, city, country, postal_code, website, email, phone, latitude, longitude, source)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)`,
+        [
+          importId,
+          name,
+          description,
+          address,
+          city,
+          country,
+          postal_code,
+          website,
+          email,
+          phone,
+          latitude,
+          longitude,
+          'journeesreparation.fr',
+        ],
+      );
+    }
+  }
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    // Remove repairers imported by this migration (identified by source)
+    const source = 'journeesreparation.fr';
+
+    // First remove any linked device rows (defensive; repairer FK may cascade)
+    await queryRunner.query(
+      `DELETE FROM repairer_devices WHERE repairer_id IN (SELECT repairer_id FROM repairers WHERE source = $1)`,
+      [source],
+    );
+
+    // Then remove the repairers themselves
+    await queryRunner.query(`DELETE FROM repairers WHERE source = $1`, [source]);
+  }
+}

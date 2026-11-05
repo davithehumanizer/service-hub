@@ -1,0 +1,7 @@
+/* Le framework pose ses classes `rf-*` sur son hôte Shadow DOM, mais ces
+   classes vivent dans la feuille injectée *dans* le shadow root : elles ne
+   stylent jamais l'hôte lui-même, resté en `height: auto`. Sans cette règle,
+   `config.fullSize: false` fait s'effondrer l'agent à zéro pixel. */
+#retorik-shadow {
+  height: 100%;
+}

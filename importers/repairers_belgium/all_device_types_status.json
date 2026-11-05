@@ -1,0 +1,352 @@
+[
+  {
+    "csv_code": "aircondehumidifier",
+    "is_mapped": true,
+    "backend_category": "Air conditioner"
+  },
+  {
+    "csv_code": "batterychargeradapter",
+    "is_mapped": true,
+    "backend_category": "Battery charger"
+  },
+  {
+    "csv_code": "bed-linen",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "bicycle",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "blouse-shirt",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "clothing-textiles",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "coffee-maker",
+    "is_mapped": true,
+    "backend_category": "Drip coffee maker"
+  },
+  {
+    "csv_code": "computers-en-home-office",
+    "is_mapped": true,
+    "backend_category": "Desktop computer"
+  },
+  {
+    "csv_code": "decorative-or-safety-light",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "desktop-computer",
+    "is_mapped": true,
+    "backend_category": "Desktop computer"
+  },
+  {
+    "csv_code": "digital-compact-camera",
+    "is_mapped": true,
+    "backend_category": "Digital compact camera"
+  },
+  {
+    "csv_code": "dlsr-video-camera",
+    "is_mapped": true,
+    "backend_category": "Video camera"
+  },
+  {
+    "csv_code": "dress",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "e-bikes",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "elektronische-gadgets",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "fan",
+    "is_mapped": true,
+    "backend_category": "Fan"
+  },
+  {
+    "csv_code": "flatscreen-15-17",
+    "is_mapped": true,
+    "backend_category": "Monitor"
+  },
+  {
+    "csv_code": "flatscreen-19-20",
+    "is_mapped": true,
+    "backend_category": "Monitor"
+  },
+  {
+    "csv_code": "flatscreen-22-24",
+    "is_mapped": true,
+    "backend_category": "Monitor"
+  },
+  {
+    "csv_code": "flatscreen-26-30",
+    "is_mapped": true,
+    "backend_category": "Monitor"
+  },
+  {
+    "csv_code": "flatscreen-32-37",
+    "is_mapped": true,
+    "backend_category": "Monitor"
+  },
+  {
+    "csv_code": "furniture",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "games-console",
+    "is_mapped": true,
+    "backend_category": "Gaming Console"
+  },
+  {
+    "csv_code": "hair-dryer",
+    "is_mapped": true,
+    "backend_category": "Hair dryer"
+  },
+  {
+    "csv_code": "hairbeauty-item",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "handheld-entertainment-device",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "headphones",
+    "is_mapped": true,
+    "backend_category": "Headphones"
+  },
+  {
+    "csv_code": "hi-fi-integrated",
+    "is_mapped": true,
+    "backend_category": "Amplifier"
+  },
+  {
+    "csv_code": "hi-fi-separates",
+    "is_mapped": true,
+    "backend_category": "Amplifier"
+  },
+  {
+    "csv_code": "inktjetprinter",
+    "is_mapped": true,
+    "backend_category": "Printer"
+  },
+  {
+    "csv_code": "iron",
+    "is_mapped": true,
+    "backend_category": "Iron"
+  },
+  {
+    "csv_code": "jacket",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "jumper",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "kettle",
+    "is_mapped": true,
+    "backend_category": "Kettle"
+  },
+  {
+    "csv_code": "kitchen-and-household-item",
+    "is_mapped": true,
+    "backend_category": "Kitchen Appliance"
+  },
+  {
+    "csv_code": "kleine-laptop",
+    "is_mapped": true,
+    "backend_category": "Laptop"
+  },
+  {
+    "csv_code": "lamp",
+    "is_mapped": true,
+    "backend_category": "Lamp"
+  },
+  {
+    "csv_code": "laptop-large",
+    "is_mapped": true,
+    "backend_category": "Laptop"
+  },
+  {
+    "csv_code": "laptop-macos",
+    "is_mapped": true,
+    "backend_category": "Laptop"
+  },
+  {
+    "csv_code": "large-home-electrical",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "laserprinter",
+    "is_mapped": true,
+    "backend_category": "Printer"
+  },
+  {
+    "csv_code": "leather",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "mixeur",
+    "is_mapped": true,
+    "backend_category": "Blender"
+  },
+  {
+    "csv_code": "mobile-phone",
+    "is_mapped": true,
+    "backend_category": "Mobile phone / Cell phone"
+  },
+  {
+    "csv_code": "musical-instrument",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "other",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "other-category",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "other-textile",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "paper-schredder",
+    "is_mapped": true,
+    "backend_category": "Paper shredder"
+  },
+  {
+    "csv_code": "pc-accessory",
+    "is_mapped": true,
+    "backend_category": "PC accessory"
+  },
+  {
+    "csv_code": "portable-radio",
+    "is_mapped": true,
+    "backend_category": "Portable radio"
+  },
+  {
+    "csv_code": "power-tool",
+    "is_mapped": false,
+    "backend_category": "Power Tool"
+  },
+  {
+    "csv_code": "printerscanner",
+    "is_mapped": true,
+    "backend_category": "Printer / Copier / Scanner"
+  },
+  {
+    "csv_code": "projector",
+    "is_mapped": true,
+    "backend_category": "Projector"
+  },
+  {
+    "csv_code": "sewing-machine",
+    "is_mapped": true,
+    "backend_category": "Sewing machine"
+  },
+  {
+    "csv_code": "shoes",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "skirt",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "small-kitchen-item",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "smartphone-apple",
+    "is_mapped": true,
+    "backend_category": "Smart Phone / Pager"
+  },
+  {
+    "csv_code": "smartphones-android",
+    "is_mapped": true,
+    "backend_category": "Smart Phone / Pager"
+  },
+  {
+    "csv_code": "steps",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "stofzuiger",
+    "is_mapped": true,
+    "backend_category": "Vacuum cleaner"
+  },
+  {
+    "csv_code": "tablet-or-e-reader",
+    "is_mapped": true,
+    "backend_category": "Tablet"
+  },
+  {
+    "csv_code": "thuis-entertainment",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "toaster",
+    "is_mapped": true,
+    "backend_category": "Toaster"
+  },
+  {
+    "csv_code": "toy",
+    "is_mapped": false,
+    "backend_category": "Toy"
+  },
+  {
+    "csv_code": "trousers",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "tv-or-gaming-related-accessory",
+    "is_mapped": false,
+    "backend_category": null
+  },
+  {
+    "csv_code": "watchclock",
+    "is_mapped": true,
+    "backend_category": "Wrist watch"
+  },
+  {
+    "csv_code": "windows-laptop",
+    "is_mapped": true,
+    "backend_category": "Laptop"
+  }
+]

@@ -1,0 +1,2144 @@
+[
+  {
+    "id": 318,
+    "urn": "urn:care2repair:category:318",
+    "name": "Bed Linen",
+    "unukey": null
+  },
+  {
+    "id": 344,
+    "urn": "urn:care2repair:category:344",
+    "name": "All-in-One PCs/Workstations",
+    "unukey": null
+  },
+  {
+    "id": 319,
+    "urn": "urn:care2repair:category:319",
+    "name": "Bicycle",
+    "unukey": null
+  },
+  {
+    "id": 320,
+    "urn": "urn:care2repair:category:320",
+    "name": "Blouse Shirt",
+    "unukey": null
+  },
+  {
+    "id": 345,
+    "urn": "urn:care2repair:category:345",
+    "name": "Handheld Vacuums",
+    "unukey": null
+  },
+  {
+    "id": 321,
+    "urn": "urn:care2repair:category:321",
+    "name": "Clothing Textiles",
+    "unukey": null
+  },
+  {
+    "id": 322,
+    "urn": "urn:care2repair:category:322",
+    "name": "Decorative Or Safety Light",
+    "unukey": null
+  },
+  {
+    "id": 346,
+    "urn": "urn:care2repair:category:346",
+    "name": "Mobile Device Keyboards",
+    "unukey": null
+  },
+  {
+    "id": 323,
+    "urn": "urn:care2repair:category:323",
+    "name": "Dress",
+    "unukey": null
+  },
+  {
+    "id": 324,
+    "urn": "urn:care2repair:category:324",
+    "name": "E Bikes",
+    "unukey": null
+  },
+  {
+    "id": 347,
+    "urn": "urn:care2repair:category:347",
+    "name": "Radios",
+    "unukey": null
+  },
+  {
+    "id": 348,
+    "urn": "urn:care2repair:category:348",
+    "name": "Meeting Room Displays",
+    "unukey": null
+  },
+  {
+    "id": 326,
+    "urn": "urn:care2repair:category:326",
+    "name": "Furniture",
+    "unukey": null
+  },
+  {
+    "id": 327,
+    "urn": "urn:care2repair:category:327",
+    "name": "Hairbeauty Item",
+    "unukey": null
+  },
+  {
+    "id": 350,
+    "urn": "urn:care2repair:category:350",
+    "name": "Washer Dryers",
+    "unukey": null
+  },
+  {
+    "id": 328,
+    "urn": "urn:care2repair:category:328",
+    "name": "Handheld Entertainment Device",
+    "unukey": null
+  },
+  {
+    "id": 329,
+    "urn": "urn:care2repair:category:329",
+    "name": "Jacket",
+    "unukey": null
+  },
+  {
+    "id": 351,
+    "urn": "urn:care2repair:category:351",
+    "name": "Signage Displays",
+    "unukey": null
+  },
+  {
+    "id": 330,
+    "urn": "urn:care2repair:category:330",
+    "name": "Jumper",
+    "unukey": null
+  },
+  {
+    "id": 331,
+    "urn": "urn:care2repair:category:331",
+    "name": "Large Home Electrical",
+    "unukey": null
+  },
+  {
+    "id": 352,
+    "urn": "urn:care2repair:category:352",
+    "name": "Carpet Cleaning Machines",
+    "unukey": null
+  },
+  {
+    "id": 332,
+    "urn": "urn:care2repair:category:332",
+    "name": "Leather",
+    "unukey": null
+  },
+  {
+    "id": 333,
+    "urn": "urn:care2repair:category:333",
+    "name": "Musical Instrument",
+    "unukey": null
+  },
+  {
+    "id": 353,
+    "urn": "urn:care2repair:category:353",
+    "name": "Tumble Dryers",
+    "unukey": null
+  },
+  {
+    "id": 334,
+    "urn": "urn:care2repair:category:334",
+    "name": "Other",
+    "unukey": null
+  },
+  {
+    "id": 335,
+    "urn": "urn:care2repair:category:335",
+    "name": "Other Category",
+    "unukey": null
+  },
+  {
+    "id": 354,
+    "urn": "urn:care2repair:category:354",
+    "name": "Cable Locks",
+    "unukey": null
+  },
+  {
+    "id": 336,
+    "urn": "urn:care2repair:category:336",
+    "name": "Other Textile",
+    "unukey": null
+  },
+  {
+    "id": 337,
+    "urn": "urn:care2repair:category:337",
+    "name": "Shoes",
+    "unukey": null
+  },
+  {
+    "id": 355,
+    "urn": "urn:care2repair:category:355",
+    "name": "Stick Vacuums & Electric Brooms",
+    "unukey": null
+  },
+  {
+    "id": 338,
+    "urn": "urn:care2repair:category:338",
+    "name": "Skirt",
+    "unukey": null
+  },
+  {
+    "id": 339,
+    "urn": "urn:care2repair:category:339",
+    "name": "Small Kitchen Item",
+    "unukey": null
+  },
+  {
+    "id": 357,
+    "urn": "urn:care2repair:category:357",
+    "name": "Video Cable Adapters",
+    "unukey": null
+  },
+  {
+    "id": 340,
+    "urn": "urn:care2repair:category:340",
+    "name": "Steps",
+    "unukey": null
+  },
+  {
+    "id": 341,
+    "urn": "urn:care2repair:category:341",
+    "name": "Thuis Entertainment",
+    "unukey": null
+  },
+  {
+    "id": 358,
+    "urn": "urn:care2repair:category:358",
+    "name": "Interface Hubs",
+    "unukey": null
+  },
+  {
+    "id": 342,
+    "urn": "urn:care2repair:category:342",
+    "name": "Trousers",
+    "unukey": null
+  },
+  {
+    "id": 343,
+    "urn": "urn:care2repair:category:343",
+    "name": "Tv Or Gaming Related Accessory",
+    "unukey": null
+  },
+  {
+    "id": 325,
+    "urn": "urn:care2repair:category:325",
+    "name": "Electronic Gadgets",
+    "unukey": null
+  },
+  {
+    "id": 30,
+    "urn": "urn:care2repair:category:30",
+    "name": "Ice cube maker",
+    "unukey": "109"
+  },
+  {
+    "id": 31,
+    "urn": "urn:care2repair:category:31",
+    "name": "Air conditioner",
+    "unukey": "111"
+  },
+  {
+    "id": 32,
+    "urn": "urn:care2repair:category:32",
+    "name": "Air freshener / Air purifier",
+    "unukey": "111"
+  },
+  {
+    "id": 33,
+    "urn": "urn:care2repair:category:33",
+    "name": "Dehumidifier",
+    "unukey": "112"
+  },
+  {
+    "id": 34,
+    "urn": "urn:care2repair:category:34",
+    "name": "Wash dryer (heat pump)",
+    "unukey": "112"
+  },
+  {
+    "id": 35,
+    "urn": "urn:care2repair:category:35",
+    "name": "Microwave /  Combi oven",
+    "unukey": "114"
+  },
+  {
+    "id": 36,
+    "urn": "urn:care2repair:category:36",
+    "name": "Air pump",
+    "unukey": "201"
+  },
+  {
+    "id": 37,
+    "urn": "urn:care2repair:category:37",
+    "name": "Alarm clock",
+    "unukey": "201"
+  },
+  {
+    "id": 38,
+    "urn": "urn:care2repair:category:38",
+    "name": "Baby monitor",
+    "unukey": "201"
+  },
+  {
+    "id": 39,
+    "urn": "urn:care2repair:category:39",
+    "name": "Battery",
+    "unukey": "201"
+  },
+  {
+    "id": 40,
+    "urn": "urn:care2repair:category:40",
+    "name": "Battery charger",
+    "unukey": "201"
+  },
+  {
+    "id": 41,
+    "urn": "urn:care2repair:category:41",
+    "name": "Bicycle battery",
+    "unukey": "201"
+  },
+  {
+    "id": 42,
+    "urn": "urn:care2repair:category:42",
+    "name": "Charger",
+    "unukey": "201"
+  },
+  {
+    "id": 43,
+    "urn": "urn:care2repair:category:43",
+    "name": "Clock",
+    "unukey": "201"
+  },
+  {
+    "id": 44,
+    "urn": "urn:care2repair:category:44",
+    "name": "Cooking timer",
+    "unukey": "201"
+  },
+  {
+    "id": 45,
+    "urn": "urn:care2repair:category:45",
+    "name": "Cool box",
+    "unukey": "201"
+  },
+  {
+    "id": 46,
+    "urn": "urn:care2repair:category:46",
+    "name": "Digital photo frame",
+    "unukey": "201"
+  },
+  {
+    "id": 47,
+    "urn": "urn:care2repair:category:47",
+    "name": "Dimmer",
+    "unukey": "201"
+  },
+  {
+    "id": 48,
+    "urn": "urn:care2repair:category:48",
+    "name": "Doorbell",
+    "unukey": "201"
+  },
+  {
+    "id": 49,
+    "urn": "urn:care2repair:category:49",
+    "name": "Electric blanket",
+    "unukey": "201"
+  },
+  {
+    "id": 50,
+    "urn": "urn:care2repair:category:50",
+    "name": "Fan",
+    "unukey": "201"
+  },
+  {
+    "id": 51,
+    "urn": "urn:care2repair:category:51",
+    "name": "Heating pad / heat cushion",
+    "unukey": "201"
+  },
+  {
+    "id": 52,
+    "urn": "urn:care2repair:category:52",
+    "name": "Humidifier",
+    "unukey": "201"
+  },
+  {
+    "id": 53,
+    "urn": "urn:care2repair:category:53",
+    "name": "Iron",
+    "unukey": "201"
+  },
+  {
+    "id": 54,
+    "urn": "urn:care2repair:category:54",
+    "name": "Laminator",
+    "unukey": "201"
+  },
+  {
+    "id": 55,
+    "urn": "urn:care2repair:category:55",
+    "name": "Multimeter",
+    "unukey": "201"
+  },
+  {
+    "id": 56,
+    "urn": "urn:care2repair:category:56",
+    "name": "Pencil sharpener",
+    "unukey": "201"
+  },
+  {
+    "id": 57,
+    "urn": "urn:care2repair:category:57",
+    "name": "Personal scale",
+    "unukey": "201"
+  },
+  {
+    "id": 58,
+    "urn": "urn:care2repair:category:58",
+    "name": "Polisher",
+    "unukey": "201"
+  },
+  {
+    "id": 59,
+    "urn": "urn:care2repair:category:59",
+    "name": "Pond pump",
+    "unukey": "201"
+  },
+  {
+    "id": 60,
+    "urn": "urn:care2repair:category:60",
+    "name": "Power cabel",
+    "unukey": "201"
+  },
+  {
+    "id": 61,
+    "urn": "urn:care2repair:category:61",
+    "name": "Power cable reel",
+    "unukey": "201"
+  },
+  {
+    "id": 62,
+    "urn": "urn:care2repair:category:62",
+    "name": "Power extension",
+    "unukey": "201"
+  },
+  {
+    "id": 63,
+    "urn": "urn:care2repair:category:63",
+    "name": "Power supply",
+    "unukey": "201"
+  },
+  {
+    "id": 64,
+    "urn": "urn:care2repair:category:64",
+    "name": "Powerbank",
+    "unukey": "201"
+  },
+  {
+    "id": 65,
+    "urn": "urn:care2repair:category:65",
+    "name": "Pruning shears / Garden shears",
+    "unukey": "201"
+  },
+  {
+    "id": 66,
+    "urn": "urn:care2repair:category:66",
+    "name": "Stapler",
+    "unukey": "201"
+  },
+  {
+    "id": 67,
+    "urn": "urn:care2repair:category:67",
+    "name": "Steam appliance (for textiles)",
+    "unukey": "201"
+  },
+  {
+    "id": 68,
+    "urn": "urn:care2repair:category:68",
+    "name": "Steam iron / Steam ironing station",
+    "unukey": "201"
+  },
+  {
+    "id": 69,
+    "urn": "urn:care2repair:category:69",
+    "name": "Thermostat",
+    "unukey": "201"
+  },
+  {
+    "id": 70,
+    "urn": "urn:care2repair:category:70",
+    "name": "Time switch",
+    "unukey": "201"
+  },
+  {
+    "id": 71,
+    "urn": "urn:care2repair:category:71",
+    "name": "Transformer",
+    "unukey": "201"
+  },
+  {
+    "id": 72,
+    "urn": "urn:care2repair:category:72",
+    "name": "Travel alarm clock",
+    "unukey": "201"
+  },
+  {
+    "id": 73,
+    "urn": "urn:care2repair:category:73",
+    "name": "Typewriter",
+    "unukey": "201"
+  },
+  {
+    "id": 74,
+    "urn": "urn:care2repair:category:74",
+    "name": "Ultrasonic cleaner",
+    "unukey": "201"
+  },
+  {
+    "id": 75,
+    "urn": "urn:care2repair:category:75",
+    "name": "Water pump",
+    "unukey": "201"
+  },
+  {
+    "id": 76,
+    "urn": "urn:care2repair:category:76",
+    "name": "Weather station",
+    "unukey": "201"
+  },
+  {
+    "id": 77,
+    "urn": "urn:care2repair:category:77",
+    "name": "Window wiper",
+    "unukey": "201"
+  },
+  {
+    "id": 78,
+    "urn": "urn:care2repair:category:78",
+    "name": "Wrist watch",
+    "unukey": "201"
+  },
+  {
+    "id": 79,
+    "urn": "urn:care2repair:category:79",
+    "name": "Air fryer",
+    "unukey": "202"
+  },
+  {
+    "id": 80,
+    "urn": "urn:care2repair:category:80",
+    "name": "Blender",
+    "unukey": "202"
+  },
+  {
+    "id": 81,
+    "urn": "urn:care2repair:category:81",
+    "name": "Bread maker",
+    "unukey": "202"
+  },
+  {
+    "id": 82,
+    "urn": "urn:care2repair:category:82",
+    "name": "Chopper",
+    "unukey": "202"
+  },
+  {
+    "id": 83,
+    "urn": "urn:care2repair:category:83",
+    "name": "Citrus press",
+    "unukey": "202"
+  },
+  {
+    "id": 84,
+    "urn": "urn:care2repair:category:84",
+    "name": "Coffee grinder",
+    "unukey": "202"
+  },
+  {
+    "id": 85,
+    "urn": "urn:care2repair:category:85",
+    "name": "Digital scale",
+    "unukey": "202"
+  },
+  {
+    "id": 86,
+    "urn": "urn:care2repair:category:86",
+    "name": "Electric baking tray",
+    "unukey": "202"
+  },
+  {
+    "id": 87,
+    "urn": "urn:care2repair:category:87",
+    "name": "Electric knife",
+    "unukey": "202"
+  },
+  {
+    "id": 359,
+    "urn": "urn:care2repair:category:359",
+    "name": "Household Disinfectants",
+    "unukey": null
+  },
+  {
+    "id": 88,
+    "urn": "urn:care2repair:category:88",
+    "name": "Electric pan",
+    "unukey": "202"
+  },
+  {
+    "id": 89,
+    "urn": "urn:care2repair:category:89",
+    "name": "Food processor",
+    "unukey": "202"
+  },
+  {
+    "id": 90,
+    "urn": "urn:care2repair:category:90",
+    "name": "Fryer",
+    "unukey": "202"
+  },
+  {
+    "id": 91,
+    "urn": "urn:care2repair:category:91",
+    "name": "Griddle",
+    "unukey": "202"
+  },
+  {
+    "id": 92,
+    "urn": "urn:care2repair:category:92",
+    "name": "Grill",
+    "unukey": "202"
+  },
+  {
+    "id": 93,
+    "urn": "urn:care2repair:category:93",
+    "name": "Grinding mill",
+    "unukey": "202"
+  },
+  {
+    "id": 94,
+    "urn": "urn:care2repair:category:94",
+    "name": "Hand mixer",
+    "unukey": "202"
+  },
+  {
+    "id": 95,
+    "urn": "urn:care2repair:category:95",
+    "name": "Hot plate",
+    "unukey": "202"
+  },
+  {
+    "id": 96,
+    "urn": "urn:care2repair:category:96",
+    "name": "Ice cream maker",
+    "unukey": "202"
+  },
+  {
+    "id": 97,
+    "urn": "urn:care2repair:category:97",
+    "name": "Juice extractor / Juicer",
+    "unukey": "202"
+  },
+  {
+    "id": 98,
+    "urn": "urn:care2repair:category:98",
+    "name": "Kitchen scale",
+    "unukey": "202"
+  },
+  {
+    "id": 99,
+    "urn": "urn:care2repair:category:99",
+    "name": "Meat cutter",
+    "unukey": "202"
+  },
+  {
+    "id": 100,
+    "urn": "urn:care2repair:category:100",
+    "name": "Milk frother",
+    "unukey": "202"
+  },
+  {
+    "id": 101,
+    "urn": "urn:care2repair:category:101",
+    "name": "Pepper mill / Pepper grinder",
+    "unukey": "202"
+  },
+  {
+    "id": 102,
+    "urn": "urn:care2repair:category:102",
+    "name": "Pizza oven",
+    "unukey": "202"
+  },
+  {
+    "id": 103,
+    "urn": "urn:care2repair:category:103",
+    "name": "Popcorn machine",
+    "unukey": "202"
+  },
+  {
+    "id": 104,
+    "urn": "urn:care2repair:category:104",
+    "name": "Pressure cooker",
+    "unukey": "202"
+  },
+  {
+    "id": 105,
+    "urn": "urn:care2repair:category:105",
+    "name": "Raclette",
+    "unukey": "202"
+  },
+  {
+    "id": 106,
+    "urn": "urn:care2repair:category:106",
+    "name": "Rice cooker",
+    "unukey": "202"
+  },
+  {
+    "id": 107,
+    "urn": "urn:care2repair:category:107",
+    "name": "Rollator",
+    "unukey": "202"
+  },
+  {
+    "id": 108,
+    "urn": "urn:care2repair:category:108",
+    "name": "Slicer",
+    "unukey": "202"
+  },
+  {
+    "id": 109,
+    "urn": "urn:care2repair:category:109",
+    "name": "Slow cooker",
+    "unukey": "202"
+  },
+  {
+    "id": 110,
+    "urn": "urn:care2repair:category:110",
+    "name": "Smoothie maker",
+    "unukey": "202"
+  },
+  {
+    "id": 111,
+    "urn": "urn:care2repair:category:111",
+    "name": "Soup maker",
+    "unukey": "202"
+  },
+  {
+    "id": 112,
+    "urn": "urn:care2repair:category:112",
+    "name": "Stand mixer",
+    "unukey": "202"
+  },
+  {
+    "id": 113,
+    "urn": "urn:care2repair:category:113",
+    "name": "Steamer",
+    "unukey": "202"
+  },
+  {
+    "id": 114,
+    "urn": "urn:care2repair:category:114",
+    "name": "Stick mixer (immersion blender)",
+    "unukey": "202"
+  },
+  {
+    "id": 115,
+    "urn": "urn:care2repair:category:115",
+    "name": "Table grill",
+    "unukey": "202"
+  },
+  {
+    "id": 116,
+    "urn": "urn:care2repair:category:116",
+    "name": "Toaster",
+    "unukey": "202"
+  },
+  {
+    "id": 117,
+    "urn": "urn:care2repair:category:117",
+    "name": "Vacuum sealer",
+    "unukey": "202"
+  },
+  {
+    "id": 118,
+    "urn": "urn:care2repair:category:118",
+    "name": "Waffle iron",
+    "unukey": "202"
+  },
+  {
+    "id": 119,
+    "urn": "urn:care2repair:category:119",
+    "name": "Yogurt machine",
+    "unukey": "202"
+  },
+  {
+    "id": 120,
+    "urn": "urn:care2repair:category:120",
+    "name": "Drip coffee maker",
+    "unukey": "203"
+  },
+  {
+    "id": 121,
+    "urn": "urn:care2repair:category:121",
+    "name": "Egg cooker",
+    "unukey": "203"
+  },
+  {
+    "id": 122,
+    "urn": "urn:care2repair:category:122",
+    "name": "Espresso machine",
+    "unukey": "203"
+  },
+  {
+    "id": 123,
+    "urn": "urn:care2repair:category:123",
+    "name": "Kettle",
+    "unukey": "203"
+  },
+  {
+    "id": 124,
+    "urn": "urn:care2repair:category:124",
+    "name": "Percolator",
+    "unukey": "203"
+  },
+  {
+    "id": 125,
+    "urn": "urn:care2repair:category:125",
+    "name": "Pod/Capsule machine",
+    "unukey": "203"
+  },
+  {
+    "id": 126,
+    "urn": "urn:care2repair:category:126",
+    "name": "Teamaker / teasmade",
+    "unukey": "203"
+  },
+  {
+    "id": 127,
+    "urn": "urn:care2repair:category:127",
+    "name": "Carpet cleaner",
+    "unukey": "204"
+  },
+  {
+    "id": 128,
+    "urn": "urn:care2repair:category:128",
+    "name": "Handheld vacuum cleaner",
+    "unukey": "204"
+  },
+  {
+    "id": 129,
+    "urn": "urn:care2repair:category:129",
+    "name": "Robotic vacuum cleaner",
+    "unukey": "204"
+  },
+  {
+    "id": 130,
+    "urn": "urn:care2repair:category:130",
+    "name": "Upright vacuum cleaner",
+    "unukey": "204"
+  },
+  {
+    "id": 131,
+    "urn": "urn:care2repair:category:131",
+    "name": "Vacuum cleaner",
+    "unukey": "204"
+  },
+  {
+    "id": 132,
+    "urn": "urn:care2repair:category:132",
+    "name": "Water vacuum cleaner",
+    "unukey": "204"
+  },
+  {
+    "id": 133,
+    "urn": "urn:care2repair:category:133",
+    "name": "Beard trimmer",
+    "unukey": "205"
+  },
+  {
+    "id": 134,
+    "urn": "urn:care2repair:category:134",
+    "name": "Clipper / trimmer",
+    "unukey": "205"
+  },
+  {
+    "id": 135,
+    "urn": "urn:care2repair:category:135",
+    "name": "Curler set",
+    "unukey": "205"
+  },
+  {
+    "id": 136,
+    "urn": "urn:care2repair:category:136",
+    "name": "Curling iron",
+    "unukey": "205"
+  },
+  {
+    "id": 137,
+    "urn": "urn:care2repair:category:137",
+    "name": "Electric hairbrush",
+    "unukey": "205"
+  },
+  {
+    "id": 138,
+    "urn": "urn:care2repair:category:138",
+    "name": "Electric toothbrush",
+    "unukey": "205"
+  },
+  {
+    "id": 139,
+    "urn": "urn:care2repair:category:139",
+    "name": "Epilator",
+    "unukey": "205"
+  },
+  {
+    "id": 140,
+    "urn": "urn:care2repair:category:140",
+    "name": "Foot massage machine",
+    "unukey": "205"
+  },
+  {
+    "id": 141,
+    "urn": "urn:care2repair:category:141",
+    "name": "Footbath",
+    "unukey": "205"
+  },
+  {
+    "id": 142,
+    "urn": "urn:care2repair:category:142",
+    "name": "Hair clippers",
+    "unukey": "205"
+  },
+  {
+    "id": 143,
+    "urn": "urn:care2repair:category:143",
+    "name": "Hair dryer",
+    "unukey": "205"
+  },
+  {
+    "id": 144,
+    "urn": "urn:care2repair:category:144",
+    "name": "Hair straightener",
+    "unukey": "205"
+  },
+  {
+    "id": 145,
+    "urn": "urn:care2repair:category:145",
+    "name": "Hair styler",
+    "unukey": "205"
+  },
+  {
+    "id": 146,
+    "urn": "urn:care2repair:category:146",
+    "name": "Make-up mirror",
+    "unukey": "205"
+  },
+  {
+    "id": 147,
+    "urn": "urn:care2repair:category:147",
+    "name": "Massage equipment",
+    "unukey": "205"
+  },
+  {
+    "id": 148,
+    "urn": "urn:care2repair:category:148",
+    "name": "Nail care",
+    "unukey": "205"
+  },
+  {
+    "id": 149,
+    "urn": "urn:care2repair:category:149",
+    "name": "Oral shower",
+    "unukey": "205"
+  },
+  {
+    "id": 150,
+    "urn": "urn:care2repair:category:150",
+    "name": "Pedicure appliance",
+    "unukey": "205"
+  },
+  {
+    "id": 151,
+    "urn": "urn:care2repair:category:151",
+    "name": "Shaver",
+    "unukey": "205"
+  },
+  {
+    "id": 152,
+    "urn": "urn:care2repair:category:152",
+    "name": "Toothbrush",
+    "unukey": "205"
+  },
+  {
+    "id": 153,
+    "urn": "urn:care2repair:category:153",
+    "name": "Water flosser",
+    "unukey": "205"
+  },
+  {
+    "id": 154,
+    "urn": "urn:care2repair:category:154",
+    "name": "Computer power supply",
+    "unukey": "301"
+  },
+  {
+    "id": 155,
+    "urn": "urn:care2repair:category:155",
+    "name": "Extension cord",
+    "unukey": "301"
+  },
+  {
+    "id": 156,
+    "urn": "urn:care2repair:category:156",
+    "name": "External hard drive",
+    "unukey": "301"
+  },
+  {
+    "id": 157,
+    "urn": "urn:care2repair:category:157",
+    "name": "Hard disk drive",
+    "unukey": "301"
+  },
+  {
+    "id": 158,
+    "urn": "urn:care2repair:category:158",
+    "name": "Keyboard (computer)",
+    "unukey": "301"
+  },
+  {
+    "id": 159,
+    "urn": "urn:care2repair:category:159",
+    "name": "Mouse",
+    "unukey": "301"
+  },
+  {
+    "id": 160,
+    "urn": "urn:care2repair:category:160",
+    "name": "PC accessory",
+    "unukey": "301"
+  },
+  {
+    "id": 161,
+    "urn": "urn:care2repair:category:161",
+    "name": "PC cable",
+    "unukey": "301"
+  },
+  {
+    "id": 162,
+    "urn": "urn:care2repair:category:162",
+    "name": "Router",
+    "unukey": "301"
+  },
+  {
+    "id": 163,
+    "urn": "urn:care2repair:category:163",
+    "name": "Switch",
+    "unukey": "301"
+  },
+  {
+    "id": 164,
+    "urn": "urn:care2repair:category:164",
+    "name": "Touchpad / trackpad",
+    "unukey": "301"
+  },
+  {
+    "id": 165,
+    "urn": "urn:care2repair:category:165",
+    "name": "Desktop computer",
+    "unukey": "302"
+  },
+  {
+    "id": 166,
+    "urn": "urn:care2repair:category:166",
+    "name": "E-reader / E-book reader",
+    "unukey": "303"
+  },
+  {
+    "id": 167,
+    "urn": "urn:care2repair:category:167",
+    "name": "Laptop",
+    "unukey": "303"
+  },
+  {
+    "id": 6,
+    "urn": "urn:care2repair:category:6",
+    "name": "Tablet",
+    "unukey": "303"
+  },
+  {
+    "id": 168,
+    "urn": "urn:care2repair:category:168",
+    "name": "Printer",
+    "unukey": "304"
+  },
+  {
+    "id": 169,
+    "urn": "urn:care2repair:category:169",
+    "name": "Printer / Copier",
+    "unukey": "304"
+  },
+  {
+    "id": 349,
+    "urn": "urn:care2repair:category:349",
+    "name": "Not Categorized",
+    "unukey": null
+  },
+  {
+    "id": 17,
+    "urn": "urn:care2repair:category:17",
+    "name": "Dishwasher",
+    "unukey": "102"
+  },
+  {
+    "id": 18,
+    "urn": "urn:care2repair:category:18",
+    "name": "Boiler",
+    "unukey": "103"
+  },
+  {
+    "id": 19,
+    "urn": "urn:care2repair:category:19",
+    "name": "Hob (ceramic / induction/ solid plate)",
+    "unukey": "103"
+  },
+  {
+    "id": 20,
+    "urn": "urn:care2repair:category:20",
+    "name": "Oven",
+    "unukey": "103"
+  },
+  {
+    "id": 21,
+    "urn": "urn:care2repair:category:21",
+    "name": "Range (combined stovetop and oven)",
+    "unukey": "103"
+  },
+  {
+    "id": 22,
+    "urn": "urn:care2repair:category:22",
+    "name": "Stovetop",
+    "unukey": "103"
+  },
+  {
+    "id": 23,
+    "urn": "urn:care2repair:category:23",
+    "name": "Washing machine / Combi dryer",
+    "unukey": "104"
+  },
+  {
+    "id": 24,
+    "urn": "urn:care2repair:category:24",
+    "name": "Centrifuge",
+    "unukey": "105"
+  },
+  {
+    "id": 25,
+    "urn": "urn:care2repair:category:25",
+    "name": "Wash dryer (non-heat pump)",
+    "unukey": "105"
+  },
+  {
+    "id": 26,
+    "urn": "urn:care2repair:category:26",
+    "name": "Heater",
+    "unukey": "106"
+  },
+  {
+    "id": 27,
+    "urn": "urn:care2repair:category:27",
+    "name": "Ventilator",
+    "unukey": "106"
+  },
+  {
+    "id": 28,
+    "urn": "urn:care2repair:category:28",
+    "name": "Fridge / combi freezer",
+    "unukey": "108"
+  },
+  {
+    "id": 29,
+    "urn": "urn:care2repair:category:29",
+    "name": "Freezer",
+    "unukey": "109"
+  },
+  {
+    "id": 1,
+    "urn": "urn:care2repair:category:1",
+    "name": "Personal Computer",
+    "unukey": null
+  },
+  {
+    "id": 2,
+    "urn": "urn:care2repair:category:2",
+    "name": "Gaming Console",
+    "unukey": null
+  },
+  {
+    "id": 3,
+    "urn": "urn:care2repair:category:3",
+    "name": "Home Appliance",
+    "unukey": null
+  },
+  {
+    "id": 4,
+    "urn": "urn:care2repair:category:4",
+    "name": "Power Tool",
+    "unukey": null
+  },
+  {
+    "id": 5,
+    "urn": "urn:care2repair:category:5",
+    "name": "Kitchen Appliance",
+    "unukey": null
+  },
+  {
+    "id": 7,
+    "urn": "urn:care2repair:category:7",
+    "name": "Wearable",
+    "unukey": null
+  },
+  {
+    "id": 8,
+    "urn": "urn:care2repair:category:8",
+    "name": "Audio",
+    "unukey": null
+  },
+  {
+    "id": 9,
+    "urn": "urn:care2repair:category:9",
+    "name": "Office Equipment",
+    "unukey": null
+  },
+  {
+    "id": 10,
+    "urn": "urn:care2repair:category:10",
+    "name": "Networking",
+    "unukey": null
+  },
+  {
+    "id": 11,
+    "urn": "urn:care2repair:category:11",
+    "name": "Smart Home",
+    "unukey": null
+  },
+  {
+    "id": 12,
+    "urn": "urn:care2repair:category:12",
+    "name": "Imaging",
+    "unukey": null
+  },
+  {
+    "id": 13,
+    "urn": "urn:care2repair:category:13",
+    "name": "Monitor",
+    "unukey": null
+  },
+  {
+    "id": 14,
+    "urn": "urn:care2repair:category:14",
+    "name": "Personal Care",
+    "unukey": null
+  },
+  {
+    "id": 15,
+    "urn": "urn:care2repair:category:15",
+    "name": "Robot Vacuum",
+    "unukey": null
+  },
+  {
+    "id": 170,
+    "urn": "urn:care2repair:category:170",
+    "name": "Printer / Copier / Scanner",
+    "unukey": "304"
+  },
+  {
+    "id": 171,
+    "urn": "urn:care2repair:category:171",
+    "name": "Printer / Copier / Scanner / Fax",
+    "unukey": "304"
+  },
+  {
+    "id": 172,
+    "urn": "urn:care2repair:category:172",
+    "name": "Telephone (not mobile or smartphone)",
+    "unukey": "305"
+  },
+  {
+    "id": 173,
+    "urn": "urn:care2repair:category:173",
+    "name": "Smart Phone / Pager",
+    "unukey": "306"
+  },
+  {
+    "id": 174,
+    "urn": "urn:care2repair:category:174",
+    "name": "Mobile phone / Cell phone",
+    "unukey": "306"
+  },
+  {
+    "id": 175,
+    "urn": "urn:care2repair:category:175",
+    "name": "Calculator",
+    "unukey": "401"
+  },
+  {
+    "id": 176,
+    "urn": "urn:care2repair:category:176",
+    "name": "Earbuds",
+    "unukey": "401"
+  },
+  {
+    "id": 177,
+    "urn": "urn:care2repair:category:177",
+    "name": "Headphones",
+    "unukey": "401"
+  },
+  {
+    "id": 178,
+    "urn": "urn:care2repair:category:178",
+    "name": "Headset",
+    "unukey": "401"
+  },
+  {
+    "id": 179,
+    "urn": "urn:care2repair:category:179",
+    "name": "Hearing aid",
+    "unukey": "401"
+  },
+  {
+    "id": 180,
+    "urn": "urn:care2repair:category:180",
+    "name": "MP3 player",
+    "unukey": "401"
+  },
+  {
+    "id": 181,
+    "urn": "urn:care2repair:category:181",
+    "name": "Remote control",
+    "unukey": "401"
+  },
+  {
+    "id": 182,
+    "urn": "urn:care2repair:category:182",
+    "name": "Voice recorder",
+    "unukey": "401"
+  },
+  {
+    "id": 183,
+    "urn": "urn:care2repair:category:183",
+    "name": "Alarm clock  / radio",
+    "unukey": "402"
+  },
+  {
+    "id": 184,
+    "urn": "urn:care2repair:category:184",
+    "name": "Car radio",
+    "unukey": "402"
+  },
+  {
+    "id": 185,
+    "urn": "urn:care2repair:category:185",
+    "name": "DAB radio",
+    "unukey": "402"
+  },
+  {
+    "id": 186,
+    "urn": "urn:care2repair:category:186",
+    "name": "Navigation system",
+    "unukey": "402"
+  },
+  {
+    "id": 187,
+    "urn": "urn:care2repair:category:187",
+    "name": "Portable audio",
+    "unukey": "402"
+  },
+  {
+    "id": 188,
+    "urn": "urn:care2repair:category:188",
+    "name": "Portable cassette player",
+    "unukey": "402"
+  },
+  {
+    "id": 189,
+    "urn": "urn:care2repair:category:189",
+    "name": "Portable radio",
+    "unukey": "402"
+  },
+  {
+    "id": 190,
+    "urn": "urn:care2repair:category:190",
+    "name": "Portable radio / CD player",
+    "unukey": "402"
+  },
+  {
+    "id": 191,
+    "urn": "urn:care2repair:category:191",
+    "name": "Portable radio / Tape recorder",
+    "unukey": "402"
+  },
+  {
+    "id": 192,
+    "urn": "urn:care2repair:category:192",
+    "name": "Amplifier",
+    "unukey": "403"
+  },
+  {
+    "id": 193,
+    "urn": "urn:care2repair:category:193",
+    "name": "Blu Ray Player",
+    "unukey": "403"
+  },
+  {
+    "id": 194,
+    "urn": "urn:care2repair:category:194",
+    "name": "Cassette player",
+    "unukey": "403"
+  },
+  {
+    "id": 195,
+    "urn": "urn:care2repair:category:195",
+    "name": "CD player",
+    "unukey": "403"
+  },
+  {
+    "id": 196,
+    "urn": "urn:care2repair:category:196",
+    "name": "Electric guitar",
+    "unukey": "403"
+  },
+  {
+    "id": 197,
+    "urn": "urn:care2repair:category:197",
+    "name": "Electric piano",
+    "unukey": "403"
+  },
+  {
+    "id": 198,
+    "urn": "urn:care2repair:category:198",
+    "name": "Guitar pedal",
+    "unukey": "403"
+  },
+  {
+    "id": 199,
+    "urn": "urn:care2repair:category:199",
+    "name": "Karaokeset",
+    "unukey": "403"
+  },
+  {
+    "id": 200,
+    "urn": "urn:care2repair:category:200",
+    "name": "Keyboard (musical instrument)",
+    "unukey": "403"
+  },
+  {
+    "id": 201,
+    "urn": "urn:care2repair:category:201",
+    "name": "Microphone",
+    "unukey": "403"
+  },
+  {
+    "id": 202,
+    "urn": "urn:care2repair:category:202",
+    "name": "Mini stereoset",
+    "unukey": "403"
+  },
+  {
+    "id": 203,
+    "urn": "urn:care2repair:category:203",
+    "name": "Radio / Cassette player",
+    "unukey": "403"
+  },
+  {
+    "id": 204,
+    "urn": "urn:care2repair:category:204",
+    "name": "Radio / CD player",
+    "unukey": "403"
+  },
+  {
+    "id": 205,
+    "urn": "urn:care2repair:category:205",
+    "name": "Radio / CD player / Cassette player",
+    "unukey": "403"
+  },
+  {
+    "id": 206,
+    "urn": "urn:care2repair:category:206",
+    "name": "Receiver",
+    "unukey": "403"
+  },
+  {
+    "id": 207,
+    "urn": "urn:care2repair:category:207",
+    "name": "Sound mixer",
+    "unukey": "403"
+  },
+  {
+    "id": 208,
+    "urn": "urn:care2repair:category:208",
+    "name": "Stereoset (hi-fi set)",
+    "unukey": "403"
+  },
+  {
+    "id": 209,
+    "urn": "urn:care2repair:category:209",
+    "name": "Tape recorder",
+    "unukey": "403"
+  },
+  {
+    "id": 210,
+    "urn": "urn:care2repair:category:210",
+    "name": "Tuner",
+    "unukey": "403"
+  },
+  {
+    "id": 211,
+    "urn": "urn:care2repair:category:211",
+    "name": "Turntable",
+    "unukey": "403"
+  },
+  {
+    "id": 212,
+    "urn": "urn:care2repair:category:212",
+    "name": "Beamer",
+    "unukey": "404"
+  },
+  {
+    "id": 213,
+    "urn": "urn:care2repair:category:213",
+    "name": "Decoder TV",
+    "unukey": "404"
+  },
+  {
+    "id": 214,
+    "urn": "urn:care2repair:category:214",
+    "name": "DVD Cinema System",
+    "unukey": "404"
+  },
+  {
+    "id": 215,
+    "urn": "urn:care2repair:category:215",
+    "name": "DVD player / recorder",
+    "unukey": "404"
+  },
+  {
+    "id": 216,
+    "urn": "urn:care2repair:category:216",
+    "name": "Film projector",
+    "unukey": "404"
+  },
+  {
+    "id": 217,
+    "urn": "urn:care2repair:category:217",
+    "name": "Home cinema",
+    "unukey": "404"
+  },
+  {
+    "id": 218,
+    "urn": "urn:care2repair:category:218",
+    "name": "Set-top box",
+    "unukey": "404"
+  },
+  {
+    "id": 219,
+    "urn": "urn:care2repair:category:219",
+    "name": "Slide projector",
+    "unukey": "404"
+  },
+  {
+    "id": 220,
+    "urn": "urn:care2repair:category:220",
+    "name": "Video tape player / recorder",
+    "unukey": "404"
+  },
+  {
+    "id": 221,
+    "urn": "urn:care2repair:category:221",
+    "name": "Bluetooth speaker",
+    "unukey": "405"
+  },
+  {
+    "id": 222,
+    "urn": "urn:care2repair:category:222",
+    "name": "Soundbar",
+    "unukey": "405"
+  },
+  {
+    "id": 223,
+    "urn": "urn:care2repair:category:223",
+    "name": "Speaker",
+    "unukey": "405"
+  },
+  {
+    "id": 224,
+    "urn": "urn:care2repair:category:224",
+    "name": "Digital compact camera",
+    "unukey": "406"
+  },
+  {
+    "id": 225,
+    "urn": "urn:care2repair:category:225",
+    "name": "Photo camera",
+    "unukey": "406"
+  },
+  {
+    "id": 226,
+    "urn": "urn:care2repair:category:226",
+    "name": "Video camera",
+    "unukey": "406"
+  },
+  {
+    "id": 227,
+    "urn": "urn:care2repair:category:227",
+    "name": "Tube Television",
+    "unukey": "407"
+  },
+  {
+    "id": 228,
+    "urn": "urn:care2repair:category:228",
+    "name": "Flat Display Panel Television (LCD, LED, Plasma)",
+    "unukey": "408"
+  },
+  {
+    "id": 229,
+    "urn": "urn:care2repair:category:229",
+    "name": "Small lighting equipment (excl. LED & incandescent)",
+    "unukey": "501"
+  },
+  {
+    "id": 230,
+    "urn": "urn:care2repair:category:230",
+    "name": "Compact Fluorescent Lamp (CFL)",
+    "unukey": "502"
+  },
+  {
+    "id": 231,
+    "urn": "urn:care2repair:category:231",
+    "name": "Straight Tube Fluorescent Lamp (LFL, TL)",
+    "unukey": "503"
+  },
+  {
+    "id": 232,
+    "urn": "urn:care2repair:category:232",
+    "name": "LED Lamp",
+    "unukey": "505"
+  },
+  {
+    "id": 233,
+    "urn": "urn:care2repair:category:233",
+    "name": "Bicycle light",
+    "unukey": "506"
+  },
+  {
+    "id": 234,
+    "urn": "urn:care2repair:category:234",
+    "name": "Ceiling lamp",
+    "unukey": "506"
+  },
+  {
+    "id": 235,
+    "urn": "urn:care2repair:category:235",
+    "name": "Christmas decoration",
+    "unukey": "506"
+  },
+  {
+    "id": 236,
+    "urn": "urn:care2repair:category:236",
+    "name": "Decorative or safety lights",
+    "unukey": "506"
+  },
+  {
+    "id": 237,
+    "urn": "urn:care2repair:category:237",
+    "name": "Desk lamp",
+    "unukey": "506"
+  },
+  {
+    "id": 238,
+    "urn": "urn:care2repair:category:238",
+    "name": "Fairy lights",
+    "unukey": "506"
+  },
+  {
+    "id": 239,
+    "urn": "urn:care2repair:category:239",
+    "name": "Floor lamp",
+    "unukey": "506"
+  },
+  {
+    "id": 240,
+    "urn": "urn:care2repair:category:240",
+    "name": "Magnifier with light",
+    "unukey": "506"
+  },
+  {
+    "id": 241,
+    "urn": "urn:care2repair:category:241",
+    "name": "Night light",
+    "unukey": "506"
+  },
+  {
+    "id": 242,
+    "urn": "urn:care2repair:category:242",
+    "name": "Outdoor lamp",
+    "unukey": "506"
+  },
+  {
+    "id": 243,
+    "urn": "urn:care2repair:category:243",
+    "name": "Reading light",
+    "unukey": "506"
+  },
+  {
+    "id": 244,
+    "urn": "urn:care2repair:category:244",
+    "name": "Solar lamp",
+    "unukey": "506"
+  },
+  {
+    "id": 245,
+    "urn": "urn:care2repair:category:245",
+    "name": "Table lamp",
+    "unukey": "506"
+  },
+  {
+    "id": 246,
+    "urn": "urn:care2repair:category:246",
+    "name": "Torch",
+    "unukey": "506"
+  },
+  {
+    "id": 247,
+    "urn": "urn:care2repair:category:247",
+    "name": "Air compressor",
+    "unukey": "601"
+  },
+  {
+    "id": 248,
+    "urn": "urn:care2repair:category:248",
+    "name": "Angle grinder / Disc cutter",
+    "unukey": "601"
+  },
+  {
+    "id": 249,
+    "urn": "urn:care2repair:category:249",
+    "name": "Bag sewing machine",
+    "unukey": "601"
+  },
+  {
+    "id": 250,
+    "urn": "urn:care2repair:category:250",
+    "name": "Barometer",
+    "unukey": "601"
+  },
+  {
+    "id": 251,
+    "urn": "urn:care2repair:category:251",
+    "name": "Beer tap",
+    "unukey": "601"
+  },
+  {
+    "id": 252,
+    "urn": "urn:care2repair:category:252",
+    "name": "Belt sander",
+    "unukey": "601"
+  },
+  {
+    "id": 253,
+    "urn": "urn:care2repair:category:253",
+    "name": "Cable reel",
+    "unukey": "601"
+  },
+  {
+    "id": 254,
+    "urn": "urn:care2repair:category:254",
+    "name": "Camera, analog",
+    "unukey": "601"
+  },
+  {
+    "id": 255,
+    "urn": "urn:care2repair:category:255",
+    "name": "Chainsaw",
+    "unukey": "601"
+  },
+  {
+    "id": 256,
+    "urn": "urn:care2repair:category:256",
+    "name": "Circular saw",
+    "unukey": "601"
+  },
+  {
+    "id": 257,
+    "urn": "urn:care2repair:category:257",
+    "name": "Cut off saw",
+    "unukey": "601"
+  },
+  {
+    "id": 258,
+    "urn": "urn:care2repair:category:258",
+    "name": "Cutting machine",
+    "unukey": "601"
+  },
+  {
+    "id": 259,
+    "urn": "urn:care2repair:category:259",
+    "name": "Dremel tool",
+    "unukey": "601"
+  },
+  {
+    "id": 260,
+    "urn": "urn:care2repair:category:260",
+    "name": "Drilling machine",
+    "unukey": "601"
+  },
+  {
+    "id": 261,
+    "urn": "urn:care2repair:category:261",
+    "name": "Drying hood",
+    "unukey": "601"
+  },
+  {
+    "id": 262,
+    "urn": "urn:care2repair:category:262",
+    "name": "Edge cutter",
+    "unukey": "601"
+  },
+  {
+    "id": 263,
+    "urn": "urn:care2repair:category:263",
+    "name": "Electric bed",
+    "unukey": "601"
+  },
+  {
+    "id": 264,
+    "urn": "urn:care2repair:category:264",
+    "name": "Extractor hood",
+    "unukey": "601"
+  },
+  {
+    "id": 265,
+    "urn": "urn:care2repair:category:265",
+    "name": "Fitness machine",
+    "unukey": "601"
+  },
+  {
+    "id": 266,
+    "urn": "urn:care2repair:category:266",
+    "name": "Fridge",
+    "unukey": "601"
+  },
+  {
+    "id": 267,
+    "urn": "urn:care2repair:category:267",
+    "name": "Glue gun",
+    "unukey": "601"
+  },
+  {
+    "id": 268,
+    "urn": "urn:care2repair:category:268",
+    "name": "Gourmet set",
+    "unukey": "601"
+  },
+  {
+    "id": 269,
+    "urn": "urn:care2repair:category:269",
+    "name": "Grinding machine",
+    "unukey": "601"
+  },
+  {
+    "id": 270,
+    "urn": "urn:care2repair:category:270",
+    "name": "Hammer drill",
+    "unukey": "601"
+  },
+  {
+    "id": 271,
+    "urn": "urn:care2repair:category:271",
+    "name": "Hand drill",
+    "unukey": "601"
+  },
+  {
+    "id": 272,
+    "urn": "urn:care2repair:category:272",
+    "name": "Hedge shear / hedge trimmer",
+    "unukey": "601"
+  },
+  {
+    "id": 273,
+    "urn": "urn:care2repair:category:273",
+    "name": "Jigsaw",
+    "unukey": "601"
+  },
+  {
+    "id": 274,
+    "urn": "urn:care2repair:category:274",
+    "name": "Lawnmower",
+    "unukey": "601"
+  },
+  {
+    "id": 275,
+    "urn": "urn:care2repair:category:275",
+    "name": "Leaf blower",
+    "unukey": "601"
+  },
+  {
+    "id": 276,
+    "urn": "urn:care2repair:category:276",
+    "name": "Lighter",
+    "unukey": "601"
+  },
+  {
+    "id": 277,
+    "urn": "urn:care2repair:category:277",
+    "name": "Milling cutter",
+    "unukey": "601"
+  },
+  {
+    "id": 278,
+    "urn": "urn:care2repair:category:278",
+    "name": "Mobility scooter",
+    "unukey": "601"
+  },
+  {
+    "id": 279,
+    "urn": "urn:care2repair:category:279",
+    "name": "Mop machine",
+    "unukey": "601"
+  },
+  {
+    "id": 280,
+    "urn": "urn:care2repair:category:280",
+    "name": "Multitool",
+    "unukey": "601"
+  },
+  {
+    "id": 281,
+    "urn": "urn:care2repair:category:281",
+    "name": "Nail milling machine",
+    "unukey": "601"
+  },
+  {
+    "id": 282,
+    "urn": "urn:care2repair:category:282",
+    "name": "Oil filled radiator (mobile)",
+    "unukey": "601"
+  },
+  {
+    "id": 283,
+    "urn": "urn:care2repair:category:283",
+    "name": "Overlock machine",
+    "unukey": "601"
+  },
+  {
+    "id": 284,
+    "urn": "urn:care2repair:category:284",
+    "name": "Paint burner",
+    "unukey": "601"
+  },
+  {
+    "id": 285,
+    "urn": "urn:care2repair:category:285",
+    "name": "Saber saw / reciprocating saw",
+    "unukey": "601"
+  },
+  {
+    "id": 286,
+    "urn": "urn:care2repair:category:286",
+    "name": "Sander",
+    "unukey": "601"
+  },
+  {
+    "id": 287,
+    "urn": "urn:care2repair:category:287",
+    "name": "Sawing machine",
+    "unukey": "601"
+  },
+  {
+    "id": 288,
+    "urn": "urn:care2repair:category:288",
+    "name": "Scarifier",
+    "unukey": "601"
+  },
+  {
+    "id": 289,
+    "urn": "urn:care2repair:category:289",
+    "name": "Screwdriver / Drilling machine",
+    "unukey": "601"
+  },
+  {
+    "id": 290,
+    "urn": "urn:care2repair:category:290",
+    "name": "Sewing machine",
+    "unukey": "601"
+  },
+  {
+    "id": 291,
+    "urn": "urn:care2repair:category:291",
+    "name": "Shredder",
+    "unukey": "601"
+  },
+  {
+    "id": 292,
+    "urn": "urn:care2repair:category:292",
+    "name": "Soldering iron",
+    "unukey": "601"
+  },
+  {
+    "id": 293,
+    "urn": "urn:care2repair:category:293",
+    "name": "Steam cleaner",
+    "unukey": "601"
+  },
+  {
+    "id": 294,
+    "urn": "urn:care2repair:category:294",
+    "name": "Straight grinder",
+    "unukey": "601"
+  },
+  {
+    "id": 295,
+    "urn": "urn:care2repair:category:295",
+    "name": "Strimmer",
+    "unukey": "601"
+  },
+  {
+    "id": 296,
+    "urn": "urn:care2repair:category:296",
+    "name": "Tacker",
+    "unukey": "601"
+  },
+  {
+    "id": 297,
+    "urn": "urn:care2repair:category:297",
+    "name": "Water blaster / High-pressure cleaner",
+    "unukey": "601"
+  },
+  {
+    "id": 298,
+    "urn": "urn:care2repair:category:298",
+    "name": "Window washer",
+    "unukey": "601"
+  },
+  {
+    "id": 299,
+    "urn": "urn:care2repair:category:299",
+    "name": "Drone",
+    "unukey": "701"
+  },
+  {
+    "id": 300,
+    "urn": "urn:care2repair:category:300",
+    "name": "Electric train",
+    "unukey": "701"
+  },
+  {
+    "id": 301,
+    "urn": "urn:care2repair:category:301",
+    "name": "Game",
+    "unukey": "701"
+  },
+  {
+    "id": 302,
+    "urn": "urn:care2repair:category:302",
+    "name": "Hoverboard",
+    "unukey": "701"
+  },
+  {
+    "id": 303,
+    "urn": "urn:care2repair:category:303",
+    "name": "Music box (toy)",
+    "unukey": "701"
+  },
+  {
+    "id": 304,
+    "urn": "urn:care2repair:category:304",
+    "name": "Racing track",
+    "unukey": "701"
+  },
+  {
+    "id": 305,
+    "urn": "urn:care2repair:category:305",
+    "name": "Remote controlled car",
+    "unukey": "701"
+  },
+  {
+    "id": 306,
+    "urn": "urn:care2repair:category:306",
+    "name": "Robot",
+    "unukey": "701"
+  },
+  {
+    "id": 307,
+    "urn": "urn:care2repair:category:307",
+    "name": "Singing doll",
+    "unukey": "701"
+  },
+  {
+    "id": 308,
+    "urn": "urn:care2repair:category:308",
+    "name": "Teddy bear",
+    "unukey": "701"
+  },
+  {
+    "id": 309,
+    "urn": "urn:care2repair:category:309",
+    "name": "Toy",
+    "unukey": "701"
+  },
+  {
+    "id": 310,
+    "urn": "urn:care2repair:category:310",
+    "name": "Toy piano",
+    "unukey": "701"
+  },
+  {
+    "id": 311,
+    "urn": "urn:care2repair:category:311",
+    "name": "Game console",
+    "unukey": "702"
+  },
+  {
+    "id": 312,
+    "urn": "urn:care2repair:category:312",
+    "name": "Playstation",
+    "unukey": "702"
+  },
+  {
+    "id": 313,
+    "urn": "urn:care2repair:category:313",
+    "name": "Wii",
+    "unukey": "702"
+  },
+  {
+    "id": 314,
+    "urn": "urn:care2repair:category:314",
+    "name": "Electric bicycle",
+    "unukey": "703"
+  },
+  {
+    "id": 315,
+    "urn": "urn:care2repair:category:315",
+    "name": "Blood pressure monitor",
+    "unukey": "801"
+  },
+  {
+    "id": 316,
+    "urn": "urn:care2repair:category:316",
+    "name": "Thermometer",
+    "unukey": "801"
+  },
+  {
+    "id": 317,
+    "urn": "urn:care2repair:category:317",
+    "name": "Smoke detector",
+    "unukey": "901"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "name": "repairers-denhaag-importer",
+  "version": "1.0.0",
+  "description": "Importer for Den Haag repairers",
+  "license": "AGPL-3.0-only",
+  "main": "import_repairers.js",
+  "scripts": {
+    "start": "node import_repairers.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "fast-csv": "^4.3.6",
+    "node-fetch": "^2.6.7"
+  }
+}

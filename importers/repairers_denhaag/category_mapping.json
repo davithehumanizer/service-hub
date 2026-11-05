@@ -1,0 +1,14 @@
+{
+  "Computers": "personal_computer",
+  "laptops": "laptop",
+  "smartphones": "smartphone",
+  "tablets": "tablet",
+  "Huishoudelijke elektronica": "home_appliance",
+  "Witgoed": "home_appliance",
+  "Stofzuigers": "vacuum_cleaner",
+  "Audio": "audio",
+  "Naaimachines": "sewing_machine",
+  "Koffiezetapparaten": "kitchen_appliance",
+  "Kringloop": "home_appliance"
+}
+

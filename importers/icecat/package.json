@@ -1,0 +1,7 @@
+{
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "fast-xml-parser": "^5.3.1"
+  }
+}

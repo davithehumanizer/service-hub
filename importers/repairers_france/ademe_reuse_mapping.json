@@ -1,0 +1,15 @@
+{
+ "smartphone_tablette_et_console": ["smartphone", "tablet", "gaming_console", "handheld_entertainment_device"],
+ "materiel_informatique": ["personal_computer", "laptop", "desktop_computer", "printer", "printer_copier_scanner", "pc_accessory"],
+ "ecran": ["monitor", "thuis_entertainment"],
+ "materiel_hifi_et_video": ["audio", "amplifier", "headphones", "portable_radio", "dvd_player_recorder", "projector", "thuis_entertainment"],
+ "materiel_photo_et_cinema": ["photo_camera", "digital_compact_camera", "video_camera"],
+ "petit_electromenager": ["small_appliance", "kitchen_appliance", "vacuum_cleaner", "drip_coffee_maker", "kettle", "toaster", "blender", "iron", "hair_dryer", "fan", "sewing_machine"],
+ "gros_electromenager_hors_refrigerant": ["large_home_electrical", "home_appliance"],
+ "gros_electromenager_refrigerant": ["fridge_combi_freezer"],
+ "luminaire": ["lamp", "led_lamp"],
+ "autre_equipement_electronique": ["other_electronics", "electronic_gadgets"],
+ "abj_electrique": ["power_tool"],
+ "instrument_musique_electrique": ["electric_guitar"],
+ "jels_mobilite_electrique": ["e_bikes", "bicycle_battery"]
+}

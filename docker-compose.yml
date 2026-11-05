@@ -1,0 +1,558 @@
+version: '3.8'
+
+# Values written here are the PRODUCTION defaults.
+#
+# To run locally with different ones, create a `.env` next to this file. Docker
+# Compose reads it automatically to substitute ${VAR} below, and it is
+# gitignored, so production keeps the committed defaults. Copy env.example:
+#
+#   cp env.example .env
+#
+# Careful not to confuse this with the `env_file:` entries further down: those
+# inject per-service variables into containers, and that is where service-level
+# settings belong (TYPEORM_SYNCHRONIZE, CORS_ORIGINS, THROTTLE_GLOBAL_LIMIT,
+# REFRESH_TOKEN_TTL_DAYS...). The root .env only rewrites this file.
+
+services:
+  api-gateway:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/api-gateway
+    env_file:
+      - ./backend/api-gateway/.env
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      oauth-service:
+        condition: service_healthy
+      user-management:
+        condition: service_healthy
+      repairers-service:
+        condition: service_healthy
+      devices-service:
+        condition: service_healthy
+      notifications-service:
+        condition: service_healthy
+      ownership-service:
+        condition: service_healthy
+      external-adapters-service:
+        condition: service_healthy
+      fast-plan-eco-service:
+        condition: service_healthy
+      surveys-service:
+        condition: service_healthy
+      api-catalog-service:
+        condition: service_healthy
+      spare-parts-service:
+        condition: service_healthy
+      device-identification:
+        condition: service_healthy
+      device-issue-tag:
+        condition: service_healthy
+      repair-monitor-service:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      USER_SERVICE_HOST: user-management
+      USER_SERVICE_PORT: 3001
+      REPAIRERS_SERVICE_HOST: repairers-service
+      REPAIRERS_SERVICE_PORT: 3002
+      DEVICES_SERVICE_HOST: devices-service
+      DEVICES_SERVICE_PORT: 3003
+      NOTIFICATIONS_SERVICE_HOST: notifications-service
+      NOTIFICATIONS_SERVICE_PORT: 3004
+      OWNERSHIP_SERVICE_HOST: ownership-service 
+      OWNERSHIP_SERVICE_PORT: 3005
+      AUTH_SERVICE_HOST: oauth-service
+      AUTH_SERVICE_PORT: 3006
+      EXTERNAL_ADAPTERS_SERVICE_HOST: external-adapters-service
+      EXTERNAL_ADAPTERS_SERVICE_PORT: 3008
+      SPARE_PARTS_SERVICE_HOST: spare-parts-service
+      SPARE_PARTS_SERVICE_PORT: 3012
+      FAST_PLAN_ECO_SERVICE_HOST: fast-plan-eco-service
+      FAST_PLAN_ECO_SERVICE_PORT: 3007
+      API_CATALOG_SERVICE_HOST: api-catalog-service
+      API_CATALOG_SERVICE_PORT: 3011
+      IDENTIFICATION_SERVICE_URL: http://device-identification:8000
+      ISSUE_TAG_SERVICE_URL: http://device-issue-tag:8000
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      # S3 / Storage
+      STORAGE_PROVIDER: local
+      LOCAL_STORAGE_PATH: /app/uploads
+      # Returned to clients as the image URL, so it must be the public origin.
+      # Override in a local root .env for development (see the header comment).
+      LOCAL_STORAGE_PUBLIC_URL: ${LOCAL_STORAGE_PUBLIC_URL:-https://care2repair.eu/api/uploads}
+      # Where the gateway sends the browser: the OAuth2 authorize flow bounces
+      # through the login page, and social login returns tokens the same way.
+      # Without it the code falls back to http://localhost:3010 and every
+      # authorize request leaves the user stranded — the redirect is issued to
+      # the browser, so a server-side default cannot work.
+      FRONTEND_URL: ${FRONTEND_URL:-https://care2repair.eu}
+      # S3_BUCKET_NAME: service-hub
+      # S3_REGION: us-east-1
+      # S3_ENDPOINT: http://localstack:4566
+      # S3_PUBLIC_BASE_URL: http://localhost:4566/service-hub
+      # AWS_ACCESS_KEY_ID: test
+      # AWS_SECRET_ACCESS_KEY: test
+    networks:
+      - logging-network
+    volumes:
+      - uploads_data:/app/uploads
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 20s
+      timeout: 10s
+      retries: 20
+
+  device-identification:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/device-identification
+    env_file:
+      - ./backend/device-identification/.env
+    ports:
+      - "127.0.0.1:8000:8000"
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 20s
+      timeout: 10s
+      retries: 20
+
+  device-issue-tag:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    image: daiseibert/device-issue-tag:latest
+    ports:
+      - "127.0.0.1:8001:8000"
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')"]
+      interval: 20s
+      timeout: 10s
+      retries: 20
+
+  user-management:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/user-management
+    env_file:
+      - ./backend/user-management/.env
+    ports:
+      - "127.0.0.1:3001:3001"
+    depends_on:
+      db:
+        condition: service_healthy
+      notifications-service:
+        condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      DATABASE_NAME: servicehub
+      NOTIFICATIONS_SERVICE_HOST: notifications-service
+      NOTIFICATIONS_SERVICE_PORT: 3004
+      # Used to build the links in confirmation and password-reset emails:
+      # must be the public URL, never localhost.
+      # Override in a local root .env for development (see the header comment).
+      FRONTEND_URL: ${FRONTEND_URL:-https://care2repair.eu}
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 5s
+      retries: 20
+
+  repairers-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/repairers-service
+    env_file:
+      - ./backend/repairers-service/.env
+    ports:
+      - "127.0.0.1:3002:3002"
+    depends_on:
+      db:
+        condition: service_healthy
+    dns:
+      - 8.8.8.8
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      DATABASE_NAME: servicehub
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 5s
+      retries: 20
+
+  devices-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/devices-service
+    env_file:
+      - ./backend/devices-service/.env
+    ports:
+      - "127.0.0.1:3003:3003"
+    depends_on:
+      db:
+        condition: service_healthy
+    dns:
+      - 8.8.8.8
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      DATABASE_NAME: servicehub
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    volumes:
+      - ./importers/icecat:/app/importers/icecat:ro
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 5s
+      retries: 20
+
+  notifications-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/notifications-service
+    env_file:
+      - ./backend/notifications-service/.env
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      DATABASE_NAME: servicehub
+      # Mailer config: use host Postfix via host.docker.internal
+      MAILER_MODE: smtp
+      SMTP_HOST: host.docker.internal
+      SMTP_PORT: 25
+      # Local Postfix on the host presents a self-signed certificate, so the
+      # mailer transport skips verification. Scoped to the mailer only:
+      # NODE_TLS_REJECT_UNAUTHORIZED=0 used to sit here and disabled certificate
+      # validation for every outbound TLS connection of the process.
+      MAILER_TLS_REJECT_UNAUTHORIZED: 'false'
+      MAILER_IGNORE_TLS: 'false'
+      MAILER_DEBUG: 'false'
+    ports:
+      - "127.0.0.1:3004:3004"
+      - "127.0.0.1:30045:3005"
+    # Keep the service on the project bridge network so other microservices can reach it
+    networks:
+      - logging-network
+    # Map host.docker.internal to the host gateway so the container can reach the
+    # host's Postfix using the well-known name `host.docker.internal`.
+    # Requires Docker 20.10+ and the host-gateway feature.
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 5s
+      retries: 20
+
+  ownership-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/ownership-service
+    env_file:
+      - ./backend/ownership-service/.env 
+    ports:
+      - "127.0.0.1:3005:3005"
+    depends_on:
+      db:
+        condition: service_healthy
+      user-management:
+        condition: service_healthy
+      devices-service:
+        condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      DATABASE_NAME: servicehub
+      USER_SERVICE_HOST: user-management
+      USER_SERVICE_PORT: 3001
+      DEVICES_SERVICE_HOST: devices-service
+      DEVICES_SERVICE_PORT: 3003
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"] 
+      interval: 20s
+      timeout: 5s
+      retries: 20
+
+  service-hub-front:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build:
+      context: ./frontend
+      args:
+        # Shown at the foot of the sidebar. The deploy exports this from
+        # `git describe`; anything built by hand without it reads "dev".
+        REACT_APP_VERSION: ${REACT_APP_VERSION:-dev}
+    ports:
+      - "127.0.0.1:3010:80"
+    depends_on:
+      api-gateway:
+        condition: service_healthy
+    # NOTE: REACT_APP_* variables are baked into the JS bundle at build time by CRA.
+    # Runtime environment variables set here have no effect on the frontend.
+    # To change REACT_APP_API_URL, update frontend/.env before building the image.
+    networks:
+      - logging-network
+
+  repair-monitor-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/repair-monitor-service
+    env_file:
+      - ./backend/repair-monitor-service/.env
+    ports:
+      - "127.0.0.1:3013:3013"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      DATABASE_NAME: servicehub
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 5s
+      retries: 20
+
+  db:
+    image: pgvector/pgvector:pg14
+    restart: always
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: servicehub
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - logging-network
+    shm_size: 1g
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  oauth-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/oauth-service
+    env_file:
+      - ./backend/oauth-service/.env
+    ports:
+      - "127.0.0.1:3006:3006"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      DATABASE_NAME: servicehub
+      USER_SERVICE_HOST: user-management
+      USER_SERVICE_PORT: 3001
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 5s
+      retries: 20
+
+  external-adapters-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/external-adapters-service
+    env_file:
+      - ./backend/external-adapters-service/.env
+    ports:
+      - "127.0.0.1:3008:3008"
+    environment:
+      IFIXIT_API_URL: https://www.ifixit.com/api/2.0
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 5s
+      retries: 20
+
+  spare-parts-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/spare-parts-service
+    env_file:
+      - ./backend/spare-parts-service/.env
+    ports:
+      - "127.0.0.1:3012:3012"
+    # This service is a Meilisearch adapter, not a client of the spareparts
+    # Symfony API: it queries the app_prod_data_subdomain_* indexes directly.
+    # Reaching them means joining platform-network, where the search container
+    # answers to `spareparts-search`.
+    #
+    # MEILISEARCH_URL and MEILISEARCH_SEARCH_TOKEN come from the env_file above,
+    # which the deploy overwrites from the ENV_SPARE_PARTS_SERVICE secret — edit
+    # the secret, not the file. The token is scoped to those three indexes and to
+    # the `search` action.
+    networks:
+      - logging-network
+      - platform-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 5s
+      retries: 20
+
+  surveys-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/surveys-service
+    env_file:
+      - ./backend/surveys-service/.env
+    ports:
+      - "127.0.0.1:3009:3009"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      DATABASE_NAME: servicehub
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 20s
+      retries: 20
+
+  api-catalog-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/api-catalog-service
+    env_file:
+      - ./backend/api-catalog-service/.env
+    ports:
+      - "127.0.0.1:3011:3011"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      DATABASE_NAME: servicehub
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 20s
+      retries: 20
+
+  fast-plan-eco-service:
+    # Killed by the kernel or by a heap limit, a service used to stay down
+    # until someone noticed: nothing here asked Docker to bring it back.
+    restart: unless-stopped
+    build: ./backend/fast-plan-eco-service
+    env_file:
+      - ./backend/fast-plan-eco-service/.env
+    ports:
+      - "127.0.0.1:3007:3007"
+    networks:
+      - logging-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 20s
+      timeout: 10s
+      retries: 20
+
+  # localstack:
+  #   image: localstack/localstack:3
+  #   ports:
+  #     - "4566:4566"
+  #   environment:
+  #     SERVICES: s3
+  #     PERSISTENCE: 1
+  #   volumes:
+  #     - localstack_data:/var/lib/localstack
+  #     - ./scripts/localstack-init:/etc/localstack/init/ready.d
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   networks:
+  #     - logging-network
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 10
+
+volumes:
+  postgres_data:
+  # localstack_data:
+  uploads_data:
+
+networks:
+  logging-network:
+    name: logging-network
+    driver: bridge
+
+  # Shared with spareparts_symfony and with the MinIO stack in /opt/platform,
+  # which owns it and must therefore be up first. Being external, a missing
+  # network makes `up` refuse to start this entire stack — not just
+  # spare-parts-service — so an ordering mistake here takes care2repair.eu down
+  # with it.
+  platform-network:
+    external: true
+    name: platform-network

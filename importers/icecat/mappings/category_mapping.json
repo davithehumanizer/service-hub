@@ -1,0 +1,4407 @@
+{
+  "1": {
+    "icecatName": "Category",
+    "backendId": 16,
+    "backendName": "TEST_UNU_CATEGORY_12345",
+    "score": 0.8400000000000001
+  },
+  "94": {
+    "icecatName": "Video Games",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8400000000000001
+  },
+  "106": {
+    "icecatName": "Computer Components",
+    "backendId": 165,
+    "backendName": "Desktop computer",
+    "score": 0,
+    "manual": true
+  },
+  "114": {
+    "icecatName": "Telephone Switching Equipment",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8222222222222223
+  },
+  "115": {
+    "icecatName": "Switchboard Equipment",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8300000000000001
+  },
+  "117": {
+    "icecatName": "Telephones",
+    "backendId": 172,
+    "backendName": "Telephone (not mobile or smartphone)",
+    "score": 0,
+    "manual": true
+  },
+  "119": {
+    "icecatName": "Mobile Phones",
+    "backendId": 173,
+    "backendName": "Smart Phone / Pager",
+    "score": 0,
+    "manual": true
+  },
+  "150": {
+    "icecatName": "Computers",
+    "backendId": 165,
+    "backendName": "Desktop computer",
+    "score": 0,
+    "manual": true
+  },
+  "151": {
+    "icecatName": "Laptops",
+    "backendId": 167,
+    "backendName": "Laptop",
+    "score": 0.8857142857142858
+  },
+  "152": {
+    "icecatName": "Laptop Docks & Port Replicators",
+    "backendId": 167,
+    "backendName": "Laptop",
+    "score": 0.8230769230769232
+  },
+  "153": {
+    "icecatName": "PCs/Workstations",
+    "backendId": 165,
+    "backendName": "Desktop computer",
+    "score": 0,
+    "manual": true
+  },
+  "154": {
+    "icecatName": "Handheld Mobile Computers",
+    "backendId": 165,
+    "backendName": "Desktop computer",
+    "score": 0,
+    "manual": true
+  },
+  "173": {
+    "icecatName": "Audio Cards",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8500000000000001
+  },
+  "192": {
+    "icecatName": "Graphic Tablets",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8428571428571429
+  },
+  "194": {
+    "icecatName": "Keyboards",
+    "backendId": 158,
+    "backendName": "Keyboard (computer)",
+    "score": 0,
+    "manual": true
+  },
+  "195": {
+    "icecatName": "Mice",
+    "backendId": 159,
+    "backendName": "Mouse (computer)",
+    "score": 0,
+    "manual": true
+  },
+  "204": {
+    "icecatName": "Mouse Pads",
+    "backendId": 159,
+    "backendName": "Mouse",
+    "score": 0.8555555555555556
+  },
+  "220": {
+    "icecatName": "Monitors & Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8368421052631579
+  },
+  "221": {
+    "icecatName": "Monitors CRT",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8636363636363636
+  },
+  "222": {
+    "icecatName": "Computer Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.84375
+  },
+  "225": {
+    "icecatName": "Printers & Scanners",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.84375
+  },
+  "227": {
+    "icecatName": "Band Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8583333333333334
+  },
+  "228": {
+    "icecatName": "Dot Matrix Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8411764705882353
+  },
+  "229": {
+    "icecatName": "Label Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8538461538461539
+  },
+  "230": {
+    "icecatName": "Large Format Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8368421052631579
+  },
+  "231": {
+    "icecatName": "Line Matrix Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8388888888888889
+  },
+  "234": {
+    "icecatName": "Inkjet Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8500000000000001
+  },
+  "235": {
+    "icecatName": "Laser Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8538461538461539
+  },
+  "242": {
+    "icecatName": "Networking",
+    "backendId": 10,
+    "backendName": "Networking",
+    "score": 1
+  },
+  "244": {
+    "icecatName": "Wired Routers",
+    "backendId": 162,
+    "backendName": "Router",
+    "score": 0.8500000000000001
+  },
+  "258": {
+    "icecatName": "Network Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8400000000000001
+  },
+  "281": {
+    "icecatName": "Serial Switch Boxes",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8352941176470589
+  },
+  "282": {
+    "icecatName": "KVM Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8545454545454546
+  },
+  "283": {
+    "icecatName": "Printer Switches",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8466666666666667
+  },
+  "300": {
+    "icecatName": "Office",
+    "backendId": 9,
+    "backendName": "Office Equipment",
+    "score": 0.8400000000000001
+  },
+  "302": {
+    "icecatName": "Copiers",
+    "backendId": 170,
+    "backendName": "Printer / Copier / Scanner",
+    "score": 0.8350000000000001
+  },
+  "304": {
+    "icecatName": "Multifunction Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8333333333333334
+  },
+  "316": {
+    "icecatName": "Calculators",
+    "backendId": 175,
+    "backendName": "Calculator",
+    "score": 0.890909090909091
+  },
+  "322": {
+    "icecatName": "Laminators & Supplies",
+    "backendId": 54,
+    "backendName": "Laminator",
+    "score": 0.8500000000000001
+  },
+  "332": {
+    "icecatName": "Endorsers/Imprinters",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8368421052631579
+  },
+  "355": {
+    "icecatName": "Typewriters",
+    "backendId": 73,
+    "backendName": "Typewriter",
+    "score": 0.890909090909091
+  },
+  "360": {
+    "icecatName": "Laminators",
+    "backendId": 54,
+    "backendName": "Laminator",
+    "score": 0.89
+  },
+  "374": {
+    "icecatName": "Printer Belts",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8583333333333334
+  },
+  "376": {
+    "icecatName": "Printer Rollers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8500000000000001
+  },
+  "379": {
+    "icecatName": "Printer Cleaning",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8466666666666667
+  },
+  "381": {
+    "icecatName": "Printer Drums",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8583333333333334
+  },
+  "443": {
+    "icecatName": "Staple Removers",
+    "backendId": 66,
+    "backendName": "Stapler",
+    "score": 0.8500000000000001
+  },
+  "445": {
+    "icecatName": "Staplers",
+    "backendId": 66,
+    "backendName": "Stapler",
+    "score": 0.8875000000000001
+  },
+  "448": {
+    "icecatName": "Pencil Sharpeners",
+    "backendId": 56,
+    "backendName": "Pencil sharpener",
+    "score": 0.89375
+  },
+  "562": {
+    "icecatName": "Slide Projectors",
+    "backendId": 219,
+    "backendName": "Slide projector",
+    "score": 0.8933333333333334
+  },
+  "566": {
+    "icecatName": "Film Projectors",
+    "backendId": 216,
+    "backendName": "Film projector",
+    "score": 0.8928571428571429
+  },
+  "829": {
+    "icecatName": "Battery Chargers",
+    "backendId": 40,
+    "backendName": "Battery charger",
+    "score": 0.8933333333333334
+  },
+  "845": {
+    "icecatName": "Printable Textiles",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8352941176470589
+  },
+  "846": {
+    "icecatName": "Print Heads",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 1
+  },
+  "857": {
+    "icecatName": "Remote Controls",
+    "backendId": 181,
+    "backendName": "Remote control",
+    "score": 0.8928571428571429
+  },
+  "883": {
+    "icecatName": "Networking Cables",
+    "backendId": 10,
+    "backendName": "Networking",
+    "score": 0.8625
+  },
+  "897": {
+    "icecatName": "Tablets",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8857142857142858
+  },
+  "905": {
+    "icecatName": "Printer Ribbons",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8500000000000001
+  },
+  "907": {
+    "icecatName": "Paper Shredders",
+    "backendId": 291,
+    "backendName": "Shredder",
+    "score": 0.8571428571428572
+  },
+  "915": {
+    "icecatName": "Printer Cabinets & Stands",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8333333333333334
+  },
+  "917": {
+    "icecatName": "Output Stackers",
+    "backendId": 296,
+    "backendName": "Tacker",
+    "score": 0.8428571428571429
+  },
+  "920": {
+    "icecatName": "Network Switch Components",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8260869565217391
+  },
+  "922": {
+    "icecatName": "Photo Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8538461538461539
+  },
+  "923": {
+    "icecatName": "Audio Modules",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8416666666666667
+  },
+  "935": {
+    "icecatName": "Microphones",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.890909090909091
+  },
+  "937": {
+    "icecatName": "Entertainment Robots",
+    "backendId": 306,
+    "backendName": "Robot",
+    "score": 0.8263157894736842
+  },
+  "940": {
+    "icecatName": "Monitor Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8388888888888889
+  },
+  "942": {
+    "icecatName": "Monitor Mounts & Stands",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8368421052631579
+  },
+  "963": {
+    "icecatName": "Power Supply Units",
+    "backendId": 63,
+    "backendName": "Power supply",
+    "score": 0.86875
+  },
+  "978": {
+    "icecatName": "Printer Kits",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8636363636363636
+  },
+  "980": {
+    "icecatName": "Stapler Units",
+    "backendId": 66,
+    "backendName": "Stapler",
+    "score": 0.8583333333333334
+  },
+  "981": {
+    "icecatName": "Imaging Units",
+    "backendId": 12,
+    "backendName": "Imaging",
+    "score": 0.8583333333333334
+  },
+  "1001": {
+    "icecatName": "DVD/Blu-Ray Players",
+    "backendId": 193,
+    "backendName": "Blu Ray Player",
+    "score": 0.875
+  },
+  "1010": {
+    "icecatName": "Printer Labels",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8538461538461539
+  },
+  "1022": {
+    "icecatName": "Laminator Pouches",
+    "backendId": 54,
+    "backendName": "Laminator",
+    "score": 0.8562500000000001
+  },
+  "1023": {
+    "icecatName": "Typewriter Ribbons",
+    "backendId": 73,
+    "backendName": "Typewriter",
+    "score": 0.8588235294117648
+  },
+  "1060": {
+    "icecatName": "Game Consoles",
+    "backendId": 311,
+    "backendName": "Game console",
+    "score": 0.8916666666666667
+  },
+  "1081": {
+    "icecatName": "Loudspeakers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8583333333333334
+  },
+  "1082": {
+    "icecatName": "Home Cinema Systems",
+    "backendId": 217,
+    "backendName": "Home cinema",
+    "score": 0.8588235294117648
+  },
+  "1086": {
+    "icecatName": "TV Set-Top Boxes",
+    "backendId": 218,
+    "backendName": "Set-top box",
+    "score": 0.8692307692307693
+  },
+  "1092": {
+    "icecatName": "Board & Card Games",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8285714285714286
+  },
+  "1151": {
+    "icecatName": "Power Extensions",
+    "backendId": 62,
+    "backendName": "Power extension",
+    "score": 0.8933333333333334
+  },
+  "1176": {
+    "icecatName": "Split-System Air Conditioners",
+    "backendId": 31,
+    "backendName": "Air conditioner",
+    "score": 0.8538461538461539
+  },
+  "1223": {
+    "icecatName": "Wall & Table Clocks",
+    "backendId": 43,
+    "backendName": "Clock",
+    "score": 0.8333333333333334
+  },
+  "1234": {
+    "icecatName": "Vacuums",
+    "backendId": 131,
+    "backendName": "Vacuum cleaner",
+    "score": 0,
+    "manual": true
+  },
+  "1235": {
+    "icecatName": "Vacuum Accessories & Supplies",
+    "backendId": 131,
+    "backendName": "Vacuum cleaner",
+    "score": 0,
+    "manual": true
+  },
+  "1264": {
+    "icecatName": "Beer",
+    "backendId": 251,
+    "backendName": "Beer tap",
+    "score": 0.8571428571428572
+  },
+  "1280": {
+    "icecatName": "Health, Beauty & Personal Care",
+    "backendId": 14,
+    "backendName": "Personal Care",
+    "score": 0.8500000000000001
+  },
+  "1284": {
+    "icecatName": "Laptop Accessories",
+    "backendId": 167,
+    "backendName": "Laptop",
+    "score": 0.8352941176470589
+  },
+  "1285": {
+    "icecatName": "Laptop Cases",
+    "backendId": 167,
+    "backendName": "Laptop",
+    "score": 0.8545454545454546
+  },
+  "1296": {
+    "icecatName": "Computer TV Tuners",
+    "backendId": 210,
+    "backendName": "Tuner",
+    "score": 0.83125
+  },
+  "1298": {
+    "icecatName": "AV Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8727272727272728
+  },
+  "1304": {
+    "icecatName": "CD Players",
+    "backendId": 195,
+    "backendName": "CD player",
+    "score": 0.888888888888889
+  },
+  "1313": {
+    "icecatName": "Car Media Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8470588235294119
+  },
+  "1315": {
+    "icecatName": "Small Kitchen Appliances",
+    "backendId": 5,
+    "backendName": "Kitchen Appliance",
+    "score": 0.8727272727272728
+  },
+  "1317": {
+    "icecatName": "Bread Makers",
+    "backendId": 81,
+    "backendName": "Bread maker",
+    "score": 0.890909090909091
+  },
+  "1318": {
+    "icecatName": "Toasters",
+    "backendId": 116,
+    "backendName": "Toaster",
+    "score": 0.8875000000000001
+  },
+  "1319": {
+    "icecatName": "Fryers",
+    "backendId": 90,
+    "backendName": "Fryer",
+    "score": 0.8833333333333334
+  },
+  "1320": {
+    "icecatName": "Coffee Makers",
+    "backendId": 120,
+    "backendName": "Drip coffee maker",
+    "score": 0.8333333333333333,
+    "manual": true
+  },
+  "1321": {
+    "icecatName": "Electric Kettles",
+    "backendId": 123,
+    "backendName": "Kettle",
+    "score": 0.8400000000000001
+  },
+  "1322": {
+    "icecatName": "Freezers",
+    "backendId": 29,
+    "backendName": "Freezer",
+    "score": 0.8875000000000001
+  },
+  "1323": {
+    "icecatName": "Fridges",
+    "backendId": 266,
+    "backendName": "Fridge",
+    "score": 0.8857142857142858
+  },
+  "1324": {
+    "icecatName": "Dishwashers",
+    "backendId": 17,
+    "backendName": "Dishwasher",
+    "score": 0.890909090909091
+  },
+  "1329": {
+    "icecatName": "Irons",
+    "backendId": 53,
+    "backendName": "Iron",
+    "score": 0.8800000000000001
+  },
+  "1331": {
+    "icecatName": "Washing Machines",
+    "backendId": 23,
+    "backendName": "Washing machine / Combi dryer",
+    "score": 0,
+    "manual": true
+  },
+  "1332": {
+    "icecatName": "Kitchenware",
+    "backendId": 5,
+    "backendName": "Kitchen Appliance",
+    "score": 0,
+    "manual": true
+  },
+  "1333": {
+    "icecatName": "Personal Care Tools",
+    "backendId": 14,
+    "backendName": "Personal Care",
+    "score": 0.8705882352941177
+  },
+  "1334": {
+    "icecatName": "Electric Toothbrushes",
+    "backendId": 138,
+    "backendName": "Electric toothbrush",
+    "score": 0.89
+  },
+  "1336": {
+    "icecatName": "Women's Shavers",
+    "backendId": 151,
+    "backendName": "Shaver",
+    "score": 0.8461538461538463
+  },
+  "1337": {
+    "icecatName": "Men's Shavers",
+    "backendId": 151,
+    "backendName": "Shaver",
+    "score": 0.8545454545454546
+  },
+  "1338": {
+    "icecatName": "Audio Tuners",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8454545454545455
+  },
+  "1339": {
+    "icecatName": "Home Audio Systems",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.83125
+  },
+  "1340": {
+    "icecatName": "Cassette Players",
+    "backendId": 194,
+    "backendName": "Cassette player",
+    "score": 0.8933333333333334
+  },
+  "1346": {
+    "icecatName": "Speaker Mounts",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8538461538461539
+  },
+  "1374": {
+    "icecatName": "Car Speakers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8636363636363636
+  },
+  "1387": {
+    "icecatName": "Waffle Irons",
+    "backendId": 118,
+    "backendName": "Waffle iron",
+    "score": 0.890909090909091
+  },
+  "1390": {
+    "icecatName": "Outdoor Barbecues & Grills",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8227272727272728
+  },
+  "1392": {
+    "icecatName": "Blenders",
+    "backendId": 80,
+    "backendName": "Blender",
+    "score": 0.8875000000000001
+  },
+  "1399": {
+    "icecatName": "Mobile Device Chargers",
+    "backendId": 42,
+    "backendName": "Charger",
+    "score": 0.8350000000000001
+  },
+  "1400": {
+    "icecatName": "Personal Scales",
+    "backendId": 57,
+    "backendName": "Personal scale",
+    "score": 0.8928571428571429
+  },
+  "1409": {
+    "icecatName": "Floor Polishers & Sanders",
+    "backendId": 58,
+    "backendName": "Polisher",
+    "score": 0.8380952380952381
+  },
+  "1410": {
+    "icecatName": "Electric Blankets",
+    "backendId": 49,
+    "backendName": "Electric blanket",
+    "score": 0.89375
+  },
+  "1412": {
+    "icecatName": "Hair Dryers",
+    "backendId": 143,
+    "backendName": "Hair dryer",
+    "score": 0.89
+  },
+  "1413": {
+    "icecatName": "Makeup Mirrors",
+    "backendId": 146,
+    "backendName": "Make-up mirror",
+    "score": 0.8923076923076924
+  },
+  "1417": {
+    "icecatName": "Ice Cream Makers",
+    "backendId": 96,
+    "backendName": "Ice cream maker",
+    "score": 0.8928571428571429
+  },
+  "1418": {
+    "icecatName": "Alarm Clocks",
+    "backendId": 37,
+    "backendName": "Alarm clock",
+    "score": 0.890909090909091
+  },
+  "1419": {
+    "icecatName": "Cool Boxes",
+    "backendId": 45,
+    "backendName": "Cool box",
+    "score": 0.8777777777777778
+  },
+  "1420": {
+    "icecatName": "Coffee Grinders",
+    "backendId": 84,
+    "backendName": "Coffee grinder",
+    "score": 0.8928571428571429
+  },
+  "1426": {
+    "icecatName": "Kitchen Scales",
+    "backendId": 98,
+    "backendName": "Kitchen scale",
+    "score": 0.8923076923076924
+  },
+  "1429": {
+    "icecatName": "Rice Cookers",
+    "backendId": 106,
+    "backendName": "Rice cooker",
+    "score": 0.890909090909091
+  },
+  "1432": {
+    "icecatName": "Shaver Accessories",
+    "backendId": 151,
+    "backendName": "Shaver",
+    "score": 0.8352941176470589
+  },
+  "1433": {
+    "icecatName": "Foot Baths",
+    "backendId": 141,
+    "backendName": "Footbath",
+    "score": 0.888888888888889
+  },
+  "1436": {
+    "icecatName": "Dehumidifiers",
+    "backendId": 33,
+    "backendName": "Dehumidifier",
+    "score": 0.8923076923076924
+  },
+  "1454": {
+    "icecatName": "Dishwasher Detergents",
+    "backendId": 17,
+    "backendName": "Dishwasher",
+    "score": 0.8500000000000001
+  },
+  "1459": {
+    "icecatName": "Battery Testers",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8500000000000001
+  },
+  "1486": {
+    "icecatName": "Food Processors",
+    "backendId": 89,
+    "backendName": "Food processor",
+    "score": 0.8928571428571429
+  },
+  "1491": {
+    "icecatName": "Digital Audio Recorders",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8238095238095239
+  },
+  "1504": {
+    "icecatName": "Networking Software",
+    "backendId": 10,
+    "backendName": "Networking",
+    "score": 0.8555555555555556
+  },
+  "1512": {
+    "icecatName": "Docking Speakers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8466666666666667
+  },
+  "1513": {
+    "icecatName": "Digital Photo Frames",
+    "backendId": 46,
+    "backendName": "Digital photo frame",
+    "score": 0.8944444444444445
+  },
+  "1514": {
+    "icecatName": "Laptop Stands",
+    "backendId": 167,
+    "backendName": "Laptop",
+    "score": 0.8500000000000001
+  },
+  "1527": {
+    "icecatName": "Epilators",
+    "backendId": 139,
+    "backendName": "Epilator",
+    "score": 0.888888888888889
+  },
+  "1562": {
+    "icecatName": "Digital Body Thermometers",
+    "backendId": 316,
+    "backendName": "Thermometer",
+    "score": 0.8478260869565217
+  },
+  "1570": {
+    "icecatName": "Game Console Parts & Accessories",
+    "backendId": 311,
+    "backendName": "Game console",
+    "score": 0.8407407407407408
+  },
+  "1580": {
+    "icecatName": "Audio Turntables",
+    "backendId": 211,
+    "backendName": "Turntable",
+    "score": 0.8600000000000001
+  },
+  "1596": {
+    "icecatName": "Portable Sanders",
+    "backendId": 286,
+    "backendName": "Sander",
+    "score": 0.8400000000000001
+  },
+  "1615": {
+    "icecatName": "Computer Data Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8300000000000001
+  },
+  "1627": {
+    "icecatName": "Digital Weather Stations",
+    "backendId": 76,
+    "backendName": "Weather station",
+    "score": 0.8636363636363636
+  },
+  "1631": {
+    "icecatName": "Portable Circular Saws",
+    "backendId": 256,
+    "backendName": "Circular saw",
+    "score": 0.8550000000000001
+  },
+  "1634": {
+    "icecatName": "Raclette Grills",
+    "backendId": 105,
+    "backendName": "Raclette",
+    "score": 0.8571428571428572
+  },
+  "1637": {
+    "icecatName": "Headphones & Headsets",
+    "backendId": 177,
+    "backendName": "Headphones",
+    "score": 0.8555555555555556
+  },
+  "1650": {
+    "icecatName": "Ice Cube Makers",
+    "backendId": 30,
+    "backendName": "Ice cube maker",
+    "score": 0.8923076923076924
+  },
+  "1658": {
+    "icecatName": "Electric Space Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8300000000000001
+  },
+  "1659": {
+    "icecatName": "Ironing Boards",
+    "backendId": 53,
+    "backendName": "Iron",
+    "score": 0.8307692307692308
+  },
+  "1665": {
+    "icecatName": "Ironing Board Covers",
+    "backendId": 53,
+    "backendName": "Iron",
+    "score": 0.8222222222222223
+  },
+  "1668": {
+    "icecatName": "Doorbell Kits",
+    "backendId": 48,
+    "backendName": "Doorbell",
+    "score": 0.8666666666666667
+  },
+  "1672": {
+    "icecatName": "Electric Pressure Cookers",
+    "backendId": 104,
+    "backendName": "Pressure cooker",
+    "score": 0.8608695652173913
+  },
+  "1673": {
+    "icecatName": "Thermostats",
+    "backendId": 69,
+    "backendName": "Thermostat",
+    "score": 0.890909090909091
+  },
+  "1675": {
+    "icecatName": "POS Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8636363636363636
+  },
+  "1678": {
+    "icecatName": "Audio Intercom Systems",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8250000000000001
+  },
+  "1680": {
+    "icecatName": "Toothbrush Heads",
+    "backendId": 152,
+    "backendName": "Toothbrush",
+    "score": 0.8666666666666667
+  },
+  "1687": {
+    "icecatName": "Speakerphones",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8538461538461539
+  },
+  "1689": {
+    "icecatName": "Laptop Cooling Pads",
+    "backendId": 167,
+    "backendName": "Laptop",
+    "score": 0.8352941176470589
+  },
+  "1696": {
+    "icecatName": "Humidifiers",
+    "backendId": 52,
+    "backendName": "Humidifier",
+    "score": 0.890909090909091
+  },
+  "1704": {
+    "icecatName": "Network Monitoring & Optimization Devices",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8194444444444445
+  },
+  "1705": {
+    "icecatName": "Printer Emulation Upgrades",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8291666666666667
+  },
+  "1710": {
+    "icecatName": "Power Jigsaws",
+    "backendId": 273,
+    "backendName": "Jigsaw",
+    "score": 0.8500000000000001
+  },
+  "1713": {
+    "icecatName": "Mixer & Food Processor Accessories",
+    "backendId": 89,
+    "backendName": "Food processor",
+    "score": 0.8448275862068966
+  },
+  "1723": {
+    "icecatName": "Video Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8461538461538463
+  },
+  "1725": {
+    "icecatName": "Audio Mixers",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8454545454545455
+  },
+  "1727": {
+    "icecatName": "Plastic Card Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8368421052631579
+  },
+  "1730": {
+    "icecatName": "Hot Glue Guns & Pens",
+    "backendId": 267,
+    "backendName": "Glue gun",
+    "score": 0.8466666666666667
+  },
+  "1736": {
+    "icecatName": "Slicers",
+    "backendId": 108,
+    "backendName": "Slicer",
+    "score": 0.8857142857142858
+  },
+  "1738": {
+    "icecatName": "Steam Cleaners",
+    "backendId": 293,
+    "backendName": "Steam cleaner",
+    "score": 0.8923076923076924
+  },
+  "1739": {
+    "icecatName": "Coffee",
+    "backendId": 84,
+    "backendName": "Coffee grinder",
+    "score": 0.8461538461538463
+  },
+  "1741": {
+    "icecatName": "Water Heaters & Boilers",
+    "backendId": 18,
+    "backendName": "Boiler",
+    "score": 0.8315789473684211
+  },
+  "1743": {
+    "icecatName": "Large Home Appliances",
+    "backendId": 3,
+    "backendName": "Home Appliance",
+    "score": 0.868421052631579
+  },
+  "1746": {
+    "icecatName": "Sewing & Ironing",
+    "backendId": 53,
+    "backendName": "Iron",
+    "score": 0.8307692307692308
+  },
+  "1749": {
+    "icecatName": "Lawn Mowers",
+    "backendId": 274,
+    "backendName": "Lawnmower",
+    "score": 0.89
+  },
+  "1759": {
+    "icecatName": "Water Pumps",
+    "backendId": 75,
+    "backendName": "Water pump",
+    "score": 0.89
+  },
+  "1765": {
+    "icecatName": "Monitor Mount Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8304347826086957
+  },
+  "1766": {
+    "icecatName": "Water Pump Accessories",
+    "backendId": 75,
+    "backendName": "Water pump",
+    "score": 0.8450000000000001
+  },
+  "1772": {
+    "icecatName": "Network Switch Modules",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8300000000000001
+  },
+  "1775": {
+    "icecatName": "Solder",
+    "backendId": 292,
+    "backendName": "Soldering iron",
+    "score": 0.8461538461538463
+  },
+  "1776": {
+    "icecatName": "Multimeters",
+    "backendId": 55,
+    "backendName": "Multimeter",
+    "score": 0.890909090909091
+  },
+  "1778": {
+    "icecatName": "Printer Memory",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8538461538461539
+  },
+  "1784": {
+    "icecatName": "Vacuum Sealers",
+    "backendId": 117,
+    "backendName": "Vacuum sealer",
+    "score": 0.8923076923076924
+  },
+  "1785": {
+    "icecatName": "Vacuum Sealer Accessories",
+    "backendId": 117,
+    "backendName": "Vacuum sealer",
+    "score": 0.8521739130434783
+  },
+  "1794": {
+    "icecatName": "Heart Rate Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8411764705882353
+  },
+  "1798": {
+    "icecatName": "Audio Converters",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8333333333333334
+  },
+  "1803": {
+    "icecatName": "Lighting Transformers",
+    "backendId": 71,
+    "backendName": "Transformer",
+    "score": 0.8550000000000001
+  },
+  "1810": {
+    "icecatName": "Smoke Detectors",
+    "backendId": 317,
+    "backendName": "Smoke detector",
+    "score": 0.8928571428571429
+  },
+  "1823": {
+    "icecatName": "External Hard Drives",
+    "backendId": 156,
+    "backendName": "External hard drive",
+    "score": 0.8944444444444445
+  },
+  "1852": {
+    "icecatName": "Multi Tool Pliers",
+    "backendId": 280,
+    "backendName": "Multitool",
+    "score": 0.8600000000000001
+  },
+  "1867": {
+    "icecatName": "Sewing Machines",
+    "backendId": 290,
+    "backendName": "Sewing machine",
+    "score": 0.8928571428571429
+  },
+  "1868": {
+    "icecatName": "Speaker Sets",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8636363636363636
+  },
+  "1870": {
+    "icecatName": "Soundbar Speakers",
+    "backendId": 222,
+    "backendName": "Soundbar",
+    "score": 0.8500000000000001
+  },
+  "1873": {
+    "icecatName": "Fridge-Freezers",
+    "backendId": 29,
+    "backendName": "Freezer",
+    "score": 0.8500000000000001
+  },
+  "1874": {
+    "icecatName": "Radio Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8571428571428572
+  },
+  "1879": {
+    "icecatName": "Die & Straight Grinders",
+    "backendId": 294,
+    "backendName": "Straight grinder",
+    "score": 0.8789473684210527
+  },
+  "1881": {
+    "icecatName": "Chainsaws",
+    "backendId": 255,
+    "backendName": "Chainsaw",
+    "score": 0.888888888888889
+  },
+  "1884": {
+    "icecatName": "Power Tools",
+    "backendId": 4,
+    "backendName": "Power Tool",
+    "score": 0.89
+  },
+  "1893": {
+    "icecatName": "Smartphones",
+    "backendId": 173,
+    "backendName": "Smart Phone / Pager",
+    "score": 0,
+    "manual": true
+  },
+  "1894": {
+    "icecatName": "Audio Amplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8600000000000001
+  },
+  "1897": {
+    "icecatName": "Portable DVD/Blu-Ray Players",
+    "backendId": 193,
+    "backendName": "Blu Ray Player",
+    "score": 0.8500000000000001
+  },
+  "1903": {
+    "icecatName": "Steam Ironing Stations",
+    "backendId": 53,
+    "backendName": "Iron",
+    "score": 0.8200000000000001
+  },
+  "1911": {
+    "icecatName": "Combi-Fridges",
+    "backendId": 266,
+    "backendName": "Fridge",
+    "score": 0.8500000000000001
+  },
+  "1912": {
+    "icecatName": "Side-By-Side Fridge-Freezers",
+    "backendId": 29,
+    "backendName": "Freezer",
+    "score": 0.8291666666666667
+  },
+  "1927": {
+    "icecatName": "Routers & Trimmers",
+    "backendId": 295,
+    "backendName": "Strimmer",
+    "score": 0.8533333333333334
+  },
+  "1932": {
+    "icecatName": "Tile Routers",
+    "backendId": 162,
+    "backendName": "Router",
+    "score": 0.8545454545454546
+  },
+  "1944": {
+    "icecatName": "Bath Thermometers",
+    "backendId": 316,
+    "backendName": "Thermometer",
+    "score": 0.86875
+  },
+  "1955": {
+    "icecatName": "Lawn Scarifiers",
+    "backendId": 288,
+    "backendName": "Scarifier",
+    "score": 0.8642857142857143
+  },
+  "1956": {
+    "icecatName": "Garden Shredders",
+    "backendId": 291,
+    "backendName": "Shredder",
+    "score": 0.8533333333333334
+  },
+  "1957": {
+    "icecatName": "Cordless Leaf Blowers",
+    "backendId": 275,
+    "backendName": "Leaf blower",
+    "score": 0.8526315789473684
+  },
+  "1977": {
+    "icecatName": "TV Signal Amplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8500000000000001
+  },
+  "2022": {
+    "icecatName": "Milk Frothers & Warmers",
+    "backendId": 100,
+    "backendName": "Milk frother",
+    "score": 0.8578947368421053
+  },
+  "2043": {
+    "icecatName": "GPS Receiver Modules",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8444444444444444
+  },
+  "2057": {
+    "icecatName": "Kitchen Lighters",
+    "backendId": 276,
+    "backendName": "Lighter",
+    "score": 0.8466666666666667
+  },
+  "2058": {
+    "icecatName": "Pizza Makers & Ovens",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8250000000000001
+  },
+  "2061": {
+    "icecatName": "Egg Cookers",
+    "backendId": 121,
+    "backendName": "Egg cooker",
+    "score": 0.89
+  },
+  "2171": {
+    "icecatName": "Table Tennis Equipment",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8300000000000001
+  },
+  "2241": {
+    "icecatName": "Kettlebells",
+    "backendId": 123,
+    "backendName": "Kettle",
+    "score": 0.8545454545454546
+  },
+  "2265": {
+    "icecatName": "Headphone/Headset Accessories",
+    "backendId": 178,
+    "backendName": "Headset",
+    "score": 0.825925925925926
+  },
+  "2268": {
+    "icecatName": "Pet Hair Clippers",
+    "backendId": 142,
+    "backendName": "Hair clippers",
+    "score": 0.8800000000000001
+  },
+  "2276": {
+    "icecatName": "Audio Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8461538461538463
+  },
+  "2285": {
+    "icecatName": "Dimmers",
+    "backendId": 47,
+    "backendName": "Dimmer",
+    "score": 0.8857142857142858
+  },
+  "2286": {
+    "icecatName": "Ovens",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8800000000000001
+  },
+  "2289": {
+    "icecatName": "Ironing Accessories",
+    "backendId": 53,
+    "backendName": "Iron",
+    "score": 0.8222222222222223
+  },
+  "2298": {
+    "icecatName": "Bath Games, Toys & Stickers",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8190476190476191
+  },
+  "2300": {
+    "icecatName": "Baby Night-Lights",
+    "backendId": 241,
+    "backendName": "Night light",
+    "score": 0.8666666666666667
+  },
+  "2307": {
+    "icecatName": "Video Baby Monitors",
+    "backendId": 38,
+    "backendName": "Baby monitor",
+    "score": 0.8647058823529412
+  },
+  "2315": {
+    "icecatName": "Portable & Party Speakers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8333333333333334
+  },
+  "2324": {
+    "icecatName": "Microphone Parts & Accessories",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.8384615384615385
+  },
+  "2332": {
+    "icecatName": "Lighting",
+    "backendId": 229,
+    "backendName": "Small lighting equipment (excl. LED & incandescent)",
+    "score": 0.8195121951219513
+  },
+  "2339": {
+    "icecatName": "Paper Shredder Accessories",
+    "backendId": 291,
+    "backendName": "Shredder",
+    "score": 0.8333333333333334
+  },
+  "2340": {
+    "icecatName": "Ironing Presses",
+    "backendId": 53,
+    "backendName": "Iron",
+    "score": 0.8285714285714286
+  },
+  "2341": {
+    "icecatName": "Environment Thermometers",
+    "backendId": 316,
+    "backendName": "Thermometer",
+    "score": 0.8478260869565217
+  },
+  "2342": {
+    "icecatName": "Barometers",
+    "backendId": 250,
+    "backendName": "Barometer",
+    "score": 0.89
+  },
+  "2344": {
+    "icecatName": "Portable TVs & Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8368421052631579
+  },
+  "2390": {
+    "icecatName": "Electrical Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8333333333333334
+  },
+  "2393": {
+    "icecatName": "Voltage Transformers",
+    "backendId": 71,
+    "backendName": "Transformer",
+    "score": 0.8578947368421053
+  },
+  "2394": {
+    "icecatName": "Current Transformers",
+    "backendId": 71,
+    "backendName": "Transformer",
+    "score": 0.8578947368421053
+  },
+  "2402": {
+    "icecatName": "Soldering Irons",
+    "backendId": 292,
+    "backendName": "Soldering iron",
+    "score": 0.8928571428571429
+  },
+  "2404": {
+    "icecatName": "Slow Cookers",
+    "backendId": 109,
+    "backendName": "Slow cooker",
+    "score": 0.890909090909091
+  },
+  "2406": {
+    "icecatName": "Leaf Blowers",
+    "backendId": 275,
+    "backendName": "Leaf blower",
+    "score": 0.890909090909091
+  },
+  "2413": {
+    "icecatName": "Audio Turntable Accessories",
+    "backendId": 211,
+    "backendName": "Turntable",
+    "score": 0.8360000000000001
+  },
+  "2418": {
+    "icecatName": "Video Line Amplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8473684210526317
+  },
+  "2420": {
+    "icecatName": "Food Thermometers",
+    "backendId": 316,
+    "backendName": "Thermometer",
+    "score": 0.86875
+  },
+  "2421": {
+    "icecatName": "Kitchen Appliance Thermometers",
+    "backendId": 5,
+    "backendName": "Kitchen Appliance",
+    "score": 0.8571428571428572
+  },
+  "2447": {
+    "icecatName": "Oscillating Multi-Tools",
+    "backendId": 280,
+    "backendName": "Multitool",
+    "score": 0.8428571428571429
+  },
+  "2449": {
+    "icecatName": "Weather Station Transmitters",
+    "backendId": 76,
+    "backendName": "Weather station",
+    "score": 0.8538461538461539
+  },
+  "2453": {
+    "icecatName": "Potholders & Oven Mitts",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8210526315789474
+  },
+  "2458": {
+    "icecatName": "Headphone Amplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8473684210526317
+  },
+  "2466": {
+    "icecatName": "Fabric Shavers",
+    "backendId": 151,
+    "backendName": "Shaver",
+    "score": 0.8461538461538463
+  },
+  "2471": {
+    "icecatName": "Photo Camera Trolleys",
+    "backendId": 225,
+    "backendName": "Photo camera",
+    "score": 0.8578947368421053
+  },
+  "2480": {
+    "icecatName": "Fridge Magnets",
+    "backendId": 266,
+    "backendName": "Fridge",
+    "score": 0.8461538461538463
+  },
+  "2490": {
+    "icecatName": "Bicycle Lights",
+    "backendId": 233,
+    "backendName": "Bicycle light",
+    "score": 0.8923076923076924
+  },
+  "2494": {
+    "icecatName": "Soup Makers",
+    "backendId": 111,
+    "backendName": "Soup maker",
+    "score": 0.89
+  },
+  "2509": {
+    "icecatName": "Laptop Spare Parts",
+    "backendId": 167,
+    "backendName": "Laptop",
+    "score": 0.8375
+  },
+  "2524": {
+    "icecatName": "Inflatable Toys",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8428571428571429
+  },
+  "2533": {
+    "icecatName": "Remote Controlled Toys",
+    "backendId": 181,
+    "backendName": "Remote control",
+    "score": 0.865
+  },
+  "2552": {
+    "icecatName": "Activity Monitors & Programs",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8291666666666667
+  },
+  "2563": {
+    "icecatName": "Light Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8461538461538463
+  },
+  "2566": {
+    "icecatName": "Power Supply Transformers",
+    "backendId": 63,
+    "backendName": "Power supply",
+    "score": 0.8478260869565217
+  },
+  "2583": {
+    "icecatName": "Kitchen Torches",
+    "backendId": 246,
+    "backendName": "Torch",
+    "score": 0.8357142857142857
+  },
+  "2587": {
+    "icecatName": "Speaker Boxes",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8583333333333334
+  },
+  "2588": {
+    "icecatName": "Robot Vacuums",
+    "backendId": 15,
+    "backendName": "Robot Vacuum",
+    "score": 0.8916666666666667
+  },
+  "2591": {
+    "icecatName": "Table Lamps",
+    "backendId": 245,
+    "backendName": "Table lamp",
+    "score": 0.89
+  },
+  "2595": {
+    "icecatName": "Printer/Scanner Spare Parts & Accessories",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8200000000000001
+  },
+  "2599": {
+    "icecatName": "Digital Photo Frame Accessories",
+    "backendId": 46,
+    "backendName": "Digital photo frame",
+    "score": 0.8607142857142858
+  },
+  "2601": {
+    "icecatName": "Toaster Accessories",
+    "backendId": 116,
+    "backendName": "Toaster",
+    "score": 0.8388888888888889
+  },
+  "2603": {
+    "icecatName": "Fryer Accessories",
+    "backendId": 90,
+    "backendName": "Fryer",
+    "score": 0.83125
+  },
+  "2604": {
+    "icecatName": "Electrical Kettle Accessories",
+    "backendId": 123,
+    "backendName": "Kettle",
+    "score": 0.8222222222222223
+  },
+  "2606": {
+    "icecatName": "Blender Accessories",
+    "backendId": 80,
+    "backendName": "Blender",
+    "score": 0.8388888888888889
+  },
+  "2607": {
+    "icecatName": "Outdoor Barbecue/Grill Accessories",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8161290322580645
+  },
+  "2610": {
+    "icecatName": "Electric Toothbrush Accessories",
+    "backendId": 138,
+    "backendName": "Electric toothbrush",
+    "score": 0.8620689655172414
+  },
+  "2647": {
+    "icecatName": "Smartwatches & Sport Watches",
+    "backendId": 78,
+    "backendName": "Wrist watch",
+    "score": 0.8333333333333333,
+    "manual": true
+  },
+  "2653": {
+    "icecatName": "Power Supply Testers",
+    "backendId": 63,
+    "backendName": "Power supply",
+    "score": 0.8611111111111112
+  },
+  "2654": {
+    "icecatName": "Glue Gun Accessories",
+    "backendId": 267,
+    "backendName": "Glue gun",
+    "score": 0.8388888888888889
+  },
+  "2655": {
+    "icecatName": "3D Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.87
+  },
+  "2660": {
+    "icecatName": "Electric Bicycles",
+    "backendId": 314,
+    "backendName": "Electric bicycle",
+    "score": 0.89375
+  },
+  "2664": {
+    "icecatName": "Electric Space Heater Accessories",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8200000000000001
+  },
+  "2676": {
+    "icecatName": "Kettles",
+    "backendId": 123,
+    "backendName": "Kettle",
+    "score": 0.8857142857142858
+  },
+  "2690": {
+    "icecatName": "Manual Food Choppers",
+    "backendId": 82,
+    "backendName": "Chopper",
+    "score": 0.8388888888888889
+  },
+  "2696": {
+    "icecatName": "Electrical Switch Accessories",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8222222222222223
+  },
+  "2708": {
+    "icecatName": "Grill Baskets",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8416666666666667
+  },
+  "2709": {
+    "icecatName": "Nail Care & Art Products",
+    "backendId": 148,
+    "backendName": "Nail care",
+    "score": 0.8421052631578948
+  },
+  "2713": {
+    "icecatName": "Combi Kitchen Appliances",
+    "backendId": 5,
+    "backendName": "Kitchen Appliance",
+    "score": 0.8727272727272728
+  },
+  "2716": {
+    "icecatName": "Ice Cream Maker Accessories",
+    "backendId": 96,
+    "backendName": "Ice cream maker",
+    "score": 0.8541666666666667
+  },
+  "2723": {
+    "icecatName": "Portable Air Conditioners",
+    "backendId": 31,
+    "backendName": "Air conditioner",
+    "score": 0.8608695652173913
+  },
+  "2724": {
+    "icecatName": "Window & Through-Wall Air Conditioners",
+    "backendId": 31,
+    "backendName": "Air conditioner",
+    "score": 0.84375
+  },
+  "2725": {
+    "icecatName": "Industrial Robots",
+    "backendId": 306,
+    "backendName": "Robot",
+    "score": 0.83125
+  },
+  "2726": {
+    "icecatName": "Digital Audio Streamers",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8238095238095239
+  },
+  "2740": {
+    "icecatName": "Bluetooth Music Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8347826086956522
+  },
+  "2747": {
+    "icecatName": "Body Groomers/Shavers",
+    "backendId": 151,
+    "backendName": "Shaver",
+    "score": 0.8315789473684211
+  },
+  "2748": {
+    "icecatName": "Home Appliance Cleaners",
+    "backendId": 3,
+    "backendName": "Home Appliance",
+    "score": 0.861904761904762
+  },
+  "2750": {
+    "icecatName": "Electric Shoe Polishers",
+    "backendId": 58,
+    "backendName": "Polisher",
+    "score": 0.8380952380952381
+  },
+  "2768": {
+    "icecatName": "Sander Accessories",
+    "backendId": 286,
+    "backendName": "Sander",
+    "score": 0.8352941176470589
+  },
+  "2770": {
+    "icecatName": "Circular Saw Blades",
+    "backendId": 256,
+    "backendName": "Circular saw",
+    "score": 0.8647058823529412
+  },
+  "2774": {
+    "icecatName": "Tablet Cases",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8545454545454546
+  },
+  "2778": {
+    "icecatName": "Power Banks",
+    "backendId": 64,
+    "backendName": "Powerbank",
+    "score": 0.89
+  },
+  "2780": {
+    "icecatName": "Portable Game Console Cases",
+    "backendId": 311,
+    "backendName": "Game console",
+    "score": 0.8458333333333334
+  },
+  "2799": {
+    "icecatName": "Router Bits",
+    "backendId": 162,
+    "backendName": "Router",
+    "score": 0.8600000000000001
+  },
+  "2814": {
+    "icecatName": "DJ Turntables",
+    "backendId": 211,
+    "backendName": "Turntable",
+    "score": 0.875
+  },
+  "2819": {
+    "icecatName": "Bluetooth Conference Speakers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.825925925925926
+  },
+  "2820": {
+    "icecatName": "Car Audio Amplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8500000000000001
+  },
+  "2821": {
+    "icecatName": "Car TFT Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8500000000000001
+  },
+  "2830": {
+    "icecatName": "Home",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8444444444444444
+  },
+  "2834": {
+    "icecatName": "Video Games & Consoles",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8222222222222223
+  },
+  "2837": {
+    "icecatName": "Portable Game Consoles",
+    "backendId": 311,
+    "backendName": "Game console",
+    "score": 0.8550000000000001
+  },
+  "2846": {
+    "icecatName": "Audio Equipment Cases",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8263157894736842
+  },
+  "2851": {
+    "icecatName": "Epilator Accessories",
+    "backendId": 139,
+    "backendName": "Epilator",
+    "score": 0.8421052631578948
+  },
+  "2854": {
+    "icecatName": "Beard Trimmers",
+    "backendId": 133,
+    "backendName": "Beard trimmer",
+    "score": 0.8923076923076924
+  },
+  "2863": {
+    "icecatName": "Hair Conditioners",
+    "backendId": 31,
+    "backendName": "Air conditioner",
+    "score": 0.8875000000000001
+  },
+  "2869": {
+    "icecatName": "Smart Home Devices",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8562500000000001
+  },
+  "2874": {
+    "icecatName": "Electric Griddles",
+    "backendId": 91,
+    "backendName": "Griddle",
+    "score": 0.84375
+  },
+  "2879": {
+    "icecatName": "Halogen Ovens",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8333333333333334
+  },
+  "2880": {
+    "icecatName": "Roaster Ovens",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8333333333333334
+  },
+  "2890": {
+    "icecatName": "Garment Steamers",
+    "backendId": 113,
+    "backendName": "Steamer",
+    "score": 0.8466666666666667
+  },
+  "2894": {
+    "icecatName": "Electric Food Choppers",
+    "backendId": 82,
+    "backendName": "Chopper",
+    "score": 0.8350000000000001
+  },
+  "2917": {
+    "icecatName": "Audio Cables",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8454545454545455
+  },
+  "2932": {
+    "icecatName": "Multiroom Audio Controllers",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8200000000000001
+  },
+  "2934": {
+    "icecatName": "Audio Equalizers",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8333333333333334
+  },
+  "2996": {
+    "icecatName": "Makeup",
+    "backendId": 146,
+    "backendName": "Make-up mirror",
+    "score": 0.8500000000000001
+  },
+  "3029": {
+    "icecatName": "Steam Cleaner Accessories",
+    "backendId": 293,
+    "backendName": "Steam cleaner",
+    "score": 0.8521739130434783
+  },
+  "3032": {
+    "icecatName": "Waffle Iron Accessories",
+    "backendId": 118,
+    "backendName": "Waffle iron",
+    "score": 0.8476190476190477
+  },
+  "3038": {
+    "icecatName": "Electric Citrus Presses",
+    "backendId": 83,
+    "backendName": "Citrus press",
+    "score": 0.8523809523809525
+  },
+  "3039": {
+    "icecatName": "Citrus Presses",
+    "backendId": 83,
+    "backendName": "Citrus press",
+    "score": 0.8846153846153847
+  },
+  "3042": {
+    "icecatName": "Wireless Audio Transmitters",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8200000000000001
+  },
+  "3043": {
+    "icecatName": "Audio Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8538461538461539
+  },
+  "3059": {
+    "icecatName": "Vehicle Battery Chargers",
+    "backendId": 40,
+    "backendName": "Battery charger",
+    "score": 0.8636363636363636
+  },
+  "3071": {
+    "icecatName": "Smart Wearables",
+    "backendId": 7,
+    "backendName": "Wearable",
+    "score": 0.8571428571428572
+  },
+  "3108": {
+    "icecatName": "Preserving Boilers",
+    "backendId": 18,
+    "backendName": "Boiler",
+    "score": 0.8352941176470589
+  },
+  "3183": {
+    "icecatName": "Battery Holders & Snaps",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8368421052631579
+  },
+  "3196": {
+    "icecatName": "Electromagnetic Locks",
+    "backendId": 43,
+    "backendName": "Clock",
+    "score": 0.8250000000000001
+  },
+  "3197": {
+    "icecatName": "Electromagnetic Lock Accessories",
+    "backendId": 43,
+    "backendName": "Clock",
+    "score": 0.8166666666666668
+  },
+  "3205": {
+    "icecatName": "Video Game Points",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8266666666666667
+  },
+  "3206": {
+    "icecatName": "Video Game Add-Ons & Downloadable Content (DLC)",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8108108108108109
+  },
+  "3228": {
+    "icecatName": "Makeup Pencil Sharpeners",
+    "backendId": 56,
+    "backendName": "Pencil sharpener",
+    "score": 0.8681818181818182
+  },
+  "3241": {
+    "icecatName": "Camera Drones",
+    "backendId": 299,
+    "backendName": "Drone",
+    "score": 0.8416666666666667
+  },
+  "3242": {
+    "icecatName": "Camera Remote Controls",
+    "backendId": 181,
+    "backendName": "Remote control",
+    "score": 0.865
+  },
+  "3247": {
+    "icecatName": "Audio Cassette Adapters",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8238095238095239
+  },
+  "3259": {
+    "icecatName": "Car Polishers",
+    "backendId": 58,
+    "backendName": "Polisher",
+    "score": 0.8666666666666667
+  },
+  "3260": {
+    "icecatName": "Car Polisher Accessories",
+    "backendId": 58,
+    "backendName": "Polisher",
+    "score": 0.8363636363636364
+  },
+  "3264": {
+    "icecatName": "Smart Home Light Controllers",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8360000000000001
+  },
+  "3265": {
+    "icecatName": "Smart Home Signal Extenders",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8375
+  },
+  "3274": {
+    "icecatName": "Smart Home Central Control Units",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8321428571428572
+  },
+  "3275": {
+    "icecatName": "Battery Size Adapters",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8368421052631579
+  },
+  "3282": {
+    "icecatName": "Wall Plates & Switch Covers",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8272727272727273
+  },
+  "3319": {
+    "icecatName": "Tablet Security Enclosures",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8250000000000001
+  },
+  "3321": {
+    "icecatName": "Marine Speakers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8500000000000001
+  },
+  "3345": {
+    "icecatName": "Washing Machine Parts & Accessories",
+    "backendId": 23,
+    "backendName": "Washing machine / Combi dryer",
+    "score": 0,
+    "manual": true
+  },
+  "3346": {
+    "icecatName": "Dishwasher Parts & Accessories",
+    "backendId": 17,
+    "backendName": "Dishwasher",
+    "score": 0.8384615384615385
+  },
+  "3347": {
+    "icecatName": "Fridge/Freezer Parts & Accessories",
+    "backendId": 29,
+    "backendName": "Freezer",
+    "score": 0.8241379310344829
+  },
+  "3348": {
+    "icecatName": "Oven Parts & Accessories",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8200000000000001
+  },
+  "3350": {
+    "icecatName": "Microwave Parts & Accessories",
+    "backendId": 141,
+    "backendName": "Microwave /  Combi oven",
+    "score": 0,
+    "manual": true
+  },
+  "3351": {
+    "icecatName": "Audio Splitters",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8357142857142857
+  },
+  "3357": {
+    "icecatName": "Soldering Iron & Station Accessories",
+    "backendId": 292,
+    "backendName": "Soldering iron",
+    "score": 0.8419354838709678
+  },
+  "3360": {
+    "icecatName": "Satellite Multiswitches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8272727272727273
+  },
+  "3361": {
+    "icecatName": "Small Kitchen Appliance Sets",
+    "backendId": 5,
+    "backendName": "Kitchen Appliance",
+    "score": 0.8640000000000001
+  },
+  "3362": {
+    "icecatName": "Remote Control Accessories",
+    "backendId": 181,
+    "backendName": "Remote control",
+    "score": 0.8541666666666667
+  },
+  "3373": {
+    "icecatName": "Surveillance Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8350000000000001
+  },
+  "3384": {
+    "icecatName": "Night-Lights",
+    "backendId": 241,
+    "backendName": "Night light",
+    "score": 0.890909090909091
+  },
+  "3390": {
+    "icecatName": "Air Compressors",
+    "backendId": 247,
+    "backendName": "Air compressor",
+    "score": 0.8928571428571429
+  },
+  "3409": {
+    "icecatName": "Charcoal for Barbecue/Grill",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8208333333333334
+  },
+  "3422": {
+    "icecatName": "Hand Air Pumps",
+    "backendId": 36,
+    "backendName": "Air pump",
+    "score": 0.8583333333333334
+  },
+  "3425": {
+    "icecatName": "Power Chainsaw Sharpeners",
+    "backendId": 255,
+    "backendName": "Chainsaw",
+    "score": 0.8347826086956522
+  },
+  "3430": {
+    "icecatName": "Circular Saw Accessories",
+    "backendId": 256,
+    "backendName": "Circular saw",
+    "score": 0.8500000000000001
+  },
+  "3434": {
+    "icecatName": "Lawn Scarifier Accessories",
+    "backendId": 288,
+    "backendName": "Scarifier",
+    "score": 0.8375
+  },
+  "3437": {
+    "icecatName": "Smart Wearable Accessories",
+    "backendId": 7,
+    "backendName": "Wearable",
+    "score": 0.8333333333333334
+  },
+  "3458": {
+    "icecatName": "Cheese Slicers",
+    "backendId": 108,
+    "backendName": "Slicer",
+    "score": 0.8461538461538463
+  },
+  "3467": {
+    "icecatName": "Cake Slicers",
+    "backendId": 108,
+    "backendName": "Slicer",
+    "score": 0.8545454545454546
+  },
+  "3495": {
+    "icecatName": "Toothbrush Holders",
+    "backendId": 152,
+    "backendName": "Toothbrush",
+    "score": 0.8588235294117648
+  },
+  "3544": {
+    "icecatName": "Fish Kettles",
+    "backendId": 123,
+    "backendName": "Kettle",
+    "score": 0.8545454545454546
+  },
+  "3601": {
+    "icecatName": "Ventilation Grilles",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8277777777777778
+  },
+  "3625": {
+    "icecatName": "Tablet Spare Parts & Accessories",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8222222222222223
+  },
+  "3635": {
+    "icecatName": "Belts",
+    "backendId": 252,
+    "backendName": "Belt sander",
+    "score": 0.8500000000000001
+  },
+  "3649": {
+    "icecatName": "Party Games & Toys",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8285714285714286
+  },
+  "3686": {
+    "icecatName": "UPS Battery Cabinets",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8388888888888889
+  },
+  "3782": {
+    "icecatName": "Power Tool Auxiliary Handles",
+    "backendId": 4,
+    "backendName": "Power Tool",
+    "score": 0.8360000000000001
+  },
+  "3783": {
+    "icecatName": "Air Compressor & Pump Valves",
+    "backendId": 247,
+    "backendName": "Air compressor",
+    "score": 0.8565217391304348
+  },
+  "3784": {
+    "icecatName": "Air Compressor Accessories",
+    "backendId": 247,
+    "backendName": "Air compressor",
+    "score": 0.8541666666666667
+  },
+  "3785": {
+    "icecatName": "Smart Home Environmental Sensors",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8310344827586207
+  },
+  "3787": {
+    "icecatName": "Lawn Mower Parts & Accessories",
+    "backendId": 274,
+    "backendName": "Lawnmower",
+    "score": 0.8360000000000001
+  },
+  "3794": {
+    "icecatName": "Fire Alarm Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8352941176470589
+  },
+  "3802": {
+    "icecatName": "Wine Thermometers",
+    "backendId": 316,
+    "backendName": "Thermometer",
+    "score": 0.86875
+  },
+  "3841": {
+    "icecatName": "Smart Home Transmitters",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8428571428571429
+  },
+  "3843": {
+    "icecatName": "Smart Home Actuators",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8500000000000001
+  },
+  "3846": {
+    "icecatName": "Smart Home Multi-Sensors",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8428571428571429
+  },
+  "3875": {
+    "icecatName": "Popcorn",
+    "backendId": 103,
+    "backendName": "Popcorn machine",
+    "score": 0.8500000000000001
+  },
+  "3890": {
+    "icecatName": "Electric Air Pumps",
+    "backendId": 36,
+    "backendName": "Air pump",
+    "score": 0.84375
+  },
+  "3900": {
+    "icecatName": "Doorbell Transformers",
+    "backendId": 71,
+    "backendName": "Transformer",
+    "score": 0.8550000000000001
+  },
+  "3902": {
+    "icecatName": "Video Game Accessories",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8200000000000001
+  },
+  "3920": {
+    "icecatName": "Board & Card Game Accessories",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8166666666666668
+  },
+  "3929": {
+    "icecatName": "Gas Griddles",
+    "backendId": 91,
+    "backendName": "Griddle",
+    "score": 0.8636363636363636
+  },
+  "3937": {
+    "icecatName": "Smart Home Receivers",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8500000000000001
+  },
+  "3961": {
+    "icecatName": "Transformer Toys",
+    "backendId": 71,
+    "backendName": "Transformer",
+    "score": 0.8733333333333334
+  },
+  "3972": {
+    "icecatName": "Foot Air Pumps",
+    "backendId": 36,
+    "backendName": "Air pump",
+    "score": 0.8583333333333334
+  },
+  "3974": {
+    "icecatName": "Electric Staplers",
+    "backendId": 66,
+    "backendName": "Stapler",
+    "score": 0.84375
+  },
+  "3982": {
+    "icecatName": "Wireless Routers",
+    "backendId": 162,
+    "backendName": "Router",
+    "score": 0.8400000000000001
+  },
+  "3990": {
+    "icecatName": "Digital Body Thermometer Accessories",
+    "backendId": 316,
+    "backendName": "Thermometer",
+    "score": 0.8333333333333334
+  },
+  "4016": {
+    "icecatName": "Laptop Security Drawers",
+    "backendId": 167,
+    "backendName": "Laptop",
+    "score": 0.8285714285714286
+  },
+  "4031": {
+    "icecatName": "Camera Drone Parts & Accessories",
+    "backendId": 299,
+    "backendName": "Drone",
+    "score": 0.8185185185185185
+  },
+  "4044": {
+    "icecatName": "Raclette Grill Accessories",
+    "backendId": 105,
+    "backendName": "Raclette",
+    "score": 0.8333333333333334
+  },
+  "4063": {
+    "icecatName": "Camera Drone Cases",
+    "backendId": 299,
+    "backendName": "Drone",
+    "score": 0.83125
+  },
+  "4069": {
+    "icecatName": "Multi-Game Tables",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8266666666666667
+  },
+  "4092": {
+    "icecatName": "Robotic Window Cleaners",
+    "backendId": 306,
+    "backendName": "Robot",
+    "score": 0.8238095238095239
+  },
+  "4117": {
+    "icecatName": "Mobile TV Tuners",
+    "backendId": 210,
+    "backendName": "Tuner",
+    "score": 0.8357142857142857
+  },
+  "4145": {
+    "icecatName": "Cream",
+    "backendId": 96,
+    "backendName": "Ice cream maker",
+    "score": 0.8384615384615385
+  },
+  "4162": {
+    "icecatName": "Monitor Spare Parts",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8411764705882353
+  },
+  "4202": {
+    "icecatName": "Bread",
+    "backendId": 81,
+    "backendName": "Bread maker",
+    "score": 0.8500000000000001
+  },
+  "4346": {
+    "icecatName": "Industrial Environmental Sensors & Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8184210526315789
+  },
+  "4371": {
+    "icecatName": "Robot Platforms & Kits",
+    "backendId": 306,
+    "backendName": "Robot",
+    "score": 0.8277777777777778
+  },
+  "4374": {
+    "icecatName": "Video Baby Monitor Accessories",
+    "backendId": 38,
+    "backendName": "Baby monitor",
+    "score": 0.8407407407407408
+  },
+  "4377": {
+    "icecatName": "Toothbrushes",
+    "backendId": 152,
+    "backendName": "Toothbrush",
+    "score": 0.8833333333333334
+  },
+  "4404": {
+    "icecatName": "Stapler & Hole Punch Sets",
+    "backendId": 66,
+    "backendName": "Stapler",
+    "score": 0.8350000000000001
+  },
+  "4501": {
+    "icecatName": "Clocks",
+    "backendId": 43,
+    "backendName": "Clock",
+    "score": 0.8833333333333334
+  },
+  "4503": {
+    "icecatName": "Floor & Grandfather Clocks",
+    "backendId": 43,
+    "backendName": "Clock",
+    "score": 0.8227272727272728
+  },
+  "4504": {
+    "icecatName": "Sun Clocks",
+    "backendId": 43,
+    "backendName": "Clock",
+    "score": 0.8555555555555556
+  },
+  "4554": {
+    "icecatName": "Video Game Chairs",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8266666666666667
+  },
+  "4582": {
+    "icecatName": "Egg Slicers",
+    "backendId": 108,
+    "backendName": "Slicer",
+    "score": 0.8600000000000001
+  },
+  "4622": {
+    "icecatName": "Craft Cutting Machines",
+    "backendId": 258,
+    "backendName": "Cutting machine",
+    "score": 0.87
+  },
+  "4623": {
+    "icecatName": "Craft Cutting Machine Supplies",
+    "backendId": 258,
+    "backendName": "Cutting machine",
+    "score": 0.8518518518518519
+  },
+  "4625": {
+    "icecatName": "Camping Griddles",
+    "backendId": 91,
+    "backendName": "Griddle",
+    "score": 0.8466666666666667
+  },
+  "4652": {
+    "icecatName": "Robot Mops",
+    "backendId": 306,
+    "backendName": "Robot",
+    "score": 0.8555555555555556
+  },
+  "4664": {
+    "icecatName": "Electronic Tuners",
+    "backendId": 210,
+    "backendName": "Tuner",
+    "score": 0.83125
+  },
+  "4671": {
+    "icecatName": "Audio Preamplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8500000000000001
+  },
+  "4682": {
+    "icecatName": "Speaker Drivers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8500000000000001
+  },
+  "4694": {
+    "icecatName": "Smart Home Security Kits",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8428571428571429
+  },
+  "4699": {
+    "icecatName": "Humidifier Parts & Accessories",
+    "backendId": 52,
+    "backendName": "Humidifier",
+    "score": 0.8384615384615385
+  },
+  "4736": {
+    "icecatName": "Jigsaw, Scroll Saw & Reciprocating Saw Blades",
+    "backendId": 273,
+    "backendName": "Jigsaw",
+    "score": 0.8162162162162163
+  },
+  "4740": {
+    "icecatName": "Chains",
+    "backendId": 255,
+    "backendName": "Chainsaw",
+    "score": 0.875
+  },
+  "4763": {
+    "icecatName": "Garden Power Tools",
+    "backendId": 4,
+    "backendName": "Power Tool",
+    "score": 0.8562500000000001
+  },
+  "4835": {
+    "icecatName": "Garden Torches",
+    "backendId": 246,
+    "backendName": "Torch",
+    "score": 0.8384615384615385
+  },
+  "4836": {
+    "icecatName": "Garden Torch Accessories",
+    "backendId": 246,
+    "backendName": "Torch",
+    "score": 0.8227272727272728
+  },
+  "4868": {
+    "icecatName": "Carpet Cleaners & Deodorizers",
+    "backendId": 127,
+    "backendName": "Carpet cleaner",
+    "score": 0.8520000000000001
+  },
+  "4964": {
+    "icecatName": "Refrigerators & Freezers",
+    "backendId": 29,
+    "backendName": "Freezer",
+    "score": 0.8333333333333334
+  },
+  "4969": {
+    "icecatName": "Staplers & Hole Punches",
+    "backendId": 66,
+    "backendName": "Stapler",
+    "score": 0.8368421052631579
+  },
+  "4979": {
+    "icecatName": "Map Reading Lights",
+    "backendId": 243,
+    "backendName": "Reading light",
+    "score": 0.875
+  },
+  "4990": {
+    "icecatName": "Pressure Cooker Accessories",
+    "backendId": 104,
+    "backendName": "Pressure cooker",
+    "score": 0.8560000000000001
+  },
+  "4991": {
+    "icecatName": "Blow Torch Lamps",
+    "backendId": 246,
+    "backendName": "Torch",
+    "score": 0.8357142857142857
+  },
+  "4998": {
+    "icecatName": "Tiles",
+    "backendId": 67,
+    "backendName": "Steam appliance (for textiles)",
+    "score": 0.8200000000000001
+  },
+  "5017": {
+    "icecatName": "Speaker Grilles",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8500000000000001
+  },
+  "5027": {
+    "icecatName": "Audio Visual Equipment Parts & Accessories",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8138888888888889
+  },
+  "5028": {
+    "icecatName": "Audio Crossovers",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8333333333333334
+  },
+  "5040": {
+    "icecatName": "Pruning Shears",
+    "backendId": 65,
+    "backendName": "Pruning shears / Garden shears",
+    "score": 0.8520000000000001
+  },
+  "5064": {
+    "icecatName": "Dice Games",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8444444444444444
+  },
+  "5116": {
+    "icecatName": "Multi-Tool Knife Spare Parts",
+    "backendId": 280,
+    "backendName": "Multitool",
+    "score": 0.8375
+  },
+  "5140": {
+    "icecatName": "Stage & Studio Lighting Dimmers",
+    "backendId": 47,
+    "backendName": "Dimmer",
+    "score": 0.8230769230769232
+  },
+  "5147": {
+    "icecatName": "Garden Petrol Multi-Tools",
+    "backendId": 280,
+    "backendName": "Multitool",
+    "score": 0.8409090909090909
+  },
+  "5149": {
+    "icecatName": "Garden Electric Multi-Tools",
+    "backendId": 280,
+    "backendName": "Multitool",
+    "score": 0.8375
+  },
+  "5208": {
+    "icecatName": "Craft Cutting Machine Parts & Accessories",
+    "backendId": 258,
+    "backendName": "Cutting machine",
+    "score": 0.8400000000000001
+  },
+  "5215": {
+    "icecatName": "Vehicle Battery Charger Accessories",
+    "backendId": 40,
+    "backendName": "Battery charger",
+    "score": 0.84375
+  },
+  "5228": {
+    "icecatName": "Recreational, Leisure Sports Equipment & Games",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8102564102564103
+  },
+  "5251": {
+    "icecatName": "Microphone Stands",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.8625
+  },
+  "5264": {
+    "icecatName": "Raclette Melters",
+    "backendId": 105,
+    "backendName": "Raclette",
+    "score": 0.8533333333333334
+  },
+  "5294": {
+    "icecatName": "Doorbell Push Buttons",
+    "backendId": 48,
+    "backendName": "Doorbell",
+    "score": 0.8421052631578948
+  },
+  "5295": {
+    "icecatName": "Doorbell Chimes",
+    "backendId": 48,
+    "backendName": "Doorbell",
+    "score": 0.8571428571428572
+  },
+  "5297": {
+    "icecatName": "Milling Cutters",
+    "backendId": 277,
+    "backendName": "Milling cutter",
+    "score": 0.8928571428571429
+  },
+  "5304": {
+    "icecatName": "Hair Dryer Holders",
+    "backendId": 143,
+    "backendName": "Hair dryer",
+    "score": 0.8562500000000001
+  },
+  "5311": {
+    "icecatName": "Industrial Fans & Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8285714285714286
+  },
+  "5348": {
+    "icecatName": "Cream Whipper Chargers",
+    "backendId": 42,
+    "backendName": "Charger",
+    "score": 0.8350000000000001
+  },
+  "5439": {
+    "icecatName": "Water Heater & Boiler Accessories",
+    "backendId": 18,
+    "backendName": "Boiler",
+    "score": 0.8214285714285715
+  },
+  "5459": {
+    "icecatName": "Children's Tablet Accessories",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8230769230769232
+  },
+  "5467": {
+    "icecatName": "Children's Tablets",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8375
+  },
+  "5481": {
+    "icecatName": "CNC Routers",
+    "backendId": 162,
+    "backendName": "Router",
+    "score": 0.8600000000000001
+  },
+  "5483": {
+    "icecatName": "CNC Router Parts & Accessories",
+    "backendId": 162,
+    "backendName": "Router",
+    "score": 0.8240000000000001
+  },
+  "5504": {
+    "icecatName": "Sleep Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8538461538461539
+  },
+  "5514": {
+    "icecatName": "Slicer Parts & Accessories",
+    "backendId": 108,
+    "backendName": "Slicer",
+    "score": 0.8272727272727273
+  },
+  "5520": {
+    "icecatName": "Throwing Games & Supplies",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8190476190476191
+  },
+  "5522": {
+    "icecatName": "Desktop Game Sets",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8266666666666667
+  },
+  "5524": {
+    "icecatName": "Cooking Food Processors",
+    "backendId": 89,
+    "backendName": "Food processor",
+    "score": 0.861904761904762
+  },
+  "5529": {
+    "icecatName": "Laser Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8571428571428572
+  },
+  "5555": {
+    "icecatName": "Air Conditioner Accessories",
+    "backendId": 31,
+    "backendName": "Air conditioner",
+    "score": 0.8560000000000001
+  },
+  "5557": {
+    "icecatName": "Motorcycle Speakers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8388888888888889
+  },
+  "5560": {
+    "icecatName": "Impedance Matching Transformers",
+    "backendId": 71,
+    "backendName": "Transformer",
+    "score": 0.8379310344827586
+  },
+  "5568": {
+    "icecatName": "Public Address (PA) Speakers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8304347826086957
+  },
+  "5569": {
+    "icecatName": "Stage Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8538461538461539
+  },
+  "5571": {
+    "icecatName": "Wireless Microphone Systems",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.8400000000000001
+  },
+  "5572": {
+    "icecatName": "Wireless Microphone Transmitters",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.8333333333333334
+  },
+  "5573": {
+    "icecatName": "Wireless Microphone Receivers",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.837037037037037
+  },
+  "5581": {
+    "icecatName": "Body Fat Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8466666666666667
+  },
+  "5585": {
+    "icecatName": "Outdoor Oven Covers",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.823529411764706
+  },
+  "5603": {
+    "icecatName": "Toaster Ovens",
+    "backendId": 116,
+    "backendName": "Toaster",
+    "score": 0.8583333333333334
+  },
+  "5604": {
+    "icecatName": "Outdoor Ovens",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8333333333333334
+  },
+  "5610": {
+    "icecatName": "Recording Audio Interfaces",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8208333333333334
+  },
+  "5626": {
+    "icecatName": "Speaker Feet & Spikes",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8411764705882353
+  },
+  "5647": {
+    "icecatName": "Medical Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8466666666666667
+  },
+  "5649": {
+    "icecatName": "Medical Imaging Cameras",
+    "backendId": 12,
+    "backendName": "Imaging",
+    "score": 0.8333333333333334
+  },
+  "5663": {
+    "icecatName": "Tabletop Games",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8461538461538463
+  },
+  "5664": {
+    "icecatName": "Dice Game Accessories",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8210526315789474
+  },
+  "5720": {
+    "icecatName": "Video Game Arcade Cabinets",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8173913043478261
+  },
+  "5740": {
+    "icecatName": "Audio Conferencing Bridges",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8208333333333334
+  },
+  "5742": {
+    "icecatName": "Face Highlighters",
+    "backendId": 276,
+    "backendName": "Lighter",
+    "score": 0.84375
+  },
+  "5747": {
+    "icecatName": "Multiroom Audio Controller Accessories",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8142857142857143
+  },
+  "5807": {
+    "icecatName": "Dog & Cat Safety Nets & Grilles",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8217391304347826
+  },
+  "5858": {
+    "icecatName": "Dehumidifier Parts & Accessories",
+    "backendId": 33,
+    "backendName": "Dehumidifier",
+    "score": 0.8428571428571429
+  },
+  "5863": {
+    "icecatName": "Steamer Pots",
+    "backendId": 113,
+    "backendName": "Steamer",
+    "score": 0.8636363636363636
+  },
+  "5865": {
+    "icecatName": "Food Thermometer Parts & Accessories",
+    "backendId": 316,
+    "backendName": "Thermometer",
+    "score": 0.835483870967742
+  },
+  "5872": {
+    "icecatName": "Smart Home Central Control Unit Accessories",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8236842105263158
+  },
+  "5881": {
+    "icecatName": "Pet Toothbrushes",
+    "backendId": 152,
+    "backendName": "Toothbrush",
+    "score": 0.8666666666666667
+  },
+  "5887": {
+    "icecatName": "Remote Control Extenders",
+    "backendId": 181,
+    "backendName": "Remote control",
+    "score": 0.8590909090909091
+  },
+  "5888": {
+    "icecatName": "Remote Control Extender Accessories",
+    "backendId": 181,
+    "backendName": "Remote control",
+    "score": 0.8406250000000001
+  },
+  "5896": {
+    "icecatName": "Industrial Space Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8272727272727273
+  },
+  "5903": {
+    "icecatName": "Dutch Ovens",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8400000000000001
+  },
+  "5904": {
+    "icecatName": "Double Boilers",
+    "backendId": 18,
+    "backendName": "Boiler",
+    "score": 0.8461538461538463
+  },
+  "5910": {
+    "icecatName": "Steamer Baskets",
+    "backendId": 113,
+    "backendName": "Steamer",
+    "score": 0.8500000000000001
+  },
+  "5982": {
+    "icecatName": "Calculator Accessories",
+    "backendId": 175,
+    "backendName": "Calculator",
+    "score": 0.8476190476190477
+  },
+  "5995": {
+    "icecatName": "Guitar Amplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8562500000000001
+  },
+  "6002": {
+    "icecatName": "Aquarium Air Pumps",
+    "backendId": 36,
+    "backendName": "Air pump",
+    "score": 0.84375
+  },
+  "6003": {
+    "icecatName": "Aquarium Water Pumps",
+    "backendId": 75,
+    "backendName": "Water pump",
+    "score": 0.8500000000000001
+  },
+  "6005": {
+    "icecatName": "Aquarium Air Pump Accessories",
+    "backendId": 36,
+    "backendName": "Air pump",
+    "score": 0.826923076923077
+  },
+  "6007": {
+    "icecatName": "Aquarium Water Pump Accessories",
+    "backendId": 75,
+    "backendName": "Water pump",
+    "score": 0.8321428571428572
+  },
+  "6090": {
+    "icecatName": "Video Game Subscriptions",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8181818181818182
+  },
+  "6155": {
+    "icecatName": "Outdoor Oven Accessories",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8181818181818182
+  },
+  "6168": {
+    "icecatName": "Audiobooks",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8500000000000001
+  },
+  "6171": {
+    "icecatName": "Watch/Clock Parts & Accessories",
+    "backendId": 43,
+    "backendName": "Clock",
+    "score": 0.8192307692307693
+  },
+  "6195": {
+    "icecatName": "Stovetop Pressure Cookers",
+    "backendId": 104,
+    "backendName": "Pressure cooker",
+    "score": 0.8608695652173913
+  },
+  "6353": {
+    "icecatName": "Sewing Machine Parts & Accessories",
+    "backendId": 290,
+    "backendName": "Sewing machine",
+    "score": 0.8448275862068966
+  },
+  "6383": {
+    "icecatName": "Isolation Transformers",
+    "backendId": 71,
+    "backendName": "Transformer",
+    "score": 0.8523809523809525
+  },
+  "6405": {
+    "icecatName": "Audio Samplers",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8384615384615385
+  },
+  "6441": {
+    "icecatName": "Personal Scale Accessories",
+    "backendId": 57,
+    "backendName": "Personal scale",
+    "score": 0.8541666666666667
+  },
+  "6480": {
+    "icecatName": "Musical Instrument Amplifiers & Accessories",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8236842105263158
+  },
+  "6481": {
+    "icecatName": "Keyboard Amplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8500000000000001
+  },
+  "6482": {
+    "icecatName": "Acoustic Musical Instrument Amplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8257142857142857
+  },
+  "6488": {
+    "icecatName": "Musical Instrument Amplifier Parts & Accessories",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8214285714285715
+  },
+  "6515": {
+    "icecatName": "Liquid Fuel Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8352941176470589
+  },
+  "6541": {
+    "icecatName": "Gas Torches",
+    "backendId": 246,
+    "backendName": "Torch",
+    "score": 0.8500000000000001
+  },
+  "6557": {
+    "icecatName": "Hearing Protection Headphones",
+    "backendId": 177,
+    "backendName": "Headphones",
+    "score": 0.837037037037037
+  },
+  "6580": {
+    "icecatName": "Hammer Tackers",
+    "backendId": 296,
+    "backendName": "Tacker",
+    "score": 0.8461538461538463
+  },
+  "6591": {
+    "icecatName": "Electric Nail Care Tools",
+    "backendId": 148,
+    "backendName": "Nail care",
+    "score": 0.8380952380952381
+  },
+  "6593": {
+    "icecatName": "Tent Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8545454545454546
+  },
+  "6624": {
+    "icecatName": "Stationary Cutting Machines",
+    "backendId": 258,
+    "backendName": "Cutting machine",
+    "score": 0.8560000000000001
+  },
+  "6628": {
+    "icecatName": "Pipe & Tube Cutting Machines",
+    "backendId": 258,
+    "backendName": "Cutting machine",
+    "score": 0.8608695652173913
+  },
+  "6637": {
+    "icecatName": "Multimeter Accessories",
+    "backendId": 55,
+    "backendName": "Multimeter",
+    "score": 0.8476190476190477
+  },
+  "6777": {
+    "icecatName": "Vehicle Battery Trays",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8368421052631579
+  },
+  "6778": {
+    "icecatName": "Battery Terminals",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.84375
+  },
+  "6793": {
+    "icecatName": "Battery Boxes",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8583333333333334
+  },
+  "6809": {
+    "icecatName": "Analog Weather Stations",
+    "backendId": 76,
+    "backendName": "Weather station",
+    "score": 0.8666666666666667
+  },
+  "6811": {
+    "icecatName": "Greenhouse Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8352941176470589
+  },
+  "6820": {
+    "icecatName": "Thermostatic Radiator Valves",
+    "backendId": 69,
+    "backendName": "Thermostat",
+    "score": 0.8384615384615385
+  },
+  "6821": {
+    "icecatName": "Immersion Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8375
+  },
+  "6850": {
+    "icecatName": "Thermostat Accessories",
+    "backendId": 69,
+    "backendName": "Thermostat",
+    "score": 0.8476190476190477
+  },
+  "6866": {
+    "icecatName": "Smart Smoke Detectors",
+    "backendId": 317,
+    "backendName": "Smoke detector",
+    "score": 0.868421052631579
+  },
+  "6905": {
+    "icecatName": "Video Game Chair Parts & Accessories",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8133333333333334
+  },
+  "6930": {
+    "icecatName": "Cake Decorating Turntables",
+    "backendId": 211,
+    "backendName": "Turntable",
+    "score": 0.8375
+  },
+  "7012": {
+    "icecatName": "Commercial Use Hot Dog Grills",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8200000000000001
+  },
+  "7013": {
+    "icecatName": "Commercial Use Dishwashers",
+    "backendId": 17,
+    "backendName": "Dishwasher",
+    "score": 0.8416666666666667
+  },
+  "7047": {
+    "icecatName": "Acute Care Monitoring Devices",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.826923076923077
+  },
+  "7048": {
+    "icecatName": "Vital Signs Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8388888888888889
+  },
+  "7049": {
+    "icecatName": "Vital Signs Monitor Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8250000000000001
+  },
+  "7060": {
+    "icecatName": "Steam Ovens",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8400000000000001
+  },
+  "7092": {
+    "icecatName": "Industrial Laminators",
+    "backendId": 54,
+    "backendName": "Laminator",
+    "score": 0.8450000000000001
+  },
+  "7156": {
+    "icecatName": "Video Line Amplifier Accessories",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8310344827586207
+  },
+  "7165": {
+    "icecatName": "Guitar Preamplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8473684210526317
+  },
+  "7180": {
+    "icecatName": "Network Switching Subsystems (NSS)",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8206896551724139
+  },
+  "7187": {
+    "icecatName": "Transport Networking Transmission Equipment",
+    "backendId": 10,
+    "backendName": "Networking",
+    "score": 0.8250000000000001
+  },
+  "7227": {
+    "icecatName": "Camera Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8500000000000001
+  },
+  "7230": {
+    "icecatName": "Camera Audio Adapters",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8263157894736842
+  },
+  "7232": {
+    "icecatName": "Direct To Garment (DTG) Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.826923076923077
+  },
+  "7289": {
+    "icecatName": "Walkers & Rollators",
+    "backendId": 107,
+    "backendName": "Rollator",
+    "score": 0.8500000000000001
+  },
+  "7292": {
+    "icecatName": "Automatic Transfer Switches (ATSs)",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8206896551724139
+  },
+  "7327": {
+    "icecatName": "Laboratory Freezers",
+    "backendId": 29,
+    "backendName": "Freezer",
+    "score": 0.8388888888888889
+  },
+  "7332": {
+    "icecatName": "Laboratory Ovens",
+    "backendId": 20,
+    "backendName": "Oven",
+    "score": 0.8266666666666667
+  },
+  "7333": {
+    "icecatName": "Laboratory Blenders",
+    "backendId": 80,
+    "backendName": "Blender",
+    "score": 0.8388888888888889
+  },
+  "7334": {
+    "icecatName": "Laboratory Centrifuges",
+    "backendId": 24,
+    "backendName": "Centrifuge",
+    "score": 0.8476190476190477
+  },
+  "7335": {
+    "icecatName": "Laboratory Hot Plates",
+    "backendId": 95,
+    "backendName": "Hot plate",
+    "score": 0.8421052631578948
+  },
+  "7352": {
+    "icecatName": "Toothbrush Sanitizers",
+    "backendId": 152,
+    "backendName": "Toothbrush",
+    "score": 0.8500000000000001
+  },
+  "7378": {
+    "icecatName": "Arcade Games",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8363636363636364
+  },
+  "7383": {
+    "icecatName": "Speaker Management Systems",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8291666666666667
+  },
+  "7405": {
+    "icecatName": "Power Supply Enclosures",
+    "backendId": 63,
+    "backendName": "Power supply",
+    "score": 0.8523809523809525
+  },
+  "7408": {
+    "icecatName": "Printer Ink Refills",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8411764705882353
+  },
+  "7538": {
+    "icecatName": "Printer Accessibility Accessories",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8225806451612904
+  },
+  "7576": {
+    "icecatName": "Lighters",
+    "backendId": 276,
+    "backendName": "Lighter",
+    "score": 0.8875000000000001
+  },
+  "7588": {
+    "icecatName": "Thermal Imaging Cameras",
+    "backendId": 12,
+    "backendName": "Imaging",
+    "score": 0.8333333333333334
+  },
+  "7598": {
+    "icecatName": "Power Tool Combo Kits",
+    "backendId": 4,
+    "backendName": "Power Tool",
+    "score": 0.8500000000000001
+  },
+  "7604": {
+    "icecatName": "Personal Care Products",
+    "backendId": 14,
+    "backendName": "Personal Care",
+    "score": 0.8600000000000001
+  },
+  "7700": {
+    "icecatName": "Grill & Oven Cleaners",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8294117647058824
+  },
+  "7725": {
+    "icecatName": "Coffee Grinder Parts & Accessories",
+    "backendId": 84,
+    "backendName": "Coffee grinder",
+    "score": 0.8448275862068966
+  },
+  "7726": {
+    "icecatName": "Breadmaker Parts & Accessories",
+    "backendId": 81,
+    "backendName": "Bread maker",
+    "score": 0.8384615384615385
+  },
+  "7731": {
+    "icecatName": "Electric Knife Replacement Blades",
+    "backendId": 87,
+    "backendName": "Electric knife",
+    "score": 0.8433333333333334
+  },
+  "7755": {
+    "icecatName": "Chainsaw Bars",
+    "backendId": 255,
+    "backendName": "Chainsaw",
+    "score": 0.8666666666666667
+  },
+  "7875": {
+    "icecatName": "Arcade & Table Games",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8250000000000001
+  },
+  "7879": {
+    "icecatName": "Target Games & Equipment",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8200000000000001
+  },
+  "7900": {
+    "icecatName": "Contact Grills",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8384615384615385
+  },
+  "7914": {
+    "icecatName": "Toothbrush Covers",
+    "backendId": 152,
+    "backendName": "Toothbrush",
+    "score": 0.8625
+  },
+  "7919": {
+    "icecatName": "Sauna Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8500000000000001
+  },
+  "7921": {
+    "icecatName": "Pallet Stackers",
+    "backendId": 296,
+    "backendName": "Tacker",
+    "score": 0.8428571428571429
+  },
+  "7923": {
+    "icecatName": "Pool Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8545454545454546
+  },
+  "7925": {
+    "icecatName": "Pool Heater Accessories",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8285714285714286
+  },
+  "7927": {
+    "icecatName": "Doorbell Chime Covers",
+    "backendId": 48,
+    "backendName": "Doorbell",
+    "score": 0.8421052631578948
+  },
+  "7932": {
+    "icecatName": "Hearing Aid Devices For The Physically Challenged",
+    "backendId": 179,
+    "backendName": "Hearing aid",
+    "score": 0.8232558139534885
+  },
+  "7952": {
+    "icecatName": "Power Chainsaw Accessories",
+    "backendId": 255,
+    "backendName": "Chainsaw",
+    "score": 0.8333333333333334
+  },
+  "7957": {
+    "icecatName": "Cool Box Accessories",
+    "backendId": 45,
+    "backendName": "Cool box",
+    "score": 0.8388888888888889
+  },
+  "7960": {
+    "icecatName": "Power Jigsaw Accessories",
+    "backendId": 273,
+    "backendName": "Jigsaw",
+    "score": 0.8272727272727273
+  },
+  "8102": {
+    "icecatName": "Alarm Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8571428571428572
+  },
+  "8138": {
+    "icecatName": "Audio Conferencing Systems",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8208333333333334
+  },
+  "8154": {
+    "icecatName": "Writing Tablets",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8428571428571429
+  },
+  "8157": {
+    "icecatName": "Atomic Clock Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8400000000000001
+  },
+  "8172": {
+    "icecatName": "Cordless Tool Batteries & Chargers",
+    "backendId": 42,
+    "backendName": "Charger",
+    "score": 0.8241379310344829
+  },
+  "8173": {
+    "icecatName": "Speaker Enclosure Parts",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8333333333333334
+  },
+  "8175": {
+    "icecatName": "Liquid Fuel Heater Accessories",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8222222222222223
+  },
+  "8202": {
+    "icecatName": "Matrix Switchers",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8400000000000001
+  },
+  "8203": {
+    "icecatName": "Matrix Switch Accessories",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8260869565217391
+  },
+  "8208": {
+    "icecatName": "Waveform Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.84375
+  },
+  "8210": {
+    "icecatName": "Broadcast Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8411764705882353
+  },
+  "8227": {
+    "icecatName": "Robotic Total Station Accessories",
+    "backendId": 306,
+    "backendName": "Robot",
+    "score": 0.8166666666666668
+  },
+  "8241": {
+    "icecatName": "Car Media Receiver Parts & Accessories",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8250000000000001
+  },
+  "8318": {
+    "icecatName": "Camera Monitor Hoods",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8388888888888889
+  },
+  "8324": {
+    "icecatName": "Battery Storage Boxes",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8368421052631579
+  },
+  "8341": {
+    "icecatName": "Patio Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8500000000000001
+  },
+  "8345": {
+    "icecatName": "Clock Parts & Accessories",
+    "backendId": 43,
+    "backendName": "Clock",
+    "score": 0.8238095238095239
+  },
+  "8355": {
+    "icecatName": "Laptop Parts & Accessories",
+    "backendId": 167,
+    "backendName": "Laptop",
+    "score": 0.8272727272727273
+  },
+  "8358": {
+    "icecatName": "Vehicle Battery Equipment",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8304347826086957
+  },
+  "8392": {
+    "icecatName": "Blow Torch Lamp Parts & Accessories",
+    "backendId": 246,
+    "backendName": "Torch",
+    "score": 0.8172413793103449
+  },
+  "8410": {
+    "icecatName": "Power Quality Monitoring Devices",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8241379310344829
+  },
+  "8436": {
+    "icecatName": "Handheld Thermometers",
+    "backendId": 316,
+    "backendName": "Thermometer",
+    "score": 0.8550000000000001
+  },
+  "8468": {
+    "icecatName": "Audio Generators",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8333333333333334
+  },
+  "8470": {
+    "icecatName": "Graphic Tablet Accessories",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8250000000000001
+  },
+  "8478": {
+    "icecatName": "Thermal Imaging Camera Parts & Accessories",
+    "backendId": 12,
+    "backendName": "Imaging",
+    "score": 0.8194444444444445
+  },
+  "8488": {
+    "icecatName": "Antistatic Office Equipment",
+    "backendId": 9,
+    "backendName": "Office Equipment",
+    "score": 0.8600000000000001
+  },
+  "8494": {
+    "icecatName": "Broadband Preamplifiers",
+    "backendId": 192,
+    "backendName": "Amplifier",
+    "score": 0.8409090909090909
+  },
+  "8500": {
+    "icecatName": "Key Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8545454545454546
+  },
+  "8503": {
+    "icecatName": "Zone Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8583333333333334
+  },
+  "8505": {
+    "icecatName": "Wireless Microphone Antenna Amplifiers",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.8285714285714286
+  },
+  "8506": {
+    "icecatName": "Wireless In-Ear Monitoring Systems",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8233333333333334
+  },
+  "8508": {
+    "icecatName": "Screen Protector Cutting Machines",
+    "backendId": 258,
+    "backendName": "Cutting machine",
+    "score": 0.8466666666666667
+  },
+  "8510": {
+    "icecatName": "Screen Protector Cutting Machine Parts",
+    "backendId": 258,
+    "backendName": "Cutting machine",
+    "score": 0.8411764705882353
+  },
+  "8540": {
+    "icecatName": "Doorbell Parts & Accessories",
+    "backendId": 48,
+    "backendName": "Doorbell",
+    "score": 0.8333333333333334
+  },
+  "8543": {
+    "icecatName": "Benchtop & Stationary Sanders",
+    "backendId": 286,
+    "backendName": "Sander",
+    "score": 0.8240000000000001
+  },
+  "8544": {
+    "icecatName": "Benchtop Cut-Off Saws",
+    "backendId": 257,
+    "backendName": "Cut off saw",
+    "score": 0.8500000000000001
+  },
+  "8548": {
+    "icecatName": "Video Game Arcade Cabinet Accessories",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8121212121212121
+  },
+  "8558": {
+    "icecatName": "Handheld Cut-Off Saws & Concrete Cutters",
+    "backendId": 257,
+    "backendName": "Cut off saw",
+    "score": 0.8272727272727273
+  },
+  "8566": {
+    "icecatName": "Puppet Theaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8428571428571429
+  },
+  "8569": {
+    "icecatName": "Power Extension Accessories",
+    "backendId": 62,
+    "backendName": "Power extension",
+    "score": 0.8560000000000001
+  },
+  "8580": {
+    "icecatName": "Leaf Blower Accessories",
+    "backendId": 275,
+    "backendName": "Leaf blower",
+    "score": 0.8476190476190477
+  },
+  "8621": {
+    "icecatName": "Hair Dryer Accessories",
+    "backendId": 143,
+    "backendName": "Hair dryer",
+    "score": 0.8450000000000001
+  },
+  "8628": {
+    "icecatName": "Camera Monitor Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8291666666666667
+  },
+  "8646": {
+    "icecatName": "Dishwasher Cleaners",
+    "backendId": 17,
+    "backendName": "Dishwasher",
+    "score": 0.8555555555555556
+  },
+  "8652": {
+    "icecatName": "Handheld Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.84375
+  },
+  "8657": {
+    "icecatName": "Battery Acid Hydrometers",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8318181818181819
+  },
+  "8685": {
+    "icecatName": "Keyboard/Mouse Cables",
+    "backendId": 159,
+    "backendName": "Mouse",
+    "score": 0.8263157894736842
+  },
+  "8722": {
+    "icecatName": "Weather Station Accessories",
+    "backendId": 76,
+    "backendName": "Weather station",
+    "score": 0.8560000000000001
+  },
+  "8739": {
+    "icecatName": "Laboratory Power Supply Units",
+    "backendId": 63,
+    "backendName": "Power supply",
+    "score": 0.8423076923076923
+  },
+  "8740": {
+    "icecatName": "Laboratory Power Supply Unit Accessories",
+    "backendId": 63,
+    "backendName": "Power supply",
+    "score": 0.8305555555555556
+  },
+  "8743": {
+    "icecatName": "Rotary Multi-tools",
+    "backendId": 280,
+    "backendName": "Multitool",
+    "score": 0.8562500000000001
+  },
+  "8744": {
+    "icecatName": "Tact Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8500000000000001
+  },
+  "8752": {
+    "icecatName": "Networking Hardware",
+    "backendId": 10,
+    "backendName": "Networking",
+    "score": 0.8555555555555556
+  },
+  "8758": {
+    "icecatName": "Network Management & Monitoring",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.825925925925926
+  },
+  "8760": {
+    "icecatName": "Televisions",
+    "backendId": 228,
+    "backendName": "Flat Display Panel Television (LCD, LED, Plasma)",
+    "score": 0,
+    "manual": true
+  },
+  "8761": {
+    "icecatName": "Audio Visual Equipment",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8250000000000001
+  },
+  "8763": {
+    "icecatName": "Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8875000000000001
+  },
+  "8764": {
+    "icecatName": "Monitor Parts & Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8304347826086957
+  },
+  "8786": {
+    "icecatName": "Speakers",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8875000000000001
+  },
+  "8787": {
+    "icecatName": "Home Audio",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8555555555555556
+  },
+  "8788": {
+    "icecatName": "Home Audio Components",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8263157894736842
+  },
+  "8791": {
+    "icecatName": "Portable Audio & Headphones",
+    "backendId": 187,
+    "backendName": "Portable audio",
+    "score": 0.8565217391304348
+  },
+  "8794": {
+    "icecatName": "Home Audio Parts & Accessories",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8200000000000001
+  },
+  "8795": {
+    "icecatName": "Portable Audio/Headphone Parts & Accessories",
+    "backendId": 187,
+    "backendName": "Portable audio",
+    "score": 0.8342105263157895
+  },
+  "8803": {
+    "icecatName": "Remote Controls & Accessories",
+    "backendId": 181,
+    "backendName": "Remote control",
+    "score": 0.8520000000000001
+  },
+  "8804": {
+    "icecatName": "Microphones & Accessories",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.8454545454545455
+  },
+  "8805": {
+    "icecatName": "Digital Photo Frames & Accessories",
+    "backendId": 46,
+    "backendName": "Digital photo frame",
+    "score": 0.8586206896551725
+  },
+  "8810": {
+    "icecatName": "Commercial Refrigerators & Freezers",
+    "backendId": 29,
+    "backendName": "Freezer",
+    "score": 0.8225806451612904
+  },
+  "8831": {
+    "icecatName": "Electrical Potentiometer Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8193548387096775
+  },
+  "8844": {
+    "icecatName": "Gas Griddles Accessories",
+    "backendId": 91,
+    "backendName": "Griddle",
+    "score": 0.8318181818181819
+  },
+  "8847": {
+    "icecatName": "Reed Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8500000000000001
+  },
+  "8850": {
+    "icecatName": "Erotic Toys & Games",
+    "backendId": 301,
+    "backendName": "Game",
+    "score": 0.8266666666666667
+  },
+  "8851": {
+    "icecatName": "Motorcycle Handle Bar Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8222222222222223
+  },
+  "8906": {
+    "icecatName": "Portable Speaker Parts & Accessories",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8225806451612904
+  },
+  "8912": {
+    "icecatName": "Health Monitor Device Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8233333333333334
+  },
+  "8919": {
+    "icecatName": "Tablet Case Accessories",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8285714285714286
+  },
+  "8921": {
+    "icecatName": "Tablet Screen Protectors",
+    "backendId": 6,
+    "backendName": "Tablet",
+    "score": 0.8272727272727273
+  },
+  "8940": {
+    "icecatName": "Nail Care & Art Tools",
+    "backendId": 148,
+    "backendName": "Nail care",
+    "score": 0.8500000000000001
+  },
+  "8941": {
+    "icecatName": "Nail Care Tools",
+    "backendId": 148,
+    "backendName": "Nail care",
+    "score": 0.8615384615384616
+  },
+  "8946": {
+    "icecatName": "Toothbrushes & Tongue Cleaners",
+    "backendId": 152,
+    "backendName": "Toothbrush",
+    "score": 0.8384615384615385
+  },
+  "8950": {
+    "icecatName": "Toothbrush & Tongue Cleaner Accessories",
+    "backendId": 152,
+    "backendName": "Toothbrush",
+    "score": 0.8294117647058824
+  },
+  "8968": {
+    "icecatName": "Audio Presentation Equipment & Accessories",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8135135135135135
+  },
+  "8978": {
+    "icecatName": "Health Monitors & Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8280000000000001
+  },
+  "8979": {
+    "icecatName": "Health Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8500000000000001
+  },
+  "8980": {
+    "icecatName": "Health Monitor Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8291666666666667
+  },
+  "9002": {
+    "icecatName": "Nail Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8583333333333334
+  },
+  "9016": {
+    "icecatName": "Typewriters & Supplies",
+    "backendId": 73,
+    "backendName": "Typewriter",
+    "score": 0.8526315789473684
+  },
+  "9017": {
+    "icecatName": "Paper Shredders & Accessories",
+    "backendId": 291,
+    "backendName": "Shredder",
+    "score": 0.8320000000000001
+  },
+  "9018": {
+    "icecatName": "Calculators & Accessories",
+    "backendId": 175,
+    "backendName": "Calculator",
+    "score": 0.8454545454545455
+  },
+  "9025": {
+    "icecatName": "Weather Stations & Accessories",
+    "backendId": 76,
+    "backendName": "Weather station",
+    "score": 0.8538461538461539
+  },
+  "9046": {
+    "icecatName": "Commercial Air Conditioners",
+    "backendId": 31,
+    "backendName": "Air conditioner",
+    "score": 0.8560000000000001
+  },
+  "9052": {
+    "icecatName": "Bottled Water Pumps",
+    "backendId": 75,
+    "backendName": "Water pump",
+    "score": 0.8529411764705883
+  },
+  "9069": {
+    "icecatName": "Electric Air Pump Accessories",
+    "backendId": 36,
+    "backendName": "Air pump",
+    "score": 0.826923076923077
+  },
+  "9078": {
+    "icecatName": "Industrial Robot Controllers",
+    "backendId": 306,
+    "backendName": "Robot",
+    "score": 0.8192307692307693
+  },
+  "9080": {
+    "icecatName": "Small Kitchen Appliance Parts & Accessories",
+    "backendId": 5,
+    "backendName": "Kitchen Appliance",
+    "score": 0.8432432432432433
+  },
+  "9082": {
+    "icecatName": "Mobile Device Wireless Charging Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8216216216216217
+  },
+  "9085": {
+    "icecatName": "Industrial Environmental Sensors & Monitors Accessories",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8142857142857143
+  },
+  "9115": {
+    "icecatName": "Soldering Irons & Stations",
+    "backendId": 292,
+    "backendName": "Soldering iron",
+    "score": 0.8590909090909091
+  },
+  "9149": {
+    "icecatName": "GNSS Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8615384615384616
+  },
+  "9157": {
+    "icecatName": "Industrial Networking Accessories",
+    "backendId": 10,
+    "backendName": "Networking",
+    "score": 0.832258064516129
+  },
+  "9163": {
+    "icecatName": "Industrial Safety Switches",
+    "backendId": 163,
+    "backendName": "Switch",
+    "score": 0.8250000000000001
+  },
+  "9188": {
+    "icecatName": "Garment Steamer Accessories",
+    "backendId": 113,
+    "backendName": "Steamer",
+    "score": 0.8280000000000001
+  },
+  "9199": {
+    "icecatName": "Wireless Microphone Transmitter Parts & Accessories",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.8222222222222223
+  },
+  "9202": {
+    "icecatName": "Wireless Microphone Receiver Parts & Accessories",
+    "backendId": 201,
+    "backendName": "Microphone",
+    "score": 0.8238095238095239
+  },
+  "9215": {
+    "icecatName": "Battery Dischargers",
+    "backendId": 39,
+    "backendName": "Battery",
+    "score": 0.8388888888888889
+  },
+  "9223": {
+    "icecatName": "Monitor Lights",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8538461538461539
+  },
+  "9224": {
+    "icecatName": "Nail Care Tool Spare Parts & Accessories",
+    "backendId": 148,
+    "backendName": "Nail care",
+    "score": 0.8242424242424243
+  },
+  "9290": {
+    "icecatName": "Die & Straight Grinder Accessories",
+    "backendId": 294,
+    "backendName": "Straight grinder",
+    "score": 0.8517241379310345
+  },
+  "9341": {
+    "icecatName": "Glass & Cutlery Polishers",
+    "backendId": 58,
+    "backendName": "Polisher",
+    "score": 0.8380952380952381
+  },
+  "9350": {
+    "icecatName": "Router & Trimmer Accessories",
+    "backendId": 162,
+    "backendName": "Router",
+    "score": 0.8250000000000001
+  },
+  "9368": {
+    "icecatName": "Plinth Heaters",
+    "backendId": 26,
+    "backendName": "Heater",
+    "score": 0.8461538461538463
+  },
+  "9374": {
+    "icecatName": "Commercial Use Grills",
+    "backendId": 92,
+    "backendName": "Grill",
+    "score": 0.8263157894736842
+  },
+  "9390": {
+    "icecatName": "Key Cutting Machine Parts & Accessories",
+    "backendId": 258,
+    "backendName": "Cutting machine",
+    "score": 0.8424242424242425
+  },
+  "9397": {
+    "icecatName": "Specialty Kitchen Appliances",
+    "backendId": 5,
+    "backendName": "Kitchen Appliance",
+    "score": 0.8615384615384616
+  },
+  "9405": {
+    "icecatName": "Soundbar Accessories",
+    "backendId": 222,
+    "backendName": "Soundbar",
+    "score": 0.8421052631578948
+  },
+  "9406": {
+    "icecatName": "Cutlery Polisher Parts & Accessories",
+    "backendId": 58,
+    "backendName": "Polisher",
+    "score": 0.8258064516129032
+  },
+  "9427": {
+    "icecatName": "Marine Media Receivers",
+    "backendId": 206,
+    "backendName": "Receiver",
+    "score": 0.8400000000000001
+  },
+  "9460": {
+    "icecatName": "Smart Home Water Controllers",
+    "backendId": 11,
+    "backendName": "Smart Home",
+    "score": 0.8360000000000001
+  },
+  "9467": {
+    "icecatName": "Audio Sampler Accessories",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8217391304347826
+  },
+  "9476": {
+    "icecatName": "Meat Aging Fridges & Cabinets",
+    "backendId": 266,
+    "backendName": "Fridge",
+    "score": 0.8250000000000001
+  },
+  "9482": {
+    "icecatName": "POS Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8636363636363636
+  },
+  "9487": {
+    "icecatName": "Audio Expanders",
+    "backendId": 8,
+    "backendName": "Audio",
+    "score": 0.8357142857142857
+  },
+  "9504": {
+    "icecatName": "3D Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.87
+  },
+  "9505": {
+    "icecatName": "Serving Robots",
+    "backendId": 306,
+    "backendName": "Robot",
+    "score": 0.8384615384615385
+  },
+  "9509": {
+    "icecatName": "Embedded Computer Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8291666666666667
+  },
+  "9510": {
+    "icecatName": "Marine Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8500000000000001
+  },
+  "9511": {
+    "icecatName": "Video Conference Monitors",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8304347826086957
+  },
+  "9512": {
+    "icecatName": "Foil Printers",
+    "backendId": 168,
+    "backendName": "Printer",
+    "score": 0.8583333333333334
+  },
+  "9517": {
+    "icecatName": "Typewriter Spare Parts & Accessories",
+    "backendId": 73,
+    "backendName": "Typewriter",
+    "score": 0.832258064516129
+  },
+  "9518": {
+    "icecatName": "Speaker Mount Parts & Accessories",
+    "backendId": 223,
+    "backendName": "Speaker",
+    "score": 0.8250000000000001
+  },
+  "9535": {
+    "icecatName": "Thermostatic Mixing Valves",
+    "backendId": 69,
+    "backendName": "Thermostat",
+    "score": 0.8416666666666667
+  },
+  "9540": {
+    "icecatName": "Traffic Monitoring Systems",
+    "backendId": 13,
+    "backendName": "Monitor",
+    "score": 0.8291666666666667
+  },
+  "9556": {
+    "icecatName": "Stapler Accessories",
+    "backendId": 66,
+    "backendName": "Stapler",
+    "score": 0.8388888888888889
+  },
+  "9560": {
+    "icecatName": "Pet Hair Dryer",
+    "backendId": 143,
+    "backendName": "Hair dryer",
+    "score": 0.875
+  },
+  "9578": {
+    "icecatName": "Laminator Parts & Accessories",
+    "backendId": 54,
+    "backendName": "Laminator",
+    "score": 0.8360000000000001
+  },
+  "1584": {
+    "icecatName": "TVs",
+    "backendId": 228,
+    "backendName": "Flat Display Panel Television (LCD, LED, Plasma)",
+    "score": 0,
+    "manual": true
+  }
+}

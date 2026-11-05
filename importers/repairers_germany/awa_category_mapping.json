@@ -1,0 +1,161 @@
+{
+  "Bauwerkzeuge (elektrisch)": [
+    "power_tool"
+  ],
+  "Blasinstrumente": [
+    "musical_instrument"
+  ],
+  "Bürotechnik": [
+    "printer_copier_scanner",
+    "personal_computer"
+  ],
+  "E-Bike/Fahrrad": [
+    "bicycle",
+    "e_bikes",
+    "bicycle_battery"
+  ],
+  "Elektrische und Elektronische Geräte": [
+    "other_electronics"
+  ],
+  "Elektrisches Werkzeug": [
+    "power_tool"
+  ],
+  "Elektronisches Spielzeug/Spielkonsolen": [
+    "gaming_console",
+    "toy"
+  ],
+  "Fahrrad/E-Bike": [
+    "bicycle",
+    "e_bikes",
+    "bicycle_battery"
+  ],
+  "Gartengeräte (elektrisch)": [
+    "power_tool"
+  ],
+  "Gartenmöbel": [
+    "furniture"
+  ],
+  "Gartenwerkzeuge (elektrisch)": [
+    "power_tool"
+  ],
+  "Haushaltsgroßgeräte": [
+    "home_appliance",
+    "large_home_electrical",
+    "fridge_combi_freezer"
+  ],
+  "Haushaltskleingeräte": [
+    "small_appliance",
+    "kitchen_appliance",
+    "vacuum_cleaner"
+  ],
+  "Holzmöbel": [
+    "furniture"
+  ],
+  "Kamera/Optik": [
+    "photo_camera",
+    "digital_compact_camera",
+    "video_camera"
+  ],
+  "Kleider/Textilien/Leder/Schuhe/Taschen": [
+    "clothing_textiles",
+    "leather",
+    "shoes"
+  ],
+  "Kleidung": [
+    "clothing_textiles"
+  ],
+  "Kleidung/Accessoires": [
+    "clothing_textiles"
+  ],
+  "Kleidung/Leder/Pelze/Kopfbedeckung": [
+    "clothing_textiles"
+  ],
+  "Kopfbedeckung": [
+    "clothing_textiles"
+  ],
+  "Lampen/Beleuchtung": [
+    "lamp",
+    "led_lamp"
+  ],
+  "Leder": [
+    "leather"
+  ],
+  "Metallmöbel": [
+    "furniture"
+  ],
+  "Musikinstrumente": [
+    "musical_instrument"
+  ],
+  "Möbel": [
+    "furniture"
+  ],
+  "Nähmaschinen": [
+    "sewing_machine"
+  ],
+  "PC/Drucker": [
+    "personal_computer",
+    "desktop_computer",
+    "laptop",
+    "printer"
+  ],
+  "Percussioninstrumente": [
+    "musical_instrument"
+  ],
+  "Polstermöbel": [
+    "furniture"
+  ],
+  "Projektoren/Beamer": [
+    "projector"
+  ],
+  "Saiteninstrumente": [
+    "musical_instrument",
+    "electric_guitar"
+  ],
+  "Schuhe/Gürtel": [
+    "shoes"
+  ],
+  "Smartphone/Tablet": [
+    "smartphone",
+    "tablet"
+  ],
+  "Sonstige Möbel": [
+    "furniture"
+  ],
+  "Spielzeug": [
+    "toy"
+  ],
+  "Taschen/Koffer": [
+    "leather"
+  ],
+  "Tasteninstrumente": [
+    "musical_instrument"
+  ],
+  "Telefon/Netzwerktechnik": [
+    "other_electronics"
+  ],
+  "Uhren": [
+    "wrist_watch"
+  ],
+  "Uhren /Schmuck /Juwelen": [
+    "wrist_watch"
+  ],
+  "Uhren/Schmuck": [
+    "wrist_watch"
+  ],
+  "Uhren/Schmuck/Accessoires": [
+    "wrist_watch"
+  ],
+  "Unterhaltungselektronik": [
+    "thuis_entertainment",
+    "other_electronics"
+  ],
+  "Video/DVD/TV/MP3/MP4/Hifi": [
+    "monitor",
+    "dvd_player_recorder",
+    "audio",
+    "amplifier"
+  ],
+  "Werkzeug": [
+    "power_tool"
+  ]
+}

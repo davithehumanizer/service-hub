@@ -1,0 +1,121 @@
+{
+  "106": {
+    "icecatName": "Computer Components",
+    "backendId": 165,
+    "backendName": "Desktop computer",
+    "score": 0,
+    "manual": true
+  },
+  "117": {
+    "icecatName": "Telephones",
+    "backendId": 172,
+    "backendName": "Telephone (not mobile or smartphone)",
+    "score": 0,
+    "manual": true
+  },
+  "119": {
+    "icecatName": "Mobile Phones",
+    "backendId": 173,
+    "backendName": "Smart Phone / Pager",
+    "score": 0,
+    "manual": true
+  },
+  "150": {
+    "icecatName": "Computers",
+    "backendId": 165,
+    "backendName": "Desktop computer",
+    "score": 0,
+    "manual": true
+  },
+  "153": {
+    "icecatName": "PCs/Workstations",
+    "backendId": 165,
+    "backendName": "Desktop computer",
+    "score": 0,
+    "manual": true
+  },
+  "154": {
+    "icecatName": "Handheld Mobile Computers",
+    "backendId": 165,
+    "backendName": "Desktop computer",
+    "score": 0,
+    "manual": true
+  },
+  "194": {
+    "icecatName": "Keyboards",
+    "backendId": 158,
+    "backendName": "Keyboard (computer)",
+    "score": 0,
+    "manual": true
+  },
+  "195": {
+    "icecatName": "Mice",
+    "backendId": 159,
+    "backendName": "Mouse (computer)",
+    "score": 0,
+    "manual": true
+  },
+  "1235": {
+    "icecatName": "Vacuum Accessories & Supplies",
+    "backendId": 131,
+    "backendName": "Vacuum cleaner",
+    "score": 0,
+    "manual": true
+  },
+  "1320": {
+    "icecatName": "Coffee Makers",
+    "backendId": 120,
+    "backendName": "Drip coffee maker",
+    "score": 0.8333333333333333,
+    "manual": true
+  },
+  "1331": {
+    "icecatName": "Washing Machines",
+    "backendId": 23,
+    "backendName": "Washing machine / Combi dryer",
+    "score": 0,
+    "manual": true
+  },
+  "1332": {
+    "icecatName": "Kitchenware",
+    "backendId": 5,
+    "backendName": "Kitchen Appliance",
+    "score": 0,
+    "manual": true
+  },
+  "1893": {
+    "icecatName": "Smartphones",
+    "backendId": 173,
+    "backendName": "Smart Phone / Pager",
+    "score": 0,
+    "manual": true
+  },
+  "2647": {
+    "icecatName": "Smartwatches & Sport Watches",
+    "backendId": 78,
+    "backendName": "Wrist watch",
+    "score": 0.8333333333333333,
+    "manual": true
+  },
+  "3345": {
+    "icecatName": "Washing Machine Parts & Accessories",
+    "backendId": 23,
+    "backendName": "Washing machine / Combi dryer",
+    "score": 0,
+    "manual": true
+  },
+  "3350": {
+    "icecatName": "Microwave Parts & Accessories",
+    "backendId": 141,
+    "backendName": "Microwave /  Combi oven",
+    "score": 0,
+    "manual": true
+  },
+  "8760": {
+    "icecatName": "Televisions",
+    "backendId": 228,
+    "backendName": "Flat Display Panel Television (LCD, LED, Plasma)",
+    "score": 0,
+    "manual": true
+  }
+}

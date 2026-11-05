@@ -1,0 +1,18 @@
+
+
+@tailwind components;
+@tailwind utilities;
+
+@layer tailwind {
+  @tailwind base;
+}
+
+/* @import "@mantine/core/styles.layer.css"; */
+@import "@mantine/core/styles.css";
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../font/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}

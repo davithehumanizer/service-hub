@@ -1,0 +1,2 @@
+{"attributes":{"fields":"[]","name":"api-gateway-*","timeFieldName":"timestamp","title":"api-gateway-*"},"id":"api-gateway-logs","type":"index-pattern"}
+{"attributes":{"description":"Monitor API performance, error rates, and response times","kibanaSavedObjectMeta":{"searchSourceJSON":"{\"index\":\"api-gateway-logs\"}"},"title":"API Performance & Health","version":1},"id":"api-health-dashboard","references":[{"id":"api-gateway-logs","name":"kibanaSavedObjectMeta.searchSourceJSON.index","type":"index-pattern"}],"type":"dashboard"}

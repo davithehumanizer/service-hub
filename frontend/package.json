@@ -1,0 +1,130 @@
+{
+  "name": "windmill-dashboard-react",
+  "version": "0.4.0",
+  "description": "A multi theme, completely accessible, with components and pages examples, (almost) ready for production dashboard.",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "tailwind:dev": "tailwindcss build src/assets/css/tailwind.css -o src/assets/css/tailwind.output.css",
+    "tailwind:build": "cross-env NODE_ENV=production postcss src/assets/css/tailwind.css -o src/assets/css/tailwind.output.css",
+    "prestart": "npm run tailwind:dev",
+    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "prebuild": "npm run tailwind:build && node scripts/copy-zxing-wasm.js",
+    "build": "react-scripts build",
+    "cz": "git-cz",
+    "release": "release-it",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "@davi-ai/retorik-framework": "5.0.2",
+    "@floating-ui/react": "0.27.5",
+    "@heroicons/react": "^2.2.0",
+    "@mantine/core": "^7.17.2",
+    "@mantine/hooks": "^7.17.2",
+    "@reduxjs/toolkit": "^2.6.1",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.5.0",
+    "@testing-library/user-event": "7.2.1",
+    "@windmill/react-ui": "file:windmill-react-ui-master/windmill-react-ui-0.6.0.tgz",
+    "axios": "^1.8.3",
+    "chart.js": "^4.1.1",
+    "classnames": "^2.3.1",
+    "faker": "4.1.0",
+    "i18next": "^26.2.0",
+    "i18next-browser-languagedetector": "^8.2.1",
+    "i18next-http-backend": "^4.0.0",
+    "leaflet": "^1.9.4",
+    "qrcode.react": "4.2.0",
+    "react": "^19.0.0",
+    "react-chartjs-2": "5.3.0",
+    "react-dom": "^19.0.0",
+    "react-focus-lock": "2.13.6",
+    "react-i18next": "^17.0.8",
+    "react-leaflet": "^5.0.0",
+    "react-leaflet-markercluster": "^5.0.0-rc.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "5.0.1",
+    "react-transition-group": "4.4.1",
+    "redux-persist": "^6.0.0",
+    "zxing-wasm": "^2.2.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@release-it/conventional-changelog": "^10.0.0",
+    "@svgr/webpack": "^8.1.0",
+    "@types/classnames": "^2.3.1",
+    "@types/leaflet": "^1.9.16",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/react-router-dom": "^5.3.3",
+    "ajv": "^7.2.4",
+    "autoprefixer": "^10.2.6",
+    "commitizen": "^4.3.1",
+    "cross-env": "7.0.2",
+    "cssnano": "^5.0.6",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "postcss": "^8.3.2",
+    "postcss-cli": "^8.3.1",
+    "react-axe": "3.5.2",
+    "release-it": "^18.1.2",
+    "tailwindcss": "2.2.19",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.26.1"
+  },
+  "overrides": {
+    "@floating-ui/react": {
+      "react": "^18.3.1",
+      "react-dom": "^18.3.1"
+    }
+  },
+  "keywords": [
+    "windmill",
+    "dashboard",
+    "admin",
+    "tailwind",
+    "react"
+  ],
+  "release-it": {
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
+      }
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "react-dotenv": {
+    "whitelist": [
+      "API_URL"
+    ]
+  }
+}

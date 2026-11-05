@@ -1,0 +1,15 @@
+// Backup of CreateDeviceCategory1697390000000
+// Migration disabled because TypeORM synchronize now creates the device_categories and link table.
+// Original content saved here for history.
+
+import { MigrationInterface, QueryRunner } from 'typeorm';
+
+export class CreateDeviceCategory1697390000000 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    // disabled
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    // disabled
+  }
+}

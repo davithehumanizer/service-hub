@@ -1,0 +1,397 @@
+[
+    {
+        "id": "Air conditioner",
+        "category": "device_type",
+        "name": "Air conditioner"
+    },
+    {
+        "id": "Amplifier",
+        "category": "device_type",
+        "name": "Amplifier"
+    },
+    {
+        "id": "Audio",
+        "category": "device_type",
+        "name": "Audio"
+    },
+    {
+        "id": "Battery",
+        "category": "device_type",
+        "name": "Battery"
+    },
+    {
+        "id": "Battery charger",
+        "category": "device_type",
+        "name": "Battery charger"
+    },
+    {
+        "id": "Bed linen",
+        "category": "device_type",
+        "name": "Bed linen"
+    },
+    {
+        "id": "Bicycle",
+        "category": "device_type",
+        "name": "Bicycle"
+    },
+    {
+        "id": "Bicycle battery",
+        "category": "device_type",
+        "name": "Bicycle battery"
+    },
+    {
+        "id": "Blender",
+        "category": "device_type",
+        "name": "Blender"
+    },
+    {
+        "id": "Blouse shirt",
+        "category": "device_type",
+        "name": "Blouse shirt"
+    },
+    {
+        "id": "Charger",
+        "category": "device_type",
+        "name": "Charger"
+    },
+    {
+        "id": "Clothing textiles",
+        "category": "device_type",
+        "name": "Clothing textiles"
+    },
+    {
+        "id": "Decorative or safety light",
+        "category": "device_type",
+        "name": "Decorative or safety light"
+    },
+    {
+        "id": "Desktop",
+        "category": "device_type",
+        "name": "Desktop"
+    },
+    {
+        "id": "Desktop computer",
+        "category": "device_type",
+        "name": "Desktop computer"
+    },
+    {
+        "id": "Digital compact camera",
+        "category": "device_type",
+        "name": "Digital compact camera"
+    },
+    {
+        "id": "Dress",
+        "category": "device_type",
+        "name": "Dress"
+    },
+    {
+        "id": "Drip coffee maker",
+        "category": "device_type",
+        "name": "Drip coffee maker"
+    },
+    {
+        "id": "Dvd player / recorder",
+        "category": "device_type",
+        "name": "Dvd player / recorder"
+    },
+    {
+        "id": "E bikes",
+        "category": "device_type",
+        "name": "E bikes"
+    },
+    {
+        "id": "Electric guitar",
+        "category": "device_type",
+        "name": "Electric guitar"
+    },
+    {
+        "id": "Electronic gadgets",
+        "category": "device_type",
+        "name": "Electronic gadgets"
+    },
+    {
+        "id": "Fan",
+        "category": "device_type",
+        "name": "Fan"
+    },
+    {
+        "id": "Fridge / combi freezer",
+        "category": "device_type",
+        "name": "Fridge / combi freezer"
+    },
+    {
+        "id": "Furniture",
+        "category": "device_type",
+        "name": "Furniture"
+    },
+    {
+        "id": "Gaming console",
+        "category": "device_type",
+        "name": "Gaming console"
+    },
+    {
+        "id": "Hair dryer",
+        "category": "device_type",
+        "name": "Hair dryer"
+    },
+    {
+        "id": "Hairbeauty item",
+        "category": "device_type",
+        "name": "Hairbeauty item"
+    },
+    {
+        "id": "Handheld entertainment device",
+        "category": "device_type",
+        "name": "Handheld entertainment device"
+    },
+    {
+        "id": "Headphone",
+        "category": "device_type",
+        "name": "Headphone"
+    },
+    {
+        "id": "Headphones",
+        "category": "device_type",
+        "name": "Headphones"
+    },
+    {
+        "id": "Hearing aid",
+        "category": "device_type",
+        "name": "Hearing aid"
+    },
+    {
+        "id": "Home appliance",
+        "category": "device_type",
+        "name": "Home appliance"
+    },
+    {
+        "id": "Iron",
+        "category": "device_type",
+        "name": "Iron"
+    },
+    {
+        "id": "Jacket",
+        "category": "device_type",
+        "name": "Jacket"
+    },
+    {
+        "id": "Jumper",
+        "category": "device_type",
+        "name": "Jumper"
+    },
+    {
+        "id": "Kettle",
+        "category": "device_type",
+        "name": "Kettle"
+    },
+    {
+        "id": "Kitchen appliance",
+        "category": "device_type",
+        "name": "Kitchen appliance"
+    },
+    {
+        "id": "Lamp",
+        "category": "device_type",
+        "name": "Lamp"
+    },
+    {
+        "id": "Laptop",
+        "category": "device_type",
+        "name": "Laptop"
+    },
+    {
+        "id": "Large home electrical",
+        "category": "device_type",
+        "name": "Large home electrical"
+    },
+    {
+        "id": "Leather",
+        "category": "device_type",
+        "name": "Leather"
+    },
+    {
+        "id": "Led lamp",
+        "category": "device_type",
+        "name": "Led lamp"
+    },
+    {
+        "id": "Mobile phone / cell phone",
+        "category": "device_type",
+        "name": "Mobile phone / cell phone"
+    },
+    {
+        "id": "Monitor",
+        "category": "device_type",
+        "name": "Monitor"
+    },
+    {
+        "id": "Musical instrument",
+        "category": "device_type",
+        "name": "Musical instrument"
+    },
+    {
+        "id": "Other",
+        "category": "device_type",
+        "name": "Other"
+    },
+    {
+        "id": "Other category",
+        "category": "device_type",
+        "name": "Other category"
+    },
+    {
+        "id": "Other electronics",
+        "category": "device_type",
+        "name": "Other electronics"
+    },
+    {
+        "id": "Other textile",
+        "category": "device_type",
+        "name": "Other textile"
+    },
+    {
+        "id": "Paper shredder",
+        "category": "device_type",
+        "name": "Paper shredder"
+    },
+    {
+        "id": "Pc accessory",
+        "category": "device_type",
+        "name": "Pc accessory"
+    },
+    {
+        "id": "Personal computer",
+        "category": "device_type",
+        "name": "Personal computer"
+    },
+    {
+        "id": "Photo camera",
+        "category": "device_type",
+        "name": "Photo camera"
+    },
+    {
+        "id": "Portable radio",
+        "category": "device_type",
+        "name": "Portable radio"
+    },
+    {
+        "id": "Power supply",
+        "category": "device_type",
+        "name": "Power supply"
+    },
+    {
+        "id": "Power tool",
+        "category": "device_type",
+        "name": "Power tool"
+    },
+    {
+        "id": "Printer",
+        "category": "device_type",
+        "name": "Printer"
+    },
+    {
+        "id": "Printer / copier / scanner",
+        "category": "device_type",
+        "name": "Printer / copier / scanner"
+    },
+    {
+        "id": "Projector",
+        "category": "device_type",
+        "name": "Projector"
+    },
+    {
+        "id": "Sewing machine",
+        "category": "device_type",
+        "name": "Sewing machine"
+    },
+    {
+        "id": "Shoes",
+        "category": "device_type",
+        "name": "Shoes"
+    },
+    {
+        "id": "Skirt",
+        "category": "device_type",
+        "name": "Skirt"
+    },
+    {
+        "id": "Small appliance",
+        "category": "device_type",
+        "name": "Small appliance"
+    },
+    {
+        "id": "Small kitchen item",
+        "category": "device_type",
+        "name": "Small kitchen item"
+    },
+    {
+        "id": "Smart phone / pager",
+        "category": "device_type",
+        "name": "Smart phone / pager"
+    },
+    {
+        "id": "Smartphone",
+        "category": "device_type",
+        "name": "Smartphone"
+    },
+    {
+        "id": "Smartwatche",
+        "category": "device_type",
+        "name": "Smartwatche"
+    },
+    {
+        "id": "Solar panel",
+        "category": "device_type",
+        "name": "Solar panel"
+    },
+    {
+        "id": "Steps",
+        "category": "device_type",
+        "name": "Steps"
+    },
+    {
+        "id": "Tablet",
+        "category": "device_type",
+        "name": "Tablet"
+    },
+    {
+        "id": "Thuis entertainment",
+        "category": "device_type",
+        "name": "Thuis entertainment"
+    },
+    {
+        "id": "Toaster",
+        "category": "device_type",
+        "name": "Toaster"
+    },
+    {
+        "id": "Toy",
+        "category": "device_type",
+        "name": "Toy"
+    },
+    {
+        "id": "Trousers",
+        "category": "device_type",
+        "name": "Trousers"
+    },
+    {
+        "id": "Tv or gaming related accessory",
+        "category": "device_type",
+        "name": "Tv or gaming related accessory"
+    },
+    {
+        "id": "Vacuum cleaner",
+        "category": "device_type",
+        "name": "Vacuum cleaner"
+    },
+    {
+        "id": "Video camera",
+        "category": "device_type",
+        "name": "Video camera"
+    },
+    {
+        "id": "Wrist watch",
+        "category": "device_type",
+        "name": "Wrist watch"
+    }
+]

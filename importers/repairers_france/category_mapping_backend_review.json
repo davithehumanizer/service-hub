@@ -1,0 +1,15 @@
+{
+  "ambiguous": {
+    "velo": "Bicycle",
+    "vetement": "Clothing",
+    "chaussures": "Shoes",
+    "maroquinerie": "Leather goods",
+    "autre_equipement_electronique": "Other Electronics",
+    "instrument_de_musique": "Instrument",
+    "vehicule": "Vehicle",
+    "papierie": "Stationery",
+    "panneaux_photovoltaiques": "Solar panel",
+    "machines_et_appareils_motorises_thermiques": "Power Tool"
+  },
+  "notes": "Review the ambiguous mappings above and pick the most accurate backend category. If a backend category doesn't exist, add it to backend or map to a close generic category."
+}

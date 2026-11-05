@@ -1,0 +1,8 @@
+{
+ "mobile_phone": ["smartphone", "tablet"],
+ "computer": ["personal_computer", "laptop", "desktop_computer", "pc_accessory", "printer", "printer_copier_scanner", "monitor", "tablet"],
+ "electronics": ["smartphone", "tablet", "laptop", "audio", "headphones", "thuis_entertainment", "photo_camera", "digital_compact_camera", "video_camera", "gaming_console", "handheld_entertainment_device", "other_electronics"],
+ "hifi": ["audio", "amplifier", "headphones", "portable_radio", "dvd_player_recorder", "thuis_entertainment"],
+ "appliance": ["home_appliance", "large_home_electrical", "fridge_combi_freezer", "small_appliance", "kitchen_appliance", "vacuum_cleaner"],
+ "social_store": ["small_appliance", "kitchen_appliance", "vacuum_cleaner", "drip_coffee_maker", "kettle", "toaster", "blender", "iron", "hair_dryer", "fan", "sewing_machine", "lamp", "led_lamp", "audio", "amplifier", "headphones", "portable_radio", "dvd_player_recorder", "projector", "thuis_entertainment"]
+}

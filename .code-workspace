@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "name": "User Management",
+      "path": "backend/user-management"
+    },
+    {
+      "name": "Device Service",
+      "path": "backend/devices-service"
+    }
+  ],
+  "settings": {
+    "jest.rootPath": "backend/user-management",
+    "jest.jestCommandLine": "npm run test --"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "repairers-france-importer",
+  "version": "1.0.0",
+  "description": "Importer for acteurs-full.csv into Service Hub (repairers / sorting centers)",
+  "license": "AGPL-3.0-only",
+  "main": "import_acteurs_france.js",
+  "scripts": {
+    "dry-run": "node import_acteurs_france.js --dry-run",
+    "start": "node import_acteurs_france.js"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "fast-csv": "^4.3.6",
+    "node-fetch": "2.6.7",
+    "dotenv": "^16.0.0"
+  }
+}

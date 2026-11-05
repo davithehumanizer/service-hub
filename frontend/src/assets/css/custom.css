@@ -1,0 +1,121 @@
+/* Set while the theme is being swapped (see utils/themeTransitions.ts).
+   Without this, any element combining transition-* with dark: variants keeps
+   the previous theme's colours instead of following the swap. */
+body.theme-switching,
+body.theme-switching *,
+body.theme-switching *::before,
+body.theme-switching *::after {
+  transition: none !important;
+}
+
+:root {
+    --primary-color: #38e07b;
+    --secondary-color: #1a2e22;
+    --background-color: #0a0a0a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-color: #28a058;
+  }
+  body {
+    font-family: 'Spline Sans', sans-serif;
+  }
+
+  .sidebar-icons .material-symbols-outlined {
+    line-height: inherit;
+  }
+
+.leaflet-popup-content a:not(.repairer-details-link) {
+    color: inherit !important;
+}
+
+html.dark .leaflet-popup-content a:not(.repairer-details-link) {
+    color: inherit !important;
+}
+
+.leaflet-popup-content a.repairer-details-link {
+    color: white !important;
+}
+
+html.dark .leaflet-popup-content a.repairer-details-link {
+    color: white !important;
+}
+
+/* Text selection carries the brand instead of the browser default blue. */
+::selection {
+    background-color: #cce9af;
+    color: #2f3f0e;
+}
+
+html.dark ::selection {
+    background-color: #4f6c18;
+    color: #f5fbef;
+}
+
+/* Minimalist scrollbar, applied app-wide to every scrollable element */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+html.dark * {
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+html.dark *::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+html.dark *::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* reCAPTCHA's badge sat over the wizard's "Suivant" on a phone. Google allows
+   hiding it as long as the forms using reCAPTCHA show its mention instead:
+   see src/components/RecaptchaNotice.tsx. */
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+/* Home page: the area under the search bar swapping between the journey's
+   steps and what to do with a device — the panel, then its buttons in turn. */
+@keyframes home-swap-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.home-swap-in {
+  animation: home-swap-in 240ms ease-out;
+}
+.home-swap-item {
+  animation: home-swap-in 260ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-swap-in,
+  .home-swap-item {
+    animation: none;
+  }
+}

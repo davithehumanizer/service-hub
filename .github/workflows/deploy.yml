@@ -1,0 +1,304 @@
+name: Deploy to E6 Server
+
+on:
+  push:
+    branches: [main]
+  # Lets a deploy be replayed without a commit. Pushing a tag triggers nothing
+  # here — the version the sidebar shows comes from `git describe` run on the
+  # server during a deploy — so a tag pushed after the fact only becomes visible
+  # at the next one. This is how to make it visible now.
+  workflow_dispatch:
+
+jobs:
+  test:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service:
+          - api-gateway
+          - devices-service
+          - notifications-service
+          - ownership-service
+          - repairers-service
+          - user-management
+          - oauth-service
+          - external-adapters-service
+          - fast-plan-eco-service
+          - surveys-service
+          - api-catalog-service
+          - spare-parts-service
+          - repair-monitor-service
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./backend/${{ matrix.service }}
+
+      - name: Run unit tests
+        run: npm run test
+        working-directory: ./backend/${{ matrix.service }}
+
+      - uses: ArtiomTr/jest-coverage-report-action@v2.1.2
+        with:
+          annotations: none
+          package-manager: npm
+          test-script: npm run coverage
+          icons: emoji
+          working-directory: ./backend/${{ matrix.service }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-latest
+    env:
+      BACKSERVICES: api-gateway devices-service notifications-service ownership-service repairers-service user-management oauth-service external-adapters-service fast-plan-eco-service surveys-service device-identification api-catalog-service spare-parts-service repair-monitor-service
+      # In secrets, not here: the repository is public.
+      SERVER_HOST: ${{ secrets.SERVER_HOST }}
+      SERVER: ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
+          # A connection that stays silent gets cut on the way: on 2026-10-13
+          # "Assign device models" died on "Broken pipe" while models:assign
+          # wrote nothing for minutes, and the dump is as quiet. Keepalives
+          # every 30 s hold every ssh below.
+          printf 'Host %s\n  ServerAliveInterval 30\n  ServerAliveCountMax 10\n' "$SERVER_HOST" >> ~/.ssh/config
+
+      - name: Pull code
+        run: |
+          ssh "$SERVER" << 'EOF'
+            # Without it a failed pull goes unnoticed and the old code is rebuilt.
+            set -e
+            cd /opt/care2repair
+            git pull origin main
+            # The version shown in the sidebar comes from `git describe`, which
+            # is silent about tags the server has never fetched. --force lets a
+            # moved tag correct itself instead of failing the fetch.
+            git fetch --tags --force origin
+          EOF
+
+      - name: Upload .env files
+        run: |
+          for SERVICE in ${{ env.BACKSERVICES }}; do
+            SECRET_VAR="ENV_${SERVICE^^}"
+            SECRET_VAR_CLEAN="${SECRET_VAR//-/_}"
+            SECRET_VALUE="${!SECRET_VAR_CLEAN}"
+
+            echo "Uploading .env for $SERVICE..."
+            ssh "$SERVER" "echo '${SECRET_VALUE}' > /opt/care2repair/backend/$SERVICE/.env"
+            ssh "$SERVER" "chmod 600 /opt/care2repair/backend/$SERVICE/.env"
+          done
+          echo "Uploading .env for frontend..."
+          ssh "$SERVER" "echo '${{ secrets.ENV_FRONTEND }}' > /opt/care2repair/frontend/.env"
+          ssh "$SERVER" "chmod 600 /opt/care2repair/frontend/.env"
+          
+          echo "Uploading .env for Icecat importer..."
+          ssh "$SERVER" "echo '${{ secrets.ENV_ICECAT_IMPORTER }}' > /opt/care2repair/importers/icecat/.env"
+          ssh "$SERVER" "chmod 600 /opt/care2repair/importers/icecat/.env"
+
+        env:
+          ENV_API_GATEWAY: ${{ secrets.ENV_API_GATEWAY }}
+          ENV_DEVICES_SERVICE: ${{ secrets.ENV_DEVICES_SERVICE }}
+          ENV_NOTIFICATIONS_SERVICE: ${{ secrets.ENV_NOTIFICATIONS_SERVICE }}
+          ENV_OWNERSHIP_SERVICE: ${{ secrets.ENV_OWNERSHIP_SERVICE }}
+          ENV_REPAIRERS_SERVICE: ${{ secrets.ENV_REPAIRERS_SERVICE }}
+          ENV_USER_MANAGEMENT: ${{ secrets.ENV_USER_MANAGEMENT }}
+          ENV_OAUTH_SERVICE: ${{ secrets.ENV_OAUTH_SERVICE }}
+          ENV_EXTERNAL_ADAPTERS_SERVICE: ${{ secrets.ENV_EXTERNAL_ADAPTERS_SERVICE }}
+          ENV_FAST_PLAN_ECO_SERVICE: ${{ secrets.ENV_FAST_PLAN_ECO_SERVICE }}
+          ENV_SURVEYS_SERVICE: ${{ secrets.ENV_SURVEYS_SERVICE }}
+          ENV_DEVICE_IDENTIFICATION: ${{ secrets.ENV_DEVICE_IDENTIFICATION }}
+          ENV_API_CATALOG_SERVICE: ${{ secrets.ENV_API_CATALOG_SERVICE }}
+          ENV_SPARE_PARTS_SERVICE: ${{ secrets.ENV_SPARE_PARTS_SERVICE }}
+          ENV_REPAIR_MONITOR_SERVICE: ${{ secrets.ENV_REPAIR_MONITOR_SERVICE }}
+          ENV_FRONTEND: ${{ secrets.ENV_FRONTEND }}
+
+      # From here until the models are assigned, the site is down or half
+      # migrated: Apache answers with the maintenance page while ON exists
+      # (care2repair.eu.conf). Shown before the dump, so nothing a user writes
+      # is lost to it. A deploy that fails later leaves it up, on purpose.
+      - name: Show the maintenance page
+        run: |
+          ssh "$SERVER" 'mkdir -p /opt/care2repair/deployment/maintenance && touch /opt/care2repair/deployment/maintenance/ON'
+
+      # Taken before the containers are rebuilt, while the previous release is
+      # still the one that wrote the data. Migrations run later in this job and
+      # some of them are irreversible.
+      - name: Back up the database
+        run: |
+          ssh "$SERVER" << 'EOF'
+            # pipefail: a failed pg_dump must fail the step, not let the
+            # migrations run without a safety net.
+            set -eo pipefail
+            cd /opt/care2repair
+            mkdir -p backups
+
+            docker compose up -d db
+            # Every exec reads from /dev/null: this script arrives on stdin, and
+            # an exec left on it swallows the rest, so the step passes having
+            # done nothing.
+            for i in $(seq 1 60); do
+              docker compose exec -T db pg_isready -U postgres > /dev/null 2>&1 < /dev/null && break
+              echo "waiting for database ($i/60)"
+              sleep 5
+            done
+
+            # Written as .part and renamed once complete: a failed dump never
+            # takes a slot in the rotation below. Leftovers of a failed run go.
+            rm -f backups/servicehub-*.sql.gz.part
+            DUMP="backups/servicehub-$(date +%F-%H%M%S).sql.gz"
+            docker compose exec -T db pg_dump -U postgres servicehub < /dev/null | gzip > "$DUMP.part"
+            mv "$DUMP.part" "$DUMP"
+            echo "Dump written: $(du -h "$DUMP" | cut -f1)"
+
+            # The devices table alone holds ~1M rows; keep only the last three.
+            ls -1t backups/servicehub-*.sql.gz | tail -n +4 | xargs -r rm --
+          EOF
+
+      - name: Restart Docker containers
+        run: |
+          ssh "$SERVER" << 'EOF'
+            set -e
+            cd /opt/care2repair
+
+            # Baked into the frontend bundle and shown in the sidebar, so a
+            # tester can name the build a report came from. `v1.2.0` on a
+            # tagged release, `v1.2.0-3-g20a8152` when main has moved past one,
+            # the bare hash until the first tag exists.
+            export REACT_APP_VERSION=$(git describe --tags --always)
+            echo "Building version $REACT_APP_VERSION"
+
+            docker compose -f docker-compose.yml -f docker-compose.efk.yml down
+            docker compose -f docker-compose.yml -f docker-compose.efk.yml build --no-cache
+            docker compose -f docker-compose.yml -f docker-compose.efk.yml up -d
+          EOF
+
+      # synchronize is disabled, so the schema only moves when migrations run.
+      # This step is not optional: a service whose migration has not been applied
+      # will fail at runtime against a schema it does not recognise.
+      - name: Run database migrations
+        run: |
+          ssh "$SERVER" << 'EOF'
+            set -e
+            cd /opt/care2repair
+
+            # Wait for the database and the services that own migrations.
+            # Execs read from /dev/null, as in the backup step.
+            for i in $(seq 1 60); do
+              if docker compose exec -T db pg_isready -U postgres > /dev/null 2>&1 < /dev/null; then
+                break
+              fi
+              echo "waiting for database ($i/60)"
+              sleep 5
+            done
+
+            # Sequential on purpose: every service shares one `migrations`
+            # table, so running them concurrently invites races.
+            for SERVICE in oauth-service user-management devices-service repairers-service \
+                           notifications-service ownership-service api-catalog-service \
+                           surveys-service repair-monitor-service; do
+              echo "--- migrating $SERVICE ---"
+              docker compose exec -T "$SERVICE" sh -c "npm run typeorm:migrate" < /dev/null
+            done
+          EOF
+
+      # Links the catalogue entries still without a model to theirs, and
+      # copies each variant's model onto ownerships, journeys and
+      # subscriptions. Without it the model catalogue stays as the migrations
+      # left it: empty on the first deployment. Takes only what is unassigned,
+      # but reads the whole catalogue for the totals, about a minute. Then
+      # rewrites the device_models search index from the table, creating it
+      # on the first deployment, which models:assign does not keep in step.
+      - name: Assign device models
+        run: |
+          ssh "$SERVER" << 'EOF'
+            set -e
+            cd /opt/care2repair
+            docker compose exec -T -e TYPEORM_LOGGING=false devices-service \
+              npm run cli -- models:assign < /dev/null
+            docker compose exec -T -e TYPEORM_LOGGING=false devices-service \
+              npm run cli -- search:sync-models < /dev/null
+          EOF
+
+      # Before the smoke test, which goes through the public address.
+      - name: Take the maintenance page down
+        run: |
+          ssh "$SERVER" 'rm -f /opt/care2repair/deployment/maintenance/ON'
+
+      - name: Smoke test
+        run: |
+          set -e
+          echo "--- waiting for the gateway to answer ---"
+          for i in $(seq 1 60); do
+            if curl -fsS --max-time 10 https://care2repair.eu/api/health > /dev/null 2>&1; then
+              echo "gateway is up"
+              break
+            fi
+            if [ "$i" = "60" ]; then
+              echo "gateway did not become healthy within 5 minutes"
+              exit 1
+            fi
+            sleep 5
+          done
+
+          echo "--- OIDC discovery ---"
+          curl -fsS --max-time 20 https://care2repair.eu/.well-known/openid-configuration > /dev/null
+
+          echo "--- JWKS ---"
+          curl -fsS --max-time 20 https://care2repair.eu/.well-known/jwks.json > /dev/null
+
+          echo "--- frontend ---"
+          curl -fsS --max-time 20 https://care2repair.eu/ > /dev/null
+
+          # `/api/health` answers 200 on a half-deployed stack: it touches no
+          # entity. On 2026-08-07 an interrupted run left new code on an old
+          # schema and every check above still passed, while listing records
+          # returned 500 because TypeORM selected columns that did not exist.
+          # These read through an ORM entity, so an unapplied migration fails
+          # the deploy instead of waiting for a user to find it.
+          echo "--- reads that go through a migrated entity ---"
+          curl -fsS --max-time 30 'https://care2repair.eu/api/v1/repair-monitor/records?page=1&limit=1' > /dev/null
+
+          # Journeys are the newest table; a missing migration shows up here
+          # first. An empty body is a valid answer — what matters is that the
+          # query runs at all.
+          STATUS=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 \
+            -X POST https://care2repair.eu/api/v1/repair-monitor/journeys/lookup \
+            -H 'Content-Type: application/json' \
+            -d '{"tokens":[]}')
+          if [ "$STATUS" != "200" ]; then
+            echo "Unexpected status $STATUS from /journeys/lookup — schema out of date?"
+            exit 1
+          fi
+
+          # An email alone must never yield a token: this is the auth bypass
+          # that was closed, asserted on every deploy.
+          echo "--- refresh rejects an email-only body ---"
+          STATUS=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 \
+            -X POST https://care2repair.eu/api/v1/auth/refresh \
+            -H 'Content-Type: application/json' \
+            -d '{"email":"deploy-probe@example.invalid"}')
+          if [ "$STATUS" != "400" ] && [ "$STATUS" != "401" ]; then
+            echo "Unexpected status $STATUS from /auth/refresh"
+            exit 1
+          fi
+
+          echo "All smoke checks passed."

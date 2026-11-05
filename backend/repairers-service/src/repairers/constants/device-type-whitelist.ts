@@ -1,0 +1,91 @@
+/**
+ * Canonical whitelist of accepted `device_type` slugs for `repairer_devices`.
+ *
+ * Keys match the `repairerDeviceTypes` i18n namespace in
+ * `frontend/public/locales/{en,fr,de,nl}/translation.json`. Values are stored
+ * in the database using this exact slug form (lowercase, underscore-separated)
+ * rather than human-readable labels, so validation can use a strict equality
+ * check instead of relying on frontend-side slugification.
+ *
+ * Kept in sync manually with the api-gateway copy at
+ * `backend/api-gateway/src/repairers/constants/device-type-whitelist.ts`
+ * since the two services do not share a common library.
+ */
+export const DEVICE_TYPE_WHITELIST = [
+  'air_conditioner',
+  'amplifier',
+  'audio',
+  'battery',
+  'battery_charger',
+  'bed_linen',
+  'bicycle',
+  'bicycle_battery',
+  'blender',
+  'blouse_shirt',
+  'charger',
+  'clothing_textiles',
+  'decorative_or_safety_light',
+  'desktop_computer',
+  'digital_compact_camera',
+  'dress',
+  'drip_coffee_maker',
+  'dvd_player_recorder',
+  'e_bikes',
+  'electric_guitar',
+  'electronic_gadgets',
+  'fan',
+  'fridge_combi_freezer',
+  'furniture',
+  'gaming_console',
+  'hair_dryer',
+  'hairbeauty_item',
+  'handheld_entertainment_device',
+  'headphones',
+  'hearing_aid',
+  'home_appliance',
+  'iron',
+  'jacket',
+  'jumper',
+  'kettle',
+  'kitchen_appliance',
+  'lamp',
+  'laptop',
+  'large_home_electrical',
+  'leather',
+  'led_lamp',
+  'monitor',
+  'musical_instrument',
+  'other',
+  'other_category',
+  'other_electronics',
+  'other_textile',
+  'paper_shredder',
+  'pc_accessory',
+  'personal_computer',
+  'photo_camera',
+  'portable_radio',
+  'power_supply',
+  'power_tool',
+  'printer',
+  'printer_copier_scanner',
+  'projector',
+  'sewing_machine',
+  'shoes',
+  'skirt',
+  'small_appliance',
+  'small_kitchen_item',
+  'smartphone',
+  'solar_panel',
+  'steps',
+  'tablet',
+  'thuis_entertainment',
+  'toaster',
+  'toy',
+  'trousers',
+  'tv_or_gaming_related_accessory',
+  'vacuum_cleaner',
+  'video_camera',
+  'wrist_watch',
+] as const;
+
+export type DeviceTypeSlug = (typeof DEVICE_TYPE_WHITELIST)[number];

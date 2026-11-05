@@ -1,0 +1,1270 @@
+[
+  {
+    "id": 1,
+    "name": "Personal Computer"
+  },
+  {
+    "id": 2,
+    "name": "Gaming Console"
+  },
+  {
+    "id": 3,
+    "name": "Home Appliance"
+  },
+  {
+    "id": 4,
+    "name": "Power Tool"
+  },
+  {
+    "id": 5,
+    "name": "Kitchen Appliance"
+  },
+  {
+    "id": 6,
+    "name": "Tablet"
+  },
+  {
+    "id": 7,
+    "name": "Wearable"
+  },
+  {
+    "id": 8,
+    "name": "Audio"
+  },
+  {
+    "id": 9,
+    "name": "Office Equipment"
+  },
+  {
+    "id": 10,
+    "name": "Networking"
+  },
+  {
+    "id": 11,
+    "name": "Smart Home"
+  },
+  {
+    "id": 12,
+    "name": "Imaging"
+  },
+  {
+    "id": 13,
+    "name": "Monitor"
+  },
+  {
+    "id": 14,
+    "name": "Personal Care"
+  },
+  {
+    "id": 15,
+    "name": "Robot Vacuum"
+  },
+  {
+    "id": 16,
+    "name": "TEST_UNU_CATEGORY_12345"
+  },
+  {
+    "id": 17,
+    "name": "Dishwasher"
+  },
+  {
+    "id": 18,
+    "name": "Boiler"
+  },
+  {
+    "id": 19,
+    "name": "Hob (ceramic / induction/ solid plate)"
+  },
+  {
+    "id": 20,
+    "name": "Oven"
+  },
+  {
+    "id": 21,
+    "name": "Range (combined stovetop and oven)"
+  },
+  {
+    "id": 22,
+    "name": "Stovetop"
+  },
+  {
+    "id": 23,
+    "name": "Washing machine / Combi dryer"
+  },
+  {
+    "id": 24,
+    "name": "Centrifuge"
+  },
+  {
+    "id": 25,
+    "name": "Wash dryer (non-heat pump)"
+  },
+  {
+    "id": 26,
+    "name": "Heater"
+  },
+  {
+    "id": 27,
+    "name": "Ventilator"
+  },
+  {
+    "id": 28,
+    "name": "Fridge / combi freezer"
+  },
+  {
+    "id": 29,
+    "name": "Freezer"
+  },
+  {
+    "id": 30,
+    "name": "Ice cube maker"
+  },
+  {
+    "id": 31,
+    "name": "Air conditioner"
+  },
+  {
+    "id": 32,
+    "name": "Air freshener / Air purifier"
+  },
+  {
+    "id": 33,
+    "name": "Dehumidifier"
+  },
+  {
+    "id": 34,
+    "name": "Wash dryer (heat pump)"
+  },
+  {
+    "id": 35,
+    "name": "Microwave /  Combi oven"
+  },
+  {
+    "id": 36,
+    "name": "Air pump"
+  },
+  {
+    "id": 37,
+    "name": "Alarm clock"
+  },
+  {
+    "id": 38,
+    "name": "Baby monitor"
+  },
+  {
+    "id": 39,
+    "name": "Battery"
+  },
+  {
+    "id": 40,
+    "name": "Battery charger"
+  },
+  {
+    "id": 41,
+    "name": "Bicycle battery"
+  },
+  {
+    "id": 42,
+    "name": "Charger"
+  },
+  {
+    "id": 43,
+    "name": "Clock"
+  },
+  {
+    "id": 44,
+    "name": "Cooking timer"
+  },
+  {
+    "id": 45,
+    "name": "Cool box"
+  },
+  {
+    "id": 46,
+    "name": "Digital photo frame"
+  },
+  {
+    "id": 47,
+    "name": "Dimmer"
+  },
+  {
+    "id": 48,
+    "name": "Doorbell"
+  },
+  {
+    "id": 49,
+    "name": "Electric blanket"
+  },
+  {
+    "id": 50,
+    "name": "Fan"
+  },
+  {
+    "id": 51,
+    "name": "Heating pad / heat cushion"
+  },
+  {
+    "id": 52,
+    "name": "Humidifier"
+  },
+  {
+    "id": 53,
+    "name": "Iron"
+  },
+  {
+    "id": 54,
+    "name": "Laminator"
+  },
+  {
+    "id": 55,
+    "name": "Multimeter"
+  },
+  {
+    "id": 56,
+    "name": "Pencil sharpener"
+  },
+  {
+    "id": 57,
+    "name": "Personal scale"
+  },
+  {
+    "id": 58,
+    "name": "Polisher"
+  },
+  {
+    "id": 59,
+    "name": "Pond pump"
+  },
+  {
+    "id": 60,
+    "name": "Power cabel"
+  },
+  {
+    "id": 61,
+    "name": "Power cable reel"
+  },
+  {
+    "id": 62,
+    "name": "Power extension"
+  },
+  {
+    "id": 63,
+    "name": "Power supply"
+  },
+  {
+    "id": 64,
+    "name": "Powerbank"
+  },
+  {
+    "id": 65,
+    "name": "Pruning shears / Garden shears"
+  },
+  {
+    "id": 66,
+    "name": "Stapler"
+  },
+  {
+    "id": 67,
+    "name": "Steam appliance (for textiles)"
+  },
+  {
+    "id": 68,
+    "name": "Steam iron / Steam ironing station"
+  },
+  {
+    "id": 69,
+    "name": "Thermostat"
+  },
+  {
+    "id": 70,
+    "name": "Time switch"
+  },
+  {
+    "id": 71,
+    "name": "Transformer"
+  },
+  {
+    "id": 72,
+    "name": "Travel alarm clock"
+  },
+  {
+    "id": 73,
+    "name": "Typewriter"
+  },
+  {
+    "id": 74,
+    "name": "Ultrasonic cleaner"
+  },
+  {
+    "id": 75,
+    "name": "Water pump"
+  },
+  {
+    "id": 76,
+    "name": "Weather station"
+  },
+  {
+    "id": 77,
+    "name": "Window wiper"
+  },
+  {
+    "id": 78,
+    "name": "Wrist watch"
+  },
+  {
+    "id": 79,
+    "name": "Air fryer"
+  },
+  {
+    "id": 80,
+    "name": "Blender"
+  },
+  {
+    "id": 81,
+    "name": "Bread maker"
+  },
+  {
+    "id": 82,
+    "name": "Chopper"
+  },
+  {
+    "id": 83,
+    "name": "Citrus press"
+  },
+  {
+    "id": 84,
+    "name": "Coffee grinder"
+  },
+  {
+    "id": 85,
+    "name": "Digital scale"
+  },
+  {
+    "id": 86,
+    "name": "Electric baking tray"
+  },
+  {
+    "id": 87,
+    "name": "Electric knife"
+  },
+  {
+    "id": 88,
+    "name": "Electric pan"
+  },
+  {
+    "id": 89,
+    "name": "Food processor"
+  },
+  {
+    "id": 90,
+    "name": "Fryer"
+  },
+  {
+    "id": 91,
+    "name": "Griddle"
+  },
+  {
+    "id": 92,
+    "name": "Grill"
+  },
+  {
+    "id": 93,
+    "name": "Grinding mill"
+  },
+  {
+    "id": 94,
+    "name": "Hand mixer"
+  },
+  {
+    "id": 95,
+    "name": "Hot plate"
+  },
+  {
+    "id": 96,
+    "name": "Ice cream maker"
+  },
+  {
+    "id": 97,
+    "name": "Juice extractor / Juicer"
+  },
+  {
+    "id": 98,
+    "name": "Kitchen scale"
+  },
+  {
+    "id": 99,
+    "name": "Meat cutter"
+  },
+  {
+    "id": 100,
+    "name": "Milk frother"
+  },
+  {
+    "id": 101,
+    "name": "Pepper mill / Pepper grinder"
+  },
+  {
+    "id": 102,
+    "name": "Pizza oven"
+  },
+  {
+    "id": 103,
+    "name": "Popcorn machine"
+  },
+  {
+    "id": 104,
+    "name": "Pressure cooker"
+  },
+  {
+    "id": 105,
+    "name": "Raclette"
+  },
+  {
+    "id": 106,
+    "name": "Rice cooker"
+  },
+  {
+    "id": 107,
+    "name": "Rollator"
+  },
+  {
+    "id": 108,
+    "name": "Slicer"
+  },
+  {
+    "id": 109,
+    "name": "Slow cooker"
+  },
+  {
+    "id": 110,
+    "name": "Smoothie maker"
+  },
+  {
+    "id": 111,
+    "name": "Soup maker"
+  },
+  {
+    "id": 112,
+    "name": "Stand mixer"
+  },
+  {
+    "id": 113,
+    "name": "Steamer"
+  },
+  {
+    "id": 114,
+    "name": "Stick mixer (immersion blender)"
+  },
+  {
+    "id": 115,
+    "name": "Table grill"
+  },
+  {
+    "id": 116,
+    "name": "Toaster"
+  },
+  {
+    "id": 117,
+    "name": "Vacuum sealer"
+  },
+  {
+    "id": 118,
+    "name": "Waffle iron"
+  },
+  {
+    "id": 119,
+    "name": "Yogurt machine"
+  },
+  {
+    "id": 120,
+    "name": "Drip coffee maker"
+  },
+  {
+    "id": 121,
+    "name": "Egg cooker"
+  },
+  {
+    "id": 122,
+    "name": "Espresso machine"
+  },
+  {
+    "id": 123,
+    "name": "Kettle"
+  },
+  {
+    "id": 124,
+    "name": "Percolator"
+  },
+  {
+    "id": 125,
+    "name": "Pod/Capsule machine"
+  },
+  {
+    "id": 126,
+    "name": "Teamaker / teasmade"
+  },
+  {
+    "id": 127,
+    "name": "Carpet cleaner"
+  },
+  {
+    "id": 128,
+    "name": "Handheld vacuum cleaner"
+  },
+  {
+    "id": 129,
+    "name": "Robotic vacuum cleaner"
+  },
+  {
+    "id": 130,
+    "name": "Upright vacuum cleaner"
+  },
+  {
+    "id": 131,
+    "name": "Vacuum cleaner"
+  },
+  {
+    "id": 132,
+    "name": "Water vacuum cleaner"
+  },
+  {
+    "id": 133,
+    "name": "Beard trimmer"
+  },
+  {
+    "id": 134,
+    "name": "Clipper / trimmer"
+  },
+  {
+    "id": 135,
+    "name": "Curler set"
+  },
+  {
+    "id": 136,
+    "name": "Curling iron"
+  },
+  {
+    "id": 137,
+    "name": "Electric hairbrush"
+  },
+  {
+    "id": 138,
+    "name": "Electric toothbrush"
+  },
+  {
+    "id": 139,
+    "name": "Epilator"
+  },
+  {
+    "id": 140,
+    "name": "Foot massage machine"
+  },
+  {
+    "id": 141,
+    "name": "Footbath"
+  },
+  {
+    "id": 142,
+    "name": "Hair clippers"
+  },
+  {
+    "id": 143,
+    "name": "Hair dryer"
+  },
+  {
+    "id": 144,
+    "name": "Hair straightener"
+  },
+  {
+    "id": 145,
+    "name": "Hair styler"
+  },
+  {
+    "id": 146,
+    "name": "Make-up mirror"
+  },
+  {
+    "id": 147,
+    "name": "Massage equipment"
+  },
+  {
+    "id": 148,
+    "name": "Nail care"
+  },
+  {
+    "id": 149,
+    "name": "Oral shower"
+  },
+  {
+    "id": 150,
+    "name": "Pedicure appliance"
+  },
+  {
+    "id": 151,
+    "name": "Shaver"
+  },
+  {
+    "id": 152,
+    "name": "Toothbrush"
+  },
+  {
+    "id": 153,
+    "name": "Water flosser"
+  },
+  {
+    "id": 154,
+    "name": "Computer power supply"
+  },
+  {
+    "id": 155,
+    "name": "Extension cord"
+  },
+  {
+    "id": 156,
+    "name": "External hard drive"
+  },
+  {
+    "id": 157,
+    "name": "Hard disk drive"
+  },
+  {
+    "id": 158,
+    "name": "Keyboard (computer)"
+  },
+  {
+    "id": 159,
+    "name": "Mouse"
+  },
+  {
+    "id": 160,
+    "name": "PC accessory"
+  },
+  {
+    "id": 161,
+    "name": "PC cable"
+  },
+  {
+    "id": 162,
+    "name": "Router"
+  },
+  {
+    "id": 163,
+    "name": "Switch"
+  },
+  {
+    "id": 164,
+    "name": "Touchpad / trackpad"
+  },
+  {
+    "id": 165,
+    "name": "Desktop computer"
+  },
+  {
+    "id": 166,
+    "name": "E-reader / E-book reader"
+  },
+  {
+    "id": 167,
+    "name": "Laptop"
+  },
+  {
+    "id": 168,
+    "name": "Printer"
+  },
+  {
+    "id": 169,
+    "name": "Printer / Copier"
+  },
+  {
+    "id": 170,
+    "name": "Printer / Copier / Scanner"
+  },
+  {
+    "id": 171,
+    "name": "Printer / Copier / Scanner / Fax"
+  },
+  {
+    "id": 172,
+    "name": "Telephone (not mobile or smartphone)"
+  },
+  {
+    "id": 173,
+    "name": "Smart Phone / Pager"
+  },
+  {
+    "id": 174,
+    "name": "Mobile phone / Cell phone"
+  },
+  {
+    "id": 175,
+    "name": "Calculator"
+  },
+  {
+    "id": 176,
+    "name": "Earbuds"
+  },
+  {
+    "id": 177,
+    "name": "Headphones"
+  },
+  {
+    "id": 178,
+    "name": "Headset"
+  },
+  {
+    "id": 179,
+    "name": "Hearing aid"
+  },
+  {
+    "id": 180,
+    "name": "MP3 player"
+  },
+  {
+    "id": 181,
+    "name": "Remote control"
+  },
+  {
+    "id": 182,
+    "name": "Voice recorder"
+  },
+  {
+    "id": 183,
+    "name": "Alarm clock  / radio"
+  },
+  {
+    "id": 184,
+    "name": "Car radio"
+  },
+  {
+    "id": 185,
+    "name": "DAB radio"
+  },
+  {
+    "id": 186,
+    "name": "Navigation system"
+  },
+  {
+    "id": 187,
+    "name": "Portable audio"
+  },
+  {
+    "id": 188,
+    "name": "Portable cassette player"
+  },
+  {
+    "id": 189,
+    "name": "Portable radio"
+  },
+  {
+    "id": 190,
+    "name": "Portable radio / CD player"
+  },
+  {
+    "id": 191,
+    "name": "Portable radio / Tape recorder"
+  },
+  {
+    "id": 192,
+    "name": "Amplifier"
+  },
+  {
+    "id": 193,
+    "name": "Blu Ray Player"
+  },
+  {
+    "id": 194,
+    "name": "Cassette player"
+  },
+  {
+    "id": 195,
+    "name": "CD player"
+  },
+  {
+    "id": 196,
+    "name": "Electric guitar"
+  },
+  {
+    "id": 197,
+    "name": "Electric piano"
+  },
+  {
+    "id": 198,
+    "name": "Guitar pedal"
+  },
+  {
+    "id": 199,
+    "name": "Karaokeset"
+  },
+  {
+    "id": 200,
+    "name": "Keyboard (musical instrument)"
+  },
+  {
+    "id": 201,
+    "name": "Microphone"
+  },
+  {
+    "id": 202,
+    "name": "Mini stereoset"
+  },
+  {
+    "id": 203,
+    "name": "Radio / Cassette player"
+  },
+  {
+    "id": 204,
+    "name": "Radio / CD player"
+  },
+  {
+    "id": 205,
+    "name": "Radio / CD player / Cassette player"
+  },
+  {
+    "id": 206,
+    "name": "Receiver"
+  },
+  {
+    "id": 207,
+    "name": "Sound mixer"
+  },
+  {
+    "id": 208,
+    "name": "Stereoset (hi-fi set)"
+  },
+  {
+    "id": 209,
+    "name": "Tape recorder"
+  },
+  {
+    "id": 210,
+    "name": "Tuner"
+  },
+  {
+    "id": 211,
+    "name": "Turntable"
+  },
+  {
+    "id": 212,
+    "name": "Beamer"
+  },
+  {
+    "id": 213,
+    "name": "Decoder TV"
+  },
+  {
+    "id": 214,
+    "name": "DVD Cinema System"
+  },
+  {
+    "id": 215,
+    "name": "DVD player / recorder"
+  },
+  {
+    "id": 216,
+    "name": "Film projector"
+  },
+  {
+    "id": 217,
+    "name": "Home cinema"
+  },
+  {
+    "id": 218,
+    "name": "Set-top box"
+  },
+  {
+    "id": 219,
+    "name": "Slide projector"
+  },
+  {
+    "id": 220,
+    "name": "Video tape player / recorder"
+  },
+  {
+    "id": 221,
+    "name": "Bluetooth speaker"
+  },
+  {
+    "id": 222,
+    "name": "Soundbar"
+  },
+  {
+    "id": 223,
+    "name": "Speaker"
+  },
+  {
+    "id": 224,
+    "name": "Digital compact camera"
+  },
+  {
+    "id": 225,
+    "name": "Photo camera"
+  },
+  {
+    "id": 226,
+    "name": "Video camera"
+  },
+  {
+    "id": 227,
+    "name": "Tube Television"
+  },
+  {
+    "id": 228,
+    "name": "Flat Display Panel Television (LCD, LED, Plasma)"
+  },
+  {
+    "id": 229,
+    "name": "Small lighting equipment (excl. LED & incandescent)"
+  },
+  {
+    "id": 230,
+    "name": "Compact Fluorescent Lamp (CFL)"
+  },
+  {
+    "id": 231,
+    "name": "Straight Tube Fluorescent Lamp (LFL, TL)"
+  },
+  {
+    "id": 232,
+    "name": "LED Lamp"
+  },
+  {
+    "id": 233,
+    "name": "Bicycle light"
+  },
+  {
+    "id": 234,
+    "name": "Ceiling lamp"
+  },
+  {
+    "id": 235,
+    "name": "Christmas decoration"
+  },
+  {
+    "id": 236,
+    "name": "Decorative or safety lights"
+  },
+  {
+    "id": 237,
+    "name": "Desk lamp"
+  },
+  {
+    "id": 238,
+    "name": "Fairy lights"
+  },
+  {
+    "id": 239,
+    "name": "Floor lamp"
+  },
+  {
+    "id": 240,
+    "name": "Magnifier with light"
+  },
+  {
+    "id": 241,
+    "name": "Night light"
+  },
+  {
+    "id": 242,
+    "name": "Outdoor lamp"
+  },
+  {
+    "id": 243,
+    "name": "Reading light"
+  },
+  {
+    "id": 244,
+    "name": "Solar lamp"
+  },
+  {
+    "id": 245,
+    "name": "Table lamp"
+  },
+  {
+    "id": 246,
+    "name": "Torch"
+  },
+  {
+    "id": 247,
+    "name": "Air compressor"
+  },
+  {
+    "id": 248,
+    "name": "Angle grinder / Disc cutter"
+  },
+  {
+    "id": 249,
+    "name": "Bag sewing machine"
+  },
+  {
+    "id": 250,
+    "name": "Barometer"
+  },
+  {
+    "id": 251,
+    "name": "Beer tap"
+  },
+  {
+    "id": 252,
+    "name": "Belt sander"
+  },
+  {
+    "id": 253,
+    "name": "Cable reel"
+  },
+  {
+    "id": 254,
+    "name": "Camera, analog"
+  },
+  {
+    "id": 255,
+    "name": "Chainsaw"
+  },
+  {
+    "id": 256,
+    "name": "Circular saw"
+  },
+  {
+    "id": 257,
+    "name": "Cut off saw"
+  },
+  {
+    "id": 258,
+    "name": "Cutting machine"
+  },
+  {
+    "id": 259,
+    "name": "Dremel tool"
+  },
+  {
+    "id": 260,
+    "name": "Drilling machine"
+  },
+  {
+    "id": 261,
+    "name": "Drying hood"
+  },
+  {
+    "id": 262,
+    "name": "Edge cutter"
+  },
+  {
+    "id": 263,
+    "name": "Electric bed"
+  },
+  {
+    "id": 264,
+    "name": "Extractor hood"
+  },
+  {
+    "id": 265,
+    "name": "Fitness machine"
+  },
+  {
+    "id": 266,
+    "name": "Fridge"
+  },
+  {
+    "id": 267,
+    "name": "Glue gun"
+  },
+  {
+    "id": 268,
+    "name": "Gourmet set"
+  },
+  {
+    "id": 269,
+    "name": "Grinding machine"
+  },
+  {
+    "id": 270,
+    "name": "Hammer drill"
+  },
+  {
+    "id": 271,
+    "name": "Hand drill"
+  },
+  {
+    "id": 272,
+    "name": "Hedge shear / hedge trimmer"
+  },
+  {
+    "id": 273,
+    "name": "Jigsaw"
+  },
+  {
+    "id": 274,
+    "name": "Lawnmower"
+  },
+  {
+    "id": 275,
+    "name": "Leaf blower"
+  },
+  {
+    "id": 276,
+    "name": "Lighter"
+  },
+  {
+    "id": 277,
+    "name": "Milling cutter"
+  },
+  {
+    "id": 278,
+    "name": "Mobility scooter"
+  },
+  {
+    "id": 279,
+    "name": "Mop machine"
+  },
+  {
+    "id": 280,
+    "name": "Multitool"
+  },
+  {
+    "id": 281,
+    "name": "Nail milling machine"
+  },
+  {
+    "id": 282,
+    "name": "Oil filled radiator (mobile)"
+  },
+  {
+    "id": 283,
+    "name": "Overlock machine"
+  },
+  {
+    "id": 284,
+    "name": "Paint burner"
+  },
+  {
+    "id": 285,
+    "name": "Saber saw / reciprocating saw"
+  },
+  {
+    "id": 286,
+    "name": "Sander"
+  },
+  {
+    "id": 287,
+    "name": "Sawing machine"
+  },
+  {
+    "id": 288,
+    "name": "Scarifier"
+  },
+  {
+    "id": 289,
+    "name": "Screwdriver / Drilling machine"
+  },
+  {
+    "id": 290,
+    "name": "Sewing machine"
+  },
+  {
+    "id": 291,
+    "name": "Shredder"
+  },
+  {
+    "id": 292,
+    "name": "Soldering iron"
+  },
+  {
+    "id": 293,
+    "name": "Steam cleaner"
+  },
+  {
+    "id": 294,
+    "name": "Straight grinder"
+  },
+  {
+    "id": 295,
+    "name": "Strimmer"
+  },
+  {
+    "id": 296,
+    "name": "Tacker"
+  },
+  {
+    "id": 297,
+    "name": "Water blaster / High-pressure cleaner"
+  },
+  {
+    "id": 298,
+    "name": "Window washer"
+  },
+  {
+    "id": 299,
+    "name": "Drone"
+  },
+  {
+    "id": 300,
+    "name": "Electric train"
+  },
+  {
+    "id": 301,
+    "name": "Game"
+  },
+  {
+    "id": 302,
+    "name": "Hoverboard"
+  },
+  {
+    "id": 303,
+    "name": "Music box (toy)"
+  },
+  {
+    "id": 304,
+    "name": "Racing track"
+  },
+  {
+    "id": 305,
+    "name": "Remote controlled car"
+  },
+  {
+    "id": 306,
+    "name": "Robot"
+  },
+  {
+    "id": 307,
+    "name": "Singing doll"
+  },
+  {
+    "id": 308,
+    "name": "Teddy bear"
+  },
+  {
+    "id": 309,
+    "name": "Toy"
+  },
+  {
+    "id": 310,
+    "name": "Toy piano"
+  },
+  {
+    "id": 311,
+    "name": "Game console"
+  },
+  {
+    "id": 312,
+    "name": "Playstation"
+  },
+  {
+    "id": 313,
+    "name": "Wii"
+  },
+  {
+    "id": 314,
+    "name": "Electric bicycle"
+  },
+  {
+    "id": 315,
+    "name": "Blood pressure monitor"
+  },
+  {
+    "id": 316,
+    "name": "Thermometer"
+  },
+  {
+    "id": 317,
+    "name": "Smoke detector"
+  }
+]

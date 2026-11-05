@@ -1,0 +1,16 @@
+{
+  "name": "repairers-importer",
+  "version": "1.0.0",
+  "description": "Importer for repairers from CSV to Service Hub API",
+  "license": "AGPL-3.0-only",
+  "main": "import_repairers.js",
+  "scripts": {
+    "start": "node import_repairers.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fast-csv": "^5.0.1",
+    "node-fetch": "^2.7.0",
+    "wkx": "^0.5.0"
+  }
+}
