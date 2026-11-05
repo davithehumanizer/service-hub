@@ -2,6 +2,7 @@ import { Repairer } from '../repairer.entity';
 import { RepairerSearchDto } from '../types/repairer-search.dto';
 import { RepairerFilter } from '../types/repairerFilter';
 import { MapBounds, RepairerMarker } from '../services/repairers.service';
+import { Editor } from '../../types/author';
 
 export interface IRepairersService {
   findAll(): Promise<Repairer[]>;
@@ -35,10 +36,19 @@ export interface IRepairersService {
     total: number;
     truncated: boolean;
   }>;
-  findOne(id: string): Promise<Repairer | null>;
+  findOne(id: string, viewer?: Editor): Promise<Repairer>;
+  authorOf(id: string): Promise<number | null>;
   create(data: Repairer): Promise<Repairer>;
-  update(id: string, data: Repairer): Promise<Repairer>;
+  update(id: string, data: Partial<Repairer>): Promise<Repairer>;
   delete(id: string): Promise<{ message: string }>;
+  purgeDemo(dryRun: boolean): Promise<{ repairers: number }>;
+  demoStatsOf(contributorId: number): Promise<{
+    repairers: number;
+    pending: number;
+    published: number;
+    rejected: number;
+    revisions: number;
+  }>;
   getFilters(): Promise<RepairerFilter[]>;
   searchRepairers(searchDto: RepairerSearchDto): Promise<Repairer[]>;
   findNearestRepairer(

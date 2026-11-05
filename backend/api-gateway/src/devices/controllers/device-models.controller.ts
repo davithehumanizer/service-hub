@@ -10,8 +10,10 @@ import {
   Logger,
   Param,
   ParseUUIDPipe,
+  Patch,
   Post,
   Query,
+  Req,
   Res,
   UploadedFiles,
   UseGuards,
@@ -34,6 +36,8 @@ import type { Response } from 'express';
 import { Permissions } from 'src/auth/permission.decorator';
 import { FlexibleAuthGuard } from 'src/auth/flexible-auth.guard';
 import { PermissionsGuard } from 'src/auth/permission.guard';
+import { authorOf, editorOf } from 'src/auth/author';
+import { holdsPermission } from 'src/auth/holds-permission';
 import { StorageService } from 'src/storage/storage.service';
 import { ParseIdPipe } from 'src/common/database-id';
 import {
@@ -47,9 +51,17 @@ import {
 } from '../dto/get-device-models-query.dto';
 import { CreateDeviceModelDto } from '../dto/create-device-model.dto';
 import {
+  DeviceModelVariantInputDto,
+  NewDeviceModelVariantDto,
+} from '../dto/device-model-variant.dto';
+import { SOURCE_PERMISSION } from '../dto/source-field';
+import { UpdateDeviceModelDto } from '../dto/update-device-model.dto';
+import {
   CreateDeviceModelResponseDto,
+  DeviceModelDto,
   DeviceModelLookupDto,
   DeviceModelPhotoDto,
+  DeviceModelVariantDto,
   DeviceModelWithVariantsDto,
   GetDeviceModelsResponseDto,
 } from '../dto/device-model.dto';
@@ -149,6 +161,7 @@ export class DeviceModelsController {
   async getModel(
     @Param('id', ParseIdPipe) id: number,
     @Query() { page, limit, search, parts, variant }: GetDeviceModelQueryDto,
+    @Req() req: any,
     @Headers('accept-language') acceptLanguage?: string,
   ): Promise<DeviceModelWithVariantsDto> {
     return this.call(
@@ -171,6 +184,7 @@ export class DeviceModelsController {
           : undefined,
         variant,
         locale: localeOf(acceptLanguage),
+        viewer: editorOf(req),
       },
       'Failed to get device model',
     );
@@ -196,23 +210,151 @@ export class DeviceModelsController {
     description: 'The model already existed.',
     type: CreateDeviceModelResponseDto,
   })
-  @ApiResponse({ status: 400, description: 'No usable brand or name.' })
+  @ApiResponse({
+    status: 400,
+    description:
+      "No usable brand or name, or a contributor's barcode not starting with 2.",
+  })
   @ApiResponse({
     status: 403,
-    description: 'Not signed in, or without the `device.create` permission.',
+    description:
+      'Not signed in, without the `device.create` permission, or naming a source without `device.source.set`.',
+  })
+  @ApiResponse({
+    status: 409,
+    description:
+      'A contributor gave a barcode or a reference the catalogue already has.',
   })
   async createModel(
     @Body() model: CreateDeviceModelDto,
+    @Req() req: any,
     @Res({ passthrough: true }) res: Response,
     @Headers('accept-language') acceptLanguage?: string,
   ): Promise<CreateDeviceModelResponseDto> {
+    this.mayNameSource(model.source, req);
     const result: CreateDeviceModelResponseDto = await this.call(
       'create_device_model',
-      { model, locale: localeOf(acceptLanguage) },
+      { model, locale: localeOf(acceptLanguage), author: authorOf(req) },
       'Failed to create device model',
     );
     if (!result.created) res.status(HttpStatus.OK);
     return result;
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('device.create')
+  @Version('2')
+  @Post(':id/variants')
+  @ApiOperation({
+    summary: 'Add a variant to a device model',
+    description:
+      'With its technical properties, from which its label is computed. A barcode or a reference is required, and neither may be in the catalogue already.',
+  })
+  @ApiParam({ name: 'id', type: 'number', description: 'Model ID' })
+  @ApiBody({ type: NewDeviceModelVariantDto })
+  @ApiResponse({ status: 201, type: DeviceModelVariantDto })
+  @ApiResponse({
+    status: 400,
+    description:
+      "No barcode nor reference, or a contributor's barcode not starting with 2.",
+  })
+  @ApiResponse({
+    status: 403,
+    description:
+      'Not signed in, without the `device.create` permission, or naming a source without `device.source.set`.',
+  })
+  @ApiResponse({ status: 404, description: 'Model not found.' })
+  @ApiResponse({
+    status: 409,
+    description:
+      'The barcode or the reference is in the catalogue already; `modelId` names its model.',
+  })
+  async addVariant(
+    @Param('id', ParseIdPipe) id: number,
+    @Body() variant: NewDeviceModelVariantDto,
+    @Req() req: any,
+  ): Promise<DeviceModelVariantDto> {
+    this.mayNameSource(variant.source, req);
+    return this.call(
+      'add_device_model_variant',
+      { modelId: id, variant, author: authorOf(req) },
+      'Failed to add the variant',
+    );
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('device.create')
+  @Version('2')
+  @Patch(':id')
+  @ApiOperation({
+    summary: 'Change the brand, the name or the categories of a device model',
+    description:
+      'By its author or an administrator. A name the catalogue has for another model is refused, with that model.',
+  })
+  @ApiParam({ name: 'id', type: 'number', description: 'Model ID' })
+  @ApiBody({ type: UpdateDeviceModelDto })
+  @ApiResponse({ status: 200, type: DeviceModelDto })
+  @ApiResponse({ status: 400, description: 'No usable brand or name.' })
+  @ApiResponse({
+    status: 403,
+    description: 'Neither its author nor an administrator.',
+  })
+  @ApiResponse({ status: 404, description: 'Model not found.' })
+  @ApiResponse({
+    status: 409,
+    description: 'Another model has this name; `modelId` names it.',
+  })
+  async updateModel(
+    @Param('id', ParseIdPipe) id: number,
+    @Body() changes: UpdateDeviceModelDto,
+    @Req() req: any,
+  ): Promise<DeviceModelDto> {
+    return this.call(
+      'update_device_model',
+      { modelId: id, changes, editor: editorOf(req) },
+      'Failed to update the model',
+    );
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('device.create')
+  @Version('2')
+  @Patch(':id/variants/:variantId')
+  @ApiOperation({
+    summary: 'Change the codes or the technical properties of a variant',
+    description:
+      'By its author or an administrator. Properties sent replace those it had, and its label follows.',
+  })
+  @ApiParam({ name: 'id', type: 'number', description: 'Model ID' })
+  @ApiParam({ name: 'variantId', type: 'number', description: 'Variant ID' })
+  @ApiBody({ type: DeviceModelVariantInputDto })
+  @ApiResponse({ status: 200, type: DeviceModelVariantDto })
+  @ApiResponse({
+    status: 400,
+    description:
+      "Neither barcode nor reference left, or a contributor's barcode not starting with 2.",
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Neither its author nor an administrator.',
+  })
+  @ApiResponse({ status: 404, description: 'No such variant of this model.' })
+  @ApiResponse({
+    status: 409,
+    description:
+      'The barcode or the reference is another entry of the catalogue; `modelId` names its model.',
+  })
+  async updateVariant(
+    @Param('id', ParseIdPipe) id: number,
+    @Param('variantId', ParseIdPipe) variantId: number,
+    @Body() changes: DeviceModelVariantInputDto,
+    @Req() req: any,
+  ): Promise<DeviceModelVariantDto> {
+    return this.call(
+      'update_device_model_variant',
+      { modelId: id, variantId, changes, editor: editorOf(req) },
+      'Failed to update the variant',
+    );
   }
 
   @UseGuards(FlexibleAuthGuard, PermissionsGuard)
@@ -250,6 +392,7 @@ export class DeviceModelsController {
   async uploadPhotos(
     @Param('id', ParseIdPipe) id: number,
     @UploadedFiles() files: Express.Multer.File[],
+    @Req() req: any,
   ): Promise<DeviceModelPhotoDto[]> {
     if (!files || files.length === 0) {
       throw new HttpException('No files uploaded', HttpStatus.BAD_REQUEST);
@@ -271,7 +414,7 @@ export class DeviceModelsController {
       if (failed) throw failed.reason;
       return await this.call(
         'add_device_model_photos',
-        { modelId: id, photoUrls },
+        { modelId: id, photoUrls, author: authorOf(req) },
         'Failed to upload photos',
       );
     } catch (error) {
@@ -285,12 +428,12 @@ export class DeviceModelsController {
   }
 
   @UseGuards(FlexibleAuthGuard, PermissionsGuard)
-  @Permissions('device.photos.admin')
+  @Permissions('device.photos.upload')
   @Version('2')
   @Delete(':id/photos/:photoId')
   @ApiOperation({
     summary: 'Delete a photo of a device model',
-    description: 'Administrators only: nothing says who uploaded a photo.',
+    description: 'By whoever uploaded it, or an administrator.',
   })
   @ApiParam({ name: 'id', type: 'number', description: 'Model ID' })
   @ApiParam({ name: 'photoId', type: 'string', description: 'Photo UUID' })
@@ -298,16 +441,17 @@ export class DeviceModelsController {
   @ApiResponse({ status: 400, description: 'Not a model id or a photo UUID.' })
   @ApiResponse({
     status: 403,
-    description: 'Not an administrator (`device.photos.admin`).',
+    description: 'Neither its uploader nor an administrator.',
   })
   @ApiResponse({ status: 404, description: 'No such photo of this model.' })
   async deletePhoto(
     @Param('id', ParseIdPipe) id: number,
     @Param('photoId', ParseUUIDPipe) photoId: string,
+    @Req() req: any,
   ): Promise<{ success: true }> {
     const { key } = await this.call<{ key: string }>(
       'delete_device_model_photo',
-      { modelId: id, photoId },
+      { modelId: id, photoId, editor: editorOf(req) },
       'Failed to delete photo',
     );
     await this.storageService.deleteFile(key);
@@ -318,6 +462,16 @@ export class DeviceModelsController {
    * Sends to devices-service, answering its refusals with their HTTP status:
    * what was not found 404, an unusable model 400, anything else 500.
    */
+  /** A source is named by a client allowed to, never by anyone who creates. */
+  private mayNameSource(source: string | undefined, req: any) {
+    if (source !== undefined && !holdsPermission(req, SOURCE_PERMISSION)) {
+      throw new HttpException(
+        `Naming a source needs the ${SOURCE_PERMISSION} permission`,
+        HttpStatus.FORBIDDEN,
+      );
+    }
+  }
+
   private async call<T>(cmd: string, payload: object, fallback: string) {
     try {
       return await firstValueFrom(
@@ -328,10 +482,21 @@ export class DeviceModelsController {
       this.logger.error(`${cmd} failed: ${message}`);
       const status = /not found|no device model/i.test(message)
         ? HttpStatus.NOT_FOUND
-        : /needs a brand/i.test(message)
+        : /needs a|starts with 2/i.test(message)
           ? HttpStatus.BAD_REQUEST
-          : HttpStatus.INTERNAL_SERVER_ERROR;
-      throw new HttpException(message, status);
+          : /^only /i.test(message)
+            ? HttpStatus.FORBIDDEN
+            : /already/i.test(message)
+              ? HttpStatus.CONFLICT
+              : HttpStatus.INTERNAL_SERVER_ERROR;
+      // A conflict names the model meant, for a link to it.
+      const modelId = Number(/model (\d+)/i.exec(message)?.[1]);
+      throw new HttpException(
+        status === HttpStatus.CONFLICT && modelId
+          ? { statusCode: status, message, modelId }
+          : message,
+        status,
+      );
     }
   }
 }

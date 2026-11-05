@@ -23,7 +23,8 @@ const RepairMonitorPage: React.FC = () => {
   const { stats, filters, loading, error } = useSelector((state: RootState) => state.repairMonitor);
   const userType = useSelector(selectUserType);
   const token = useSelector((state: RootState) => state.auth.token);
-  const isAuthenticated = !!(token && userType && userType !== null);
+  // A contributor may not submit repair records (docs/demo-data.md, §8).
+  const isAuthenticated = !!(token && userType && userType !== 'contributor');
   const isAdmin = userType === 'admin';
 
   const [activeTab, setActiveTab] = useState<Tab>('dashboard');

@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ILike, In, Repository, DeepPartial } from 'typeorm';
 import { Device } from '../../entity/device.entity';
@@ -18,6 +22,13 @@ import {
   placementInputs,
 } from '../../device-models/model-assignment.service';
 import { localizeCategories } from '../localize-categories';
+import {
+  Author,
+  Editor,
+  mayEdit,
+  NO_AUTHOR,
+  NO_EDITOR,
+} from '../../types/author';
 
 @Injectable()
 export class DevicesService implements IDevicesService {
@@ -800,9 +811,16 @@ export class DevicesService implements IDevicesService {
   async addDevicePhotos(
     deviceId: number,
     photoUrls: { url: string; key: string }[],
+    author: Author = NO_AUTHOR,
   ): Promise<DevicePhoto[]> {
     const photos = photoUrls.map((p) =>
-      this.devicePhotoRepository.create({ deviceId, url: p.url, key: p.key }),
+      this.devicePhotoRepository.create({
+        deviceId,
+        url: p.url,
+        key: p.key,
+        createdBy: author.created_by,
+        isDemo: author.is_demo,
+      }),
     );
     const saved = await this.devicePhotoRepository.save(photos);
     // A picture can make the variant its model's representative.
@@ -810,16 +828,29 @@ export class DevicesService implements IDevicesService {
     return saved;
   }
 
-  async deleteDevicePhoto(photoId: string): Promise<{ key: string }> {
+  /**
+   * By whoever uploaded it or an administrator; a photo of another device
+   * than the one named is not found.
+   */
+  async deleteDevicePhoto(
+    photoId: string,
+    editor: Editor = NO_EDITOR,
+    deviceId?: number,
+  ): Promise<{ key: string }> {
     const photo = await this.devicePhotoRepository.findOne({
-      where: { id: photoId },
+      where: { id: photoId, ...(deviceId ? { deviceId } : {}) },
+      select: { id: true, deviceId: true, key: true, createdBy: true },
     });
     if (!photo) {
       throw new NotFoundException(`Photo with ID ${photoId} not found`);
     }
-    const { key, deviceId } = photo;
+    if (!mayEdit(editor, photo.createdBy)) {
+      throw new ForbiddenException(
+        'Only its author or an administrator may delete this photo',
+      );
+    }
     await this.devicePhotoRepository.remove(photo);
-    await this.modelAssignment.assignDevice(deviceId);
-    return { key };
+    await this.modelAssignment.assignDevice(photo.deviceId);
+    return { key: photo.key };
   }
 }

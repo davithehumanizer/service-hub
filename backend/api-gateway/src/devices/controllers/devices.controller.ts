@@ -22,6 +22,7 @@ import {
   VERSION_NEUTRAL,
   UploadedFiles,
   UseInterceptors,
+  Req,
 } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { Permissions } from 'src/auth/permission.decorator';
@@ -29,6 +30,8 @@ import { ClientProxy } from '@nestjs/microservices';
 import { firstValueFrom } from 'rxjs';
 import { FlexibleAuthGuard } from 'src/auth/flexible-auth.guard';
 import { PermissionsGuard } from 'src/auth/permission.guard';
+import { authorOf, editorOf } from 'src/auth/author';
+import { ParseIdPipe } from 'src/common/database-id';
 import {
   ApiTags,
   ApiOperation,
@@ -416,14 +419,27 @@ export class DevicesController {
     description: 'Device created.',
     schema: { $ref: getSchemaPath(DeviceDto) },
   })
+  @ApiResponse({
+    status: 403,
+    description:
+      'A contributor: demonstration data goes through POST /v2/device-models.',
+  })
   @ApiResponse({ status: 500, description: 'Internal Server Error.' })
   @Post()
-  async createDevice(@Body() body: CreateDeviceDto) {
+  async createDevice(@Body() body: CreateDeviceDto, @Req() req: any) {
     this.logger.log('createDevice called');
     console.log('create_device', body);
+    // Here neither the demonstration barcode is checked nor the model the
+    // entry lands on marked: a contributor's goes through the model route.
+    if (authorOf(req).is_demo) {
+      throw new HttpException(
+        'Contributors create devices through /v2/device-models',
+        HttpStatus.FORBIDDEN,
+      );
+    }
     try {
       // Forward categories array as part of the payload
-      const payload = { ...body };
+      const payload = { ...body, ...authorOf(req) };
       // If legacy device_category is present, convert to categories array
       if ((body as any).device_category && !body.categories) {
         payload.categories = [(body as any).device_category];
@@ -513,6 +529,7 @@ export class DevicesController {
   async uploadDevicePhotos(
     @Param('id') id: number,
     @UploadedFiles() files: Express.Multer.File[],
+    @Req() req: any,
   ) {
     this.logger.log(`uploadDevicePhotos called for device ${id}`);
 
@@ -535,7 +552,7 @@ export class DevicesController {
       const result = await firstValueFrom(
         this.devicesService.send(
           { cmd: 'add_device_photos' },
-          { deviceId: Number(id), photoUrls },
+          { deviceId: Number(id), photoUrls, author: authorOf(req) },
         ),
       );
       return result;
@@ -552,27 +569,35 @@ export class DevicesController {
   }
 
   @UseGuards(FlexibleAuthGuard, PermissionsGuard)
-  @Permissions('device.photos.admin')
+  @Permissions('device.photos.upload')
   @Version('1')
   @Delete(':id/photos/:photoId')
   @ApiOperation({
     summary: 'Delete a photo from a device',
-    description: 'Administrators only: nothing says who uploaded a photo.',
+    description: 'By whoever uploaded it, or an administrator.',
   })
   @ApiParam({ name: 'id', type: 'number', description: 'Device ID' })
   @ApiParam({ name: 'photoId', type: 'string', description: 'Photo UUID' })
   @ApiResponse({ status: 200, description: 'Photo deleted.' })
-  @ApiResponse({ status: 404, description: 'Photo not found.' })
+  @ApiResponse({
+    status: 403,
+    description: 'Neither its uploader nor an administrator.',
+  })
+  @ApiResponse({ status: 404, description: 'No such photo of this device.' })
   async deleteDevicePhoto(
-    @Param('id') id: number,
+    @Param('id', ParseIdPipe) id: number,
     @Param('photoId') photoId: string,
+    @Req() req: any,
   ) {
     this.logger.log(
       `deleteDevicePhoto called for device ${id}, photo ${photoId}`,
     );
     try {
       const { key } = await firstValueFrom(
-        this.devicesService.send({ cmd: 'delete_device_photo' }, { photoId }),
+        this.devicesService.send(
+          { cmd: 'delete_device_photo' },
+          { photoId, deviceId: Number(id), editor: editorOf(req) },
+        ),
       );
 
       await this.storageService.deleteFile(key);
@@ -587,7 +612,9 @@ export class DevicesController {
         error.message || 'Failed to delete photo',
         error.message?.includes('not found')
           ? HttpStatus.NOT_FOUND
-          : HttpStatus.INTERNAL_SERVER_ERROR,
+          : /only its author/i.test(error.message ?? '')
+            ? HttpStatus.FORBIDDEN
+            : HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }

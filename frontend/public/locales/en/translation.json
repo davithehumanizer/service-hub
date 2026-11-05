@@ -8,21 +8,26 @@
     "repairJourney": "Repair Journey",
     "assistant": "Information agent",
     "sourceCode": "Source code",
-    "tools": "Tools",
     "devices": "Devices",
     "spareParts": "Spare Parts",
     "repairMap": "Repair Map",
     "tutorials": "Tutorials",
     "impactCalculator": "Impact calculator",
     "repairMonitor": "Repair Monitor",
-    "repairer": "Repairer",
     "myWorkshop": "My Workshop",
     "apiCatalog": "Community catalogue",
-    "catalog": "Catalog",
     "submitATool": "Submit a Tool",
     "admin": "Admin",
     "adminApiCatalog": "API Catalog",
-    "adminRepairerReports": "Repairer Reports"
+    "adminRepairerReports": "Repairer Reports",
+    "adminContributors": "Contributor Accounts",
+    "myRepairers": "My repairers",
+    "adminRepairerProposals": "Repairer proposals",
+    "adminDemoData": "Demo data",
+    "myContributions": "My contributions",
+    "find": "Find",
+    "contribute": "Contribute",
+    "impact": "Impact"
   },
   "header": {
     "menu": "Menu",
@@ -313,7 +318,12 @@
       "os": "Operating system",
       "keyboard": "Keyboard",
       "sim": "SIM card"
-    }
+    },
+    "addVariant": "Add a variant",
+    "editVariant": "Edit this variant",
+    "photoDeleted": "Photo deleted.",
+    "contribute": "Contribute",
+    "editModel": "Edit the model"
   },
   "personalDevices": {
     "loadFailed": "Your devices could not be loaded.",
@@ -389,13 +399,17 @@
     "validation": {
       "brandRequired": "The brand is required",
       "nameRequired": "The model is required",
-      "eanFormat": "A barcode has 8 to 14 digits"
+      "eanFormat": "A barcode has 8 to 14 digits",
+      "demoEan": "A demonstration code starts with 2"
     },
     "eanHint": "Optional: its barcode, if you have it.",
+    "demoEanHint": "Demonstration code: 8 to 14 digits starting with 2, made up.",
     "productCodeHint": "Optional: the manufacturer's reference.",
     "created": "{{name}} has been added to the catalogue.",
     "existed": "{{name}} was already in the catalogue: here it is.",
-    "photosFailed": "The photos could not be added."
+    "photosFailed": "The photos could not be added.",
+    "demoCodeKnown": "This code or reference is already in the catalogue: make up another one.",
+    "generateEan": "Generate"
   },
   "repairMap": {
     "title": "Find a place",
@@ -481,7 +495,8 @@
       "electromenager": "Home Appliances",
       "audioVideo": "Audio / Video",
       "autres": "Other"
-    }
+    },
+    "proposeRepairer": "Propose a repairer"
   },
   "repairerDetails": {
     "address": "Address",
@@ -498,7 +513,9 @@
     "openInMaps": "Open in Google Maps",
     "loadingRoute": "Loading route data...",
     "routeError": "Could not load route information.",
-    "backToMap": "Back to map"
+    "backToMap": "Back to map",
+    "pendingNotice": "This repairer is waiting for an administrator to approve it: only you can see it.",
+    "rejectedNotice": "This proposal was refused. You can correct it and send it again from \"My repairers\"."
   },
   "repairerProfile": {
     "title": "My Workshop",
@@ -702,6 +719,31 @@
     "reportedOn": "Reported on",
     "markReviewed": "Mark reviewed",
     "dismiss": "Dismiss"
+  },
+  "adminContributors": {
+    "title": "Admin — Contributor Accounts",
+    "subtitle": "Accounts of the companies entering demonstration data: whatever they create is marked as such.",
+    "newAccount": "New account",
+    "invitationHint": "The contributor chooses a password from the link emailed. If it is lost, “Forgot password” sends a new one.",
+    "email": "Email address",
+    "emailInvalid": "Invalid email address.",
+    "firstName": "Contact first name",
+    "lastName": "Contact last name",
+    "language": "Language of its emails",
+    "create": "Create and send the invitation",
+    "created": "Invitation sent to {{email}}.",
+    "alreadyExists": "This address already has an account.",
+    "createError": "Could not create this account.",
+    "loadError": "Could not load the accounts.",
+    "accounts": "Existing accounts",
+    "none": "No contributor account yet.",
+    "createdOn": "Created on",
+    "wouldRemove": "What the purge would remove for this account",
+    "pendingChanges": "Changes awaiting approval",
+    "languageHint": "The invitation, then every email the account receives.",
+    "emailsIn": "emails: {{language}}",
+    "entries": "What it entered",
+    "noEntries": "This account has not entered anything yet."
   },
   "apiToolDetail": {
     "backToCatalog": "Back to catalog",
@@ -1289,7 +1331,6 @@
     "viewFullSheet": "View full device sheet",
     "removeConfirmTitle": "Remove Device",
     "removeConfirmDesc": "Are you sure you want to remove the current device?",
-    "noPhotos": "No photos available for this device.",
     "closeLightbox": "Close lightbox",
     "noMultimedia": "No multimedia content available.",
     "multimediaError": "Error loading multimedia content.",
@@ -1795,5 +1836,224 @@
     "unavailable": "No camera is available on this device.",
     "startFailed": "The scanner could not start. Type the number instead.",
     "switchCamera": "Switch camera"
+  },
+  "demo": {
+    "badge": "Demo",
+    "hint": "Demonstration data, entered to try the site out"
+  },
+  "modelEdit": {
+    "title": "Edit the model",
+    "saved": "Model saved.",
+    "nameTaken": "Another model already has this name.",
+    "brandAndName": "The brand and the model are required."
+  },
+  "variantForm": {
+    "titleAdd": "Add a variant",
+    "titleEdit": "Edit the variant",
+    "eanHint": "Its barcode, if you have it.",
+    "codesHint": "A barcode or a reference: at least one of them.",
+    "properties": "Characteristics",
+    "propertiesHint": "Fill in those you know. Numbers go in the unit shown.",
+    "otherProperties": "Other characteristics",
+    "propertyName": "Name",
+    "propertyValue": "Value",
+    "addProperty": "Add a characteristic",
+    "numberInvalid": "A number, in the unit shown",
+    "needsCode": "Give a barcode or a reference.",
+    "codeKnown": "This barcode or reference is already in the catalogue.",
+    "seeModel": "See that model",
+    "notYours": "Only its author or an administrator can change it.",
+    "photoNotYours": "Only whoever added a photo, or an administrator, can delete it.",
+    "added": "Variant added.",
+    "saved": "Variant saved.",
+    "fixProperties": "Correct the characteristics marked in red."
+  },
+  "devicePhotos": {
+    "catalogue": "Catalogue photo",
+    "added": "Added photos",
+    "addedHint": "Shown under every variant of this model.",
+    "addFirst": "Add the first photo",
+    "enlarge": "Enlarge the photo",
+    "deleteConfirm": "Delete this photo?",
+    "definitions": "{{n}} resolutions",
+    "chooseDefinition": "Choose a resolution"
+  },
+  "repairerForm": {
+    "titleNew": "Propose a repairer",
+    "titleEdit": "Edit the repairer",
+    "intro": "It will appear on the map once an administrator has approved it.",
+    "introPublished": "Your changes will show once an administrator has approved them; until then the map keeps the current version.",
+    "introAdmin": "As an administrator, what you save is published at once.",
+    "pendingChange": "A change is already waiting for approval: saving replaces it.",
+    "sectionPlace": "The place",
+    "name": "Name",
+    "activity": "Activity",
+    "description": "Description",
+    "sectionAddress": "Address",
+    "searchAddress": "Find the address",
+    "searchPlaceholder": "Number, street, town…",
+    "street": "Street and number",
+    "postalCode": "Postcode",
+    "city": "Town",
+    "country": "Country",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "pinHint": "Pick an address from the list, then drag the pin if needed, or click the map.",
+    "pinMissing": "Place it on the map: pick an address from the list or click the map.",
+    "sectionContact": "Contact",
+    "website": "Website",
+    "email": "Email",
+    "phone": "Phone",
+    "devices": "Devices repaired",
+    "devicesPlaceholder": "Choose the types of device",
+    "submitNew": "Send the proposal",
+    "submitEdit": "Save",
+    "sent": "Proposal sent. It will appear on the map once approved.",
+    "published": "Repairer published.",
+    "changeSent": "Change sent. It will show once approved.",
+    "saved": "Changes saved.",
+    "notYours": "Only whoever proposed this repairer, or an administrator, can change it.",
+    "required": "Fill in the name, the street, the town and the country.",
+    "fieldRequired": "Required"
+  },
+  "myRepairers": {
+    "title": "My repairers",
+    "intro": "The places you proposed, and where their approval stands.",
+    "propose": "Propose a repairer",
+    "empty": "You have not proposed any repairer yet.",
+    "status": {
+      "pending": "Awaiting approval",
+      "published": "Published",
+      "rejected": "Refused"
+    },
+    "proposedOn": "Proposed on {{date}}",
+    "view": "View",
+    "edit": "Edit",
+    "withdraw": "Withdraw",
+    "withdrawConfirm": "Withdraw this proposal? It will be deleted.",
+    "withdrawn": "Proposal withdrawn.",
+    "rejectedHint": "Refused by an administrator. Edit it to send it again.",
+    "changePending": "A change sent on {{date}} is awaiting approval.",
+    "changeRejected": "Your last change was refused.",
+    "reason": "Reason: {{note}}"
+  },
+  "adminRepairerProposals": {
+    "title": "Repairer proposals",
+    "intro": "Repairers proposed on the site, and their authors' changes, reach the map only once approved here.",
+    "empty": "Nothing to review.",
+    "newPlaces": "New places",
+    "changes": "Changes",
+    "proposedOn": "sent on {{date}}",
+    "seeOnMap": "See on the map",
+    "field": "Field",
+    "before": "Now",
+    "after": "Proposed",
+    "publish": "Publish",
+    "apply": "Apply",
+    "reject": "Refuse",
+    "reason": "Reason for refusing",
+    "reasonHint": "Optional. Shown to whoever proposed it.",
+    "confirmReject": "Confirm the refusal",
+    "done": {
+      "proposal": {
+        "publish": "Repairer published.",
+        "reject": "Proposal refused."
+      },
+      "revision": {
+        "apply": "Change applied.",
+        "reject": "Change refused."
+      }
+    },
+    "stale": "It changed in the meantime: the list has been reloaded, check it again.",
+    "proposedBy": "by",
+    "select": "Select",
+    "selectAll": "Select all",
+    "publishSelected": "Publish selected ({{count}})",
+    "applySelected": "Apply selected ({{count}})",
+    "bulkDone": {
+      "proposal_one": "{{count}} repairer published.",
+      "proposal_other": "{{count}} repairers published.",
+      "revision_one": "{{count}} change applied.",
+      "revision_other": "{{count}} changes applied."
+    },
+    "bulkSkipped_one": "{{count}} could not be processed. The queue was reloaded: check it before trying again.",
+    "bulkSkipped_other": "{{count}} could not be processed. The queue was reloaded: check them before trying again.",
+    "refused": "Recently refused",
+    "refusedHint": "A refusal made by mistake is taken back here. As for any decision, the author is emailed.",
+    "refusedOn": "Refused on {{date}}",
+    "reasonGiven": "reason: {{note}}",
+    "publishAnyway": "Publish anyway",
+    "applyAnyway": "Apply anyway",
+    "publishAnywayConfirm": "Publish this repairer despite the refusal? Its author is emailed.",
+    "applyAnywayConfirm": "Apply this change despite the refusal? Its author is emailed."
+  },
+  "adminDemoData": {
+    "title": "Demo data",
+    "intro": "Everything the contributors entered, what points to it, and their accounts, removed in one purge.",
+    "wouldRemove": "What the purge would remove",
+    "done": "Removed",
+    "nothing": "No demo data left.",
+    "accountsGroup": "Accounts",
+    "catalogueGroup": "Catalogue",
+    "repairersGroup": "Repairers",
+    "contagionGroup": "Pointing to demo data",
+    "lines": {
+      "accounts": "Contributor accounts",
+      "models": "Models",
+      "variants": "Variants",
+      "photos": "Photos (and their files)",
+      "adoptedModels": "Demo models kept, a real variant having joined them",
+      "touchedModels": "Real models recomputed",
+      "repairers": "Repairers",
+      "ownerships": "Personal devices",
+      "journeys": "Repair journeys",
+      "records": "Repair records",
+      "subscriptions": "Tutorial subscriptions"
+    },
+    "ofRealUsers": "of which {{n}} real users’",
+    "irreversible": "This cannot be undone.",
+    "dumpFirst": "Take a dump of the database first.",
+    "contagionWarning": "Real users lose the personal devices and journeys that point to demo data.",
+    "typeWord": "Type {{word}} to confirm",
+    "purge": "Purge",
+    "purged": "Demo data purged.",
+    "filesLeft": "{{n}} photo files could not be deleted: see the gateway logs.",
+    "stopped": "The purge stopped. What was removed stays removed; run it again to finish."
+  },
+  "contributions": {
+    "title": "My contributions",
+    "intro": "The models and variants you entered, newest first.",
+    "add": "Add a device",
+    "empty": "You have not entered any model or variant yet.",
+    "repairersElsewhere": "The repairers you proposed are in",
+    "kinds": {
+      "models": "Models",
+      "variants": "Variants",
+      "repairers": "Repairers"
+    },
+    "none": {
+      "models": "No model.",
+      "variants": "No variant.",
+      "repairers": "No repairer."
+    },
+    "variantCount_one": "{{count}} variant",
+    "variantCount_other": "{{count}} variants",
+    "createdOn": "created on {{date}}",
+    "code": "Barcode {{code}}",
+    "noCode": "No barcode",
+    "changeWaiting": "change waiting",
+    "loadMore": "Show more ({{shown}} of {{total}})"
+  },
+  "contributorGuide": {
+    "title": "Welcome to the demonstration campaign",
+    "intro": "What you enter fills Service Hub for the campaign: devices and repairers, as close to real as you can.",
+    "rules": {
+      "what": "Enter device models, their variants (colour, capacity…) with their specifications and photos, and repairers.",
+      "ean": "A barcode (EAN) starts with 2: the form’s “Generate” button makes a free one.",
+      "photos": "Photos: only your own, or under a free licence. No image copied from a manufacturer’s or seller’s site: what you enter is public.",
+      "repairers": "A repairer appears on the map once an administrator approves it; you get an email at each decision.",
+      "emails": "Tutorial subscriptions send real emails: use an address you read.",
+      "purge": "Everything you enter carries the “Demo” badge and will be removed at the end of the campaign."
+    }
   }
 }

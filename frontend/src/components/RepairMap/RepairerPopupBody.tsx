@@ -6,6 +6,7 @@ import { Repairer } from '../../models/repairer';
 import { getCountryName } from '../../utils/countryMapper';
 import { translateRepairerDeviceType } from '../../utils/repairerDeviceTypeUtils';
 import { PARTNER_CATEGORY_ICON, partnerActivities } from '../../utils/partnerTypes';
+import DemoBadge from '../Devices/DemoBadge';
 
 /**
  * The card behind a map pin, fetched when the pin is opened.
@@ -82,6 +83,7 @@ const RepairerPopupBody: React.FC<{
         <div className="flex-1">
           <h3 className="text-lg font-semibold text-gray-900 mb-1">
             {repairer.name}
+            {repairer.is_demo && <span className="ml-2 align-middle"><DemoBadge size="xs" /></span>}
           </h3>
           {/* One badge per activity: a place that repairs and resells shows both. */}
           <div className="flex flex-wrap gap-1 mb-1">

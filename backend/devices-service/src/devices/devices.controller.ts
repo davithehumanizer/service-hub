@@ -3,6 +3,7 @@
 import { Controller, Inject } from '@nestjs/common';
 import { MessagePattern, RpcException } from '@nestjs/microservices';
 import { IDevicesService } from './interfaces/devices-service.interface';
+import { Author, Editor } from '../types/author';
 
 @Controller('devices')
 export class DevicesController {
@@ -158,23 +159,41 @@ export class DevicesController {
   async addDevicePhotos({
     deviceId,
     photoUrls,
+    author,
   }: {
     deviceId: number;
     photoUrls: { url: string; key: string }[];
+    author?: Author;
   }) {
     try {
       console.log('addDevicePhotos called for device:', deviceId);
-      return await this.devicesService.addDevicePhotos(deviceId, photoUrls);
+      return await this.devicesService.addDevicePhotos(
+        deviceId,
+        photoUrls,
+        author,
+      );
     } catch (error) {
       throw new RpcException(error.message || 'Failed to add device photos');
     }
   }
 
   @MessagePattern({ cmd: 'delete_device_photo' })
-  async deleteDevicePhoto({ photoId }: { photoId: string }) {
+  async deleteDevicePhoto({
+    photoId,
+    editor,
+    deviceId,
+  }: {
+    photoId: string;
+    editor?: Editor;
+    deviceId?: number;
+  }) {
     try {
       console.log('deleteDevicePhoto called for photo:', photoId);
-      return await this.devicesService.deleteDevicePhoto(photoId);
+      return await this.devicesService.deleteDevicePhoto(
+        photoId,
+        editor,
+        deviceId,
+      );
     } catch (error) {
       throw new RpcException(error.message || 'Failed to delete device photo');
     }

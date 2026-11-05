@@ -147,6 +147,11 @@ describe('ModelAssignmentService', () => {
       await service.normalize(entries, DEFAULT_RULES),
     );
 
+    // A variant entered by hand, or by an outside source, stays where it
+    // was put, too: only an import's entry moves by its name.
+    const [kept] = calls(manager, 'm.is_manual');
+    expect(kept[0]).toContain('d.source <> ALL($2::text[])');
+    expect(kept[1][1]).toEqual(['ICECAT', 'UNKNOWN']);
     const [link] = calls(manager, 'UPDATE devices d SET model_id');
     expect(link[1][0]).toEqual([8]);
     // Its model is still one the batch touched: its labels are recomputed.
@@ -169,6 +174,17 @@ describe('ModelAssignmentService', () => {
     ]);
     expect(calls(manager, 'SET variant_count')[0][1]).toEqual([[61, 60]]);
     expect(modelIndex.reindex).toHaveBeenCalledWith([61, 60]);
+  });
+
+  it("refreshes within a caller's transaction when given one", async () => {
+    const { service, manager } = await setup(() => []);
+    const purge = { query: jest.fn(async () => []) };
+
+    await service.refreshModels(DEFAULT_RULES, [60], purge as never);
+
+    expect(manager.transaction).not.toHaveBeenCalled();
+    expect(manager.query).not.toHaveBeenCalled();
+    expect(calls(purge, 'SET variant_count')[0][1]).toEqual([[60]]);
   });
 
   it('logs a failed assignment instead of failing the save', async () => {

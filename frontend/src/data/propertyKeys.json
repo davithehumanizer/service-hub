@@ -1,0 +1,4833 @@
+{
+ "base": [
+  "Product colour",
+  "Width",
+  "Weight",
+  "Depth",
+  "Height"
+ ],
+ "categories": {
+  "Laptop": [
+   "Internal memory",
+   "Display diagonal",
+   "Operating system installed",
+   "Internal memory type",
+   "Total storage capacity",
+   "Processor manufacturer",
+   "Processor family",
+   "Bluetooth",
+   "Processor model",
+   "Display resolution",
+   "Processor cores",
+   "Native aspect ratio",
+   "Pointing device",
+   "On-board graphics card",
+   "On-board graphics card model",
+   "Discrete graphics card model"
+  ],
+  "Desktop computer": [
+   "Internal memory",
+   "Processor manufacturer",
+   "Processor family",
+   "Product type",
+   "Internal memory type",
+   "Processor model",
+   "Processor cores",
+   "Operating system installed",
+   "Ethernet LAN (RJ-45) ports",
+   "Total storage capacity",
+   "Chassis type",
+   "Ethernet LAN",
+   "Optical drive type",
+   "Maximum internal memory",
+   "On-board graphics card",
+   "Discrete graphics card model"
+  ],
+  "Monitor": [
+   "Display diagonal",
+   "Display resolution",
+   "Viewing angle, vertical",
+   "Touchscreen",
+   "Viewing angle, horizontal",
+   "Response time",
+   "Display brightness (typical)",
+   "Contrast ratio (typical)",
+   "Width (without stand)",
+   "Power consumption (typical)",
+   "Height (without stand)",
+   "Depth (without stand)",
+   "Native aspect ratio"
+  ],
+  "Smart Phone / Pager": [
+   "Bluetooth",
+   "Display resolution",
+   "Form factor",
+   "Display diagonal",
+   "Rear camera resolution (numeric)",
+   "Battery capacity",
+   "Position location",
+   "Bluetooth version",
+   "Mobile network generation",
+   "Panel type",
+   "Wi-Fi",
+   "Rear camera type",
+   "Platform",
+   "Rear camera flash",
+   "Internal storage capacity",
+   "Processor family",
+   "RAM capacity",
+   "Operating system installed",
+   "SIM card capability"
+  ],
+  "Keyboard (computer)": [
+   "Connectivity technology",
+   "Mouse included",
+   "Device interface",
+   "Keyboard form factor",
+   "Keyboard style",
+   "Numeric keypad",
+   "Recommended usage",
+   "Keyboard dimensions (WxDxH)",
+   "Backlight",
+   "Keyboard language",
+   "Keyboard weight",
+   "Power source type",
+   "Pointing device",
+   "Windows operating systems supported",
+   "Wrist rest",
+   "Keyboard layout"
+  ],
+  "Washing machine / Combi dryer": [
+   "Loading type",
+   "Appliance placement",
+   "Rated capacity",
+   "Maximum spin speed",
+   "Washing programs",
+   "Spin-drying class",
+   "Built-in display",
+   "Door hinge",
+   "Noise level (spin)",
+   "Delayed start timer",
+   "Control type",
+   "Door colour",
+   "Child lock",
+   "Cycle time (max)",
+   "Energy consumption washing per cycle"
+  ],
+  "Vacuum cleaner": [
+   "Cleaning type",
+   "Type",
+   "Maximum input power",
+   "Dust capacity",
+   "Dust container type",
+   "Proper use"
+  ],
+  "Flat Display Panel Television (LCD, LED, Plasma)": [
+   "Display diagonal",
+   "HD type",
+   "Display resolution",
+   "HDMI ports quantity",
+   "RMS rated power",
+   "Width (without stand)",
+   "Height (without stand)",
+   "Depth (without stand)",
+   "Display technology",
+   "USB 2.0 ports quantity",
+   "Wi-Fi",
+   "Weight (without stand)"
+  ],
+  "Mouse": [
+   "Device interface",
+   "Buttons quantity",
+   "Movement detection technology",
+   "Movement resolution",
+   "Scroll type",
+   "Purpose",
+   "Power source",
+   "Form factor",
+   "Buttons type",
+   "Number of scroll wheels",
+   "Windows operating systems supported"
+  ],
+  "Drip coffee maker": [
+   "Product type",
+   "Water tank capacity",
+   "Coffee input type",
+   "Power",
+   "Built-in display",
+   "Appliance placement",
+   "Multi beverage",
+   "Built-in grinder",
+   "Coffee maker type",
+   "AC input frequency",
+   "Control type",
+   "Espresso making",
+   "AC input voltage",
+   "Coffee making",
+   "Capacity in cups"
+  ],
+  "Freezer": [
+   "Product type",
+   "Appliance placement",
+   "Freezer net capacity",
+   "Annual energy consumption",
+   "Freezing capacity",
+   "Noise level",
+   "Door hinge",
+   "Storage time during power failure",
+   "Climate class",
+   "Freezer number of shelves/baskets",
+   "Star rating",
+   "Reversible doors",
+   "Fast freeze function",
+   "AC input voltage"
+  ],
+  "Printer": [
+   "Print speed (black, normal quality, A4/US Letter)",
+   "Colour",
+   "Internal memory",
+   "Maximum resolution",
+   "Maximum ISO A-series paper size",
+   "Total input capacity",
+   "Print technology",
+   "Time to first page (black, normal)",
+   "Total output capacity",
+   "ISO A-series sizes (A0...A9)",
+   "Maximum duty cycle",
+   "Duplex printing",
+   "Paper tray media types",
+   "Processor frequency",
+   "Ethernet LAN"
+  ],
+  "Telephone (not mobile or smartphone)": [
+   "Caller ID",
+   "Phonebook capacity",
+   "Talk time",
+   "Wireless connection",
+   "Speakerphone",
+   "Standby time",
+   "Answering machine",
+   "Built-in display",
+   "Backlight colour",
+   "Multi handset capability",
+   "Battery capacity",
+   "Battery technology",
+   "Type",
+   "Call waiting",
+   "Microphone mute",
+   "Display diagonal"
+  ],
+  "Wrist watch": [
+   "Shape",
+   "Display type",
+   "Watch case colour",
+   "Touchscreen",
+   "Display technology",
+   "Bluetooth version",
+   "Display diagonal",
+   "Thickness",
+   "Wi-Fi",
+   "Battery capacity",
+   "Display resolution",
+   "Band colour",
+   "Heart rate monitor",
+   "Watch case size",
+   "Bluetooth",
+   "Processor model",
+   "RAM capacity",
+   "Operating system installed"
+  ],
+  "Fridge / combi freezer": [
+   "Appliance placement",
+   "Annual energy consumption",
+   "Door hinge",
+   "Fridge net capacity",
+   "Noise level",
+   "Fridge number of shelves/baskets",
+   "Reversible doors",
+   "Climate class",
+   "Fridge interior light",
+   "Number of vegetable drawers",
+   "Egg tray",
+   "Energy efficiency class (old)",
+   "Built-in display",
+   "Automatic defrost (fridge)"
+  ],
+  "Iron": [
+   "Type",
+   "Iron power",
+   "Water tank capacity",
+   "Continuous steam performance",
+   "Steam boost performance",
+   "Steam boost function",
+   "Vertical steam function",
+   "Spray function",
+   "Cord length",
+   "Variable steam",
+   "Soleplate type",
+   "Anti-drip function",
+   "Automatic anti-calc"
+  ],
+  "Fryer": [
+   "Construction type",
+   "Power",
+   "Product type",
+   "Adjustable thermostat",
+   "Control type",
+   "Built-in display",
+   "Appliance placement",
+   "Dishwasher-proof parts",
+   "Fryer food capacity",
+   "Removable bowl",
+   "Frying function",
+   "Easy to clean",
+   "Auto power off",
+   "Digital timer"
+  ],
+  "Toaster": [
+   "Number of slices",
+   "Power",
+   "Removable crumb tray",
+   "Defrost function",
+   "Stop/cancel button",
+   "Reheat function",
+   "Variable crust browning control",
+   "Housing material",
+   "Cord storage",
+   "Number of slots",
+   "AC input voltage"
+  ],
+  "Dishwasher": [
+   "Appliance placement",
+   "Noise level",
+   "Door colour",
+   "Number of place settings",
+   "Number of washing programs",
+   "Water consumption per cycle",
+   "Delayed start timer",
+   "Energy consumption per cycle",
+   "Control panel colour",
+   "Dishwashing programs",
+   "Built-in display",
+   "Cycle time"
+  ],
+  "Robotic vacuum cleaner": [
+   "Shape",
+   "Dust container type",
+   "Runtime",
+   "Dust capacity (total)",
+   "Noise level",
+   "Battery technology",
+   "Automatic base station return",
+   "Charging time",
+   "Wet mopping",
+   "Base station",
+   "Base station functions",
+   "Remotely operated"
+  ],
+  "Bread maker": [
+   "Power",
+   "Maximum bread weight",
+   "Number of auto cooking programs",
+   "Viewing window",
+   "Delayed start timer",
+   "Built-in display",
+   "Control type",
+   "Display type"
+  ]
+ },
+ "overrides": {
+  "Printer": {
+   "Internal memory": {
+    "type": "number",
+    "label": {
+     "en": "Internal memory",
+     "fr": "Mémoire interne",
+     "nl": "Intern geheugen",
+     "de": "Speicherkapazität"
+    },
+    "unit": {
+     "en": "MB",
+     "fr": "Mo",
+     "nl": "MB",
+     "de": "MB"
+    }
+   }
+  },
+  "Wrist watch": {
+   "RAM capacity": {
+    "type": "number",
+    "label": {
+     "en": "RAM capacity",
+     "fr": "Capacité de la RAM",
+     "nl": "RAM-capaciteit",
+     "de": "RAM-Kapazität"
+    },
+    "unit": {
+     "en": "MB",
+     "fr": "Mo",
+     "nl": "MB",
+     "de": "MB"
+    }
+   }
+  }
+ },
+ "keys": {
+  "AC input frequency": {
+   "type": "text",
+   "label": {
+    "en": "AC input frequency",
+    "fr": "Fréquence d'entrée AC",
+    "nl": "AC-ingangsfrequentie",
+    "de": "AC Eingangsfrequenz"
+   }
+  },
+  "AC input voltage": {
+   "type": "text",
+   "label": {
+    "en": "AC input voltage",
+    "fr": "Tension d'entrée AC",
+    "nl": "AC-ingangsspanning",
+    "de": "AC Eingangsspannung"
+   }
+  },
+  "Adjustable thermostat": {
+   "type": "yesno",
+   "label": {
+    "en": "Adjustable thermostat",
+    "fr": "Thermostat réglable",
+    "nl": "Instelbare thermostaat",
+    "de": "Regelbare Temperatur"
+   }
+  },
+  "Annual energy consumption": {
+   "type": "number",
+   "label": {
+    "en": "Annual energy consumption",
+    "fr": "Consommation annuelle d'énergie",
+    "nl": "Jaarlijks energieverbruik",
+    "de": "Jährlicher Energieverbrauch"
+   },
+   "unit": {
+    "en": "kWh",
+    "fr": "kWh",
+    "nl": "kWu",
+    "de": "kWh"
+   }
+  },
+  "Answering machine": {
+   "type": "yesno",
+   "label": {
+    "en": "Answering machine",
+    "fr": "Répondeur intégré",
+    "nl": "Antwoordapparaat",
+    "de": "Anrufbeantworter"
+   }
+  },
+  "Anti-drip function": {
+   "type": "yesno",
+   "label": {
+    "en": "Anti-drip function",
+    "fr": "Système anti-goutte",
+    "nl": "Anti-druppelfunctie",
+    "de": "Anti-Tropf-Funktion"
+   }
+  },
+  "Appliance placement": {
+   "type": "choice",
+   "label": {
+    "en": "Appliance placement",
+    "fr": "Placement de l'appareil",
+    "nl": "Apparaatplaatsing",
+    "de": "Geräteplatzierung"
+   }
+  },
+  "Auto power off": {
+   "type": "yesno",
+   "label": {
+    "en": "Auto power off",
+    "fr": "Coupure automatique de l'alimentation",
+    "nl": "Automatisch uitschakelen",
+    "de": "Automatische Abschaltung"
+   }
+  },
+  "Automatic anti-calc": {
+   "type": "yesno",
+   "label": {
+    "en": "Automatic anti-calc",
+    "fr": "Anti calc automatique",
+    "nl": "Automatisch antikalksysteem",
+    "de": "Automatisches Anti-Kalk-System"
+   }
+  },
+  "Automatic base station return": {
+   "type": "yesno",
+   "label": {
+    "en": "Automatic base station return",
+    "fr": "Retour automatique à la station de base",
+    "nl": "Automatisch terug naar basisstation",
+    "de": "Automatische Rückkehr zur Basisstation"
+   }
+  },
+  "Automatic defrost (fridge)": {
+   "type": "yesno",
+   "label": {
+    "en": "Automatic defrost (fridge)",
+    "fr": "Dégivrage automatique (réfrigérateur)",
+    "nl": "Automatisch ontdooien (koelkast)",
+    "de": "Abtauautomatik (Kühleinheit)"
+   }
+  },
+  "Backlight": {
+   "type": "yesno",
+   "label": {
+    "en": "Backlight",
+    "fr": "Rétroéclairage",
+    "nl": "Achtergrondverlichting",
+    "de": "Hintergrundbeleuchtung"
+   }
+  },
+  "Backlight colour": {
+   "type": "choice",
+   "label": {
+    "en": "Backlight colour",
+    "fr": "Couleur de Backlight",
+    "nl": "Backlight-kleur",
+    "de": "Farbe der Hintergrundbeleuchtung"
+   },
+   "values": [
+    "Amber",
+    "Amber/Green",
+    "Amber/Yellow/Green",
+    "Blue",
+    "Blue/Green",
+    "Blue/Green/Turquoise",
+    "Blue/Orange",
+    "Blue/Red",
+    "Blue/Red/Magenta",
+    "Blue/White",
+    "Brown",
+    "Cyan",
+    "Gold",
+    "Green",
+    "Green/Blue/Cyan",
+    "Green/Pink/Violet",
+    "Green/Purple/Red",
+    "Green/White",
+    "Grey",
+    "Multicolour",
+    "Orange",
+    "Orange/Blue/Purple",
+    "Pink",
+    "Purple",
+    "RGB",
+    "Red",
+    "Red/Blue/Purple",
+    "Red/Green",
+    "Red/Green/Blue",
+    "Red/Orange",
+    "Red/Yellow/Green",
+    "Various",
+    "White",
+    "White/Blue/Amber",
+    "White/Green/Red",
+    "White/Red",
+    "White/Red/Blue",
+    "Yellow"
+   ]
+  },
+  "Band colour": {
+   "type": "multi",
+   "label": {
+    "en": "Band colour",
+    "fr": "Couleur du bracelet",
+    "nl": "Band kleur",
+    "de": "Armbandfarbe"
+   },
+   "values": [
+    "Amber",
+    "Anthracite",
+    "Beige",
+    "Black",
+    "Blue",
+    "Bordeaux",
+    "Bronze",
+    "Brown",
+    "Burgundy",
+    "Camouflage",
+    "Carbon",
+    "Charcoal",
+    "Chocolate",
+    "Coral",
+    "Cream colour",
+    "Cyan",
+    "Dark metallic",
+    "Fuchsia",
+    "Gold",
+    "Graphite",
+    "Green",
+    "Grey",
+    "Gunmetal colour",
+    "Ivory",
+    "Khaki",
+    "Lavender",
+    "Light metallic",
+    "Light purple",
+    "Lime",
+    "Magenta",
+    "Mint colour",
+    "Multi",
+    "Navy",
+    "Not applicable",
+    "Olive",
+    "Orange",
+    "Peach",
+    "Pearl",
+    "Pink",
+    "Pink gold",
+    "Platinum",
+    "Purple",
+    "Red",
+    "Rose",
+    "Rose gold",
+    "Sand colour",
+    "Silver",
+    "Stainless steel",
+    "Tan",
+    "Teal",
+    "Titanium",
+    "Transparent",
+    "Turquoise",
+    "Vanilla colour",
+    "Violet",
+    "White",
+    "White gold",
+    "Wood colour",
+    "Yellow"
+   ]
+  },
+  "Base station": {
+   "type": "yesno",
+   "label": {
+    "en": "Base station",
+    "fr": "Station de base",
+    "nl": "Inclusief basisstation",
+    "de": "Basisstation"
+   }
+  },
+  "Base station functions": {
+   "type": "multi",
+   "label": {
+    "en": "Base station functions",
+    "fr": "Fonctions de la base",
+    "nl": "Gewicht basisstation",
+    "de": "Funktionen der Basisstation"
+   }
+  },
+  "Battery capacity": {
+   "type": "number",
+   "label": {
+    "en": "Battery capacity",
+    "fr": "Capacité de la batterie",
+    "nl": "Capaciteit van de accu/batterij",
+    "de": "Akku-/Batteriekapazität"
+   },
+   "unit": {
+    "en": "mAh",
+    "fr": "mAh",
+    "nl": "mAh",
+    "de": "mAh"
+   }
+  },
+  "Battery technology": {
+   "type": "choice",
+   "label": {
+    "en": "Battery technology",
+    "fr": "Technologie batterie",
+    "nl": "Batterijtechnologie",
+    "de": "Akku-/Batterietechnologie"
+   },
+   "values": [
+    "Alkaline",
+    "Lead",
+    "Lead Acid",
+    "Lead-Calcium (Pb-Ca)",
+    "LiFePo",
+    "LiHD",
+    "Lithium",
+    "Lithium Cobalt Oxide (LiCoO2)",
+    "Lithium Iron Phosphate (LiFePO4)",
+    "Lithium Nickel Cobalt Aluminum Oxide (LiNCA)",
+    "Lithium Nickel Manganese Cobalt Oxide (LiNMC)",
+    "Lithium Polymer (LiPo)",
+    "Lithium Thionyl Chloride (LiSoCl2)",
+    "Lithium-Ion (Li-Ion)",
+    "Lithium-Ion High Density (LiHD)",
+    "Nickel-Cadmium (NiCd)",
+    "Nickel-Metal Hydride (NiMH)",
+    "Nickel-Oxyhydroxide (NiOx)",
+    "Nickel-Zinc (NiZn)",
+    "Polymer",
+    "Sealed Lead Acid (VRLA)",
+    "Silver-Oxide (S)",
+    "VRLA AGM",
+    "VRLA GEL",
+    "Zinc-Carbon"
+   ]
+  },
+  "Bluetooth": {
+   "type": "yesno",
+   "label": {
+    "en": "Bluetooth",
+    "fr": "Bluetooth",
+    "nl": "Bluetooth",
+    "de": "Bluetooth"
+   }
+  },
+  "Bluetooth version": {
+   "type": "choice",
+   "label": {
+    "en": "Bluetooth version",
+    "fr": "Modèle du Bluetooth",
+    "nl": "Bluetooth-versie",
+    "de": "Bluetooth-Version"
+   },
+   "values": [
+    "1.0",
+    "1.0B",
+    "1.1",
+    "1.2",
+    "2.0",
+    "2.0+EDR",
+    "2.1",
+    "2.1+EDR",
+    "3.0",
+    "3.0+EDR",
+    "3.0+HS",
+    "3.1",
+    "4.0",
+    "4.0+EDR",
+    "4.0+HS",
+    "4.1",
+    "4.1+EDR",
+    "4.2",
+    "4.2 + 5.0",
+    "4.2+EDR",
+    "4.3",
+    "4.4",
+    "4.9+EDR",
+    "5.0",
+    "5.0+EDR",
+    "5.0+HS",
+    "5.1",
+    "5.1+EDR",
+    "5.2",
+    "5.2+EDR",
+    "5.3",
+    "5.4",
+    "6.0",
+    "6.1",
+    "Not applicable"
+   ]
+  },
+  "Built-in display": {
+   "type": "yesno",
+   "label": {
+    "en": "Built-in display",
+    "fr": "Écran integré",
+    "nl": "Ingebouwd display",
+    "de": "Eingebautes Display"
+   }
+  },
+  "Built-in grinder": {
+   "type": "yesno",
+   "label": {
+    "en": "Built-in grinder",
+    "fr": "Broyeur intégré",
+    "nl": "Ingebouwde molen",
+    "de": "Eingebautes Mahlwerk"
+   }
+  },
+  "Buttons quantity": {
+   "type": "number",
+   "label": {
+    "en": "Buttons quantity",
+    "fr": "Quantité de boutons programmables",
+    "nl": "Aantal knoppen",
+    "de": "Knopfanzahl"
+   }
+  },
+  "Buttons type": {
+   "type": "choice",
+   "label": {
+    "en": "Buttons type",
+    "fr": "Type de boutons",
+    "nl": "Soort knoppen",
+    "de": "Tastentyp"
+   },
+   "values": [
+    "Pressed buttons",
+    "Touch buttons"
+   ]
+  },
+  "Call waiting": {
+   "type": "yesno",
+   "label": {
+    "en": "Call waiting",
+    "fr": "Appel en attente",
+    "nl": "Wachtstand",
+    "de": "Anklopfen"
+   }
+  },
+  "Caller ID": {
+   "type": "yesno",
+   "label": {
+    "en": "Caller ID",
+    "fr": "Identification de l'appelant",
+    "nl": "Nummerherkenning",
+    "de": "Anrufer-Identifikation"
+   }
+  },
+  "Capacity in cups": {
+   "type": "number",
+   "label": {
+    "en": "Capacity in cups",
+    "fr": "Capacité en tasses",
+    "nl": "Capaciteit in kopjes",
+    "de": "Kapazität (in Tassen)"
+   },
+   "unit": {
+    "en": "cups",
+    "fr": "tasses",
+    "nl": "kopjes",
+    "de": "Tassen"
+   }
+  },
+  "Charging time": {
+   "type": "number",
+   "label": {
+    "en": "Charging time",
+    "fr": "Temps de charge",
+    "nl": "Oplaadtijd",
+    "de": "Ladezeit"
+   },
+   "unit": {
+    "en": "h",
+    "fr": "h",
+    "nl": "uur",
+    "de": "h"
+   }
+  },
+  "Chassis type": {
+   "type": "text",
+   "label": {
+    "en": "Chassis type",
+    "fr": "Type de châssis",
+    "nl": "Type behuizing",
+    "de": "Gehäusetyp"
+   }
+  },
+  "Child lock": {
+   "type": "yesno",
+   "label": {
+    "en": "Child lock",
+    "fr": "Sécurité enfant",
+    "nl": "Kinderslot",
+    "de": "Kindersicherung"
+   }
+  },
+  "Cleaning type": {
+   "type": "choice",
+   "label": {
+    "en": "Cleaning type",
+    "fr": "Type de nettoyage",
+    "nl": "Soort reiniging",
+    "de": "Reinigungsart"
+   },
+   "values": [
+    "Dry",
+    "Dry&Wet",
+    "Wet"
+   ]
+  },
+  "Climate class": {
+   "type": "choice",
+   "label": {
+    "en": "Climate class",
+    "fr": "Classe climatique",
+    "nl": "Klimaatklasse",
+    "de": "Klimaklasse"
+   },
+   "values": [
+    "N (Normal)",
+    "N (Normal) - ST (Subtropical)",
+    "N (Normal) - T (Tropical)",
+    "SN (Subnormal)",
+    "SN (Subnormal) - N (Normal)",
+    "SN (Subnormal) - ST (Subtropical)",
+    "SN (Subnormal) - T (Tropical)",
+    "ST (Subtropical)",
+    "ST (Subtropical) - T (Tropical)",
+    "T (Tropical)"
+   ]
+  },
+  "Coffee input type": {
+   "type": "multi",
+   "label": {
+    "en": "Coffee input type",
+    "fr": "Type d'entrée à café",
+    "nl": "Koffie invoertype",
+    "de": "Kaffee-Einfüllart"
+   },
+   "values": [
+    "Coffee beans",
+    "Coffee capsule",
+    "Coffee pod",
+    "Ground coffee"
+   ]
+  },
+  "Coffee maker type": {
+   "type": "choice",
+   "label": {
+    "en": "Coffee maker type",
+    "fr": "Type de cafetière",
+    "nl": "Koffiezet apparaat type",
+    "de": "Kaffeezubereitungstyp"
+   },
+   "values": [
+    "Fully-auto",
+    "Manual",
+    "Semi-auto"
+   ]
+  },
+  "Coffee making": {
+   "type": "yesno",
+   "label": {
+    "en": "Coffee making",
+    "fr": "Fabrication de café",
+    "nl": "Koffie maken",
+    "de": "Kaffeezubereitung"
+   }
+  },
+  "Colour": {
+   "type": "yesno",
+   "label": {
+    "en": "Colour",
+    "fr": "Couleur",
+    "nl": "Kleur",
+    "de": "Farbe"
+   }
+  },
+  "Connectivity technology": {
+   "type": "choice",
+   "label": {
+    "en": "Connectivity technology",
+    "fr": "Technologie de connectivité",
+    "nl": "Connectiviteitstechnologie",
+    "de": "Übertragungstechnik"
+   },
+   "values": [
+    "Wired",
+    "Wired & Wireless",
+    "Wireless"
+   ]
+  },
+  "Construction type": {
+   "type": "choice",
+   "label": {
+    "en": "Construction type",
+    "fr": "Type de construction",
+    "nl": "Constructietype",
+    "de": "Bauart"
+   },
+   "values": [
+    "Belted bias",
+    "Bias",
+    "Radial",
+    "Semi-pneumatic",
+    "Solid"
+   ]
+  },
+  "Continuous steam performance": {
+   "type": "number",
+   "label": {
+    "en": "Continuous steam performance",
+    "fr": "Vapeur continue",
+    "nl": "Continu stoom uitvoering",
+    "de": "Konstante Dampfleistung"
+   },
+   "unit": {
+    "en": "g/min",
+    "fr": "g/min",
+    "nl": "g/min",
+    "de": "g/min"
+   }
+  },
+  "Contrast ratio (typical)": {
+   "type": "text",
+   "label": {
+    "en": "Contrast ratio (typical)",
+    "fr": "Taux de contraste",
+    "nl": "Typische contrastverhouding",
+    "de": "Kontrastverhältnis"
+   }
+  },
+  "Control panel colour": {
+   "type": "multi",
+   "label": {
+    "en": "Control panel colour",
+    "fr": "Couleur de panneau de commande",
+    "nl": "Kleur bedieningspaneel",
+    "de": "Bedienfeld Farbe"
+   },
+   "values": [
+    "Anthracite",
+    "Black",
+    "Blue",
+    "Brown",
+    "Champagne",
+    "Copper colour",
+    "Gold",
+    "Green",
+    "Grey",
+    "Lime",
+    "Metallic",
+    "Oat",
+    "Orange",
+    "Pearl",
+    "Pink",
+    "Red",
+    "Sand",
+    "Silver",
+    "Stainless steel",
+    "White",
+    "Yellow"
+   ]
+  },
+  "Control type": {
+   "type": "multi",
+   "label": {
+    "en": "Control type",
+    "fr": "Type de commande",
+    "nl": "Soort bediening",
+    "de": "Steuerung"
+   },
+   "values": [
+    "Buttons",
+    "Lever",
+    "Not available",
+    "Pull chain",
+    "Remote",
+    "Rotary",
+    "Scrollbar",
+    "Sensor",
+    "Slider",
+    "Tilt",
+    "Touch",
+    "Wireless"
+   ]
+  },
+  "Cord length": {
+   "type": "number",
+   "label": {
+    "en": "Cord length",
+    "fr": "Longueur du câble",
+    "nl": "Snoerlengte",
+    "de": "Kabellänge"
+   },
+   "unit": {
+    "en": "m",
+    "fr": "m",
+    "nl": "m",
+    "de": "m"
+   }
+  },
+  "Cord storage": {
+   "type": "yesno",
+   "label": {
+    "en": "Cord storage",
+    "fr": "Stockage de cable",
+    "nl": "Snoeropslag",
+    "de": "Kabelaufwicklung"
+   }
+  },
+  "Cycle time": {
+   "type": "number",
+   "label": {
+    "en": "Cycle time",
+    "fr": "Durée de cycle",
+    "nl": "Duur cyclus",
+    "de": "Zykluszeit"
+   },
+   "unit": {
+    "en": "min",
+    "fr": "min",
+    "nl": "min",
+    "de": "min"
+   }
+  },
+  "Cycle time (max)": {
+   "type": "number",
+   "label": {
+    "en": "Cycle time (max)",
+    "fr": "Durée du cycle (max)",
+    "nl": "Cyclustijd (max)",
+    "de": "Zykluszeit (max.)"
+   },
+   "unit": {
+    "en": "min",
+    "fr": "min",
+    "nl": "min",
+    "de": "min"
+   }
+  },
+  "Defrost function": {
+   "type": "yesno",
+   "label": {
+    "en": "Defrost function",
+    "fr": "Fonction de décongélation",
+    "nl": "Ontdooifunctie",
+    "de": "Abtaufunktion"
+   }
+  },
+  "Delayed start timer": {
+   "type": "yesno",
+   "label": {
+    "en": "Delayed start timer",
+    "fr": "Minuterie, départ différé",
+    "nl": "Uitgestelde start timer",
+    "de": "Startzeitvorwahl"
+   }
+  },
+  "Depth": {
+   "type": "number",
+   "label": {
+    "en": "Depth",
+    "fr": "Profondeur",
+    "nl": "Diepte",
+    "de": "Tiefe"
+   },
+   "unit": {
+    "en": "mm",
+    "fr": "mm",
+    "nl": "mm",
+    "de": "mm"
+   }
+  },
+  "Depth (without stand)": {
+   "type": "number",
+   "label": {
+    "en": "Depth (without stand)",
+    "fr": "Profondeur (sans support)",
+    "nl": "Diepte ( zonder voet )",
+    "de": "Tiefe (ohne Standfuß)"
+   },
+   "unit": {
+    "en": "mm",
+    "fr": "mm",
+    "nl": "mm",
+    "de": "mm"
+   }
+  },
+  "Device interface": {
+   "type": "text",
+   "label": {
+    "en": "Device interface",
+    "fr": "Interface de l'appareil",
+    "nl": "Aansluiting",
+    "de": "Geräteschnittstelle"
+   }
+  },
+  "Digital timer": {
+   "type": "yesno",
+   "label": {
+    "en": "Digital timer",
+    "fr": "Minuteur numérique",
+    "nl": "Digitale timer",
+    "de": "Digital-Zeitmesser"
+   }
+  },
+  "Discrete graphics card model": {
+   "type": "text",
+   "label": {
+    "en": "Discrete graphics card model",
+    "fr": "Modèle d'adaptateur graphique distinct",
+    "nl": "Discreet grafische adapter model",
+    "de": "Separates Grafikkartenmodell"
+   }
+  },
+  "Dishwasher-proof parts": {
+   "type": "yesno",
+   "label": {
+    "en": "Dishwasher-proof parts",
+    "fr": "Parties lavables au lave vaisselle",
+    "nl": "Vaatwasserbestendige onderdelen",
+    "de": "Spülmaschinenfeste Teile"
+   }
+  },
+  "Dishwashing programs": {
+   "type": "multi",
+   "label": {
+    "en": "Dishwashing programs",
+    "fr": "Programmes de lavage",
+    "nl": "Afwasprogramma's",
+    "de": "Geschirrspülprogramme"
+   },
+   "values": [
+    "120min",
+    "160min",
+    "160min 60°C",
+    "20min 60°C",
+    "3-in-1",
+    "30min 60°C",
+    "50min",
+    "60min",
+    "60min 50°C",
+    "60min 60°C",
+    "60min 65°C",
+    "90min",
+    "90min 55°C",
+    "90min 60°C",
+    "90min 65°C",
+    "ALLinWash",
+    "AquaFlex",
+    "Auto",
+    "Auto 30-50°C",
+    "Auto 35-45°C",
+    "Auto 40-60°C",
+    "Auto 40-65°C",
+    "Auto 45-60°C",
+    "Auto 45-65°C",
+    "Auto 45-70°C",
+    "Auto 45-75°C",
+    "Auto 50-60°C",
+    "Auto 50-65°C",
+    "Auto 55-65°C",
+    "Auto 60-70°C",
+    "Auto 65-75°C",
+    "Auto-Mixed",
+    "AutoSense",
+    "BBQ 70°C",
+    "Baby Care",
+    "Beer glasses",
+    "Bio",
+    "Chef 70°C",
+    "Clean&Shine",
+    "Cocktail",
+    "Crystal 45°C",
+    "Cups 40°C",
+    "Daily",
+    "Daily 50°C",
+    "Delicate",
+    "Delicate 40°C",
+    "Delicate 45°C",
+    "Delicate Quick",
+    "Download Cycle",
+    "Dual Pro Wash",
+    "Eco",
+    "Eco 45°C",
+    "Eco 50°C",
+    "Eco 65°C",
+    "Eco Quick",
+    "Express",
+    "Express 50min",
+    "Extra",
+    "Extra 60 °C",
+    "Extra Fast",
+    "Extra quiet",
+    "Favorite",
+    "Fine",
+    "Fondue/raclette",
+    "Glass 40°C",
+    "Glass/delicate",
+    "Hygiene",
+    "Hygiene 70°C",
+    "Hygiene 75°C",
+    "Hygiene+",
+    "Impulse",
+    "InnerClean",
+    "Intelligent",
+    "Intensive",
+    "Intensive 60°C",
+    "Intensive 65°C",
+    "Intensive 70°C",
+    "Intensive 75°C",
+    "Light 45°C",
+    "Maintenance wash",
+    "Mini",
+    "Mini 30min",
+    "Mini 30°C",
+    "Mini 35°C",
+    "Mix Express",
+    "MixWash+",
+    "Mixed",
+    "Night",
+    "Night 55°C",
+    "Normal",
+    "Party 35°C",
+    "Party 45°C",
+    "Pasta/Paella",
+    "Plastic",
+    "Power+",
+    "Pre-rinse",
+    "Pre-wash",
+    "Prewash",
+    "ProCare",
+    "Quick",
+    "Quick 14min",
+    "Quick 15min",
+    "Quick 24min 50°C",
+    "Quick 29min",
+    "Quick 30min",
+    "Quick 30min 40°C",
+    "Quick 39min",
+    "Quick 45min",
+    "Quick 45°C",
+    "Quick 50°",
+    "Quick 58min",
+    "Quick 59min 65°C",
+    "Quick 60°C",
+    "Quick 65°C",
+    "Quick&Shine",
+    "Quiet",
+    "Quiet 55°C",
+    "Rapid 45°C",
+    "Regeneration",
+    "Rinse",
+    "Rinse & Hold",
+    "Rinsing + drying",
+    "Self-Clean 60°C",
+    "Self-Clean 65°C",
+    "SelfCare",
+    "Silent",
+    "Silent 50°C",
+    "Silent 55°C",
+    "Soak",
+    "SolarSave",
+    "Speed 60°C",
+    "Speed ​​45°C",
+    "Standard 60°C",
+    "Steam",
+    "Steam 75°C",
+    "Strong & Fast",
+    "Strong AI",
+    "Super 50°C",
+    "Super 60°C",
+    "Super 70°C",
+    "Tall items 65°C",
+    "Total Care 50°C",
+    "Turbo",
+    "Turbo+",
+    "UltraClean",
+    "Universal",
+    "Universal 50°C",
+    "Universal 55°C",
+    "Universal 60°C",
+    "Universal 75°C",
+    "brilliantShine 40°C"
+   ]
+  },
+  "Display brightness (typical)": {
+   "type": "number",
+   "label": {
+    "en": "Display brightness (typical)",
+    "fr": "Luminosité de l'écran (typique)",
+    "nl": "Helderheid (typisch)",
+    "de": "Helligkeit (typisch)"
+   },
+   "unit": {
+    "en": "cd/m²",
+    "fr": "cd/m²",
+    "nl": "cd/m²",
+    "de": "cd/m²"
+   }
+  },
+  "Display diagonal": {
+   "type": "number",
+   "label": {
+    "en": "Display diagonal",
+    "fr": "Taille de l'écran",
+    "nl": "Beeldschermdiagonaal",
+    "de": "Bildschirmdiagonale"
+   },
+   "unit": {
+    "en": "\"",
+    "fr": "\"",
+    "nl": "\"",
+    "de": "\""
+   }
+  },
+  "Display resolution": {
+   "type": "text",
+   "label": {
+    "en": "Display resolution",
+    "fr": "Résolution de l'écran",
+    "nl": "Resolutie",
+    "de": "Display-Auflösung"
+   }
+  },
+  "Display technology": {
+   "type": "choice",
+   "label": {
+    "en": "Display technology",
+    "fr": "Technologie d'affichage",
+    "nl": "Display technologie",
+    "de": "Bildschirmtechnologie"
+   },
+   "values": [
+    "A-MVA",
+    "AD-PLS",
+    "ADS",
+    "AFFS+",
+    "AH-IPS",
+    "AMOLED",
+    "AMVA+",
+    "AMVA+ (SNB)",
+    "AMVA+(E2E)‎",
+    "AMVA3",
+    "DLP",
+    "FSTN LCM",
+    "HS-IPS",
+    "IGZO",
+    "IPS",
+    "IPS-ADS",
+    "IPS-AHVA",
+    "IPS-Pro",
+    "LCD",
+    "LCD/TFT",
+    "LCM",
+    "LED",
+    "LTPO",
+    "LTPS",
+    "MVA",
+    "OLED",
+    "PLS",
+    "PVA",
+    "S-PVA",
+    "SA-SFT",
+    "SFT",
+    "SVA",
+    "TFT",
+    "TFT/IPS",
+    "TFT/MVA",
+    "TFT/PLS",
+    "TFT/S-PVA",
+    "TN",
+    "TN+Film",
+    "UV2A",
+    "VA",
+    "WVA",
+    "WVGA",
+    "mDNIe"
+   ]
+  },
+  "Display type": {
+   "type": "choice",
+   "label": {
+    "en": "Display type",
+    "fr": "Type d'écran",
+    "nl": "Type beeldscherm",
+    "de": "Display-Typ"
+   },
+   "values": [
+    "AMOLED",
+    "Analog",
+    "E-Ink",
+    "FLD",
+    "IPS",
+    "LCD",
+    "LCM",
+    "LED",
+    "OLED",
+    "TFT",
+    "VFD"
+   ]
+  },
+  "Door colour": {
+   "type": "multi",
+   "label": {
+    "en": "Door colour",
+    "fr": "Couleur de la porte",
+    "nl": "Deurkleur",
+    "de": "Türfarbe"
+   },
+   "values": [
+    "Aluminium",
+    "Anthracite",
+    "Beige",
+    "Black",
+    "Blue",
+    "Bordeaux",
+    "Brown",
+    "Burgundy",
+    "Chrome",
+    "Cream",
+    "Gold",
+    "Graphite",
+    "Green",
+    "Grey",
+    "Mirror",
+    "Oak",
+    "Orange",
+    "Pink",
+    "Purple",
+    "Red",
+    "Silver",
+    "Stainless steel",
+    "Titanic",
+    "Transparent",
+    "Wenge",
+    "White",
+    "Wood colour",
+    "Yellow"
+   ]
+  },
+  "Door hinge": {
+   "type": "choice",
+   "label": {
+    "en": "Door hinge",
+    "fr": "Emplacement charnière de porte",
+    "nl": "Deurscharnieren",
+    "de": "Türscharnier"
+   },
+   "values": [
+    "Down",
+    "Left",
+    "Left/right",
+    "Rails",
+    "Rear",
+    "Right",
+    "Side by side",
+    "Up"
+   ]
+  },
+  "Duplex printing": {
+   "type": "yesno",
+   "label": {
+    "en": "Duplex printing",
+    "fr": "Impression recto-verso",
+    "nl": "Duplex printen",
+    "de": "Doppelseitiger Druck"
+   }
+  },
+  "Dust capacity": {
+   "type": "number",
+   "label": {
+    "en": "Dust capacity",
+    "fr": "Capacité poussière",
+    "nl": "Stof capaciteit",
+    "de": "Staubkapazität"
+   },
+   "unit": {
+    "en": "L",
+    "fr": "L",
+    "nl": "l",
+    "de": "l"
+   }
+  },
+  "Dust capacity (total)": {
+   "type": "number",
+   "label": {
+    "en": "Dust capacity (total)",
+    "fr": "Contenance en poussière (total)",
+    "nl": "Stofcapaciteit (totaal)",
+    "de": "Staubkapazität (gesamt)"
+   },
+   "unit": {
+    "en": "L",
+    "fr": "L",
+    "nl": "l",
+    "de": "l"
+   }
+  },
+  "Dust container type": {
+   "type": "choice",
+   "label": {
+    "en": "Dust container type",
+    "fr": "Type de conteneur à poussière",
+    "nl": "Stofzuigercontainer type",
+    "de": "Staubbehälter Typ"
+   },
+   "values": [
+    "Bagless",
+    "Combi",
+    "Dust bag"
+   ]
+  },
+  "Easy to clean": {
+   "type": "yesno",
+   "label": {
+    "en": "Easy to clean",
+    "fr": "Facile à nettoyer",
+    "nl": "Makkelijk schoon te maken",
+    "de": "Einfach zu säubern"
+   }
+  },
+  "Energy consumption per cycle": {
+   "type": "number",
+   "label": {
+    "en": "Energy consumption per cycle",
+    "fr": "Consommation d'énergie par cycle",
+    "nl": "Energieverbruik per cyclus",
+    "de": "Energieverbrauch pro Zyklus"
+   },
+   "unit": {
+    "en": "kWh",
+    "fr": "kWh",
+    "nl": "kWu",
+    "de": "kWh"
+   }
+  },
+  "Energy consumption washing per cycle": {
+   "type": "number",
+   "label": {
+    "en": "Energy consumption washing per cycle",
+    "fr": "Consommation d'énergie par lavage",
+    "nl": "Energieverbruik wassen",
+    "de": "Energieverbrauch Reinigung"
+   },
+   "unit": {
+    "en": "kWh",
+    "fr": "kWh",
+    "nl": "kWu",
+    "de": "kWh"
+   }
+  },
+  "Energy efficiency class (old)": {
+   "type": "choice",
+   "label": {
+    "en": "Energy efficiency class (old)",
+    "fr": "Classe d'efficacité énergétique (ancienne)",
+    "nl": "Energie-efficiëntieklasse (oud)",
+    "de": "Energieeffizienzklasse (alt)"
+   },
+   "values": [
+    "A",
+    "A+",
+    "A++",
+    "A+++",
+    "A+++-10%",
+    "A+++-20%",
+    "A+++-30%",
+    "A+++-35%",
+    "A+++-40%",
+    "A+++-50%",
+    "A+++-60%",
+    "A+++-65%",
+    "A+++-70%",
+    "A-10%",
+    "A-15%",
+    "A-20%",
+    "A-30%",
+    "A-40%",
+    "A-50%",
+    "A-60%",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+   ]
+  },
+  "Espresso making": {
+   "type": "yesno",
+   "label": {
+    "en": "Espresso making",
+    "fr": "Fabrication d'expresso",
+    "nl": "Espresso maken",
+    "de": "Espressozubereitung"
+   }
+  },
+  "Ethernet LAN": {
+   "type": "yesno",
+   "label": {
+    "en": "Ethernet LAN",
+    "fr": "Ethernet/LAN",
+    "nl": "Ethernet LAN",
+    "de": "Ethernet/LAN"
+   }
+  },
+  "Ethernet LAN (RJ-45) ports": {
+   "type": "number",
+   "label": {
+    "en": "Ethernet LAN (RJ-45) ports",
+    "fr": "Nombre de port ethernet LAN (RJ-45)",
+    "nl": "Aantal Ethernet LAN (RJ-45)-poorten",
+    "de": "Anzahl Ethernet-LAN-Anschlüsse (RJ-45)"
+   }
+  },
+  "Fast freeze function": {
+   "type": "yesno",
+   "label": {
+    "en": "Fast freeze function",
+    "fr": "Fonction congélation rapide",
+    "nl": "Snelvriesfunctie",
+    "de": "Schnellfrost-Funktion"
+   }
+  },
+  "Form factor": {
+   "type": "text",
+   "label": {
+    "en": "Form factor",
+    "fr": "Format",
+    "nl": "Vormfactor",
+    "de": "Formfaktor"
+   }
+  },
+  "Freezer net capacity": {
+   "type": "number",
+   "label": {
+    "en": "Freezer net capacity",
+    "fr": "Capacité net du congélateur",
+    "nl": "Nettocapaciteit vriezer",
+    "de": "Nutzinhalt Gefrierfach"
+   },
+   "unit": {
+    "en": "L",
+    "fr": "L",
+    "nl": "l",
+    "de": "l"
+   }
+  },
+  "Freezer number of shelves/baskets": {
+   "type": "number",
+   "label": {
+    "en": "Freezer number of shelves/baskets",
+    "fr": "Nombre de clayettes/bacs du congélateur",
+    "nl": "Aantal planken vriezer",
+    "de": "Gefrierfach - Anzahl der Ablagen/Körbe"
+   }
+  },
+  "Freezing capacity": {
+   "type": "number",
+   "label": {
+    "en": "Freezing capacity",
+    "fr": "Capacité de congélation",
+    "nl": "Vriescapaciteit",
+    "de": "Gefrierkapazität"
+   },
+   "unit": {
+    "en": "kg/24h",
+    "fr": "kg/24h",
+    "nl": "kg/24u",
+    "de": "kg/24h"
+   }
+  },
+  "Fridge interior light": {
+   "type": "yesno",
+   "label": {
+    "en": "Fridge interior light",
+    "fr": "Lumière intérieure du réfrigérateur",
+    "nl": "Koelkast binnenverlichting",
+    "de": "Innenbeleuchtung Kühleinheit"
+   }
+  },
+  "Fridge net capacity": {
+   "type": "number",
+   "label": {
+    "en": "Fridge net capacity",
+    "fr": "Capacité nette du réfrigérateur",
+    "nl": "Nettocapaciteit koelkast",
+    "de": "Nutzinhalt Kühlschrank"
+   },
+   "unit": {
+    "en": "L",
+    "fr": "L",
+    "nl": "l",
+    "de": "l"
+   }
+  },
+  "Fridge number of shelves/baskets": {
+   "type": "number",
+   "label": {
+    "en": "Fridge number of shelves/baskets",
+    "fr": "Nombre de clayettes/bacs du réfrigérateur",
+    "nl": "Aantal planken koelkast",
+    "de": "Kühlschrank - Anzahl der Ablagen/Körbe"
+   }
+  },
+  "Fryer food capacity": {
+   "type": "number",
+   "label": {
+    "en": "Fryer food capacity",
+    "fr": "Capacité de la friteuse",
+    "nl": "Capaciteit friteuse",
+    "de": "Friteusenkapazität"
+   },
+   "unit": {
+    "en": "kg",
+    "fr": "kg",
+    "nl": "kg",
+    "de": "kg"
+   }
+  },
+  "Frying function": {
+   "type": "yesno",
+   "label": {
+    "en": "Frying function",
+    "fr": "Fonction Friture",
+    "nl": "Frituurfunctie",
+    "de": "Bratfunktion"
+   }
+  },
+  "HD type": {
+   "type": "choice",
+   "label": {
+    "en": "HD type",
+    "fr": "Type HD",
+    "nl": "HD type",
+    "de": "HD-Typ"
+   },
+   "values": [
+    "1.8K",
+    "2.1K",
+    "2.2K",
+    "2.4K Ultra HD",
+    "2.5K",
+    "2.8K",
+    "2K",
+    "2K Ultra HD",
+    "3.2K",
+    "3.5K Ultra HD",
+    "3K",
+    "3K+",
+    "3K2K",
+    "4K DCI",
+    "4K Ultra HD",
+    "5K Ultra HD",
+    "6K Ultra HD",
+    "8K Ultra HD",
+    "Double Full HD",
+    "Dual QHD",
+    "Dual UHD",
+    "Dual WQHD",
+    "FWXGA",
+    "Full HD",
+    "Full HD+",
+    "HD",
+    "HD+",
+    "Not supported",
+    "QWXGA",
+    "QXGA",
+    "Quad HD",
+    "Quad HD+",
+    "SDQHD",
+    "SVGA",
+    "SXGA",
+    "UHD+",
+    "UW-UXGA",
+    "UXGA",
+    "UltraWide 5K HD",
+    "UltraWide Dual Quad HD",
+    "UltraWide Full HD",
+    "UltraWide Quad HD",
+    "UltraWide Quad HD+",
+    "VGA",
+    "WFHD",
+    "WQSXGA",
+    "WQUXGA",
+    "WQXGA",
+    "WQXGA+",
+    "WSVGA",
+    "WSXGA",
+    "WSXGA+",
+    "WUHD",
+    "WUXGA",
+    "WUXGA+",
+    "WVGA",
+    "WXGA",
+    "WXGA+",
+    "Wide Quad HD",
+    "Wide Quad HD+",
+    "XGA"
+   ]
+  },
+  "HDMI ports quantity": {
+   "type": "number",
+   "label": {
+    "en": "HDMI ports quantity",
+    "fr": "Quantité de ports HDMI",
+    "nl": "Aantal HDMI-poorten",
+    "de": "Anzahl HDMI-Anschlüsse"
+   }
+  },
+  "Heart rate monitor": {
+   "type": "yesno",
+   "label": {
+    "en": "Heart rate monitor",
+    "fr": "Moniteur de fréquence cardiaque",
+    "nl": "Hartslag monitor",
+    "de": "Herzfrequenzmonitor"
+   }
+  },
+  "Height": {
+   "type": "number",
+   "label": {
+    "en": "Height",
+    "fr": "Hauteur",
+    "nl": "Hoogte",
+    "de": "Höhe"
+   },
+   "unit": {
+    "en": "mm",
+    "fr": "mm",
+    "nl": "mm",
+    "de": "mm"
+   }
+  },
+  "Height (without stand)": {
+   "type": "number",
+   "label": {
+    "en": "Height (without stand)",
+    "fr": "Hauteur (sans support)",
+    "nl": "Hoogte (zonder voet )",
+    "de": "Höhe (ohne Standfuß)"
+   },
+   "unit": {
+    "en": "mm",
+    "fr": "mm",
+    "nl": "mm",
+    "de": "mm"
+   }
+  },
+  "Housing material": {
+   "type": "multi",
+   "label": {
+    "en": "Housing material",
+    "fr": "Matériau du boîtier/corps",
+    "nl": "Materiaal behuizing",
+    "de": "Gehäusematerial"
+   },
+   "values": [
+    "Acetal",
+    "Acrylic",
+    "Acrylonitrile butadiene styrene (ABS)",
+    "Acrylonitrile styrene acrylate (ASA)",
+    "Alabaster",
+    "Alcantara",
+    "Aluminium",
+    "Bakelite",
+    "Balsa wood",
+    "Bamboo",
+    "Basalt",
+    "Beechwood",
+    "Biocomposite",
+    "Bone china",
+    "Borosilicate glass",
+    "Brass",
+    "Bronze",
+    "Brushwood",
+    "Canvas",
+    "Carbon",
+    "Carbon Fibre Reinforced Polymer (CFRP)",
+    "Carbon fibre",
+    "Carbon steel",
+    "Cardboard",
+    "Cast iron",
+    "Cellulose acetate",
+    "Cement",
+    "Ceramic",
+    "Cermet",
+    "Chrome",
+    "Chromium-vanadium steel",
+    "Clay",
+    "Coconut",
+    "Composite",
+    "Concrete",
+    "Copolyester",
+    "Copper",
+    "Cork",
+    "Cotton",
+    "Crystal",
+    "Diamond",
+    "Dolomite",
+    "Duralumin",
+    "Duroplast",
+    "EVA (Ethylene Vinyl Acetate)",
+    "Elastomer",
+    "Epoxy",
+    "Expanded Polyolefin (EPO)",
+    "Expanded polypropylene (EPP)",
+    "Expanded polystyrene (EPS)",
+    "Fabric",
+    "Faux leather",
+    "Felt",
+    "Fibre Reinforced Plastic (FRP)",
+    "Fibreboard",
+    "Fibreglass",
+    "Foam",
+    "Galvanized steel",
+    "Glass",
+    "Glass Fibre Reinforced Plastic (GFRP)",
+    "Glass Reinforced Plastic (GRP)",
+    "Glass fibre",
+    "Gold",
+    "Granite",
+    "Graphene",
+    "Grass",
+    "High impact polystyrene (HIPS)",
+    "High-density polyethylene (HDPE)",
+    "Iron",
+    "Leather",
+    "Linear low-density polyethylene (LLDPE)",
+    "Liquid Crystal Polymer (LCP)",
+    "MDF",
+    "Magnesium",
+    "Marble",
+    "Melamine",
+    "Metal",
+    "Microfibre",
+    "Neoprene",
+    "Nickel",
+    "Nylon",
+    "Oak",
+    "Olive wood",
+    "PVD-gold",
+    "Palladium",
+    "Paper",
+    "Perspex",
+    "Pinewood",
+    "Plasteramic",
+    "Plastic",
+    "Platinum",
+    "Plexiglass",
+    "Plywood",
+    "Polyamide",
+    "Polybutylene terephthalate (PBT)",
+    "Polycarbonate (PC)",
+    "Polyester",
+    "Polyethylene",
+    "Polyethylene Terephthalate Glycol (PETG)",
+    "Polyethylene terephthalate (PET)",
+    "Polyethylene terephthalate (PET) felt",
+    "Polymer",
+    "Polymethyl methacrylate (PMMA)",
+    "Polyoxymethylene (POM)",
+    "Polyphenylene sulfide",
+    "Polypropylene (PP)",
+    "Polyrattan",
+    "Polyresin",
+    "Polystone",
+    "Polystyrene",
+    "Polystyrene (PS)",
+    "Polystyrol",
+    "Polytetrafluoroethylene (PTFE)",
+    "Polyurethane",
+    "Polyvinyl chloride (PVC)",
+    "Porcelain",
+    "Precious resin",
+    "Quartz glass",
+    "Raffia",
+    "Rattan",
+    "Recycled plastic",
+    "Reed",
+    "Resin",
+    "Rubber",
+    "Rubberwood",
+    "SECC",
+    "SGCC",
+    "SPCC",
+    "Sari",
+    "Silica gel",
+    "Silicone",
+    "Silver",
+    "Slate",
+    "Spring steel",
+    "Stainless steel",
+    "Steel",
+    "Stone",
+    "Stoneware",
+    "Styrene Acrylonitrile (SAN)",
+    "Styrene Ethylene Butylene Styrene (SEBS)",
+    "Synthetics",
+    "Tempered glass",
+    "Terylene",
+    "Textile",
+    "Thermoplastic",
+    "Thermoplastic Polybutylene Terephthalate (PBT)",
+    "Thermoplastic Rubber (TPR)",
+    "Thermoplastic elastomer",
+    "Thermoplastic elastomer (TPE)",
+    "Thermoplastic resin",
+    "Thermoplastic urethane (TPU)",
+    "Thermoset",
+    "Tinplate",
+    "Titanium",
+    "Tritan",
+    "Tungsten",
+    "Urea",
+    "Urea-Formaldehyde (UF)",
+    "Velvet",
+    "Veneer",
+    "Vinyl",
+    "Viscose",
+    "Walnut",
+    "Wax",
+    "White gold",
+    "Wood",
+    "Wool",
+    "Wrought iron",
+    "Zamak",
+    "Zinc"
+   ]
+  },
+  "ISO A-series sizes (A0...A9)": {
+   "type": "multi",
+   "label": {
+    "en": "ISO A-series sizes (A0...A9)",
+    "fr": "ISO, Format Series A (A0...A9)",
+    "nl": "ISO A-series afmetingen (A0...A9)",
+    "de": "ISO-A-Formate (A0...A9)"
+   },
+   "values": [
+    "A0",
+    "A1",
+    "A2",
+    "A3",
+    "A3+",
+    "A3++",
+    "A4",
+    "A4+",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9"
+   ]
+  },
+  "Internal memory": {
+   "type": "number",
+   "label": {
+    "en": "Internal memory",
+    "fr": "Mémoire interne",
+    "nl": "Intern geheugen",
+    "de": "Speicherkapazität"
+   },
+   "unit": {
+    "en": "GB",
+    "fr": "Go",
+    "nl": "GB",
+    "de": "GB"
+   }
+  },
+  "Internal memory type": {
+   "type": "text",
+   "label": {
+    "en": "Internal memory type",
+    "fr": "Type de mémoire interne",
+    "nl": "Intern geheugentype",
+    "de": "Interner Speichertyp"
+   }
+  },
+  "Internal storage capacity": {
+   "type": "number",
+   "label": {
+    "en": "Internal storage capacity",
+    "fr": "Capacité de stockage interne",
+    "nl": "Interne opslagcapaciteit",
+    "de": "Interne Speicherkapazität"
+   },
+   "unit": {
+    "en": "GB",
+    "fr": "Go",
+    "nl": "GB",
+    "de": "GB"
+   }
+  },
+  "Iron power": {
+   "type": "number",
+   "label": {
+    "en": "Iron power",
+    "fr": "Puissance du fer à repasser",
+    "nl": "Vermogen van strijkijzer",
+    "de": "Bügeleisen-Wattleistung"
+   },
+   "unit": {
+    "en": "W",
+    "fr": "W",
+    "nl": "W",
+    "de": "W"
+   }
+  },
+  "Keyboard dimensions (WxDxH)": {
+   "type": "text",
+   "label": {
+    "en": "Keyboard dimensions (WxDxH)",
+    "fr": "Dimensions du clavier (LxPxH)",
+    "nl": "Dimensies toetsenbord (BxDxH)",
+    "de": "Keyboard Abmessungen (BxTxH)"
+   }
+  },
+  "Keyboard form factor": {
+   "type": "text",
+   "label": {
+    "en": "Keyboard form factor",
+    "fr": "Facteur de forme du clavier",
+    "nl": "Toetsenbord formaat",
+    "de": "Tastatur Formfaktor"
+   }
+  },
+  "Keyboard language": {
+   "type": "multi",
+   "label": {
+    "en": "Keyboard language",
+    "fr": "Language du clavier",
+    "nl": "Taal toetsenbord",
+    "de": "Tastatursprache"
+   },
+   "values": [
+    "Arabic",
+    "Belgian",
+    "Brazilian-Portuguese",
+    "Bulgarian",
+    "Canadian",
+    "Chinese Pinyin",
+    "Chinese Simplified",
+    "Chinese Traditional",
+    "Croatian",
+    "Czech",
+    "Danish",
+    "Dutch",
+    "English",
+    "Estonian",
+    "Finnish",
+    "French",
+    "German",
+    "Greek",
+    "Hebrew",
+    "Hungarian",
+    "Icelandic",
+    "Indian",
+    "International EER",
+    "International EER+North Sea",
+    "International North Sea",
+    "Italian",
+    "Japanese",
+    "Kazakh",
+    "Korean",
+    "Latvian",
+    "Lithuanian",
+    "Luxembourgish",
+    "Maltese",
+    "Multi",
+    "No",
+    "Nordic",
+    "Northwest Africa",
+    "Norwegian",
+    "Persian",
+    "Polish",
+    "Portuguese",
+    "Romanian",
+    "Russian",
+    "Serbian",
+    "Slovakian",
+    "Slovenian",
+    "Spanish",
+    "Swedish",
+    "Swiss",
+    "Taiwanese",
+    "Thai",
+    "Turkish",
+    "UK English",
+    "UK International",
+    "US English",
+    "US International",
+    "Ukrainian",
+    "West Balkan",
+    "Yugoslavian"
+   ]
+  },
+  "Keyboard layout": {
+   "type": "choice",
+   "label": {
+    "en": "Keyboard layout",
+    "fr": "Disposition des touches du clavier",
+    "nl": "Toetsenbordindeling",
+    "de": "Tastaturaufbau"
+   },
+   "values": [
+    "ABC",
+    "AZERTY",
+    "Alphanumeric",
+    "Numeric",
+    "QWERTY",
+    "QWERTZ",
+    "QZERTY"
+   ]
+  },
+  "Keyboard style": {
+   "type": "choice",
+   "label": {
+    "en": "Keyboard style",
+    "fr": "Style de clavier",
+    "nl": "Stijl toetsenbord",
+    "de": "Tastatur-Stil"
+   },
+   "values": [
+    "Curved",
+    "Straight"
+   ]
+  },
+  "Keyboard weight": {
+   "type": "number",
+   "label": {
+    "en": "Keyboard weight",
+    "fr": "Poids du clavier",
+    "nl": "Gewicht toetsenbord",
+    "de": "Tastaturgewicht"
+   },
+   "unit": {
+    "en": "g",
+    "fr": "g",
+    "nl": "g",
+    "de": "g"
+   }
+  },
+  "Loading type": {
+   "type": "choice",
+   "label": {
+    "en": "Loading type",
+    "fr": "Type de chargement",
+    "nl": "Type lader",
+    "de": "Ladetyp"
+   },
+   "values": [
+    "Front-load",
+    "Top-load"
+   ]
+  },
+  "Maximum ISO A-series paper size": {
+   "type": "choice",
+   "label": {
+    "en": "Maximum ISO A-series paper size",
+    "fr": "Taille de papier de série A ISO maximum",
+    "nl": "Maximale ISO A-series papierformaat",
+    "de": "Maximale Papiergröße der ISO A-Serie"
+   },
+   "values": [
+    "A0",
+    "A1",
+    "A2",
+    "A3",
+    "A3+",
+    "A4",
+    "A5",
+    "A6",
+    "A8"
+   ]
+  },
+  "Maximum bread weight": {
+   "type": "number",
+   "label": {
+    "en": "Maximum bread weight",
+    "fr": "Le poids du pain maximum",
+    "nl": "Maximum brood gewicht",
+    "de": "Maximales Brotgewicht"
+   },
+   "unit": {
+    "en": "g",
+    "fr": "g",
+    "nl": "g",
+    "de": "g"
+   }
+  },
+  "Maximum duty cycle": {
+   "type": "number",
+   "label": {
+    "en": "Maximum duty cycle",
+    "fr": "Cycle de service (Maximum)",
+    "nl": "Gebruiksindicatie (maximaal)",
+    "de": "Maximale monatliche Auslastung"
+   },
+   "unit": {
+    "en": "pages per month",
+    "fr": "pages par mois",
+    "nl": "pagina's per maand",
+    "de": "Seiten pro Monat"
+   }
+  },
+  "Maximum input power": {
+   "type": "number",
+   "label": {
+    "en": "Maximum input power",
+    "fr": "Puissance d'alimentation max.",
+    "nl": "Maximaal ingangsvermogen",
+    "de": "Maximale Eingangsleistung"
+   },
+   "unit": {
+    "en": "W",
+    "fr": "W",
+    "nl": "W",
+    "de": "W"
+   }
+  },
+  "Maximum internal memory": {
+   "type": "number",
+   "label": {
+    "en": "Maximum internal memory",
+    "fr": "Mémoire interne maximale",
+    "nl": "Maximum intern geheugen",
+    "de": "RAM-Speicher maximal"
+   },
+   "unit": {
+    "en": "GB",
+    "fr": "Go",
+    "nl": "GB",
+    "de": "GB"
+   }
+  },
+  "Maximum resolution": {
+   "type": "text",
+   "label": {
+    "en": "Maximum resolution",
+    "fr": "Résolution maximale",
+    "nl": "Maximale resolutie",
+    "de": "Maximale Auflösung"
+   }
+  },
+  "Maximum spin speed": {
+   "type": "number",
+   "label": {
+    "en": "Maximum spin speed",
+    "fr": "Vitesse d'essorage maximale",
+    "nl": "Maximale centrifugesnelheid",
+    "de": "Maximale Schleuderdrehzahl"
+   },
+   "unit": {
+    "en": "RPM",
+    "fr": "tr/min",
+    "nl": "RPM",
+    "de": "RPM"
+   }
+  },
+  "Microphone mute": {
+   "type": "yesno",
+   "label": {
+    "en": "Microphone mute",
+    "fr": "Désactivation du microphone",
+    "nl": "Microfoon mute",
+    "de": "Mikrofon Stummschaltung"
+   }
+  },
+  "Mobile network generation": {
+   "type": "choice",
+   "label": {
+    "en": "Mobile network generation",
+    "fr": "Génération de réseau mobile",
+    "nl": "Generatie mobiel internet",
+    "de": "Mobilfunknetzgenerierung"
+   },
+   "values": [
+    "2G",
+    "3G",
+    "4G",
+    "5G",
+    "Not supported"
+   ]
+  },
+  "Mouse included": {
+   "type": "yesno",
+   "label": {
+    "en": "Mouse included",
+    "fr": "Souris incluse",
+    "nl": "Inclusief muis",
+    "de": "Maus enthalten"
+   }
+  },
+  "Movement detection technology": {
+   "type": "text",
+   "label": {
+    "en": "Movement detection technology",
+    "fr": "Technologie de détecteur de mouvement",
+    "nl": "Bewegingsdetectietechnologie",
+    "de": "Bewegungerfassungs Technologie"
+   }
+  },
+  "Movement resolution": {
+   "type": "number",
+   "label": {
+    "en": "Movement resolution",
+    "fr": "Résolution en mouvement",
+    "nl": "Bewegingsresolutie",
+    "de": "Bewegung Auflösung"
+   },
+   "unit": {
+    "en": "DPI",
+    "fr": "DPI",
+    "nl": "DPI",
+    "de": "DPI"
+   }
+  },
+  "Multi beverage": {
+   "type": "yesno",
+   "label": {
+    "en": "Multi beverage",
+    "fr": "Multi-boissons",
+    "nl": "Meerdere dranken",
+    "de": "Multi-Getränke"
+   }
+  },
+  "Multi handset capability": {
+   "type": "choice",
+   "label": {
+    "en": "Multi handset capability",
+    "fr": "Compatible avec plusieurs combinés",
+    "nl": "Aantal handsets mogelijk",
+    "de": "Multi-Function Hörer"
+   },
+   "values": [
+    "1",
+    "10",
+    "11",
+    "12",
+    "15",
+    "16",
+    "2",
+    "20",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "99"
+   ]
+  },
+  "Native aspect ratio": {
+   "type": "choice",
+   "label": {
+    "en": "Native aspect ratio",
+    "fr": "Format d'image",
+    "nl": "Oorspronkelijke beeldverhouding",
+    "de": "Natives Seitenverhältnis"
+   },
+   "values": [
+    "1.2:1",
+    "1.35:1",
+    "12:2",
+    "15:9",
+    "16:1",
+    "16:1.6",
+    "16:10",
+    "16:2.2",
+    "16:3",
+    "16:3.4",
+    "16:4",
+    "16:4.5",
+    "16:5",
+    "16:9",
+    "17:10",
+    "17:9",
+    "19:10",
+    "1:1",
+    "1:2",
+    "21:9",
+    "24:9",
+    "32:9",
+    "3:2",
+    "3:4",
+    "4:3",
+    "58:9",
+    "5:4",
+    "960:79",
+    "9:16"
+   ]
+  },
+  "Noise level": {
+   "type": "number",
+   "label": {
+    "en": "Noise level",
+    "fr": "Niveau sonore",
+    "nl": "Geluidsniveau",
+    "de": "Geräuschpegel"
+   },
+   "unit": {
+    "en": "dB",
+    "fr": "dB",
+    "nl": "dB",
+    "de": "dB"
+   }
+  },
+  "Noise level (spin)": {
+   "type": "number",
+   "label": {
+    "en": "Noise level (spin)",
+    "fr": "Niveau sonore (essorage)",
+    "nl": "Geluidsniveau bij centrifugeren",
+    "de": "Luftschallemission (Schleudern)"
+   },
+   "unit": {
+    "en": "dB",
+    "fr": "dB",
+    "nl": "dB",
+    "de": "dB"
+   }
+  },
+  "Number of auto cooking programs": {
+   "type": "number",
+   "label": {
+    "en": "Number of auto cooking programs",
+    "fr": "Quantité de programmes automatiques",
+    "nl": "Aantal automatische programma's",
+    "de": "Anzahl der automatischen Programme"
+   }
+  },
+  "Number of place settings": {
+   "type": "number",
+   "label": {
+    "en": "Number of place settings",
+    "fr": "Nombre de couverts",
+    "nl": "Aantal couverts",
+    "de": "Anzahl Maßgedecke"
+   },
+   "unit": {
+    "en": "place settings",
+    "fr": "couverts",
+    "nl": "couverts",
+    "de": "Maßgedecke"
+   }
+  },
+  "Number of scroll wheels": {
+   "type": "choice",
+   "label": {
+    "en": "Number of scroll wheels",
+    "fr": "Nombre de roulettes de défilement",
+    "nl": "Aantal scroll wheels",
+    "de": "Anzahl der Scroll-Rollen"
+   },
+   "values": [
+    "1",
+    "2",
+    "3"
+   ]
+  },
+  "Number of slices": {
+   "type": "number",
+   "label": {
+    "en": "Number of slices",
+    "fr": "Nombre de tranches",
+    "nl": "Aantal sneetjes",
+    "de": "Anzahl der Scheiben"
+   },
+   "unit": {
+    "en": "slice(s)",
+    "fr": "part(s)",
+    "nl": "snede(n)",
+    "de": "Scheibe(n)"
+   }
+  },
+  "Number of slots": {
+   "type": "number",
+   "label": {
+    "en": "Number of slots",
+    "fr": "Nombre de ports",
+    "nl": "Aantal sloten",
+    "de": "Anzahl Slots"
+   }
+  },
+  "Number of vegetable drawers": {
+   "type": "number",
+   "label": {
+    "en": "Number of vegetable drawers",
+    "fr": "Nombre de tiroirs à légumes",
+    "nl": "Aantal groente lades",
+    "de": "Anzahl der Gemüseschubladen"
+   }
+  },
+  "Number of washing programs": {
+   "type": "number",
+   "label": {
+    "en": "Number of washing programs",
+    "fr": "Nombre de programmes de lavage",
+    "nl": "Aantal wasprogramma's",
+    "de": "Anzahl Waschprogramme"
+   }
+  },
+  "Numeric keypad": {
+   "type": "yesno",
+   "label": {
+    "en": "Numeric keypad",
+    "fr": "Pavé numérique",
+    "nl": "Numeriek toetsenblok",
+    "de": "Numerisches Keypad"
+   }
+  },
+  "On-board graphics card": {
+   "type": "yesno",
+   "label": {
+    "en": "On-board graphics card",
+    "fr": "Carte graphique intégrée",
+    "nl": "Ingebouwde grafische adapter",
+    "de": "Eingebaute Grafikadapter"
+   }
+  },
+  "On-board graphics card model": {
+   "type": "choice",
+   "label": {
+    "en": "On-board graphics card model",
+    "fr": "Modèle d'adaptateur graphique inclus",
+    "nl": "On-board graphics adapter model",
+    "de": "Eingebautes Grafikkartenmodell"
+   },
+   "values": [
+    "AMD ES1000",
+    "AMD Mobility Radeon HD 4100",
+    "AMD Radeon",
+    "AMD Radeon 530",
+    "AMD Radeon 610M",
+    "AMD Radeon 660M",
+    "AMD Radeon 680M",
+    "AMD Radeon 740M",
+    "AMD Radeon 760M",
+    "AMD Radeon 780M",
+    "AMD Radeon 8040S",
+    "AMD Radeon 8050S",
+    "AMD Radeon 8060S",
+    "AMD Radeon 820M",
+    "AMD Radeon 840M",
+    "AMD Radeon 860M",
+    "AMD Radeon 880M",
+    "AMD Radeon 890M",
+    "AMD Radeon Graphics",
+    "AMD Radeon HD 2600",
+    "AMD Radeon HD 3000",
+    "AMD Radeon HD 3100",
+    "AMD Radeon HD 3200",
+    "AMD Radeon HD 4200",
+    "AMD Radeon HD 4250",
+    "AMD Radeon HD 4270",
+    "AMD Radeon HD 6250",
+    "AMD Radeon HD 6290",
+    "AMD Radeon HD 6300",
+    "AMD Radeon HD 6310",
+    "AMD Radeon HD 6320",
+    "AMD Radeon HD 6370",
+    "AMD Radeon HD 6370D",
+    "AMD Radeon HD 6380G",
+    "AMD Radeon HD 6400M",
+    "AMD Radeon HD 6410D",
+    "AMD Radeon HD 6480G",
+    "AMD Radeon HD 6520G",
+    "AMD Radeon HD 6530D",
+    "AMD Radeon HD 6550D",
+    "AMD Radeon HD 6620G",
+    "AMD Radeon HD 7290",
+    "AMD Radeon HD 7310",
+    "AMD Radeon HD 7310G",
+    "AMD Radeon HD 7340",
+    "AMD Radeon HD 7340G",
+    "AMD Radeon HD 7400G",
+    "AMD Radeon HD 7420G",
+    "AMD Radeon HD 7480D",
+    "AMD Radeon HD 7500G",
+    "AMD Radeon HD 7520G",
+    "AMD Radeon HD 7540D",
+    "AMD Radeon HD 7560D",
+    "AMD Radeon HD 7600G",
+    "AMD Radeon HD 7620G",
+    "AMD Radeon HD 7640G",
+    "AMD Radeon HD 7660D",
+    "AMD Radeon HD 7660G",
+    "AMD Radeon HD 8180",
+    "AMD Radeon HD 8210",
+    "AMD Radeon HD 8210E",
+    "AMD Radeon HD 8240",
+    "AMD Radeon HD 8250",
+    "AMD Radeon HD 8280",
+    "AMD Radeon HD 8280E",
+    "AMD Radeon HD 8330",
+    "AMD Radeon HD 8330E",
+    "AMD Radeon HD 8350G",
+    "AMD Radeon HD 8370D",
+    "AMD Radeon HD 8400",
+    "AMD Radeon HD 8400E",
+    "AMD Radeon HD 8410G",
+    "AMD Radeon HD 8450G",
+    "AMD Radeon HD 8470D",
+    "AMD Radeon HD 8510G",
+    "AMD Radeon HD 8550D",
+    "AMD Radeon HD 8550G",
+    "AMD Radeon HD 8570D",
+    "AMD Radeon HD 8610G",
+    "AMD Radeon HD 8650D",
+    "AMD Radeon HD 8650G",
+    "AMD Radeon HD 8670D",
+    "AMD Radeon HD 9000",
+    "AMD Radeon R1E",
+    "AMD Radeon R2",
+    "AMD Radeon R2E",
+    "AMD Radeon R3",
+    "AMD Radeon R3E",
+    "AMD Radeon R4",
+    "AMD Radeon R5",
+    "AMD Radeon R5E",
+    "AMD Radeon R6",
+    "AMD Radeon R6E",
+    "AMD Radeon R7",
+    "AMD Radeon R7E",
+    "AMD Radeon R8",
+    "AMD Radeon R9 285",
+    "AMD Radeon RX 560X",
+    "AMD Radeon RX Vega",
+    "AMD Radeon RX Vega 10",
+    "AMD Radeon RX Vega 11",
+    "AMD Radeon RX Vega 56",
+    "AMD Radeon RX Vega 6",
+    "AMD Radeon RX Vega 7",
+    "AMD Radeon RX Vega 8",
+    "AMD Radeon RX Vega M GH",
+    "AMD Radeon RX Vega M GL",
+    "AMD Radeon Vega",
+    "AMD Radeon Vega 10",
+    "AMD Radeon Vega 11",
+    "AMD Radeon Vega 3",
+    "AMD Radeon Vega 6",
+    "AMD Radeon Vega 8",
+    "AMD Radeon Vega 9",
+    "AMD Radeon Vega M",
+    "AMD Radeon X300",
+    "AMD Radeon Xpress X1250",
+    "AMD Rage XL",
+    "ARM Mali-400",
+    "ARM Mali-400 MP",
+    "ARM Mali-400 MP2",
+    "ARM Mali-450",
+    "ARM Mali-G31 MP2",
+    "ARM Mali-G51",
+    "ARM Mali-G52 2EE MC2",
+    "ARM Mali-G52 MC2",
+    "ARM Mali-G52 MP2",
+    "ARM Mali-G57 MC5",
+    "ARM Mali-G57 MP5",
+    "ARM Mali-G72 MP3",
+    "ARM Mali-T604 MP4",
+    "ARM Mali-T628 MP6",
+    "ARM Mali-T760 MP4",
+    "ARM Mali-T764",
+    "ARM Mali-T820",
+    "ARM Mali-T820 MP3",
+    "ARM Mali-T860 MP4",
+    "ARM Mali-T864",
+    "ARM NATT MC5",
+    "Apple GPU",
+    "Arm Mali-G52",
+    "Arm Mali-G57 MC3",
+    "Aspeed AST1200",
+    "Aspeed AST1300",
+    "Aspeed AST1400",
+    "Aspeed AST2050",
+    "Aspeed AST2150",
+    "Aspeed AST2300",
+    "Aspeed AST2400",
+    "Aspeed AST2500",
+    "Aspeed AST2510",
+    "Aspeed AST2520",
+    "Aspeed AST2600",
+    "Immortalis-G925 MC11",
+    "Intel Arc 130T",
+    "Intel Arc 140T",
+    "Intel Arc Graphics",
+    "Intel Arc Graphics 130V",
+    "Intel Arc Graphics 140V",
+    "Intel GMA",
+    "Intel GMA 3000",
+    "Intel GMA 3000MHD",
+    "Intel GMA 3100",
+    "Intel GMA 3150",
+    "Intel GMA 3600",
+    "Intel GMA 3650",
+    "Intel GMA 4500",
+    "Intel GMA 4500HD",
+    "Intel GMA 4500M",
+    "Intel GMA 4500MHD",
+    "Intel GMA 500",
+    "Intel GMA 600",
+    "Intel GMA 900",
+    "Intel GMA 950",
+    "Intel GMA 965",
+    "Intel GMA HD",
+    "Intel GMA X2000",
+    "Intel GMA X3000",
+    "Intel GMA X3100",
+    "Intel GMA X3500",
+    "Intel GMA X4500",
+    "Intel GMA X4500HD",
+    "Intel Graphics",
+    "Intel HD Graphics",
+    "Intel HD Graphics 2000",
+    "Intel HD Graphics 2500",
+    "Intel HD Graphics 3000",
+    "Intel HD Graphics 400",
+    "Intel HD Graphics 4000",
+    "Intel HD Graphics 405",
+    "Intel HD Graphics 4200",
+    "Intel HD Graphics 4400",
+    "Intel HD Graphics 4600",
+    "Intel HD Graphics 500",
+    "Intel HD Graphics 5000",
+    "Intel HD Graphics 505",
+    "Intel HD Graphics 510",
+    "Intel HD Graphics 515",
+    "Intel HD Graphics 520",
+    "Intel HD Graphics 530",
+    "Intel HD Graphics 5300",
+    "Intel HD Graphics 5500",
+    "Intel HD Graphics 5600",
+    "Intel HD Graphics 6000",
+    "Intel HD Graphics 610",
+    "Intel HD Graphics 615",
+    "Intel HD Graphics 620",
+    "Intel HD Graphics 630",
+    "Intel HD Graphics P3000",
+    "Intel HD Graphics P4000",
+    "Intel HD Graphics P4600",
+    "Intel HD Graphics P4700",
+    "Intel HD Graphics P530",
+    "Intel HD Graphics P5700",
+    "Intel HD Graphics P630",
+    "Intel Iris Graphics",
+    "Intel Iris Graphics 5100",
+    "Intel Iris Graphics 540",
+    "Intel Iris Graphics 550",
+    "Intel Iris Graphics 6100",
+    "Intel Iris Plus Graphics",
+    "Intel Iris Plus Graphics 640",
+    "Intel Iris Plus Graphics 645",
+    "Intel Iris Plus Graphics 650",
+    "Intel Iris Plus Graphics 655",
+    "Intel Iris Pro Graphics",
+    "Intel Iris Pro Graphics 5200",
+    "Intel Iris Pro Graphics 580",
+    "Intel Iris Pro Graphics 6200",
+    "Intel Iris Pro Graphics P555",
+    "Intel Iris Pro Graphics P580",
+    "Intel Iris Pro Graphics P6300",
+    "Intel Iris Xe Graphics",
+    "Intel SM750",
+    "Intel UHD Graphics",
+    "Intel UHD Graphics 600",
+    "Intel UHD Graphics 605",
+    "Intel UHD Graphics 610",
+    "Intel UHD Graphics 615",
+    "Intel UHD Graphics 617",
+    "Intel UHD Graphics 620",
+    "Intel UHD Graphics 630",
+    "Intel UHD Graphics 700",
+    "Intel UHD Graphics 710",
+    "Intel UHD Graphics 730",
+    "Intel UHD Graphics 750",
+    "Intel UHD Graphics 770",
+    "Intel UHD Graphics G1",
+    "Intel UHD Graphics P630",
+    "Intel UHD Graphics P750",
+    "Intel UHD Graphics Xe G4",
+    "Iris Plus Graphics G7",
+    "Matrox G200",
+    "Matrox G200e",
+    "Matrox G200eH",
+    "Matrox G200eH2",
+    "Matrox G200eR2",
+    "Matrox G200eW",
+    "Matrox G200eW3",
+    "MediaTek Integrated Graphics",
+    "NVIDIA Blackwell",
+    "NVIDIA GeForce 320M",
+    "NVIDIA GeForce 6150 SE",
+    "NVIDIA GeForce 7025",
+    "NVIDIA GeForce 8200M G",
+    "NVIDIA GeForce 9100",
+    "NVIDIA GeForce 9400M",
+    "NVIDIA GeForce 9400M G",
+    "NVIDIA GeForce G200",
+    "NVIDIA GeForce Go 6150",
+    "NVIDIA GeForce MX570A",
+    "NVIDIA ION LE",
+    "NVIDIA Pascal",
+    "NVIDIA RTX A6000",
+    "NVIDIA Tegra GPU",
+    "NVIDIA Tesla T4",
+    "Not available",
+    "Nuvoton WPCM450",
+    "PowerVR G6110",
+    "PowerVR G6230",
+    "PowerVR GC6110",
+    "PowerVR GX6250",
+    "PowerVR SGX 530",
+    "PowerVR SGX 544MP",
+    "PowerVR SGX 545",
+    "PowerVR SGX6110",
+    "Qualcomm Adreno 320",
+    "Qualcomm Adreno 540",
+    "Qualcomm Adreno 618",
+    "Qualcomm Adreno 630",
+    "Qualcomm Adreno 642L",
+    "Qualcomm Adreno 675",
+    "Qualcomm Adreno 680",
+    "Qualcomm Adreno 685",
+    "Qualcomm Adreno 690",
+    "Qualcomm Adreno 740",
+    "Qualcomm Adreno GPU",
+    "SGX6110",
+    "SIS Mirage 3+",
+    "Snapdragon X Elite Adreno",
+    "Snapdragon X Plus Adreno",
+    "VIA Chrome9",
+    "VIA ChromotionHD 2.0",
+    "VIA S3",
+    "VIA UniChrome",
+    "VIA UniChrome Pro",
+    "VIA VX855",
+    "VIA VX900",
+    "VideoCore IV",
+    "Vivante GC7000 Lite",
+    "XGI Volari Z7",
+    "XGI Z9",
+    "XGI Z9S",
+    "ZhaoXin C960"
+   ]
+  },
+  "Operating system installed": {
+   "type": "choice",
+   "label": {
+    "en": "Operating system installed",
+    "fr": "Système d'exploitation installé",
+    "nl": "Inclusief besturingssysteem",
+    "de": "Installiertes Betriebssystem"
+   },
+   "values": [
+    "Android",
+    "Android 10",
+    "Android 11",
+    "Android 12",
+    "Android 13",
+    "Android 14",
+    "Android 4.0",
+    "Android 8.1",
+    "Android 9",
+    "ChromeOS",
+    "CipherLab Operating System (cOS)",
+    "CollabOS",
+    "DOS",
+    "DTEN D7 OS",
+    "DTEN OS",
+    "Linux",
+    "Moverio OS",
+    "QNE Network",
+    "Windows 10",
+    "Windows 10 IoT",
+    "Windows 10 IoT Enterprise",
+    "Windows 10 IoT Enterprise SAC",
+    "Windows 10 LTSB",
+    "Windows 10 Pro",
+    "Windows 11 Enterprise",
+    "Windows 11 Home",
+    "Windows 11 IoT Enterprise",
+    "Windows 11 IoT Enterprise GAC",
+    "Windows 11 IoT Enterprise SAC",
+    "Windows 11 Pro",
+    "Windows Embedded 8.1",
+    "Windows Embedded CE 5.0",
+    "Windows Embedded CE 6.0",
+    "Windows Embedded CE 6.0 R3",
+    "Windows Embedded Compact 7",
+    "Windows Embedded Compact Professional 6.0 R3",
+    "Windows Embedded Handheld 6.5",
+    "Windows Embedded Handheld 6.5 Professional",
+    "Windows Mobile",
+    "visionOS"
+   ]
+  },
+  "Optical drive type": {
+   "type": "text",
+   "label": {
+    "en": "Optical drive type",
+    "fr": "Lecteur optique",
+    "nl": "Soort optische drive",
+    "de": "Optisches Laufwerk - Typ"
+   }
+  },
+  "Panel type": {
+   "type": "choice",
+   "label": {
+    "en": "Panel type",
+    "fr": "Type de panneau",
+    "nl": "Soort paneel",
+    "de": "Panel-Typ"
+   },
+   "values": [
+    "ADS",
+    "AH-IPS",
+    "AHVA",
+    "AMOLED",
+    "AMVA+",
+    "AMVA3",
+    "CSTN",
+    "Color E-Paper",
+    "ELED",
+    "FSTN",
+    "G-OLED",
+    "IGZO",
+    "IPS",
+    "IPS VA",
+    "IPS WVA",
+    "IPS-Level",
+    "IPS-Pro",
+    "LCD",
+    "LTPS",
+    "MVA",
+    "Mini LED",
+    "OLED",
+    "P-OLED",
+    "PLS",
+    "QLED",
+    "S-IPS",
+    "SLCD",
+    "SPVA",
+    "STN",
+    "SVA",
+    "TFD",
+    "TFT",
+    "TFT-LCD",
+    "TN",
+    "TN+Film",
+    "TN-TFT",
+    "U-IPS",
+    "UBC",
+    "UFB",
+    "UV2A",
+    "VA",
+    "WLED",
+    "WVA"
+   ]
+  },
+  "Paper tray media types": {
+   "type": "multi",
+   "label": {
+    "en": "Paper tray media types",
+    "fr": "Type de support du bac papier",
+    "nl": "Papierlade mediatypen",
+    "de": "Medientypen für das Papierfach"
+   },
+   "values": [
+    "Art paper",
+    "Banner",
+    "Bond paper",
+    "CD/DVD",
+    "Card stock",
+    "Coated paper",
+    "Cut sheet",
+    "Envelopes",
+    "Executive",
+    "Glossy paper",
+    "Heavy paper",
+    "Heavy printing media",
+    "High resolution paper",
+    "Iron-On Transfers",
+    "Labels",
+    "Letterhead",
+    "Lightweight paper",
+    "Matte paper",
+    "Photo paper",
+    "Plain paper",
+    "Postcard",
+    "Pre-Printed",
+    "Recycled paper",
+    "Roll",
+    "Rough paper",
+    "Satin paper",
+    "Semi-glossy paper",
+    "T-shirt Transfer",
+    "Thick paper",
+    "Thicker paper",
+    "Thin paper",
+    "Transparencies"
+   ]
+  },
+  "Phonebook capacity": {
+   "type": "number",
+   "label": {
+    "en": "Phonebook capacity",
+    "fr": "Capacité du répertoire",
+    "nl": "Capaciteit telefoonboek",
+    "de": "Telefonbuch Kapazität"
+   },
+   "unit": {
+    "en": "entries",
+    "fr": "entrées",
+    "nl": "entries",
+    "de": "Eintragungen"
+   }
+  },
+  "Platform": {
+   "type": "choice",
+   "label": {
+    "en": "Platform",
+    "fr": "Plateforme",
+    "nl": "Platform",
+    "de": "Plattform"
+   },
+   "values": [
+    "Android",
+    "Windows"
+   ]
+  },
+  "Pointing device": {
+   "type": "text",
+   "label": {
+    "en": "Pointing device",
+    "fr": "Dispositif de pointage",
+    "nl": "Aanwijsapparaat",
+    "de": "Eingabegerät"
+   }
+  },
+  "Position location": {
+   "type": "yesno",
+   "label": {
+    "en": "Position location",
+    "fr": "Lieu de position",
+    "nl": "Locatie positie",
+    "de": "Standort-Position"
+   }
+  },
+  "Power": {
+   "type": "number",
+   "label": {
+    "en": "Power",
+    "fr": "Puissance",
+    "nl": "Vermogen",
+    "de": "Leistung"
+   },
+   "unit": {
+    "en": "W",
+    "fr": "W",
+    "nl": "W",
+    "de": "W"
+   }
+  },
+  "Power consumption (typical)": {
+   "type": "number",
+   "label": {
+    "en": "Power consumption (typical)",
+    "fr": "Consommation électrique typique",
+    "nl": "Stroomverbruik (typisch)",
+    "de": "Stromverbrauch (Standardbetrieb)"
+   },
+   "unit": {
+    "en": "W",
+    "fr": "W",
+    "nl": "W",
+    "de": "W"
+   }
+  },
+  "Power source": {
+   "type": "text",
+   "label": {
+    "en": "Power source",
+    "fr": "Source d'alimentation",
+    "nl": "Stroombron",
+    "de": "Energiequelle"
+   }
+  },
+  "Power source type": {
+   "type": "multi",
+   "label": {
+    "en": "Power source type",
+    "fr": "Type de source d'alimentation",
+    "nl": "Type stroombron",
+    "de": "Energiequelle"
+   },
+   "values": [
+    "AC",
+    "Artificial light",
+    "BNC",
+    "Battery",
+    "Cigar lighter",
+    "DC",
+    "Earth magnetic field",
+    "Lightning",
+    "Mechanical",
+    "Not supported",
+    "PS/2",
+    "PoE",
+    "RS-232",
+    "SATA",
+    "Solar",
+    "Supercapacitor",
+    "USB"
+   ]
+  },
+  "Print speed (black, normal quality, A4/US Letter)": {
+   "type": "number",
+   "label": {
+    "en": "Print speed (black, normal quality, A4/US Letter)",
+    "fr": "Vitesse d'impression (noir, qualité normale, A4/US Letter)",
+    "nl": "Printsnelheid (zwart, standaardkwaliteit, A4/US Letter)",
+    "de": "Druckgeschwindigkeit (Schwarz, normale Qualität, A4/US Letter)"
+   },
+   "unit": {
+    "en": "ppm",
+    "fr": "ppm",
+    "nl": "ppm",
+    "de": "Seiten pro Minute"
+   }
+  },
+  "Print technology": {
+   "type": "choice",
+   "label": {
+    "en": "Print technology",
+    "fr": "Technologie d'impression",
+    "nl": "Printtechnologie",
+    "de": "Drucktechnologie"
+   },
+   "values": [
+    "Direct Thermal/Thermal Transfer",
+    "Direct thermal",
+    "Dot Matrix",
+    "Drum-serial",
+    "Dye-sublimation",
+    "GelJet",
+    "Inkjet",
+    "LED",
+    "Laser",
+    "Laser/Inkjet",
+    "Thermal Inkjet",
+    "Thermal Transfer",
+    "Universal"
+   ]
+  },
+  "Processor cores": {
+   "type": "number",
+   "label": {
+    "en": "Processor cores",
+    "fr": "Nombre de coeurs de processeurs",
+    "nl": "Aantal processorkernen",
+    "de": "Anzahl Prozessorkerne"
+   }
+  },
+  "Processor family": {
+   "type": "choice",
+   "label": {
+    "en": "Processor family",
+    "fr": "Famille de processeur",
+    "nl": "Processorfamilie",
+    "de": "Prozessorfamilie"
+   }
+  },
+  "Processor frequency": {
+   "type": "number",
+   "label": {
+    "en": "Processor frequency",
+    "fr": "Fréquence du processeur",
+    "nl": "Frequentie van processor",
+    "de": "Prozessortaktfrequenz"
+   },
+   "unit": {
+    "en": "MHz",
+    "fr": "MHz",
+    "nl": "MHz",
+    "de": "MHz"
+   }
+  },
+  "Processor manufacturer": {
+   "type": "text",
+   "label": {
+    "en": "Processor manufacturer",
+    "fr": "Fabricant de processeur",
+    "nl": "Processorfabrikant",
+    "de": "Prozessorhersteller"
+   }
+  },
+  "Processor model": {
+   "type": "choice",
+   "label": {
+    "en": "Processor model",
+    "fr": "Modèle de processeur",
+    "nl": "Processormodel",
+    "de": "Prozessor"
+   },
+   "values": [
+    "24K",
+    "3431Q",
+    "3865U",
+    "4210",
+    "4410Y",
+    "464FP",
+    "465S",
+    "5355GE",
+    "5655GE",
+    "5755GE",
+    "6238T",
+    "6632AE",
+    "7231",
+    "750CX",
+    "811",
+    "88F6820",
+    "88PA6270",
+    "A10X",
+    "A12",
+    "A15",
+    "A17",
+    "A35",
+    "A53",
+    "A55",
+    "A7",
+    "A72",
+    "A73",
+    "A73+",
+    "A8",
+    "A9",
+    "AM8252",
+    "AM8270",
+    "AM8272",
+    "APQ8053",
+    "Action Micro AM8251",
+    "Alcor AU9580",
+    "Amlogic T982",
+    "Apollo 3",
+    "BCM73625",
+    "BK3431",
+    "C3558R",
+    "C3758R",
+    "CC2540",
+    "Cortex-A53",
+    "Cortex-A72",
+    "Cortex-M3",
+    "D-2166NT",
+    "E-2124",
+    "E-2224",
+    "E-2226GE",
+    "E-2324G",
+    "E3-1225 v6",
+    "E3-1275 v5",
+    "E5-2603 v4",
+    "E5-2609 v4",
+    "E5-2620 v4",
+    "G4920",
+    "G5905",
+    "G6605",
+    "G7400",
+    "GE8300",
+    "GX-412TC",
+    "HI3798M V200",
+    "Helio G99",
+    "Hi3751 V810",
+    "Hi3751 V811",
+    "J1900",
+    "J4125",
+    "Kirin A1 + STL4R9",
+    "LSISAS1064E",
+    "LSISAS1068",
+    "LSISAS1078",
+    "LSISAS2008",
+    "LSISAS2108",
+    "LSISAS2208",
+    "LSISAS3008",
+    "LSISAS3108",
+    "LSISAS3316",
+    "LSISAS3408",
+    "LSISAS3416",
+    "LSISAS3508",
+    "LSISAS3516",
+    "MCU Cortex M0",
+    "MCU Cortex M33F",
+    "MSD3458HB",
+    "MSD95E1D",
+    "MT8127",
+    "MT8163",
+    "MT8163V/B",
+    "MT8168",
+    "MT8183",
+    "MT8696",
+    "MT9970A",
+    "MTK5680",
+    "N5100",
+    "NRF51822",
+    "PX30S",
+    "R1505G",
+    "RK2928",
+    "RK3036",
+    "RK3066",
+    "RK3188",
+    "RK3229",
+    "RK3288",
+    "RK3368",
+    "RK3399",
+    "RK3566",
+    "RK3568",
+    "RM523",
+    "RTD1325",
+    "Ralink 3050",
+    "Rockchip RK3576",
+    "S805",
+    "S905",
+    "S905-B",
+    "S905D",
+    "S905W",
+    "S905X",
+    "S905X2",
+    "S905X2-B",
+    "S905X3",
+    "S905Y2",
+    "S905Y4",
+    "S905z",
+    "S912",
+    "T1024",
+    "T107",
+    "T616",
+    "Tegra X1+",
+    "V1605B",
+    "V810",
+    "V811",
+    "Z3735F",
+    "Z8350",
+    "i3-1115G4",
+    "i3-12100",
+    "i3-3220",
+    "i3-4000M",
+    "i3-4150",
+    "i3-5010U",
+    "i3-7101E",
+    "i3-9100",
+    "i3-9100E",
+    "i5-10500TE",
+    "i5-1135G7",
+    "i5-1240P",
+    "i5-12450H",
+    "i5-3210M",
+    "i5-3610ME",
+    "i5-4210M",
+    "i5-6200U",
+    "i5-6400",
+    "i5-6600",
+    "i5-7200U",
+    "i5-8259U",
+    "i5-9600",
+    "i7-10700",
+    "i7-11800H",
+    "i7-1260P",
+    "i7-12700",
+    "i7-12700H",
+    "i7-13700E",
+    "i7-4770T",
+    "i7-6500U",
+    "i7-6820EQ",
+    "i7-7500U",
+    "i7-7700",
+    "i7-7820EQ",
+    "i7-8559U",
+    "i7-9700",
+    "nRF52832",
+    "x5-Z8300",
+    "x5-Z8350"
+   ]
+  },
+  "Product colour": {
+   "type": "multi",
+   "label": {
+    "en": "Product colour",
+    "fr": "Couleur du produit",
+    "nl": "Kleur van het product",
+    "de": "Produktfarbe"
+   },
+   "values": [
+    "Acacia colour",
+    "Agave",
+    "Alabaster",
+    "Almond",
+    "Aluminium",
+    "Amber",
+    "Anthracite",
+    "Apricot",
+    "Aqua colour",
+    "Aquamarine",
+    "Arctic blue",
+    "Ash",
+    "Assorted colours",
+    "Aubergine",
+    "Bamboo",
+    "Basalt",
+    "Beech",
+    "Beige",
+    "Berry",
+    "Beryl colour",
+    "Birch",
+    "Black",
+    "Blackberry",
+    "Blond",
+    "Blue",
+    "Blueberry",
+    "Bordeaux",
+    "Brass",
+    "Brick colour",
+    "Bronze",
+    "Brown",
+    "Brushed iron",
+    "Brushed steel",
+    "Burgundy",
+    "Camouflage",
+    "Cappuccino",
+    "Caramel",
+    "Carbon",
+    "Carmine",
+    "Carrot",
+    "Cashmere colour",
+    "Chamois (colour)",
+    "Champagne",
+    "Charcoal",
+    "Cherry colour",
+    "Chocolate",
+    "Chrome",
+    "Cinnamon colour",
+    "Clay",
+    "Cloud blue",
+    "Cognac colour",
+    "Concrete colour",
+    "Copper colour",
+    "Coral",
+    "Cranberry colour",
+    "Cream colour",
+    "Crimson",
+    "Curry",
+    "Cyan",
+    "Dark blue",
+    "Dark brown",
+    "Dark green",
+    "Dark grey",
+    "Dark oak",
+    "Dark pink",
+    "Ebony",
+    "Ecru",
+    "Espresso",
+    "Fuchsia",
+    "Garnet",
+    "Gold",
+    "Granite",
+    "Graphite",
+    "Green",
+    "Grey",
+    "Hazelnut",
+    "Indigo",
+    "Iron",
+    "Ivory",
+    "Khaki",
+    "Latte",
+    "Latte colour",
+    "Lavender",
+    "Light blue",
+    "Light brown",
+    "Light gold",
+    "Light green",
+    "Light grey",
+    "Light magenta",
+    "Light pink",
+    "Lilac",
+    "Lime",
+    "Magenta",
+    "Magma colour",
+    "Magnolia colour",
+    "Mahogany",
+    "Maple colour",
+    "Marble colour",
+    "Marigold",
+    "Maroon",
+    "Mauve",
+    "Merlot",
+    "Metallic",
+    "Mint colour",
+    "Mirror",
+    "Moab",
+    "Mocha",
+    "Multicolour",
+    "Natural",
+    "Navy",
+    "Neutral",
+    "Nickel",
+    "Nougat",
+    "Nude",
+    "Oak",
+    "Oat",
+    "Ochre",
+    "Olive",
+    "Onyx colour",
+    "Opaque",
+    "Orange",
+    "Palladium",
+    "Peach",
+    "Pearl",
+    "Pebble",
+    "Petrol colour",
+    "Pewter",
+    "Pine",
+    "Pink",
+    "Pink gold",
+    "Platinum",
+    "Plum",
+    "Plum colour",
+    "Purple",
+    "Quartz metallic",
+    "Red",
+    "Rose",
+    "Rose gold",
+    "Rosewood",
+    "Ruby",
+    "Rust colour",
+    "Sage",
+    "Sand",
+    "Satin chrome",
+    "Satin steel",
+    "Satin titanium",
+    "Silver",
+    "Slate colour",
+    "Stainless steel",
+    "Steel",
+    "Stone colour",
+    "Tan",
+    "Taupe",
+    "Teal",
+    "Terracotta",
+    "Titanium",
+    "Tourmaline",
+    "Translucent",
+    "Transparent",
+    "Truffle colour",
+    "Tungsten",
+    "Turquoise",
+    "Ultramarine",
+    "Vanilla colour",
+    "Violet",
+    "Walnut",
+    "Wenge",
+    "White",
+    "Wood colour",
+    "Yellow",
+    "Zinc"
+   ]
+  },
+  "Product type": {
+   "type": "text",
+   "label": {
+    "en": "Product type",
+    "fr": "Type de produit",
+    "nl": "Type product",
+    "de": "Produkttyp"
+   }
+  },
+  "Proper use": {
+   "type": "multi",
+   "label": {
+    "en": "Proper use",
+    "fr": "Usage adapté",
+    "nl": "Correct gebruik",
+    "de": "Vorgesehene Verwendung"
+   }
+  },
+  "Purpose": {
+   "type": "text",
+   "label": {
+    "en": "Purpose",
+    "fr": "Utilité",
+    "nl": "Bedoeld voor",
+    "de": "Zweck"
+   }
+  },
+  "RAM capacity": {
+   "type": "number",
+   "label": {
+    "en": "RAM capacity",
+    "fr": "Capacité de la RAM",
+    "nl": "RAM-capaciteit",
+    "de": "RAM-Kapazität"
+   },
+   "unit": {
+    "en": "GB",
+    "fr": "Go",
+    "nl": "GB",
+    "de": "GB"
+   }
+  },
+  "RMS rated power": {
+   "type": "number",
+   "label": {
+    "en": "RMS rated power",
+    "fr": "Puissance évaluée de RMS",
+    "nl": "Gemiddeld vermogen",
+    "de": "RMS-Leistung"
+   },
+   "unit": {
+    "en": "W",
+    "fr": "W",
+    "nl": "W",
+    "de": "W"
+   }
+  },
+  "Rated capacity": {
+   "type": "number",
+   "label": {
+    "en": "Rated capacity",
+    "fr": "Capacité nominale",
+    "nl": "Nominale capaciteit",
+    "de": "Nennkapazität"
+   },
+   "unit": {
+    "en": "kg",
+    "fr": "kg",
+    "nl": "kg",
+    "de": "kg"
+   }
+  },
+  "Rear camera flash": {
+   "type": "yesno",
+   "label": {
+    "en": "Rear camera flash",
+    "fr": "Flash de caméra arrière",
+    "nl": "Cameraflitser achterzijde",
+    "de": "Rückkamera-Blitz"
+   }
+  },
+  "Rear camera resolution (numeric)": {
+   "type": "number",
+   "label": {
+    "en": "Rear camera resolution (numeric)",
+    "fr": "Résolution de la caméra arrière (numerique)",
+    "nl": "Resolutie camera achterzijde (numeriek)",
+    "de": "Auflösung Rückkamera (numerisch)"
+   },
+   "unit": {
+    "en": "MP",
+    "fr": "MP",
+    "nl": "MP",
+    "de": "MP"
+   }
+  },
+  "Rear camera type": {
+   "type": "choice",
+   "label": {
+    "en": "Rear camera type",
+    "fr": "Type de caméra arrière",
+    "nl": "Type camera achterzijde",
+    "de": "Rückkamera-Typ"
+   }
+  },
+  "Recommended usage": {
+   "type": "choice",
+   "label": {
+    "en": "Recommended usage",
+    "fr": "Utilisation recommandée",
+    "nl": "Aanbevolen gebruik",
+    "de": "Empfohlene Nutzung"
+   },
+   "values": [
+    "Indoor"
+   ]
+  },
+  "Reheat function": {
+   "type": "yesno",
+   "label": {
+    "en": "Reheat function",
+    "fr": "Fonction de réchauffage",
+    "nl": "Opwarmfunctie",
+    "de": "Aufwärmfunktion"
+   }
+  },
+  "Remotely operated": {
+   "type": "yesno",
+   "label": {
+    "en": "Remotely operated",
+    "fr": "Télécommandé",
+    "nl": "Op afstand bedienbaar",
+    "de": "Fernbedienung"
+   }
+  },
+  "Removable bowl": {
+   "type": "yesno",
+   "label": {
+    "en": "Removable bowl",
+    "fr": "Cuve amovible",
+    "nl": "Uitneembare bak",
+    "de": "Entfernbare Schüssel"
+   }
+  },
+  "Removable crumb tray": {
+   "type": "yesno",
+   "label": {
+    "en": "Removable crumb tray",
+    "fr": "Tiroir ramasse-miettes amovible",
+    "nl": "Verwijderbare kruimel-lade",
+    "de": "Entfernbarer Krumebehälter"
+   }
+  },
+  "Response time": {
+   "type": "number",
+   "label": {
+    "en": "Response time",
+    "fr": "Temps de réponse",
+    "nl": "Responstijd",
+    "de": "Reaktionszeit"
+   },
+   "unit": {
+    "en": "ms",
+    "fr": "ms",
+    "nl": "ms",
+    "de": "ms"
+   }
+  },
+  "Reversible doors": {
+   "type": "yesno",
+   "label": {
+    "en": "Reversible doors",
+    "fr": "Portes réversibles",
+    "nl": "Draairichting deur verwisselbaar",
+    "de": "Wechselbare Türen"
+   }
+  },
+  "Runtime": {
+   "type": "number",
+   "label": {
+    "en": "Runtime",
+    "fr": "Temps de marche",
+    "nl": "Looptijd",
+    "de": "Laufzeit"
+   },
+   "unit": {
+    "en": "min",
+    "fr": "min",
+    "nl": "min",
+    "de": "min"
+   }
+  },
+  "SIM card capability": {
+   "type": "choice",
+   "label": {
+    "en": "SIM card capability",
+    "fr": "Capacité de la carte SIM",
+    "nl": "SIM-kaart-capaciteit",
+    "de": "SIM-Kartensteckplätze"
+   },
+   "values": [
+    "Dual SIM",
+    "Hybrid Dual SIM",
+    "Single SIM",
+    "Triple SIM"
+   ]
+  },
+  "Scroll type": {
+   "type": "choice",
+   "label": {
+    "en": "Scroll type",
+    "fr": "Type Scroll",
+    "nl": "Type scrollwiel",
+    "de": "Scroll Typ"
+   },
+   "values": [
+    "Ball",
+    "Buttons",
+    "Joystick/Wheel",
+    "Not available",
+    "Ring",
+    "Touch",
+    "Trackball",
+    "Trackball/Wheel",
+    "Wheel",
+    "Wheel/Rollerbar"
+   ]
+  },
+  "Shape": {
+   "type": "choice",
+   "label": {
+    "en": "Shape",
+    "fr": "Forme",
+    "nl": "Vorm",
+    "de": "Form"
+   },
+   "values": [
+    "Cactus (shape)",
+    "Cat (shape)",
+    "Chair",
+    "Christmas tree shaped",
+    "Cloud (shape)",
+    "Conical",
+    "Cube",
+    "Cylinder",
+    "D-shaped",
+    "Dino (shape)",
+    "Dog (shape)",
+    "Heart (shape)",
+    "Hemisphere",
+    "Hexagonal",
+    "Joystick (shape)",
+    "Lightning (shape)",
+    "Lips (shape)",
+    "Octagonal",
+    "Other",
+    "Oval",
+    "Rectangle",
+    "Round",
+    "Spheric",
+    "Square",
+    "Star (shape)",
+    "Triangle",
+    "V-shaped"
+   ]
+  },
+  "Soleplate type": {
+   "type": "choice",
+   "label": {
+    "en": "Soleplate type",
+    "fr": "Matériau/revêtement de la semelle",
+    "nl": "Zoolplaat materiaal/coating",
+    "de": "Material Bügelsohle"
+   },
+   "values": [
+    "Aluminium soleplate",
+    "Alumite soleplate",
+    "Anodilium soleplate",
+    "AnodizedSlide soleplate",
+    "AutoClean soleplate",
+    "Autoclean Catalys soleplate",
+    "Careeza soleplate",
+    "Ceramic Express Glide",
+    "Ceramic Ultra Glide soleplate",
+    "Ceramic soleplate",
+    "CeramicGlide soleplate",
+    "Ceranium Glissée Pro soleplate",
+    "Ceranium Glissée soleplate",
+    "Ceranium soleplate",
+    "Cerilium soleplate",
+    "Cross Steam soleplate",
+    "Diamond 4D soleplate",
+    "Diamond Glide soleplate",
+    "Dual Thermolon soleplate",
+    "Durilium AirGlide Autoclean soleplate",
+    "Durilium Airglide Autoclean Ultra Thin soleplate",
+    "Durilium Airglide soleplate",
+    "Durilium Autoclean soleplate",
+    "Durilium soleplate",
+    "DynaGlide soleplate",
+    "Eloxal soleplate",
+    "EloxalPlus soleplate",
+    "Glide X soleplate",
+    "Glissium soleplate",
+    "Gold soleplate",
+    "Hi-Tech Ceramic",
+    "Hi-Tech Titanium",
+    "Honeycomb soleplate",
+    "Infinity Glide soleplate",
+    "Microsteam 200 soleplate",
+    "Microsteam 300 Laser soleplate",
+    "Microsteam 330 soleplate",
+    "Microsteam 350 Laser soleplate",
+    "Microsteam 400 3De Laser soleplate",
+    "Microsteam 400 3De soleplate",
+    "Microsteam 400 HD 3De Laser soleplate",
+    "Microsteam 400 HD 3De soleplate",
+    "Microsteam 400 HD Laser soleplate",
+    "Microsteam 400 HD soleplate",
+    "Microsteam 400 Laser soleplate",
+    "Microsteam 400 soleplate",
+    "Microsteam 430 Laser soleplate",
+    "Nano steel soleplate",
+    "Nano-silver ceramic soleplate",
+    "Non-stick soleplate",
+    "PTFE soleplate",
+    "Palladium soleplate",
+    "Pearlonic 380 soleplate",
+    "Pro Ceramic soleplate",
+    "Protect soleplate",
+    "RESILIUM soleplate",
+    "Saphir soleplate",
+    "SoftGlide",
+    "Stainless steel soleplate",
+    "SteamGlide Advanced",
+    "SteamGlide Elite soleplate",
+    "SteamGlide Plus soleplate",
+    "SteamGlide soleplate",
+    "SteamXtra Pro soleplate",
+    "T-ionicGlide soleplate",
+    "Teflon",
+    "Titanium soleplate",
+    "Tourmaline ceramic soleplate",
+    "Ultra-slip Turbo Anodized Pro soleplate",
+    "Ultragliss Durilium soleplate",
+    "Ultragliss soleplate",
+    "XL Duraglide soleplate",
+    "Xpress Glide soleplate"
+   ]
+  },
+  "Speakerphone": {
+   "type": "yesno",
+   "label": {
+    "en": "Speakerphone",
+    "fr": "Haut-parleur",
+    "nl": "Luidspreker",
+    "de": "Freisprecheinrichtung"
+   }
+  },
+  "Spin-drying class": {
+   "type": "choice",
+   "label": {
+    "en": "Spin-drying class",
+    "fr": "Classe d'efficacité d'essorage",
+    "nl": "Centrifuge-droger klasse",
+    "de": "Schleuder-Klasse"
+   },
+   "values": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+   ]
+  },
+  "Spray function": {
+   "type": "yesno",
+   "label": {
+    "en": "Spray function",
+    "fr": "Fonction Spray",
+    "nl": "Sproeifunctie",
+    "de": "Sprayfunktion"
+   }
+  },
+  "Standby time": {
+   "type": "number",
+   "label": {
+    "en": "Standby time",
+    "fr": "Autonomie en veille",
+    "nl": "Standby tijd",
+    "de": "Bereitschaftszeit"
+   },
+   "unit": {
+    "en": "h",
+    "fr": "h",
+    "nl": "uur",
+    "de": "h"
+   }
+  },
+  "Star rating": {
+   "type": "choice",
+   "label": {
+    "en": "Star rating",
+    "fr": "Nombre d'étoiles (indique les possibilités de conservation)",
+    "nl": "Aantal sterren",
+    "de": "Sternekennzeichnung"
+   },
+   "values": [
+    "*",
+    "2*",
+    "3*",
+    "4*",
+    "5*",
+    "6*"
+   ]
+  },
+  "Steam boost function": {
+   "type": "yesno",
+   "label": {
+    "en": "Steam boost function",
+    "fr": "Fonction augmenter la vapeur",
+    "nl": "Stoomstoot functie",
+    "de": "Dampf-Boost Funktion"
+   }
+  },
+  "Steam boost performance": {
+   "type": "number",
+   "label": {
+    "en": "Steam boost performance",
+    "fr": "Performances de jet de vapeur",
+    "nl": "Stoomstootvermogen",
+    "de": "Dampfstoßleistung"
+   },
+   "unit": {
+    "en": "g/min",
+    "fr": "g/min",
+    "nl": "g/min",
+    "de": "g/min"
+   }
+  },
+  "Stop/cancel button": {
+   "type": "yesno",
+   "label": {
+    "en": "Stop/cancel button",
+    "fr": "Bouton d'arrêt/annulation",
+    "nl": "Stop/annuleer-knop",
+    "de": "Stopp/Annullier Taste"
+   }
+  },
+  "Storage time during power failure": {
+   "type": "number",
+   "label": {
+    "en": "Storage time during power failure",
+    "fr": "Autonomie en cas de panne de courant",
+    "nl": "Bewaartijd bij stroomuitval",
+    "de": "Lagerzeit bei Störung"
+   },
+   "unit": {
+    "en": "h",
+    "fr": "h",
+    "nl": "uur",
+    "de": "h"
+   }
+  },
+  "Talk time": {
+   "type": "number",
+   "label": {
+    "en": "Talk time",
+    "fr": "Temps de communication",
+    "nl": "Gesprekstijd",
+    "de": "Gesprächszeit"
+   },
+   "unit": {
+    "en": "h",
+    "fr": "h",
+    "nl": "uur",
+    "de": "h"
+   }
+  },
+  "Thickness": {
+   "type": "number",
+   "label": {
+    "en": "Thickness",
+    "fr": "Épaisseur",
+    "nl": "Dikte",
+    "de": "Dicke"
+   },
+   "unit": {
+    "en": "mm",
+    "fr": "mm",
+    "nl": "mm",
+    "de": "mm"
+   }
+  },
+  "Time to first page (black, normal)": {
+   "type": "number",
+   "label": {
+    "en": "Time to first page (black, normal)",
+    "fr": "Délai de copie de la première page (Noir, normal)",
+    "nl": "Tijdsduur tot de eerste pagina (zwart, normaal)",
+    "de": "Druck der ersten Seite (Schwarz, normal)"
+   },
+   "unit": {
+    "en": "s",
+    "fr": "s",
+    "nl": "s",
+    "de": "s"
+   }
+  },
+  "Total input capacity": {
+   "type": "number",
+   "label": {
+    "en": "Total input capacity",
+    "fr": "Capacité d’alimentation totale",
+    "nl": "Totale invoercapaciteit",
+    "de": "Gesamte Papierkapazität"
+   },
+   "unit": {
+    "en": "sheets",
+    "fr": "feuilles",
+    "nl": "vel",
+    "de": "Blätter"
+   }
+  },
+  "Total output capacity": {
+   "type": "number",
+   "label": {
+    "en": "Total output capacity",
+    "fr": "Capacité de sortie totale",
+    "nl": "Totale uitvoercapaciteit",
+    "de": "Gesamte Ausgabekapazität"
+   },
+   "unit": {
+    "en": "sheets",
+    "fr": "feuilles",
+    "nl": "vel",
+    "de": "Blätter"
+   }
+  },
+  "Total storage capacity": {
+   "type": "number",
+   "label": {
+    "en": "Total storage capacity",
+    "fr": "Capacité totale de stockage",
+    "nl": "Totale opslagcapaciteit",
+    "de": "Gesamtspeicherkapazität"
+   },
+   "unit": {
+    "en": "GB",
+    "fr": "Go",
+    "nl": "GB",
+    "de": "GB"
+   }
+  },
+  "Touchscreen": {
+   "type": "yesno",
+   "label": {
+    "en": "Touchscreen",
+    "fr": "Écran tactile",
+    "nl": "Touchscreen",
+    "de": "Touchscreen"
+   }
+  },
+  "Type": {
+   "type": "text",
+   "label": {
+    "en": "Type",
+    "fr": "Type",
+    "nl": "Soort",
+    "de": "Typ"
+   }
+  },
+  "USB 2.0 ports quantity": {
+   "type": "number",
+   "label": {
+    "en": "USB 2.0 ports quantity",
+    "fr": "Quantité de Ports USB 2.0",
+    "nl": "Aantal USB 2.0-poorten",
+    "de": "Anzahl USB 2.0 Anschlüsse"
+   }
+  },
+  "Variable crust browning control": {
+   "type": "yesno",
+   "label": {
+    "en": "Variable crust browning control",
+    "fr": "Commande de brunissement de croute variable",
+    "nl": "Variabele instelling korstkleur",
+    "de": "Variable einstellbare Krustenbräunung"
+   }
+  },
+  "Variable steam": {
+   "type": "yesno",
+   "label": {
+    "en": "Variable steam",
+    "fr": "Vapeur variable",
+    "nl": "Variabele stoom",
+    "de": "Variabler Dampf"
+   }
+  },
+  "Vertical steam function": {
+   "type": "yesno",
+   "label": {
+    "en": "Vertical steam function",
+    "fr": "Fonction vapeur verticale",
+    "nl": "Verticale stoomfunctie",
+    "de": "Vertikale Dampffunktion"
+   }
+  },
+  "Viewing angle, horizontal": {
+   "type": "number",
+   "label": {
+    "en": "Viewing angle, horizontal",
+    "fr": "Angle de vision horizontal",
+    "nl": "Kijkhoek, horizontaal",
+    "de": "Bildwinkel, horizontal"
+   },
+   "unit": {
+    "en": "°",
+    "fr": "°",
+    "nl": "°",
+    "de": "°"
+   }
+  },
+  "Viewing angle, vertical": {
+   "type": "number",
+   "label": {
+    "en": "Viewing angle, vertical",
+    "fr": "Angle de vision vertical",
+    "nl": "Kijkhoek, verticaal",
+    "de": "Bildwinkel, vertikal"
+   },
+   "unit": {
+    "en": "°",
+    "fr": "°",
+    "nl": "°",
+    "de": "°"
+   }
+  },
+  "Viewing window": {
+   "type": "yesno",
+   "label": {
+    "en": "Viewing window",
+    "fr": "Fenêtre transparente pour le contrôle de la cuisson",
+    "nl": "Kijkglas",
+    "de": "Sichtfenster"
+   }
+  },
+  "Washing programs": {
+   "type": "multi",
+   "label": {
+    "en": "Washing programs",
+    "fr": "Programmes de lavage",
+    "nl": "Wasprogramma's",
+    "de": "Waschprogramme"
+   },
+   "values": [
+    "20min 3kg",
+    "20°C",
+    "Auto",
+    "Baby care",
+    "Bedding",
+    "Bio",
+    "Black",
+    "Blankets",
+    "Blouse/shirt",
+    "Blouse/shirt 40°C",
+    "Cloudy day",
+    "Cold",
+    "Colour",
+    "CoolClean",
+    "Cotton",
+    "Cottons 20°C",
+    "Cottons 40°C",
+    "Cottons 60°C",
+    "Cottons 60°C with pre-wash",
+    "Cottons 90°C",
+    "Cottons 95°C",
+    "Cottons with pre-wash",
+    "Curtains",
+    "Daily care",
+    "Delicate/silk",
+    "Down wear/duvet",
+    "Down wear/duvet 40°C",
+    "Easy care",
+    "Eco",
+    "Eco 40-60°C",
+    "Extra rinse",
+    "Green&Clean 15°",
+    "Hand",
+    "Hand/wool",
+    "Hand/wool 40°C",
+    "Hot colour",
+    "Hygiene air refresh",
+    "Hygiene+",
+    "Hygiene/anti-allergy",
+    "Intensive/outdoor",
+    "Jeans/denim",
+    "Linen",
+    "Lingerie",
+    "MicroFiber filter",
+    "Microfiber",
+    "Minimum iron",
+    "Mix",
+    "Night",
+    "Outdoor",
+    "Pillow",
+    "Powerclean 59min",
+    "Pre-wash",
+    "Quick",
+    "Quick 14min",
+    "Quick 15min",
+    "Quick 30min",
+    "Quick 30°C",
+    "Ready to wear",
+    "Rinse",
+    "Rinse & spin",
+    "Shoes",
+    "Shorter wash",
+    "Silent",
+    "Smart AI",
+    "Soaking",
+    "Spin",
+    "Spin/drain",
+    "Sport",
+    "Stain care",
+    "Steam",
+    "Synthetics",
+    "Synthetics 20°C",
+    "Synthetics 30°C",
+    "Synthetics 40°C",
+    "Synthetics 60°C",
+    "Timed",
+    "Towel",
+    "Wave wash",
+    "White",
+    "Wool"
+   ]
+  },
+  "Watch case colour": {
+   "type": "multi",
+   "label": {
+    "en": "Watch case colour",
+    "fr": "Couleur du boîtier de montre",
+    "nl": "Horlogekast kleur",
+    "de": "Farbe des Uhrengehäuses"
+   },
+   "values": [
+    "Almond",
+    "Aluminium",
+    "Anthracite",
+    "Beige",
+    "Biege",
+    "Black",
+    "Blue",
+    "Bordeaux",
+    "Bronze",
+    "Brown",
+    "Burgundy",
+    "Camouflage",
+    "Chrome",
+    "Copper",
+    "Cream colour",
+    "Cyan",
+    "Dark metallic",
+    "Gold",
+    "Graphite",
+    "Green",
+    "Grey",
+    "Ivory",
+    "Khaki",
+    "Lavender",
+    "Light metallic",
+    "Lime",
+    "Magenta",
+    "Metallic",
+    "Mint colour",
+    "Multi",
+    "Navy",
+    "Orange",
+    "Pink",
+    "Pink gold",
+    "Platinum",
+    "Purple",
+    "Pyrite",
+    "Red",
+    "Rose",
+    "Rose gold",
+    "Sand",
+    "Silver",
+    "Stainless steel",
+    "Tan",
+    "Terracotta",
+    "Titanium",
+    "Transparent",
+    "Turquoise",
+    "Vanilla colour",
+    "Violet",
+    "White",
+    "Wood colour",
+    "Yellow"
+   ]
+  },
+  "Watch case size": {
+   "type": "choice",
+   "label": {
+    "en": "Watch case size",
+    "fr": "Dimension du boîtier de montre",
+    "nl": "Horlogekast grootte",
+    "de": "Größe des Uhrengehäuses"
+   },
+   "values": [
+    "20",
+    "22",
+    "24",
+    "26",
+    "27",
+    "28",
+    "30",
+    "32",
+    "33",
+    "34",
+    "34.5",
+    "35",
+    "35.4",
+    "35.8",
+    "36",
+    "36.3",
+    "36.8",
+    "37",
+    "37.7",
+    "38",
+    "39",
+    "39.5",
+    "39.6",
+    "40",
+    "40.3",
+    "40.5",
+    "40.6",
+    "41",
+    "41.5",
+    "41.6",
+    "41.8",
+    "42",
+    "42.3",
+    "42.4",
+    "42.5",
+    "42.8",
+    "43",
+    "43.2",
+    "43.3",
+    "43.4",
+    "43.5",
+    "43.7",
+    "44",
+    "44.5",
+    "44.6",
+    "45",
+    "45.2",
+    "45.3",
+    "45.4",
+    "45.5",
+    "45.6",
+    "45.8",
+    "45.9",
+    "46",
+    "46.3",
+    "46.4",
+    "46.5",
+    "46.6",
+    "46.7",
+    "46.8",
+    "47",
+    "47.3",
+    "47.5",
+    "47.7",
+    "48",
+    "48.1",
+    "48.5",
+    "48.6",
+    "48.7",
+    "49",
+    "49.1",
+    "49.4",
+    "49.5",
+    "49.6",
+    "49.7",
+    "50",
+    "50.8",
+    "51",
+    "52",
+    "52.8",
+    "53",
+    "53.2",
+    "54",
+    "55",
+    "57",
+    "57.4",
+    "60",
+    "61.7",
+    "75"
+   ]
+  },
+  "Water consumption per cycle": {
+   "type": "number",
+   "label": {
+    "en": "Water consumption per cycle",
+    "fr": "Consommation d'eau par cycle",
+    "nl": "Waterconsumptie per cyclus",
+    "de": "Wasserverbrauch pro Zyklus"
+   },
+   "unit": {
+    "en": "L",
+    "fr": "L",
+    "nl": "l",
+    "de": "l"
+   }
+  },
+  "Water tank capacity": {
+   "type": "number",
+   "label": {
+    "en": "Water tank capacity",
+    "fr": "Capacité du réservoir d'eau",
+    "nl": "Capaciteit watertank",
+    "de": "Fassungsvermögen Wassertank"
+   },
+   "unit": {
+    "en": "L",
+    "fr": "L",
+    "nl": "l",
+    "de": "l"
+   }
+  },
+  "Weight": {
+   "type": "number",
+   "label": {
+    "en": "Weight",
+    "fr": "Poids",
+    "nl": "Gewicht",
+    "de": "Gewicht"
+   },
+   "unit": {
+    "en": "g",
+    "fr": "g",
+    "nl": "g",
+    "de": "g"
+   }
+  },
+  "Weight (without stand)": {
+   "type": "number",
+   "label": {
+    "en": "Weight (without stand)",
+    "fr": "Poids (sans support)",
+    "nl": "Gewicht (zonder voet)",
+    "de": "Gewicht (ohne Standfuß)"
+   },
+   "unit": {
+    "en": "g",
+    "fr": "g",
+    "nl": "g",
+    "de": "g"
+   }
+  },
+  "Wet mopping": {
+   "type": "yesno",
+   "label": {
+    "en": "Wet mopping",
+    "fr": "Lavage humide",
+    "nl": "Nat dweilen",
+    "de": "Nasswischen"
+   }
+  },
+  "Wi-Fi": {
+   "type": "yesno",
+   "label": {
+    "en": "Wi-Fi",
+    "fr": "Wifi",
+    "nl": "Wifi",
+    "de": "WLAN"
+   }
+  },
+  "Width": {
+   "type": "number",
+   "label": {
+    "en": "Width",
+    "fr": "Largeur",
+    "nl": "Breedte",
+    "de": "Breite"
+   },
+   "unit": {
+    "en": "mm",
+    "fr": "mm",
+    "nl": "mm",
+    "de": "mm"
+   }
+  },
+  "Width (without stand)": {
+   "type": "number",
+   "label": {
+    "en": "Width (without stand)",
+    "fr": "Largeur (sans support)",
+    "nl": "Breedte ( zonder voet )",
+    "de": "Breite (ohne Standfuß)"
+   },
+   "unit": {
+    "en": "mm",
+    "fr": "mm",
+    "nl": "mm",
+    "de": "mm"
+   }
+  },
+  "Windows operating systems supported": {
+   "type": "multi",
+   "label": {
+    "en": "Windows operating systems supported",
+    "fr": "Prise en charge du système d'exploitation Windows",
+    "nl": "Ondersteunt Windows",
+    "de": "Unterstützt Windows-Betriebssysteme"
+   },
+   "values": [
+    "N",
+    "Windows 10",
+    "Windows 10 Education",
+    "Windows 10 Education x64",
+    "Windows 10 Enterprise",
+    "Windows 10 Enterprise x64",
+    "Windows 10 Home",
+    "Windows 10 Home x64",
+    "Windows 10 IOT Core",
+    "Windows 10 IoT Enterprise",
+    "Windows 10 Pro",
+    "Windows 10 Pro x64",
+    "Windows 10 x64",
+    "Windows 11",
+    "Windows 11 Enterprise",
+    "Windows 11 Enterprise x64",
+    "Windows 11 Home",
+    "Windows 11 Pro",
+    "Windows 11 x64",
+    "Windows 2000",
+    "Windows 2000 Professional",
+    "Windows 3.x",
+    "Windows 7",
+    "Windows 7 Enterprise",
+    "Windows 7 Enterprise x64",
+    "Windows 7 Home Basic",
+    "Windows 7 Home Basic x64",
+    "Windows 7 Home Premium",
+    "Windows 7 Home Premium x64",
+    "Windows 7 Professional",
+    "Windows 7 Professional x64",
+    "Windows 7 Starter",
+    "Windows 7 Starter x64",
+    "Windows 7 Ultimate",
+    "Windows 7 Ultimate x64",
+    "Windows 7 x64",
+    "Windows 8",
+    "Windows 8 Enterprise",
+    "Windows 8 Enterprise x64",
+    "Windows 8 Pro",
+    "Windows 8 Pro x64",
+    "Windows 8 x64",
+    "Windows 8.1",
+    "Windows 8.1 Enterprise",
+    "Windows 8.1 Enterprise x64",
+    "Windows 8.1 Pro",
+    "Windows 8.1 Pro x64",
+    "Windows 8.1 x64",
+    "Windows 95",
+    "Windows 98",
+    "Windows 98SE",
+    "Windows CE",
+    "Windows ME",
+    "Windows NT",
+    "Windows RT",
+    "Windows RT 8.1",
+    "Windows Vista",
+    "Windows Vista Business",
+    "Windows Vista Business x64",
+    "Windows Vista Enterprise",
+    "Windows Vista Enterprise x64",
+    "Windows Vista Home Basic",
+    "Windows Vista Home Basic x64",
+    "Windows Vista Home Premium",
+    "Windows Vista Home Premium x64",
+    "Windows Vista Ultimate",
+    "Windows Vista Ultimate x64",
+    "Windows Vista x64",
+    "Windows XP",
+    "Windows XP Home",
+    "Windows XP Home x64",
+    "Windows XP Professional",
+    "Windows XP Professional x64",
+    "Y"
+   ]
+  },
+  "Wireless connection": {
+   "type": "yesno",
+   "label": {
+    "en": "Wireless connection",
+    "fr": "Raccordements sans fil",
+    "nl": "Draadloze verbindingen",
+    "de": "Drahtlose Verbindung"
+   }
+  },
+  "Wrist rest": {
+   "type": "yesno",
+   "label": {
+    "en": "Wrist rest",
+    "fr": "Repose-poignets",
+    "nl": "Polssteun",
+    "de": "Handgelenkauflage"
+   }
+  },
+  "Egg tray": {
+   "type": "yesno",
+   "label": {
+    "en": "Egg tray",
+    "fr": "Casier à œufs",
+    "nl": "Eierrek",
+    "de": "Eierablage"
+   }
+  }
+ }
+}

@@ -1,4 +1,11 @@
-import { Repairer, RepairerFilters } from "../models/repairer";
+import {
+  OwnRepairer,
+  Repairer,
+  RepairerFilters,
+  RepairerProposal,
+  RepairerQueue,
+  RepairerRevision,
+} from "../models/repairer";
 import { RepairerSearchDto } from "../models/repairer-search.dto";
 import { API_URL } from "../utils/globals";
 import api from "./api";
@@ -10,6 +17,15 @@ export interface RepairerMarker {
   lng: number;
   partner_type: string | null;
 }
+
+/** The server's refusal: its status and its message, joined when a list. */
+export type RepairerRefusal = { statusCode?: number; message: string };
+
+const refusal = (error: any): RepairerRefusal => {
+  const data = error?.response?.data;
+  const message = Array.isArray(data?.message) ? data.message.join(" · ") : data?.message;
+  return { statusCode: error?.response?.status, message: message || "Request failed" };
+};
 
 export const repairerService = {
   list: async (): Promise<Repairer[]> => {
@@ -144,6 +160,61 @@ export const repairerService = {
       return response.data;
     } catch (error: any) {
       throw error.response?.data?.message || "Failed to list repairer reports";
+    }
+  },
+  /** Hidden until an administrator publishes it, unless proposed by one. */
+  async propose(proposal: RepairerProposal): Promise<Repairer> {
+    try {
+      return (await api.post(`${API_URL}/v1/repairers/proposals`, proposal)).data;
+    } catch (error: any) {
+      throw refusal(error);
+    }
+  },
+  /** The repairer as it is now, with the change still waiting if any. */
+  async changeProposal(id: string, changes: Partial<RepairerProposal>): Promise<OwnRepairer> {
+    try {
+      return (await api.patch(`${API_URL}/v1/repairers/proposals/${id}`, changes)).data;
+    } catch (error: any) {
+      throw refusal(error);
+    }
+  },
+  async withdrawProposal(id: string): Promise<void> {
+    try {
+      await api.delete(`${API_URL}/v1/repairers/proposals/${id}`);
+    } catch (error: any) {
+      throw refusal(error);
+    }
+  },
+  async listMine(): Promise<OwnRepairer[]> {
+    try {
+      return (await api.get(`${API_URL}/v1/repairers/proposals/mine`)).data;
+    } catch (error: any) {
+      throw refusal(error);
+    }
+  },
+  async listPendingProposals(): Promise<RepairerQueue> {
+    try {
+      return (await api.get(`${API_URL}/v1/repairers/proposals/pending`)).data;
+    } catch (error: any) {
+      throw refusal(error);
+    }
+  },
+  async countPendingProposals(): Promise<number> {
+    return (await api.get(`${API_URL}/v1/repairers/proposals/pending/count`)).data.count;
+  },
+  /** `version` is the one the queue gave: a proposal changed since is refused (409). */
+  async reviewProposal(id: string, decision: "publish" | "reject", version: string, note?: string): Promise<Repairer> {
+    try {
+      return (await api.post(`${API_URL}/v1/repairers/proposals/${id}/review`, { decision, version, note })).data;
+    } catch (error: any) {
+      throw refusal(error);
+    }
+  },
+  async reviewRevision(id: string, decision: "apply" | "reject", note?: string): Promise<RepairerRevision> {
+    try {
+      return (await api.post(`${API_URL}/v1/repairers/revisions/${id}/review`, { decision, note })).data;
+    } catch (error: any) {
+      throw refusal(error);
     }
   },
   async reviewReport(

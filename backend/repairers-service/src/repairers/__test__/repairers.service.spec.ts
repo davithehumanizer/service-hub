@@ -106,17 +106,109 @@ describe('RepairersService', () => {
 
     const result = await service.findAll();
     expect(result).toEqual(repairers);
+    // Also what the sync command indexes: nothing unpublished.
     expect(repairerRepo.find).toHaveBeenCalledWith({
+      where: { status: 'published' },
       relations: ['repairerDevices'],
     });
   });
 
   it('should return one repairer by id', async () => {
-    const repairer = { repairer_id: '1' } as Repairer;
+    const repairer = { repairer_id: '1', status: 'published' } as Repairer;
     repairerRepo.findOne.mockResolvedValue(repairer);
 
     const result = await service.findOne('1');
     expect(result).toEqual(repairer);
+  });
+
+  it("counts one contributor's repairers by status, and their waiting changes", async () => {
+    const row = { repairers: 3, pending: 1, published: 1, rejected: 1, revisions: 1 };
+    (repairerRepo as any).query = jest.fn().mockResolvedValue([row]);
+
+    expect(await service.demoStatsOf(9)).toEqual(row);
+    const [sql, params] = (repairerRepo as any).query.mock.calls[0];
+    expect(sql).toContain('r.is_demo AND r.created_by = $1');
+    expect(params).toEqual([9]);
+  });
+
+  describe('purgeDemo', () => {
+    beforeEach(() => {
+      repairerRepo.find.mockResolvedValue([
+        { repairer_id: 'a', status: 'published' },
+        { repairer_id: 'b', status: 'pending' },
+      ] as Repairer[]);
+    });
+
+    it("counts the contributors' repairers in a preview", async () => {
+      expect(await service.purgeDemo(true)).toEqual({ repairers: 2 });
+      expect(repairerRepo.find).toHaveBeenCalledWith(
+        expect.objectContaining({ where: { is_demo: true } }),
+      );
+      expect(repairerRepo.delete).not.toHaveBeenCalled();
+    });
+
+    it('deletes them, and the search document of a published one', async () => {
+      expect(await service.purgeDemo(false)).toEqual({ repairers: 2 });
+      expect(repairerRepo.delete).toHaveBeenCalledWith(['a', 'b']);
+      // b was never indexed.
+      expect(mockRepairerSearchService.removeRepairer).toHaveBeenCalledTimes(1);
+      expect(mockRepairerSearchService.removeRepairer).toHaveBeenCalledWith('a');
+    });
+
+    it('does nothing when there are none', async () => {
+      repairerRepo.find.mockResolvedValue([]);
+      expect(await service.purgeDemo(false)).toEqual({ repairers: 0 });
+      expect(repairerRepo.delete).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('a repairer not yet published', () => {
+    const author = (createdBy: number | null) =>
+      (mockRepairerQueryBuilder.getRawOne = jest
+        .fn()
+        .mockResolvedValue({ created_by: createdBy }));
+
+    beforeEach(() => {
+      repairerRepo.findOne.mockResolvedValue({
+        repairer_id: '1',
+        status: 'pending',
+      } as Repairer);
+    });
+
+    it('is hidden from the public, as if it did not exist', async () => {
+      author(7);
+      await expect(service.findOne('1')).rejects.toThrow(
+        'Repairer with id 1 not found',
+      );
+    });
+
+    it('is hidden from another user', async () => {
+      author(7);
+      await expect(
+        service.findOne('1', { created_by: 8, is_demo: false, admin: false }),
+      ).rejects.toThrow('not found');
+    });
+
+    it('is shown to its author', async () => {
+      author(7);
+      await expect(
+        service.findOne('1', { created_by: 7, is_demo: false, admin: false }),
+      ).resolves.toMatchObject({ repairer_id: '1' });
+    });
+
+    it('is shown to an administrator without looking up its author', async () => {
+      mockRepairerQueryBuilder.getRawOne = jest.fn();
+      await expect(
+        service.findOne('1', { created_by: 1, is_demo: false, admin: true }),
+      ).resolves.toMatchObject({ repairer_id: '1' });
+      expect(mockRepairerQueryBuilder.getRawOne).not.toHaveBeenCalled();
+    });
+
+    it('is never indexed by an update', async () => {
+      repairerRepo.update.mockResolvedValue({ affected: 1 } as any);
+      await service.update('1', { name: 'Updated' });
+      expect(mockRepairerSearchService.indexRepairer).not.toHaveBeenCalled();
+    });
   });
 
   it('should throw if repairer not found', async () => {
@@ -144,9 +236,50 @@ describe('RepairersService', () => {
     expect(result).toEqual(repairer);
   });
 
-  it('should delete a repairer', async () => {
+  it('should delete a repairer, and its search document', async () => {
+    repairerRepo.delete.mockResolvedValue({ affected: 1 } as any);
     await service.delete('1');
     expect(repairerRepo.delete).toHaveBeenCalledWith('1');
+    expect(mockRepairerSearchService.removeRepairer).toHaveBeenCalledWith('1');
+  });
+
+  it('should refuse to delete a repairer that does not exist', async () => {
+    repairerRepo.delete.mockResolvedValue({ affected: 0 } as any);
+    await expect(service.delete('9')).rejects.toThrow(
+      'Repairer with id 9 not found',
+    );
+    expect(mockRepairerSearchService.removeRepairer).not.toHaveBeenCalled();
+  });
+
+  it('should replace the device types an update carries', async () => {
+    const deviceQb = {
+      delete: jest.fn().mockReturnThis(),
+      where: jest.fn().mockReturnThis(),
+      execute: jest.fn().mockResolvedValue({}),
+    };
+    (repairerDeviceRepo as any).createQueryBuilder = jest
+      .fn()
+      .mockReturnValue(deviceQb);
+    (repairerDeviceRepo as any).create = jest.fn((d) => d);
+    (repairerDeviceRepo as any).save = jest.fn().mockResolvedValue([]);
+    repairerRepo.findOne.mockResolvedValue({
+      repairer_id: '1',
+      status: 'published',
+    } as Repairer);
+
+    await service.update('1', {
+      repairerDevices: [{ device_type: 'laptop' }] as any,
+    });
+
+    // update() cannot write a relation: no field update, the rows replaced.
+    expect(repairerRepo.update).not.toHaveBeenCalled();
+    expect(deviceQb.where).toHaveBeenCalledWith('repairer_id = :id', {
+      id: '1',
+    });
+    expect((repairerDeviceRepo as any).save).toHaveBeenCalledWith([
+      { device_type: 'laptop', repairer: { repairer_id: '1' } },
+    ]);
+    expect(mockRepairerSearchService.indexRepairer).toHaveBeenCalled();
   });
 
   it('should get filters', async () => {
@@ -549,7 +682,12 @@ describe('RepairersService', () => {
         search: 'repair',
       });
 
-      expect(paginatedQueryBuilder.andWhere).toHaveBeenCalledTimes(4);
+      // The four filters, and the one every public read carries.
+      expect(paginatedQueryBuilder.andWhere).toHaveBeenCalledTimes(5);
+      expect(paginatedQueryBuilder.andWhere).toHaveBeenCalledWith(
+        'repairer.status = :published',
+        { published: 'published' },
+      );
     });
 
     it('should calculate total pages correctly', async () => {
@@ -665,6 +803,7 @@ describe('RepairersService', () => {
         select: jest.fn().mockReturnThis(),
         addSelect: jest.fn().mockReturnThis(),
         where: jest.fn().mockReturnThis(),
+        andWhere: jest.fn().mockReturnThis(),
         innerJoin: jest.fn().mockReturnThis(),
         groupBy: jest.fn().mockReturnThis(),
         addGroupBy: jest.fn().mockReturnThis(),
@@ -724,6 +863,7 @@ describe('RepairersService', () => {
         select: jest.fn().mockReturnThis(),
         addSelect: jest.fn().mockReturnThis(),
         where: jest.fn().mockReturnThis(),
+        andWhere: jest.fn().mockReturnThis(),
         innerJoin: jest.fn().mockReturnThis(),
         groupBy: jest.fn().mockReturnThis(),
         addGroupBy: jest.fn().mockReturnThis(),

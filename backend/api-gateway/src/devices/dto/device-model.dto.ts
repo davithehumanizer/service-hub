@@ -79,6 +79,12 @@ export class DeviceModelDto {
     type: [String],
   })
   colours: string[];
+
+  @ApiProperty({
+    description: 'Entered by a contributor: demonstration data',
+    example: false,
+  })
+  is_demo: boolean;
 }
 
 export class DeviceModelVariantDto {
@@ -125,6 +131,40 @@ export class DeviceModelVariantDto {
 
   @ApiProperty({ example: false })
   is_refurbished: boolean;
+
+  @ApiProperty({
+    description: 'Entered by a contributor: demonstration data',
+    example: false,
+  })
+  is_demo: boolean;
+
+  @ApiProperty({
+    description:
+      "On a model's page: whether the reader may change it, as its author or an administrator",
+    required: false,
+    example: false,
+  })
+  editable?: boolean;
+}
+
+export class DeviceModelOwnPhotoDto {
+  static name = 'DeviceModel.OwnPhoto';
+
+  @ApiProperty()
+  id: string;
+
+  @ApiProperty()
+  url: string;
+
+  @ApiProperty({ description: 'Uploaded by a contributor', example: false })
+  is_demo: boolean;
+
+  @ApiProperty({
+    description:
+      'Whether the reader may delete it: theirs, or an administrator',
+    example: false,
+  })
+  deletable: boolean;
 }
 
 export class DeviceModelPaginationDto {
@@ -243,6 +283,19 @@ export class DeviceModelWithVariantsDto extends DeviceModelDto {
     example: 8,
   })
   configurations: number;
+
+  @ApiProperty({
+    description:
+      'Whether the reader may change it, as its author or an administrator',
+    example: false,
+  })
+  editable: boolean;
+
+  @ApiProperty({
+    type: [DeviceModelOwnPhotoDto],
+    description: 'The pictures of the model itself, oldest first',
+  })
+  photos: DeviceModelOwnPhotoDto[];
 }
 
 export class DeviceModelLookupDto {

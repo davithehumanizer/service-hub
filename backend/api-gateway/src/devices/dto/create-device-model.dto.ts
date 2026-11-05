@@ -13,6 +13,7 @@ import {
 } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { MAX_ID } from 'src/common/database-id';
+import { SourceField } from './source-field';
 
 export class CreateDeviceModelDto {
   static name = 'DeviceModel.Create';
@@ -67,4 +68,7 @@ export class CreateDeviceModelDto {
   @IsString()
   @MaxLength(100)
   product_code?: string;
+
+  @SourceField()
+  source?: string;
 }

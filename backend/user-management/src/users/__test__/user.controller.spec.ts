@@ -73,6 +73,123 @@ describe('UserController', () => {
     });
   });
 
+  describe('createContributor', () => {
+    const body = { email: 'saisie@acme.example', firstName: 'Ana' };
+
+    it('opens the account with the contributor role, without its secrets', async () => {
+      const role = { id: 5, name: 'contributor' };
+      roleService.findByName?.mockResolvedValue(role);
+      userService.createContributor = jest.fn().mockResolvedValue({
+        id: 9,
+        email: body.email,
+        password: 'hash',
+        resetToken: 'token',
+      });
+
+      const result = await controller.createContributor({
+        ...body,
+        locale: 'fr',
+      });
+
+      expect(roleService.findByName).toHaveBeenCalledWith('contributor');
+      expect(userService.createContributor).toHaveBeenCalledWith(
+        body.email,
+        role,
+        { firstName: 'Ana', lastName: undefined },
+        'fr',
+      );
+      expect(result).toMatchObject({ id: 9, email: body.email });
+      expect(result).not.toHaveProperty('password');
+      expect(result).not.toHaveProperty('resetToken');
+    });
+
+    it('refuses an address that has an account', async () => {
+      userService.findByEmail?.mockResolvedValue({ id: 1 });
+      await expect(controller.createContributor(body)).rejects.toThrow(
+        'USER_ALREADY_EXISTS',
+      );
+    });
+
+    it('refuses while the role is not seeded', async () => {
+      roleService.findByName?.mockResolvedValue(null);
+      await expect(controller.createContributor(body)).rejects.toThrow(
+        'Contributor role not found',
+      );
+    });
+  });
+
+  describe('purgeContributors', () => {
+    it('previews unless told plainly not to', async () => {
+      userService.purgeContributors = jest.fn().mockResolvedValue({ ids: [9] });
+      expect(await controller.purgeContributors({} as any)).toEqual({ ids: [9] });
+      expect(userService.purgeContributors).toHaveBeenLastCalledWith(true, undefined);
+      await controller.purgeContributors({ dryRun: false, ids: [9] });
+      expect(userService.purgeContributors).toHaveBeenLastCalledWith(false, [9]);
+    });
+
+    it('revokes the sessions of the accounts named', async () => {
+      userService.revokeContributorSessions = jest.fn().mockResolvedValue(undefined);
+      expect(await controller.revokeContributorSessions({ ids: [9] })).toEqual({ revoked: true });
+      expect(userService.revokeContributorSessions).toHaveBeenCalledWith([9]);
+      userService.revokeContributorSessions = jest.fn().mockRejectedValue(new Error(''));
+      await expect(controller.revokeContributorSessions({ ids: [9] })).rejects.toThrow(
+        'Failed to revoke sessions',
+      );
+    });
+
+    it('answers a failure with an RpcException', async () => {
+      userService.purgeContributors = jest.fn().mockRejectedValue(new Error(''));
+      await expect(controller.purgeContributors({ dryRun: true })).rejects.toThrow(
+        'Failed to purge contributors',
+      );
+    });
+  });
+
+  describe('getUserSummaries', () => {
+    it('names the accounts asked for', async () => {
+      userService.summariesOf = jest.fn().mockResolvedValue([{ id: 9 }]);
+      expect(await controller.getUserSummaries({ ids: [9] })).toEqual([{ id: 9 }]);
+      expect(userService.summariesOf).toHaveBeenCalledWith([9]);
+    });
+
+    it('answers a failure with an RpcException', async () => {
+      userService.summariesOf = jest.fn().mockRejectedValue(new Error(''));
+      await expect(controller.getUserSummaries({ ids: [] })).rejects.toThrow('Failed to get users');
+    });
+  });
+
+  describe('notifyRepairerDecision', () => {
+    const data = { userId: 9, decision: 'published' as const, repairerId: 'r1', repairerName: 'X' };
+
+    it("emails the author", async () => {
+      userService.notifyRepairerDecision = jest.fn().mockResolvedValue(undefined);
+      expect(await controller.notifyRepairerDecision(data)).toEqual({ sent: true });
+      expect(userService.notifyRepairerDecision).toHaveBeenCalledWith(data);
+    });
+
+    it('answers a failure with an RpcException', async () => {
+      userService.notifyRepairerDecision = jest.fn().mockRejectedValue(new Error(''));
+      await expect(controller.notifyRepairerDecision(data)).rejects.toThrow(
+        'Failed to notify the author',
+      );
+    });
+  });
+
+  describe('getContributors', () => {
+    it('lists the accounts of the contributor role', async () => {
+      userService.findByRole = jest.fn().mockResolvedValue([{ id: 9 }]);
+      expect(await controller.getContributors()).toMatchObject([{ id: 9 }]);
+      expect(userService.findByRole).toHaveBeenCalledWith('contributor');
+    });
+
+    it('answers a failure with an RpcException', async () => {
+      userService.findByRole = jest.fn().mockRejectedValue(new Error(''));
+      await expect(controller.getContributors()).rejects.toThrow(
+        'Failed to get contributors',
+      );
+    });
+  });
+
   describe('createUser', () => {
     it('should create a new user and send confirmation email if not social', async () => {
       const mockRole = { id: 1, name: 'user' };
@@ -309,6 +426,23 @@ describe('UserController', () => {
 
       expect(roleService.findByName).toHaveBeenCalledWith('repairer');
       expect(result).toHaveProperty('user');
+    });
+
+    it("keeps the browser's language for the account's emails, never the client's", async () => {
+      userService.findByEmail?.mockResolvedValue(null);
+      roleService.findByName?.mockResolvedValue({ name: 'user' });
+      userService.create?.mockResolvedValue({ id: 4, email: 'l@test.com' });
+
+      await controller.register({
+        email: 'l@test.com',
+        password: 'Strong@1234',
+        profile: { firstName: 'Lea', language: 'xx' } as any,
+        locale: 'fr',
+      });
+      expect(userService.create?.mock.calls[0][3]).toEqual({ firstName: 'Lea', language: 'fr' });
+
+      await controller.register({ email: 'm@test.com', password: 'Strong@1234', profile: {}, locale: 'es' });
+      expect(userService.create?.mock.calls[1][3]).toEqual({ language: null });
     });
 
     it('should default to user role when userType is not provided', async () => {

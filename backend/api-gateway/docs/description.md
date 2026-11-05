@@ -61,3 +61,71 @@ These endpoints are accessible without authentication and are not prefixed with 
 - Tokens have a limited lifetime (default 3600s). Use the `refresh_token` grant to renew access tokens without re-authenticating.
 - For programmatic access (CI, services) prefer OAuth2 client credentials.
 - Access control is enforced by `FlexibleAuthGuard`, `PermissionsGuard`, and decorators like `@Permissions(...)` and `@Roles(...)`. Ensure the token contains the required permissions/roles for the endpoint you call.
+
+## Loading data from an outside source
+
+A partner that adds its own data to the hub (a data provider, a reuse organisation's system) names itself as its **source**, so that what it brings stays recognisable, credited, and apart from what users enter on the site. Device models and variants, and repairers, are loaded this way.
+
+### 1. Get a client
+
+Ask the platform administrators for an OAuth2 client with the scopes you need:
+
+| To load | Scopes |
+|---|---|
+| Device models and variants | `device.create device.source.set` |
+| Repairers | `repairer.create`, and `repairer.update` to update them |
+
+Agree on your source name with them at the same time. Then obtain a token with the client credentials flow:
+
+```bash
+curl -X POST https://care2repair.eu/api/v1/auth/oauth2/token \
+  -H 'Content-Type: application/json' \
+  -d '{"grant_type": "client_credentials", "client_id": "<id>", "client_secret": "<secret>"}'
+```
+
+The token lasts one hour and carries the client's scopes. Requests are limited to 300 per minute from one address: for a large load, contact the platform team first.
+
+### 2. Device models and variants
+
+- **A model**, with its first variant when a barcode or a reference comes with it: [`POST /api/v2/device-models`](#tag/device-models/POST/api/v2/device-models)
+
+```json
+{ "brand": "Fairphone", "name": "Fairphone 5", "ean": "8718819372424", "source": "ACME_DATA" }
+```
+
+- **Another variant** of a model: [`POST /api/v2/device-models/{id}/variants`](#tag/device-models/POST/api/v2/device-models/{id}/variants), with `ean` or `product_code`, its `technicalProperties`, and the same `source`.
+
+Nothing is duplicated: a barcode, a reference or a model name the catalogue already has answers with the existing model (`200`, `"created": false`) instead of creating one.
+
+Rules:
+
+- `source` is a code: capitals, digits and `_`, starting with a letter, 2 to 32 characters. `MANUAL`, `ICECAT` and `UNKNOWN` are the catalogue's own and are refused (`400`).
+- Without the `device.source.set` scope, a request that names a source is refused (`403`) and nothing is created. Without a source, the record counts as entered by hand.
+- The source is set at creation and never changed afterwards. Once created, a model or variant from a source is changed by the platform administrators only.
+- Records created with client credentials have no user as their author: the source is what identifies them.
+
+### 3. Repairers
+
+[`POST /api/v1/repairers`](#tag/repairers/POST/api/v1/repairers) creates a repairer; [`POST /api/v1/repairers/{id}`](#tag/repairers/POST/api/v1/repairers/{id}) updates one.
+
+```json
+{
+  "name": "Atelier Vélo Fives",
+  "address": "18 rue Pierre Legrand",
+  "postal_code": "59000",
+  "city": "Lille",
+  "country": "FR",
+  "latitude": 50.6292,
+  "longitude": 3.0573,
+  "partner_type": "repairer",
+  "source": "ACME Data – repairer directory"
+}
+```
+
+Rules:
+
+- A repairer's `source` is not a code: it is the **credit shown with it to the public**, as the licence of your data asks. Send the same text for every repairer you load: removing a source's repairers will rest on it.
+- `Service Hub` is the hub's own, for repairers proposed on its site, and is refused (`400`).
+- Send `name`, `address`, `city`, `country`, `latitude` and `longitude`: the map needs them all.
+- A repairer created this way is **published at once**, without the review that proposals made on the site go through.
+- Nothing checks for duplicates: the hub already lists tens of thousands of repairers. Search before creating, with [`POST /api/v1/repairers/search`](#tag/repairers/POST/api/v1/repairers/search) or by area.

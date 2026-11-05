@@ -7,16 +7,6 @@ export const formatPropertyName = (name: string): string => {
     .trim();
 };
 
-export const formatImageName = (name: string): string => {
-  const nameMap: Record<string, string> = {
-    'HighPic': 'High Resolution',
-    'LowPic': 'Low Resolution',
-    'Pic500x500': 'Medium (500x500)',
-    'ThumbPic': 'Thumbnail'
-  };
-  return nameMap[name] || formatPropertyName(name);
-};
-
 export const groupByCategory = <T extends { property_name: string; property_value: string }>(
   properties: T[]
 ): Record<string, T[]> => {

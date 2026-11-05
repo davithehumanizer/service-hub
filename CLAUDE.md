@@ -115,7 +115,7 @@ them with `firstValueFrom`. Public routes are `/api/v1/...` — global prefix
   must clear on sign-out has to handle `logoutUser.fulfilled` *and*
   `logoutUser.rejected` — the session ends either way.
 - **Four locales, always in step**: `frontend/public/locales/{en,fr,nl,de}/translation.json`,
-  currently 1523 keys each. Adding a string to one and not the other three is a
+  currently 1743 keys each. Adding a string to one and not the other three is a
   bug; the counts should match after any change.
 
 ## Traps that fail silently

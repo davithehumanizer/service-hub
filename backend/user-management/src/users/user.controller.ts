@@ -8,6 +8,7 @@ import * as crypto from 'crypto';
 import { RoleService } from 'src/roles/role.service';
 import { RecaptchaService } from 'src/recaptcha/recaptcha.service';
 import { toSafeUser, toSafeUsers } from './user.serializer';
+import { RepairerDecision, languageOf } from './repairer-decision-email';
 
 /**
  * Controller for user-related operations.
@@ -94,6 +95,118 @@ export class UserController {
       return { user: toSafeUser(user), message: 'User created successfully' };
     } catch (error) {
       throw new RpcException(error.message || 'Failed to create user');
+    }
+  }
+
+  /**
+   * Creates an account for a company entering demonstration data, which
+   * chooses its password from the link emailed.
+   *
+   * @MessagePattern { cmd: 'create_contributor' }
+   * @throws RpcException `USER_ALREADY_EXISTS` when the address has an account.
+   */
+  @MessagePattern({ cmd: 'create_contributor' })
+  async createContributor(body: {
+    email: string;
+    firstName?: string;
+    lastName?: string;
+    locale?: string;
+  }) {
+    try {
+      if (await this.userService.findByEmail(body.email)) {
+        throw new RpcException('USER_ALREADY_EXISTS');
+      }
+      const role = await this.roleService.findByName('contributor');
+      if (!role) throw new RpcException('Contributor role not found');
+      const user = await this.userService.createContributor(
+        body.email,
+        role,
+        { firstName: body.firstName, lastName: body.lastName },
+        body.locale,
+      );
+      return toSafeUser(user);
+    } catch (error) {
+      throw new RpcException(
+        error.message || 'Failed to create contributor account',
+      );
+    }
+  }
+
+  /**
+   * The contributor accounts, newest first.
+   *
+   * @MessagePattern { cmd: 'get_contributors' }
+   */
+  @MessagePattern({ cmd: 'get_contributors' })
+  async getContributors() {
+    try {
+      return toSafeUsers(await this.userService.findByRole('contributor'));
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to get contributors');
+    }
+  }
+
+  /**
+   * Previews (`dryRun`) or deletes the contributor accounts: the purge's
+   * first call gives the ids its other steps need, its last removes them.
+   *
+   * @MessagePattern { cmd: 'purge_contributors' }
+   */
+  @MessagePattern({ cmd: 'purge_contributors' })
+  async purgeContributors(data: { dryRun: boolean; ids?: number[] }) {
+    try {
+      return await this.userService.purgeContributors(
+        data?.dryRun !== false,
+        data?.ids,
+      );
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to purge contributors');
+    }
+  }
+
+  /** @MessagePattern { cmd: 'revoke_contributor_sessions' } */
+  @MessagePattern({ cmd: 'revoke_contributor_sessions' })
+  async revokeContributorSessions(data: { ids: number[] }) {
+    try {
+      await this.userService.revokeContributorSessions(data?.ids ?? []);
+      return { revoked: true };
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to revoke sessions');
+    }
+  }
+
+  /**
+   * Who these accounts are, for an administrator's screen.
+   *
+   * @MessagePattern { cmd: 'get_user_summaries' }
+   */
+  @MessagePattern({ cmd: 'get_user_summaries' })
+  async getUserSummaries(data: { ids: number[] }) {
+    try {
+      return await this.userService.summariesOf(data?.ids ?? []);
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to get users');
+    }
+  }
+
+  /**
+   * Emails a repairer's author the decision on it.
+   *
+   * @MessagePattern { cmd: 'notify_repairer_decision' }
+   */
+  @MessagePattern({ cmd: 'notify_repairer_decision' })
+  async notifyRepairerDecision(data: {
+    userId: number;
+    decision: RepairerDecision;
+    repairerId: string;
+    repairerName: string;
+    note?: string | null;
+  }) {
+    try {
+      await this.userService.notifyRepairerDecision(data);
+      return { sent: true };
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to notify the author');
     }
   }
 
@@ -191,7 +304,8 @@ export class UserController {
         body.email,
         body.password,
         role,
-        body.profile ?? {},
+        // The browser's language, for the emails this account is sent.
+        { ...(body.profile ?? {}), language: languageOf(body.locale) },
         confirmationToken,
       );
 

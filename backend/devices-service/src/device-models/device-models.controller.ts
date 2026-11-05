@@ -1,7 +1,13 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, RpcException } from '@nestjs/microservices';
-import { ModelsService, NewModel } from './models.service';
+import {
+  ModelChanges,
+  ModelsService,
+  NewModel,
+  NewVariant,
+} from './models.service';
 import { ModelSort } from '../search/model-search.service';
+import { Author, Editor } from '../types/author';
 
 /** Device models, over TCP, for the gateway's /api/v2/device-models. */
 @Controller()
@@ -40,6 +46,7 @@ export class DeviceModelsController {
     search,
     parts,
     variant,
+    viewer,
   }: {
     id: number;
     page?: number;
@@ -48,6 +55,7 @@ export class DeviceModelsController {
     search?: string;
     parts?: Record<string, string>;
     variant?: number;
+    viewer?: Editor;
   }) {
     try {
       return await this.models.getModel(id, {
@@ -57,6 +65,7 @@ export class DeviceModelsController {
         search,
         parts,
         variant,
+        viewer,
       });
     } catch (error) {
       throw new RpcException(error.message || 'Failed to get device model');
@@ -91,9 +100,17 @@ export class DeviceModelsController {
   }
 
   @MessagePattern({ cmd: 'create_device_model' })
-  async createModel({ model, locale }: { model: NewModel; locale?: string }) {
+  async createModel({
+    model,
+    locale,
+    author,
+  }: {
+    model: NewModel;
+    locale?: string;
+    author?: Author;
+  }) {
     try {
-      return await this.models.createModel(model, locale);
+      return await this.models.createModel(model, locale, author);
     } catch (error) {
       throw new RpcException(error.message || 'Failed to create device model');
     }
@@ -103,12 +120,14 @@ export class DeviceModelsController {
   async addModelPhotos({
     modelId,
     photoUrls,
+    author,
   }: {
     modelId: number;
     photoUrls: { url: string; key: string }[];
+    author?: Author;
   }) {
     try {
-      return await this.models.addModelPhotos(modelId, photoUrls);
+      return await this.models.addModelPhotos(modelId, photoUrls, author);
     } catch (error) {
       throw new RpcException(error.message || 'Failed to add model photos');
     }
@@ -118,14 +137,74 @@ export class DeviceModelsController {
   async deleteModelPhoto({
     modelId,
     photoId,
+    editor,
   }: {
     modelId: number;
     photoId: string;
+    editor?: Editor;
   }) {
     try {
-      return await this.models.deleteModelPhoto(modelId, photoId);
+      return await this.models.deleteModelPhoto(modelId, photoId, editor);
     } catch (error) {
       throw new RpcException(error.message || 'Failed to delete model photo');
+    }
+  }
+
+  @MessagePattern({ cmd: 'add_device_model_variant' })
+  async addVariant({
+    modelId,
+    variant,
+    author,
+  }: {
+    modelId: number;
+    variant: NewVariant;
+    author?: Author;
+  }) {
+    try {
+      return await this.models.addVariant(modelId, variant, author);
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to add the variant');
+    }
+  }
+
+  @MessagePattern({ cmd: 'update_device_model' })
+  async updateModel({
+    modelId,
+    changes,
+    editor,
+  }: {
+    modelId: number;
+    changes: ModelChanges;
+    editor: Editor;
+  }) {
+    try {
+      return await this.models.updateModel(modelId, changes, editor);
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to update the model');
+    }
+  }
+
+  @MessagePattern({ cmd: 'update_device_model_variant' })
+  async updateVariant({
+    modelId,
+    variantId,
+    changes,
+    editor,
+  }: {
+    modelId: number;
+    variantId: number;
+    changes: NewVariant;
+    editor: Editor;
+  }) {
+    try {
+      return await this.models.updateVariant(
+        modelId,
+        variantId,
+        changes,
+        editor,
+      );
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to update the variant');
     }
   }
 }

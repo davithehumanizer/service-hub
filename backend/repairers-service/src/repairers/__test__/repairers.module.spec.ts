@@ -6,6 +6,7 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repairer } from '../repairer.entity';
 import { RepairerDevice } from '../repairer-device.entity';
 import { RepairerReport } from '../repairer-report.entity';
+import { RepairerRevision } from '../repairer-revision.entity';
 import { IRepairersService } from '../interfaces/repairers-service.interface';
 
 describe('RepairersModule', () => {
@@ -22,6 +23,8 @@ describe('RepairersModule', () => {
       // Registered by RepairersModule alongside the other two; without an
       // override Nest tries to build the real repository and needs a DataSource.
       .overrideProvider(getRepositoryToken(RepairerReport))
+      .useValue({})
+      .overrideProvider(getRepositoryToken(RepairerRevision))
       .useValue({})
       .overrideProvider('IRepairersService')
       .useValue({})

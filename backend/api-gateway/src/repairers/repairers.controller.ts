@@ -11,8 +11,11 @@ import {
   HttpException,
   HttpStatus,
   Post,
+  Patch,
+  Delete,
   Body,
   Param,
+  ParseUUIDPipe,
   Query,
   Req,
   Logger,
@@ -23,6 +26,7 @@ import { firstValueFrom } from 'rxjs';
 import { FlexibleAuthGuard } from 'src/auth/flexible-auth.guard';
 import { PermissionsGuard } from 'src/auth/permission.guard';
 import { Permissions } from 'src/auth/permission.decorator';
+import { authorOf, editorOf } from 'src/auth/author';
 import {
   ApiTags,
   ApiOperation,
@@ -44,6 +48,24 @@ import { PaginationQueryDto } from './dto/pagination-query.dto';
 import { PaginatedRepairersResponseDto } from './dto/paginated-repairers-response.dto';
 import { ReportRepairerDto } from './dto/report-repairer.dto';
 import { UpdateRepairerReportStatusDto } from './dto/update-repairer-report-status.dto';
+import {
+  ChangeRepairerProposalDto,
+  ProposeRepairerDto,
+  ReviewRepairerProposalDto,
+  ReviewRepairerRevisionDto,
+} from './dto/propose-repairer.dto';
+
+/** The HTTP status of a refusal from repairers-service, by its message. */
+const statusOf = (message: string): HttpStatus =>
+  /not found/i.test(message)
+    ? HttpStatus.NOT_FOUND
+    : /^only /i.test(message)
+      ? HttpStatus.FORBIDDEN
+      : /already been reviewed|changed since|replaced since/i.test(message)
+        ? HttpStatus.CONFLICT
+        : /is required$/i.test(message)
+          ? HttpStatus.BAD_REQUEST
+          : HttpStatus.INTERNAL_SERVER_ERROR;
 
 @ApiTags('Repairers')
 @ApiExtraModels(
@@ -57,13 +79,92 @@ import { UpdateRepairerReportStatusDto } from './dto/update-repairer-report-stat
   PaginatedRepairersResponseDto,
   ReportRepairerDto,
   UpdateRepairerReportStatusDto,
+  ProposeRepairerDto,
+  ChangeRepairerProposalDto,
+  ReviewRepairerProposalDto,
+  ReviewRepairerRevisionDto,
 )
 @Controller('repairers')
 export class RepairersController {
   private readonly logger = new Logger(RepairersController.name);
   constructor(
     @Inject('REPAIRERS_SERVICE') private readonly repairersService: ClientProxy,
+    @Inject('USER_SERVICE') private readonly users: ClientProxy,
   ) {}
+
+  /**
+   * Each item of the queue with who proposed it. The queue is shown
+   * without them if the accounts cannot be read.
+   */
+  private async withAuthors(queue: any) {
+    const items = [
+      ...queue.proposals,
+      ...queue.revisions,
+      ...queue.refused.proposals,
+      ...queue.refused.revisions,
+    ];
+    const ids = [
+      ...new Set(
+        items.map((item) => item.created_by).filter((id) => id != null),
+      ),
+    ];
+    let authors: any[] = [];
+    try {
+      authors = ids.length
+        ? await firstValueFrom(
+            this.users.send({ cmd: 'get_user_summaries' }, { ids }),
+          )
+        : [];
+    } catch (error) {
+      this.logger.warn(`get_user_summaries error: ${error?.message}`);
+    }
+    for (const item of items) {
+      item.author = authors.find((a) => a.id === item.created_by) ?? null;
+    }
+    return queue;
+  }
+
+  /**
+   * Emails the author what was decided; an administrator deciding about
+   * their own is not told. Never holds up the decision, already made.
+   */
+  private notify(
+    authorId: number | null | undefined,
+    reviewer: number | null,
+    decision: 'published' | 'rejected' | 'applied' | 'change_rejected',
+    repairer: { repairer_id?: string; name?: string } | undefined,
+    note?: string,
+  ) {
+    if (authorId == null || authorId === reviewer || !repairer?.repairer_id) {
+      return;
+    }
+    this.users
+      .emit(
+        { cmd: 'notify_repairer_decision' },
+        {
+          userId: authorId,
+          decision,
+          repairerId: repairer.repairer_id,
+          repairerName: repairer.name ?? '',
+          note: note ?? null,
+        },
+      )
+      .subscribe({
+        error: (error) =>
+          this.logger.warn(`notify_repairer_decision error: ${error?.message}`),
+      });
+  }
+
+  /** Sends a command; a refusal keeps its message and gets its status. */
+  private async call(cmd: string, payload: unknown, failure: string) {
+    try {
+      return await firstValueFrom(this.repairersService.send({ cmd }, payload));
+    } catch (error) {
+      const message: string = error?.message || failure;
+      this.logger.error(`${cmd} error`, error?.stack, error);
+      throw new HttpException(message, statusOf(message));
+    }
+  }
 
   @UseGuards(FlexibleAuthGuard, PermissionsGuard)
   @Permissions('repairer.get_all')
@@ -145,11 +246,14 @@ export class RepairersController {
     schema: { $ref: getSchemaPath(RepairerDto) },
   })
   @ApiResponse({ status: 500, description: 'Internal Server Error.' })
-  async createRepairer(@Body() body: CreateRepairerDto) {
+  async createRepairer(@Body() body: CreateRepairerDto, @Req() req: any) {
     this.logger.log('createRepairer called', body);
     try {
       const result = await firstValueFrom(
-        this.repairersService.send({ cmd: 'create_repairer' }, body),
+        this.repairersService.send(
+          { cmd: 'create_repairer' },
+          { ...body, ...authorOf(req) },
+        ),
       );
       this.logger.log('createRepairer result', result);
       return result;
@@ -298,6 +402,235 @@ export class RepairersController {
   }
 
   @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('repairer.propose')
+  @ApiBearerAuth()
+  @Version('1')
+  @Post('proposals')
+  @ApiOperation({
+    summary: 'Propose a repairer',
+    description:
+      'Hidden until an administrator publishes it; an administrator\'s own ' +
+      'proposal is published at once. A contributor\'s is demonstration data.',
+  })
+  @ApiBody({ type: ProposeRepairerDto })
+  @ApiResponse({
+    status: 201,
+    description: 'The repairer, pending unless proposed by an administrator.',
+    schema: { $ref: getSchemaPath(RepairerDto) },
+  })
+  @ApiResponse({ status: 400, description: 'Invalid or missing field.' })
+  async proposeRepairer(@Body() body: ProposeRepairerDto, @Req() req: any) {
+    return this.call(
+      'propose_repairer',
+      { changes: body, editor: editorOf(req) },
+      'Failed to propose repairer',
+    );
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('repairer.propose')
+  @ApiBearerAuth()
+  @Version('1')
+  @Get('proposals/mine')
+  @ApiOperation({
+    summary: 'The repairers the signed-in user proposed',
+    description:
+      'Whatever their status, each with its latest change not yet applied ' +
+      '(waiting, or refused with its reason) as `revision`.',
+  })
+  @ApiResponse({ status: 200, description: 'Newest first.' })
+  async getMyRepairers(@Req() req: any) {
+    return this.call(
+      'get_my_repairers',
+      { editor: editorOf(req) },
+      'Failed to get your repairers',
+    );
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('repairer.proposals.admin')
+  @ApiBearerAuth()
+  @Version('1')
+  @Get('proposals/pending')
+  @ApiOperation({
+    summary: 'Proposals and changes waiting for review (admin)',
+    description:
+      '`proposals`: new repairers, each with the `version` its review ' +
+      'names; `revisions`: changes to published ones, each with the ' +
+      'repairer as it is now. Oldest first.',
+  })
+  @ApiResponse({
+    status: 200,
+    description:
+      '{ proposals, revisions, refused: { proposals, revisions } }, each ' +
+      'item with its `author` (id, email, role, names) or null.',
+  })
+  async getPendingProposals() {
+    return this.withAuthors(
+      await this.call(
+        'get_pending_repairer_proposals',
+        {},
+        'Failed to get pending repairer proposals',
+      ),
+    );
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('repairer.proposals.admin')
+  @ApiBearerAuth()
+  @Version('1')
+  @Get('proposals/pending/count')
+  @ApiOperation({
+    summary: 'How many proposals and changes wait for review (admin)',
+  })
+  @ApiResponse({ status: 200, description: '{ count }' })
+  async countPendingProposals() {
+    return this.call(
+      'count_pending_repairer_proposals',
+      {},
+      'Failed to count pending repairer proposals',
+    );
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('repairer.propose')
+  @ApiBearerAuth()
+  @Version('1')
+  @Patch('proposals/:id')
+  @ApiOperation({
+    summary: 'Change a repairer one proposed',
+    description:
+      'By its author or an administrator. Unpublished, the change is made ' +
+      'at once (a refused proposal goes back for review); published, it ' +
+      'waits for an administrator and the public sees the old version.',
+  })
+  @ApiParam({ name: 'id', type: 'string', description: 'Repairer ID' })
+  @ApiBody({ type: ChangeRepairerProposalDto })
+  @ApiResponse({ status: 200, description: 'The repairer as it is now.' })
+  @ApiResponse({ status: 400, description: 'A required field emptied.' })
+  @ApiResponse({ status: 403, description: 'Neither its author nor an administrator.' })
+  @ApiResponse({ status: 404, description: 'No such repairer.' })
+  async changeProposal(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() body: ChangeRepairerProposalDto,
+    @Req() req: any,
+  ) {
+    return this.call(
+      'change_repairer_proposal',
+      { id, changes: body, editor: editorOf(req) },
+      'Failed to change repairer',
+    );
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('repairer.propose')
+  @ApiBearerAuth()
+  @Version('1')
+  @Delete('proposals/:id')
+  @ApiOperation({
+    summary: 'Withdraw a proposal',
+    description:
+      'By its author while it is not published; by an administrator always.',
+  })
+  @ApiParam({ name: 'id', type: 'string', description: 'Repairer ID' })
+  @ApiResponse({ status: 200, description: 'Withdrawn.' })
+  @ApiResponse({ status: 403, description: 'Published, or not its author.' })
+  @ApiResponse({ status: 404, description: 'No such repairer.' })
+  async withdrawProposal(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Req() req: any,
+  ) {
+    return this.call(
+      'withdraw_repairer_proposal',
+      { id, editor: editorOf(req) },
+      'Failed to withdraw repairer',
+    );
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('repairer.proposals.admin')
+  @ApiBearerAuth()
+  @Version('1')
+  @Post('proposals/:id/review')
+  @ApiOperation({
+    summary: 'Publish or refuse a proposal (admin)',
+    description:
+      'A refused proposal may still be published. Its author is emailed ' +
+      'the decision, in the language of their account.',
+  })
+  @ApiParam({ name: 'id', type: 'string', description: 'Repairer ID' })
+  @ApiBody({ type: ReviewRepairerProposalDto })
+  @ApiResponse({ status: 201, description: 'The repairer, reviewed.' })
+  @ApiResponse({ status: 404, description: 'No such repairer.' })
+  @ApiResponse({
+    status: 409,
+    description: 'Already reviewed, or changed by its author since loaded.',
+  })
+  async reviewProposal(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() body: ReviewRepairerProposalDto,
+    @Req() req: any,
+  ) {
+    const editor = editorOf(req);
+    const reviewed = await this.call(
+      'review_repairer_proposal',
+      {
+        id,
+        decision: body.decision,
+        note: body.note,
+        version: body.version,
+        editor,
+      },
+      'Failed to review proposal',
+    );
+    this.notify(
+      reviewed?.created_by,
+      editor.created_by,
+      body.decision === 'publish' ? 'published' : 'rejected',
+      reviewed,
+      body.decision === 'reject' ? body.note : undefined,
+    );
+    return reviewed;
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('repairer.proposals.admin')
+  @ApiBearerAuth()
+  @Version('1')
+  @Post('revisions/:id/review')
+  @ApiOperation({
+    summary: 'Apply or refuse a change (admin)',
+    description:
+      'A refused change may still be applied while its author has made ' +
+      'none since (409 otherwise). Its author is emailed the decision.',
+  })
+  @ApiParam({ name: 'id', type: 'string', description: 'Revision ID' })
+  @ApiBody({ type: ReviewRepairerRevisionDto })
+  @ApiResponse({ status: 201, description: 'The change, reviewed.' })
+  @ApiResponse({ status: 404, description: 'No such change.' })
+  @ApiResponse({ status: 409, description: 'Already reviewed.' })
+  async reviewRevision(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() body: ReviewRepairerRevisionDto,
+    @Req() req: any,
+  ) {
+    const editor = editorOf(req);
+    const reviewed = await this.call(
+      'review_repairer_revision',
+      { id, decision: body.decision, note: body.note, editor },
+      'Failed to review change',
+    );
+    this.notify(
+      reviewed?.created_by,
+      editor.created_by,
+      body.decision === 'apply' ? 'applied' : 'change_rejected',
+      reviewed?.repairer,
+      body.decision === 'reject' ? body.note : undefined,
+    );
+    return reviewed;
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
   @Permissions('repairer.get_by_id')
   @Version('1')
   @Get(':id')
@@ -308,22 +641,18 @@ export class RepairersController {
     description: 'Returns the repairer with the given ID.',
     schema: { $ref: getSchemaPath(RepairerDto) },
   })
+  @ApiResponse({
+    status: 404,
+    description: 'No such repairer, or not yet published and not yours.',
+  })
   @ApiResponse({ status: 500, description: 'Internal Server Error.' })
-  async getRepairer(@Param('id') id: string) {
+  async getRepairer(@Param('id') id: string, @Req() req: any) {
     this.logger.log('getRepairer called', { id });
-    try {
-      const result = await firstValueFrom(
-        this.repairersService.send({ cmd: 'get_repairer' }, { id }),
-      );
-      this.logger.log('getRepairer result', result);
-      return result;
-    } catch (error) {
-      this.logger.error('getRepairer error', error.stack, error);
-      throw new HttpException(
-        error.message || 'Failed to get repairer',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
-    }
+    return this.call(
+      'get_repairer',
+      { id, viewer: editorOf(req) },
+      'Failed to get repairer',
+    );
   }
 
   @UseGuards(FlexibleAuthGuard, PermissionsGuard)
@@ -369,22 +698,11 @@ export class RepairersController {
   @ApiOperation({ summary: 'Delete a repairer' })
   @ApiParam({ name: 'id', type: 'string', description: 'Repairer ID' })
   @ApiResponse({ status: 200, description: 'Repairer deleted successfully.' })
+  @ApiResponse({ status: 404, description: 'No such repairer.' })
   @ApiResponse({ status: 500, description: 'Internal Server Error.' })
   async deleteRepairer(@Param('id') id: string) {
     this.logger.log('deleteRepairer called', { id });
-    try {
-      const result = await firstValueFrom(
-        this.repairersService.send({ cmd: 'delete_repairer' }, { id }),
-      );
-      this.logger.log('deleteRepairer result', result);
-      return result;
-    } catch (error) {
-      this.logger.error('deleteRepairer error', error.stack, error);
-      throw new HttpException(
-        error.message || 'Failed to delete repairer',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
-    }
+    return this.call('delete_repairer', { id }, 'Failed to delete repairer');
   }
 
   @UseGuards(FlexibleAuthGuard, PermissionsGuard)

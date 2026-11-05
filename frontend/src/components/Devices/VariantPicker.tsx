@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Badge, Loader, Pagination, Text, TextInput } from "@mantine/core";
 import { DeviceModelVariant } from "../../models/deviceModel";
 import { deviceModelService } from "../../services/deviceModelService";
+import DemoBadge from "./DemoBadge";
 
 const VARIANTS_PER_PAGE = 10;
 const SEARCH_DEBOUNCE_MS = 300;
@@ -127,6 +128,7 @@ const VariantPicker = ({ modelId, modelBrand, variantCount, chosenId, chosen, on
                   {row.is_refurbished && (
                     <Badge size="sm" variant="light" color="teal">{t("modelDetails.refurbished")}</Badge>
                   )}
+                  {row.is_demo && <DemoBadge />}
                 </button>
               </li>
             );

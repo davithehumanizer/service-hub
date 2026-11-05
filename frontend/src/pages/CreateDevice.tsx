@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button, MultiSelect, Space, Text, TextInput } from '@mantine/core';
+import { demoEan } from '../utils/ean';
 import { RootState } from '../stores/globalStore';
 import { deviceService } from '../services/deviceService';
 import { deviceModelService } from '../services/deviceModelService';
@@ -53,6 +54,9 @@ const CreateDevice: React.FC = () => {
   }, []);
 
   if (!user) return <Redirect to="/login" />;
+  // A contributor's codes are made up: a barcode starting with 2 is no
+  // product's (docs/demo-data.md).
+  const contributor = user.role?.name === 'contributor';
 
   const modelPage = (model: DeviceModel, variantId?: number | null) =>
     `/app/model/${model.id}${variantId ? `?variant=${variantId}` : ''}`;
@@ -81,6 +85,7 @@ const CreateDevice: React.FC = () => {
     if (!brand.trim()) errors.brand = t('createDevice.validation.brandRequired');
     if (!name.trim()) errors.name = t('createDevice.validation.nameRequired');
     if (barcode && !/^\d{8,14}$/.test(barcode)) errors.ean = t('createDevice.validation.eanFormat');
+    else if (contributor && barcode && !barcode.startsWith('2')) errors.ean = t('createDevice.validation.demoEan');
     setFieldErrors(errors);
     if (Object.keys(errors).length > 0) return;
 
@@ -112,7 +117,13 @@ const CreateDevice: React.FC = () => {
       if (photosFailed) showNotification(t('createDevice.photosFailed'), 'error');
       history.push(modelPage(result.model, result.variant?.device_id));
     } catch (err: any) {
-      setError(typeof err === 'string' ? err : t('errors.generic'));
+      setError(
+        typeof err !== 'string'
+          ? t('errors.generic')
+          : /already in the catalogue/.test(err)
+            ? t('createDevice.demoCodeKnown')
+            : err,
+      );
     } finally {
       setLoadingStatus(null);
     }
@@ -172,11 +183,20 @@ const CreateDevice: React.FC = () => {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <TextInput
                 label={t('createDevice.ean')}
-                description={t('createDevice.eanHint')}
+                description={t(contributor ? 'createDevice.demoEanHint' : 'createDevice.eanHint')}
                 value={ean}
                 onChange={(e) => setEan(e.currentTarget.value)}
                 error={fieldErrors.ean}
                 inputMode="numeric"
+                rightSectionWidth={contributor ? 100 : undefined}
+                rightSectionPointerEvents="all"
+                rightSection={
+                  contributor && (
+                    <Button size="compact-xs" variant="light" onClick={() => setEan(demoEan())}>
+                      {t('createDevice.generateEan')}
+                    </Button>
+                  )
+                }
               />
               <TextInput
                 label={t('createDevice.productCode')}

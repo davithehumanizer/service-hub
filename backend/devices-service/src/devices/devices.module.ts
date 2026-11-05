@@ -22,6 +22,10 @@ import { ModelsService } from '../device-models/models.service';
 import { DeviceModelsController } from '../device-models/device-models.controller';
 import { SyncDevicesService } from './services/sync-devices.service';
 import { SearchModule } from '../search/search.module';
+import { DemoDataService } from '../demo-data/demo-data.service';
+import { DemoDataController } from '../demo-data/demo-data.controller';
+import { ContributionsService } from '../contributions/contributions.service';
+import { ContributionsController } from '../contributions/contributions.controller';
 
 @Module({
   imports: [
@@ -44,6 +48,8 @@ import { SearchModule } from '../search/search.module';
     ModelIndexService,
     VariantLabelService,
     ModelsService,
+    DemoDataService,
+    ContributionsService,
     ImportIcecatCommand,
     SyncDevicesCommand,
     AssignModelsCommand,
@@ -55,6 +61,8 @@ import { SearchModule } from '../search/search.module';
     DeviceCategoryController,
     DeviceCategoriesMicroController,
     DeviceModelsController,
+    DemoDataController,
+    ContributionsController,
   ],
 
   exports: [DevicesServiceProvider],

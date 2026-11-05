@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { Badge, Button, Text } from "@mantine/core";
 import PageTitle from "../components/Typography/PageTitle";
 import ColourSwatches from "../components/Devices/ColourSwatches";
+import DemoBadge from "../components/Devices/DemoBadge";
 import DeviceDetailTabs from "../components/Devices/DeviceDetailTabs";
 import DeviceIcon from "../components/Devices/DeviceIcon";
 import DeviceImage from "../components/Devices/DeviceImage";
@@ -50,6 +51,8 @@ const ModelDetails = () => {
   const [owned, setOwned] = useState<number | null>(null);
   // What a partial choice leaves: one of its variants, until one is chosen.
   const [previewId, setPreviewId] = useState<number | null>(null);
+  // Whether the reader may change the variant shown: its author, an admin.
+  const [shownEditable, setShownEditable] = useState(false);
 
   // The model alone: its variants are the picker's to page.
   useEffect(() => {
@@ -137,6 +140,45 @@ const ModelDetails = () => {
   const hasTutorials = useHasTutorials(tutorialsSubject);
 
   useEffect(() => {
+    setShownEditable(false);
+    if (guest || !shownId) return;
+    let current = true;
+    deviceModelService
+      .get(modelId, { variant: shownId, limit: 1 })
+      .then((found) => current && setShownEditable(!!found.variants.data[0]?.editable))
+      .catch(() => undefined);
+    return () => {
+      current = false;
+    };
+  }, [guest, modelId, shownId]);
+
+  // Its own photos after a change: the page keeps what it shows.
+  const reloadPhotos = () =>
+    deviceModelService
+      .get(modelId, { limit: 1 })
+      .then((found) => setModel((shown) => (shown ? { ...shown, photos: found.photos, thumbnail: found.thumbnail } : found)));
+
+  // The Photos tab adds to the model: seen under every variant.
+  const addPhotos = async (files: File[]) => {
+    try {
+      await deviceModelService.addPhotos(modelId, files);
+      await reloadPhotos();
+    } catch {
+      showNotification(t("createDevice.photosFailed"), "error");
+    }
+  };
+
+  const deletePhoto = async (photoId: string) => {
+    try {
+      await deviceModelService.deletePhoto(modelId, photoId);
+      await reloadPhotos();
+      showNotification(t("modelDetails.photoDeleted"), "success");
+    } catch {
+      showNotification(t("variantForm.photoNotYours"), "error");
+    }
+  };
+
+  useEffect(() => {
     if (guest) return;
     let current = true;
     personalDeviceService
@@ -197,6 +239,7 @@ const ModelDetails = () => {
           product_code: variant.product_code ?? "",
           variant_label: variant.variant_label ?? null,
           is_refurbished: !!variant.is_refurbished,
+          is_demo: !!variant.is_demo,
         }
       : null;
 
@@ -221,7 +264,9 @@ const ModelDetails = () => {
           <div className="flex flex-col md:flex-row p-4 sm:p-8 gap-6 sm:gap-8">
             <div className="flex-shrink-0 flex justify-center items-center bg-white dark:bg-gray-900 dark:bg-opacity-50 rounded-xl p-4 border border-gray-100 dark:border-gray-700 shadow-inner w-full md:w-64 h-64">
               <DeviceImage
-                urls={model.thumbnail ? [model.thumbnail] : []}
+                // Icecat still lists pictures it no longer serves: the
+                // model's own photos come next.
+                urls={[model.thumbnail, ...model.photos.map((p) => p.url)].filter(Boolean)}
                 alt={model.name}
                 className="object-contain w-full h-full"
                 fallback={<DeviceIcon deviceType={deviceType} className="text-8xl text-gray-300 dark:text-gray-600" />}
@@ -232,6 +277,7 @@ const ModelDetails = () => {
                 <Badge size="lg" radius="sm" variant="gradient" gradient={{ from: "blue", to: "cyan" }}>
                   {model.brand}
                 </Badge>
+                {model.is_demo && <DemoBadge size="lg" />}
                 {model.categories.map((category) => (
                   <Badge key={category.id} size="lg" radius="sm" variant="outline" color="gray">
                     {category.name}
@@ -247,10 +293,10 @@ const ModelDetails = () => {
                   <span>{t("devicesComponent.variantCount", { count: model.variant_count })}</span>
                 </div>
               )}
-              <div className="flex flex-wrap gap-3 pt-2">
+              {/* By intent: repairing first, one accent; one's own device on
+                  the right; contributing to the catalogue below, quieter. */}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Button
-                  variant="light"
-                  color="orange"
                   loading={tutorialsSubject !== null && hasTutorials === null}
                   disabled={!tutorialsSubject || hasTutorials === false}
                   leftSection={<span className="material-symbols-outlined text-sm">build</span>}
@@ -261,8 +307,7 @@ const ModelDetails = () => {
                 {/* The parts this device takes, one tap away rather than in a
                     tab below the fold (PBI 13859). */}
                 <Button
-                  variant="light"
-                  color="orange"
+                  variant="default"
                   leftSection={<span className="material-symbols-outlined text-sm">build_circle</span>}
                   onClick={() => setPartsAt(Date.now())}
                 >
@@ -270,8 +315,8 @@ const ModelDetails = () => {
                 </Button>
                 {!guest && owned === 0 && (
                   <Button
-                    variant="light"
-                    color="blue"
+                    variant="default"
+                    className="sm:ml-auto"
                     loading={adding}
                     leftSection={<span className="material-symbols-outlined text-sm">add</span>}
                     onClick={() => addToMyDevices(false)}
@@ -280,12 +325,11 @@ const ModelDetails = () => {
                   </Button>
                 )}
                 {!guest && owned !== null && owned > 0 && (
-                  <>
+                  <div className="flex flex-wrap items-center gap-1 sm:ml-auto">
                     <Button
                       component={Link}
                       to="/app/devices?tab=mine"
-                      variant="light"
-                      color="blue"
+                      variant="default"
                       leftSection={<span className="material-symbols-outlined text-sm">check</span>}
                     >
                       {t("myRepairs.inMyDevices")}
@@ -293,9 +337,36 @@ const ModelDetails = () => {
                     <Button variant="subtle" color="gray" loading={adding} onClick={() => addToMyDevices(true)}>
                       {t("modelDetails.addAnother")}
                     </Button>
-                  </>
+                  </div>
                 )}
               </div>
+              {!guest && (
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pt-3 border-t border-gray-100 dark:border-gray-700">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    {t("modelDetails.contribute")}
+                  </span>
+                  <Button
+                    component={Link}
+                    to={{ pathname: `/app/model/${model.id}/variants/new`, state: { fromPage: true } }}
+                    variant="subtle"
+                    size="compact-sm"
+                    leftSection={<span className="material-symbols-outlined text-sm">add_box</span>}
+                  >
+                    {t("modelDetails.addVariant")}
+                  </Button>
+                  {model.editable && (
+                    <Button
+                      component={Link}
+                      to={{ pathname: `/app/model/${model.id}/edit`, state: { fromPage: true } }}
+                      variant="subtle"
+                      size="compact-sm"
+                      leftSection={<span className="material-symbols-outlined text-sm">edit</span>}
+                    >
+                      {t("modelDetails.editModel")}
+                    </Button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -327,12 +398,41 @@ const ModelDetails = () => {
               {t(chosenId ? "modelDetails.chosenVariant" : "modelDetails.shownVariant", { name: variantName(shown) })}
             </h2>
           )}
-          <DeviceDetailTabs device={shown} showPartsAt={partsAt} />
+          {(shown.is_demo || shownEditable) && (
+            <div className="flex flex-wrap items-center gap-3 mb-2">
+              {shown.is_demo && <DemoBadge />}
+              {shownEditable && (
+                <Button
+                  component={Link}
+                  to={{ pathname: `/app/model/${model.id}/variants/${shown.device_id}/edit`, state: { fromPage: true } }}
+                  variant="subtle"
+                  color="gray"
+                  size="xs"
+                  leftSection={<span className="material-symbols-outlined text-sm">edit</span>}
+                >
+                  {t("modelDetails.editVariant")}
+                </Button>
+              )}
+            </div>
+          )}
+          <DeviceDetailTabs
+            device={shown}
+            showPartsAt={partsAt}
+            modelPhotos={model.photos}
+            onAddPhotos={guest ? undefined : addPhotos}
+            onDeletePhoto={guest ? undefined : deletePhoto}
+          />
         </div>
       ) : alone ? (
         <div className="px-4 py-3 mb-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
           <Text c="dimmed" size="sm" mb="xs">{t("modelDetails.noVariants")}</Text>
-          <DeviceDetailTabs device={alone} showPartsAt={partsAt} />
+          <DeviceDetailTabs
+            device={alone}
+            showPartsAt={partsAt}
+            modelPhotos={model.photos}
+            onAddPhotos={guest ? undefined : addPhotos}
+            onDeletePhoto={guest ? undefined : deletePhoto}
+          />
         </div>
       ) : variantFailed ? (
         <Text c="dimmed" ta="center" py="xl">{t("errors.generic")}</Text>

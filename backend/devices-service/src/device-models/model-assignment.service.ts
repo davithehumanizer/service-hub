@@ -10,6 +10,7 @@ import { IMAGE_PROPERTIES } from './image-properties';
 import { ModelIndexService } from './model-index.service';
 import { VariantLabelService } from './variant-label.service';
 import { LABEL_PROPERTIES } from './variant-label';
+import { IMPORT_SOURCES } from './sources';
 
 export interface CatalogueEntry {
   device_id: number;
@@ -227,8 +228,9 @@ export class ModelAssignmentService {
   /**
    * Places the entries, creates or finds their models and links them, in one
    * transaction, and returns those models. Within the batch, an entry sees the
-   * models the earlier ones make. An entry under a model made by hand stays
-   * there: it was put there because its name places it elsewhere.
+   * models the earlier ones make. An entry under a model made by hand, or
+   * entered by hand or by an outside source under its model, stays there: it
+   * was put there, whatever its name says.
    */
   async assign(
     entries: CatalogueEntry[],
@@ -239,9 +241,10 @@ export class ModelAssignmentService {
       const kept: { device_id: number; model_id: number }[] =
         await manager.query(
           `SELECT d.device_id, d.model_id FROM devices d
-             JOIN device_models m ON m.id = d.model_id AND m.is_manual
-            WHERE d.device_id = ANY($1::int[])`,
-          [entries.map((e) => e.device_id)],
+             JOIN device_models m ON m.id = d.model_id
+            WHERE d.device_id = ANY($1::int[])
+              AND (m.is_manual OR d.source <> ALL($2::text[]))`,
+          [entries.map((e) => e.device_id), IMPORT_SOURCES],
         );
       const keptIds = new Set(kept.map((k) => k.device_id));
       const known = await this.knownModels(
@@ -310,9 +313,13 @@ export class ModelAssignmentService {
   async refreshModels(
     rules: NormalizationRules,
     modelIds?: number[],
+    within?: EntityManager,
   ): Promise<void> {
     const ids = modelIds ?? null;
-    await this.devices.manager.transaction(async (manager) => {
+    // In the caller's transaction when it has one: the purge's.
+    const run = (work: (manager: EntityManager) => Promise<void>) =>
+      within ? work(within) : this.devices.manager.transaction(work);
+    await run(async (manager) => {
       await manager.query(
         `UPDATE device_models m SET variant_count = c.n
            FROM (SELECT m2.id, count(d.device_id)::int AS n

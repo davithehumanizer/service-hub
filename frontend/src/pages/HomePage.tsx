@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from '@mantine/hooks';
 import { Select } from '@mantine/core';
 import { deviceService } from '../services/deviceService';
@@ -15,6 +15,8 @@ import { DeviceModel } from '../models/deviceModel';
 import { Device } from '../models/device';
 import BarcodeScanner, { hasCamera } from '../components/BarcodeScanner';
 import PhotoHandoffPanel from '../components/Wizard/Steps/DeviceSearch/PhotoHandoffPanel';
+import ContributorGuide from '../components/Contributions/ContributorGuide';
+import { selectUserType } from '../stores/authSlice';
 
 interface PlatformStats {
   totalRepairs: number;
@@ -80,6 +82,7 @@ const HomePage: React.FC = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
   const dispatch = useDispatch();
+  const userType = useSelector(selectUserType);
   // A placeholder can't be swapped by CSS, and the full question overflows the
   // field on a phone — German runs to 44 characters. Matches Tailwind's `sm`.
   const isNarrow = useMediaQuery('(max-width: 639px)', false);
@@ -409,6 +412,8 @@ const HomePage: React.FC = () => {
     // adding another one here is what kept the page boxed in and double-padded.
     <div className="w-full py-8 text-gray-800 dark:text-gray-200">
       <div className="flex flex-col gap-8">
+
+            {userType === 'contributor' && <ContributorGuide />}
 
             {/* ── Header + primary task (#13750) ────────────────────────── */}
             {/* Same page-header grammar as every other tool page: icon in the

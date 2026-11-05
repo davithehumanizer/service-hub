@@ -616,6 +616,7 @@ describe('RepairMonitorController (api-gateway)', () => {
             name: 'SpotBot 3000',
             categories: [7],
           },
+          author: { created_by: 42, is_demo: false },
         },
       );
       const [, created] = mockOwnershipProxy.send.mock.calls[0];

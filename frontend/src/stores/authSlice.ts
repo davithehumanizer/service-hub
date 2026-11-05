@@ -269,11 +269,12 @@ export default authSlice.reducer;
 // Selectors
 export const selectUserType = (state: {
   auth: AuthState;
-}): "customer" | "repairer" | "admin" | null => {
+}): "customer" | "repairer" | "admin" | "contributor" | null => {
   const roleName = state.auth.user?.role?.name;
   if (roleName === "admin") return "admin";
   if (roleName === "repairer") return "repairer";
   if (roleName === "user") return "customer";
+  if (roleName === "contributor") return "contributor";
   return null;
 };
 

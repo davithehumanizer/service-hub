@@ -19,6 +19,10 @@ import { DeviceModelPhoto } from './device-model-photo.entity';
  * can have none.
  */
 @Entity('device_models')
+// Only what was entered by hand has an author: a small index.
+@Index('device_models_created_by_idx', ['created_by'], {
+  where: '"created_by" IS NOT NULL',
+})
 export class DeviceModel {
   @PrimaryGeneratedColumn()
   id: number;
@@ -52,6 +56,22 @@ export class DeviceModel {
    */
   @Column({ default: false })
   is_manual: boolean;
+
+  /**
+   * The outside source that created it through the API (ACME_DATA…); null
+   * for one created by the assignment or by hand. Only an administrator
+   * changes it here.
+   */
+  @Column({ type: 'varchar', length: 32, nullable: true })
+  source: string | null;
+
+  /** The user who created it by hand; null when the assignment did. */
+  @Column({ type: 'integer', nullable: true, select: false })
+  created_by: number | null;
+
+  /** Created by a contributor: demonstration data, purged with them. */
+  @Column({ default: false })
+  is_demo: boolean;
 
   /**
    * The colours its variants come in, as Icecat names them ("Black",

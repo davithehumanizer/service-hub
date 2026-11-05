@@ -1,10 +1,13 @@
 import { Device } from "../models/device";
 import {
+  ApiRefusal,
   DeviceModel,
   DeviceModelCreated,
   DeviceModelDetail,
   DeviceModelPage,
   DeviceModelSort,
+  DeviceModelVariant,
+  VariantInput,
 } from "../models/deviceModel";
 import { API_URL } from "../utils/globals";
 import api from "./api";
@@ -12,6 +15,14 @@ import { deviceService } from "./deviceService";
 import i18n from "../i18n";
 
 const locale = () => ({ "Accept-Language": i18n.language?.slice(0, 2) || "en" });
+
+/** The API's refusal as it is, a conflict's model included; a refused
+ *  body lists its reasons. */
+const refusal = (error: any, fallback: string): ApiRefusal => {
+  const data = error.response?.data;
+  const message = Array.isArray(data?.message) ? data.message.join(", ") : data?.message;
+  return typeof message === "string" ? { ...data, message } : { message: fallback };
+};
 
 const isCancel = (error: any) =>
   error?.name === "CanceledError" ||
@@ -63,6 +74,47 @@ export const deviceModelService = {
       return response.data;
     } catch (error: any) {
       throw error.response?.data?.message || "Failed to create the device model";
+    }
+  },
+
+  /** A variant entered under a model, with its technical properties. */
+  addVariant: async (id: number, variant: VariantInput): Promise<DeviceModelVariant> => {
+    try {
+      const response = await api.post(`${API_URL}/v2/device-models/${id}/variants`, variant);
+      return response.data;
+    } catch (error: any) {
+      throw refusal(error, "Failed to add the variant");
+    }
+  },
+
+  /** Brand, name or categories, by the model's author or an administrator. */
+  update: async (
+    id: number,
+    changes: { brand?: string; name?: string; categories?: number[] },
+  ): Promise<DeviceModel> => {
+    try {
+      const response = await api.patch(`${API_URL}/v2/device-models/${id}`, changes, { headers: locale() });
+      return response.data;
+    } catch (error: any) {
+      throw refusal(error, "Failed to update the model");
+    }
+  },
+
+  /** Codes or properties of a variant, by its author or an administrator. */
+  updateVariant: async (id: number, variantId: number, changes: VariantInput): Promise<DeviceModelVariant> => {
+    try {
+      const response = await api.patch(`${API_URL}/v2/device-models/${id}/variants/${variantId}`, changes);
+      return response.data;
+    } catch (error: any) {
+      throw refusal(error, "Failed to update the variant");
+    }
+  },
+
+  deletePhoto: async (id: number, photoId: string): Promise<void> => {
+    try {
+      await api.delete(`${API_URL}/v2/device-models/${id}/photos/${photoId}`);
+    } catch (error: any) {
+      throw error.response?.data?.message || "Failed to delete the photo";
     }
   },
 

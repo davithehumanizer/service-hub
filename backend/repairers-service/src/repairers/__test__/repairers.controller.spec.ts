@@ -2,9 +2,12 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { RepairersController } from '../repairers.controller';
 import { RepairerImporterService } from '../services/repairerImporter.service';
 import { RepairerReportsService } from '../services/repairer-reports.service';
+import { RepairerProposalsService } from '../services/repairer-proposals.service';
 import { RpcException } from '@nestjs/microservices';
 
 const mockRepairersService = {
+  purgeDemo: jest.fn(),
+  demoStatsOf: jest.fn(),
   findAll: jest.fn(),
   findPaginated: jest.fn(),
   create: jest.fn(),
@@ -26,6 +29,21 @@ const mockRepairerReportsService = {
   updateStatus: jest.fn(),
 };
 
+const mockProposalsService = {
+  propose: jest.fn(),
+  change: jest.fn(),
+  withdraw: jest.fn(),
+  mine: jest.fn(),
+  pending: jest.fn(),
+  pendingCount: jest.fn(),
+  ofAuthor: jest.fn(),
+  reviewProposal: jest.fn(),
+  reviewRevision: jest.fn(),
+};
+
+const EDITOR = { created_by: 7, is_demo: false, admin: false };
+const ADMIN = { created_by: 1, is_demo: false, admin: true };
+
 describe('RepairersController', () => {
   let controller: RepairersController;
 
@@ -44,6 +62,10 @@ describe('RepairersController', () => {
         {
           provide: RepairerReportsService,
           useValue: mockRepairerReportsService,
+        },
+        {
+          provide: RepairerProposalsService,
+          useValue: mockProposalsService,
         },
       ],
     }).compile();
@@ -71,6 +93,78 @@ describe('RepairersController', () => {
     expect(result).toEqual({ id: '1' });
   });
 
+  it('should get one repairer as its viewer may see it', async () => {
+    mockRepairersService.findOne.mockResolvedValue({ id: '1' });
+    await controller.getRepairer({ id: '1', viewer: EDITOR });
+    expect(mockRepairersService.findOne).toHaveBeenCalledWith('1', EDITOR);
+  });
+
+  it("counts one contributor's repairers", async () => {
+    mockRepairersService.demoStatsOf.mockResolvedValue({ repairers: 2 });
+    expect(await controller.demoRepairerStatsOfContributor({ contributorId: 9 })).toEqual({ repairers: 2 });
+    expect(mockRepairersService.demoStatsOf).toHaveBeenCalledWith(9);
+    mockRepairersService.demoStatsOf.mockRejectedValueOnce(new Error('lock timeout'));
+    await expect(controller.demoRepairerStatsOfContributor({ contributorId: 9 })).rejects.toThrow('lock timeout');
+  });
+
+  it('previews the purge of demo repairers unless told plainly not to', async () => {
+    mockRepairersService.purgeDemo.mockResolvedValue({ repairers: 1 });
+    await controller.purgeDemoRepairers({} as any);
+    expect(mockRepairersService.purgeDemo).toHaveBeenLastCalledWith(true);
+    await controller.purgeDemoRepairers({ dryRun: false });
+    expect(mockRepairersService.purgeDemo).toHaveBeenLastCalledWith(false);
+    mockRepairersService.purgeDemo.mockRejectedValueOnce(new Error('lock timeout'));
+    await expect(controller.purgeDemoRepairers({ dryRun: false })).rejects.toThrow('lock timeout');
+  });
+
+  describe('proposals', () => {
+    it('proposes, with the editor the gateway sends', async () => {
+      mockProposalsService.propose.mockResolvedValue({ repairer_id: 'r' });
+      await controller.proposeRepairer({ changes: { name: 'A' }, editor: EDITOR });
+      expect(mockProposalsService.propose).toHaveBeenCalledWith({ name: 'A' }, EDITOR);
+    });
+
+    it('changes, withdraws and lists one\'s own', async () => {
+      await controller.changeRepairerProposal({ id: 'r', changes: { city: 'B' }, editor: EDITOR });
+      expect(mockProposalsService.change).toHaveBeenCalledWith('r', { city: 'B' }, EDITOR);
+      await controller.withdrawRepairerProposal({ id: 'r', editor: EDITOR });
+      expect(mockProposalsService.withdraw).toHaveBeenCalledWith('r', EDITOR);
+      await controller.getMyRepairers({ editor: EDITOR });
+      expect(mockProposalsService.mine).toHaveBeenCalledWith(EDITOR);
+    });
+
+    it('reviews, a missing reason being null', async () => {
+      await controller.getPendingRepairerProposals();
+      expect(mockProposalsService.pending).toHaveBeenCalled();
+      mockProposalsService.pendingCount.mockResolvedValue(4);
+      expect(await controller.countPendingRepairerProposals()).toEqual({ count: 4 });
+      await controller.getRepairersOfAuthor({ authorId: 9 });
+      expect(mockProposalsService.ofAuthor).toHaveBeenCalledWith(9);
+      await controller.reviewRepairerProposal({ id: 'r', decision: 'publish', editor: ADMIN, version: 'v' });
+      expect(mockProposalsService.reviewProposal).toHaveBeenCalledWith('r', 'publish', null, ADMIN, 'v');
+      await controller.reviewRepairerRevision({ id: 'v', decision: 'reject', note: 'No', editor: ADMIN });
+      expect(mockProposalsService.reviewRevision).toHaveBeenCalledWith('v', 'reject', 'No', ADMIN);
+    });
+
+    it('keeps a refusal\'s message for the gateway to read', async () => {
+      const refusals: [jest.Mock, () => Promise<unknown>][] = [
+        [mockProposalsService.propose, () => controller.proposeRepairer({ changes: {}, editor: EDITOR })],
+        [mockProposalsService.change, () => controller.changeRepairerProposal({ id: 'r', changes: {}, editor: EDITOR })],
+        [mockProposalsService.withdraw, () => controller.withdrawRepairerProposal({ id: 'r', editor: EDITOR })],
+        [mockProposalsService.mine, () => controller.getMyRepairers({ editor: EDITOR })],
+        [mockProposalsService.pending, () => controller.getPendingRepairerProposals()],
+        [mockProposalsService.pendingCount, () => controller.countPendingRepairerProposals()],
+        [mockProposalsService.ofAuthor, () => controller.getRepairersOfAuthor({ authorId: 9 })],
+        [mockProposalsService.reviewProposal, () => controller.reviewRepairerProposal({ id: 'r', decision: 'reject', editor: ADMIN, version: 'v' })],
+        [mockProposalsService.reviewRevision, () => controller.reviewRepairerRevision({ id: 'v', decision: 'apply', editor: ADMIN })],
+      ];
+      for (const [method, call] of refusals) {
+        method.mockRejectedValueOnce(new Error('Only its author or an administrator can change this repairer'));
+        await expect(call()).rejects.toThrow('Only its author');
+      }
+    });
+  });
+
   it('should update a repairer', async () => {
     mockRepairersService.update.mockResolvedValue({ id: '1', name: 'Updated' });
     // The shape the gateway sends.
@@ -86,8 +180,10 @@ describe('RepairersController', () => {
 
   it('should delete a repairer', async () => {
     mockRepairersService.delete.mockResolvedValue(true);
-    const result = await controller.deleteRepairer('1');
+    // The shape the gateway sends.
+    const result = await controller.deleteRepairer({ id: '1' });
     expect(result).toBe(true);
+    expect(mockRepairersService.delete).toHaveBeenCalledWith('1');
   });
 
   it('should import repairers', async () => {
@@ -213,7 +309,9 @@ describe('RepairersController', () => {
 
   it('should throw RpcException on deleteRepairer error', async () => {
     mockRepairersService.delete.mockRejectedValue(new Error('Delete error'));
-    await expect(controller.deleteRepairer('1')).rejects.toThrow(RpcException);
+    await expect(controller.deleteRepairer({ id: '1' })).rejects.toThrow(
+      RpcException,
+    );
   });
 
   it('should throw RpcException on importRepairers error', async () => {
