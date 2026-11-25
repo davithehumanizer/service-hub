@@ -63,14 +63,6 @@ const emission = {
   bike: 15,
   byFoot: 0,
 }; // sources : greenly.earth ; sami.eco ;
-const profileMap = {
-  car: "driving-car",
-  electricCar: "driving-car",
-  utility: "driving-car",
-  electricUtility: "driving-car",
-  bike: "cycling-regular",
-  byFoot: "foot-walking",
-};
 
 const router = express.Router();
 router.post("/", async (req, res) => {

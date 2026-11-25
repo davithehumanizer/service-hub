@@ -48,19 +48,6 @@ describe("POST /api/calculate-route", () => {
             },
           ],
         }),
-      })
-      // 3) ORS directions
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => ({
-          features: [
-            {
-              properties: {
-                segments: [{ duration: 600 }, { duration: 300 }],
-              },
-            },
-          ],
-        }),
       });
 
     const res = await request(app)
