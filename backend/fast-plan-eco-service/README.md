@@ -8,7 +8,7 @@ FastPlanEco API is a lightweight Express.js service for planning optimized route
 
 * **Address Geocoding**: Convert a free-text address into latitude and longitude using OpenStreetMap Nominatim.
 * **Route Optimization**: Solve the TSP for up to 8 waypoints using OSRM distance matrices and a brute-force algorithm.
-* **Route Calculation**: Retrieve optimized route geometry (GeoJSON) and compute distance and duration via OSRM and OpenRouteService.
+* **Route Calculation**: Retrieve optimized route geometry (GeoJSON) and compute distance and duration via OSRM.
 * **Carbon Footprint**: Estimate CO₂ emissions for different vehicle types (car, electric car, utility, bike, foot).
 * **Export to GPX**: Generate a GPX file of the optimized route for GPS devices.
 * **Export to Google Maps**: Produce a `https://www.google.com/maps/dir/?api=1` URL with waypoints for interactive visualization.
@@ -21,7 +21,6 @@ FastPlanEco API is a lightweight Express.js service for planning optimized route
 
 * Node.js v18+
 * Docker (optional, for containerized deployment)
-* OpenRouteService API key (`ORS_API_KEY`)
 
 ---
 
@@ -43,7 +42,6 @@ FastPlanEco API is a lightweight Express.js service for planning optimized route
 3. Create a `.env` file at the project root:
 
    ```ini
-   ORS_API_KEY=your_openrouteservice_api_key
    PORT=5000
    ```
 
@@ -160,7 +158,6 @@ npm test
 
    ```bash
    docker run --rm \
-     -e ORS_API_KEY=your_key \
      fastplaneco-api-builder \
      npm test
    ```
@@ -202,7 +199,6 @@ docker build -t fastplaneco-api .
 docker run -d \
   --name fastplaneco-api \
   -p 5000:5000 \
-  -e ORS_API_KEY=your_key \
   fastplaneco-api
 ```
 

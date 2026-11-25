@@ -22,6 +22,25 @@ signal that happens to be safe but says the opposite of what it looks like.
 To use synchronize while developing locally, set `TYPEORM_SYNCHRONIZE=true` in
 that service's `.env`. Anywhere else, schema changes come from migrations.
 
+## Starting from an empty database
+
+The migrations cannot build the schema from nothing: they start from tables
+that synchronize created while it was on — `users`, for one, has no migration.
+A fresh database therefore needs synchronize on its first start, in every
+service that has a database:
+
+```bash
+sed -i 's/^# TYPEORM_SYNCHRONIZE=true$/TYPEORM_SYNCHRONIZE=true/' backend/*/.env
+```
+
+Without it, repair-monitor-service fails its healthcheck on a missing table
+and the api-gateway, which waits for it, never starts.
+
+Once synchronize has built the schema, `typeorm:migrate` passes everywhere but
+in devices-service, where `AddUrnToDevicesAndCategories1732012800000` finds its
+columns already there and the whole batch rolls back. Locally, keep synchronize
+on rather than migrate. Checked on a fresh clone on 2026-11-25.
+
 ## Path resolution
 
 Entity and migration globs are resolved from the config file's own location:

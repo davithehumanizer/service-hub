@@ -23,8 +23,42 @@ programme.
 
 ## Running it locally
 
+Each service reads its settings from a gitignored `.env` next to its code,
+started from the `env.example` beside it; Compose refuses to start while one is
+missing. The spare parts service also joins a network that must exist first:
+
 ```bash
 cp env.example .env
+for f in backend/*/env.example frontend/env.example; do cp -n "$f" "$(dirname "$f")/.env"; done
+docker network create platform-network
+```
+
+Then generate the token secrets:
+
+```bash
+node -e "
+const c = require('crypto');
+const k = c.generateKeyPairSync('rsa', { modulusLength: 2048,
+  publicKeyEncoding: { type: 'spki', format: 'pem' },
+  privateKeyEncoding: { type: 'pkcs8', format: 'pem' } });
+const b64 = (s) => Buffer.from(s).toString('base64');
+console.log('JWT_SECRET=' + c.randomBytes(48).toString('base64'));
+console.log('OAUTH_PRIVATE_KEY=' + b64(k.privateKey));
+console.log('OAUTH_PUBLIC_KEY=' + b64(k.publicKey));
+"
+```
+
+`JWT_SECRET` goes in the `.env` of `api-gateway`, `user-management` and
+`oauth-service`, `OAUTH_PUBLIC_KEY` in `api-gateway` and `oauth-service`,
+`OAUTH_PRIVATE_KEY` in `oauth-service` alone. Every other setting can wait:
+each `env.example` says what happens without it.
+
+An empty database gets no schema from the migrations, so the first start needs
+`TYPEORM_SYNCHRONIZE` on (`docs/migrations.md`, "Starting from an empty
+database"):
+
+```bash
+sed -i 's/^# TYPEORM_SYNCHRONIZE=true$/TYPEORM_SYNCHRONIZE=true/' backend/*/.env
 docker compose up --build
 ```
 
