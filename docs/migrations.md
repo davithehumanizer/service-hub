@@ -41,6 +41,9 @@ in devices-service, where `AddUrnToDevicesAndCategories1732012800000` finds its
 columns already there and the whole batch rolls back. Locally, keep synchronize
 on rather than migrate. Checked on a fresh clone on 2026-11-25.
 
+A shareable dump avoids both: it brings the schema and its `migrations` table
+(`scripts/shareable-dump/README.md`).
+
 ## Path resolution
 
 Entity and migration globs are resolved from the config file's own location:
