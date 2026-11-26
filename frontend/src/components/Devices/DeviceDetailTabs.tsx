@@ -21,10 +21,11 @@ import {
   IdentificationIcon,
   TagIcon,
 } from '@heroicons/react/24/outline';
-import { Device, DeviceInformationalProperty, DevicePhoto } from '../../models/device';
+import { Device, DeviceInformationalProperty } from '../../models/device';
+import { DeviceModelPhoto } from '../../models/deviceModel';
 import sparePartsService, { MeilisearchHit } from '../../services/sparePartsService';
 import FixometerImpactCalculator from '../Fixometer/FixometerImpactCalculator';
-import ImageGallery from './ImageGallery';
+import DevicePhotos from './DevicePhotos';
 import MultimediaViewer from './MultimediaViewer';
 import PropertyAccordion from './PropertyAccordion';
 import PropertyCard from './PropertyCard';
@@ -42,7 +43,21 @@ interface DeviceDetailTab {
  * impact. Shown for an entry on its own page, and for a variant on its
  * model's page.
  */
-const DeviceDetailTabs = ({ device, showPartsAt = 0 }: { device: Device; showPartsAt?: number }) => {
+const DeviceDetailTabs = ({
+  device,
+  showPartsAt = 0,
+  modelPhotos = [],
+  onAddPhotos,
+  onDeletePhoto,
+}: {
+  device: Device;
+  showPartsAt?: number;
+  /** The pictures of its model itself, shown with its own. */
+  modelPhotos?: DeviceModelPhoto[];
+  /** For a signed-in reader: photos added to the model. */
+  onAddPhotos?: (files: File[]) => Promise<void>;
+  onDeletePhoto?: (photoId: string) => Promise<void>;
+}) => {
   const { t } = useTranslation();
   const history = useHistory();
   const [activeTab, setActiveTab] = useState<string>('details');
@@ -80,15 +95,12 @@ const DeviceDetailTabs = ({ device, showPartsAt = 0 }: { device: Device; showPar
   }, [activeTab, device, sparePartsPage]);
 
   // Helper functions to extract and organize informational properties
-  const extractImages = (informationalProperties?: DeviceInformationalProperty[]) => {
-    if (!informationalProperties) return [];
-    return informationalProperties
-      .filter(prop => prop.property_name.startsWith('Image_'))
-      .map(prop => ({
-        name: prop.property_name.replace('Image_', ''),
-        url: prop.property_value
-      }));
-  };
+  // Icecat lists one picture in four sizes: the best first, the next when one
+  // does not load.
+  const catalogueImages = (informationalProperties?: DeviceInformationalProperty[]) =>
+    ['Image_HighPic', 'Image_Pic500x500', 'Image_LowPic', 'Image_ThumbPic']
+      .map((name) => informationalProperties?.find((p) => p.property_name === name)?.property_value)
+      .filter((url): url is string => !!url);
 
   const extractMultimedia = (informationalProperties?: DeviceInformationalProperty[]) => {
     const multimediaProp = informationalProperties?.find(
@@ -256,34 +268,19 @@ const DeviceDetailTabs = ({ device, showPartsAt = 0 }: { device: Device; showPar
     {
       label: t('deviceDetails.tabs.photos'),
       value: 'photos',
-      content: (() => {
-        const icecatImages = extractImages(device.informationalProperties);
-        const uploadedPhotos = device.photos ?? [];
-        const hasAny = icecatImages.length > 0 || uploadedPhotos.length > 0;
-        return (
-          <Paper p="md" radius="md" withBorder className="mt-6 bg-gray-50 dark:bg-gray-800 dark:bg-opacity-50 border-gray-100 dark:border-gray-700">
-            {!hasAny && (
-              <Text c="dimmed" fs="italic" ta="center" py="xl">{t('deviceDetails.noPhotos')}</Text>
-            )}
-            {icecatImages.length > 0 && (
-              <ImageGallery images={icecatImages} />
-            )}
-            {uploadedPhotos.length > 0 && (
-              <div className="flex flex-wrap gap-4 mt-4">
-                {uploadedPhotos.map((photo: DevicePhoto) => (
-                  <a key={photo.id} href={photo.url} target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={photo.url}
-                      alt={t('deviceDetails.modelName')}
-                      className="w-40 h-40 object-cover rounded-lg border border-gray-200 dark:border-gray-600 hover:opacity-90 transition-opacity"
-                    />
-                  </a>
-                ))}
-              </div>
-            )}
-          </Paper>
-        );
-      })(),
+      content: (
+        <Paper p="md" radius="md" withBorder className="mt-6 bg-gray-50 dark:bg-gray-800 dark:bg-opacity-50 border-gray-100 dark:border-gray-700">
+          <DevicePhotos
+            catalogue={catalogueImages(device.informationalProperties)}
+            added={[
+              ...(device.photos ?? []).map((p) => ({ id: p.id, url: p.url, isDemo: p.isDemo })),
+              ...modelPhotos.map((p) => ({ id: p.id, url: p.url, isDemo: p.is_demo, deletable: p.deletable })),
+            ]}
+            onAdd={onAddPhotos}
+            onDelete={onDeletePhoto ? (photo) => onDeletePhoto(photo.id) : undefined}
+          />
+        </Paper>
+      ),
     },
     {
       label: t('deviceDetails.tabs.spareParts'),

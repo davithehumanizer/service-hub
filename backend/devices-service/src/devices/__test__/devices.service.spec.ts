@@ -870,8 +870,45 @@ describe('DevicesService', () => {
     expect(modelAssignment.assignDevice).toHaveBeenCalledWith(7);
 
     photos.findOne.mockResolvedValue({ id: 'p', key: 'k', deviceId: 8 });
-    expect(await service.deleteDevicePhoto('p')).toEqual({ key: 'k' });
+    const admin = { created_by: 1, is_demo: false, admin: true };
+    expect(await service.deleteDevicePhoto('p', admin)).toEqual({ key: 'k' });
     expect(modelAssignment.assignDevice).toHaveBeenCalledWith(8);
+  });
+
+  it('deletes a photo of the device named, by its uploader only', async () => {
+    const photos = (service as any).devicePhotoRepository;
+    const uploader = { created_by: 42, is_demo: true, admin: false };
+    photos.findOne.mockResolvedValue({
+      id: 'p',
+      key: 'k',
+      deviceId: 8,
+      createdBy: 42,
+    });
+
+    expect(await service.deleteDevicePhoto('p', uploader, 8)).toEqual({
+      key: 'k',
+    });
+    expect(photos.findOne).toHaveBeenCalledWith({
+      where: { id: 'p', deviceId: 8 },
+      select: { id: true, deviceId: true, key: true, createdBy: true },
+    });
+    await expect(
+      service.deleteDevicePhoto('p', { ...uploader, created_by: 7 }, 8),
+    ).rejects.toThrow('Only its author or an administrator');
+  });
+
+  it("marks a contributor's photos of a variant as demonstration data", async () => {
+    const photos = (service as any).devicePhotoRepository;
+    photos.create.mockImplementation((p: unknown) => p);
+
+    await service.addDevicePhotos(7, [{ url: 'u.jpg', key: 'k' }], {
+      created_by: 42,
+      is_demo: true,
+    });
+
+    expect(photos.save).toHaveBeenCalledWith([
+      { deviceId: 7, url: 'u.jpg', key: 'k', createdBy: 42, isDemo: true },
+    ]);
   });
 
   it('updateDevice should update device with new data', async () => {
@@ -1022,7 +1059,10 @@ describe('DevicesService', () => {
       // First call returns the device ids, later ones the category facet rows
       getRawMany: jest
         .fn()
-        .mockResolvedValueOnce([{ device_device_id: 1 }, { device_device_id: 2 }])
+        .mockResolvedValueOnce([
+          { device_device_id: 1 },
+          { device_device_id: 2 },
+        ])
         .mockResolvedValue([]),
       orderBy: jest.fn().mockReturnThis(),
     } as any;

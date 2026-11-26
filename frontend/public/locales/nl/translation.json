@@ -8,21 +8,26 @@
     "repairJourney": "Reparatietraject",
     "assistant": "Informatieagent",
     "sourceCode": "Broncode",
-    "tools": "Gereedschappen",
     "devices": "Apparaten",
     "spareParts": "Reserveonderdelen",
     "repairMap": "Reparatiekaart",
     "tutorials": "Tutorials",
     "impactCalculator": "Impactcalculator",
     "repairMonitor": "Repair Monitor",
-    "repairer": "Reparateur",
     "myWorkshop": "Mijn werkplaats",
     "apiCatalog": "Communitycatalogus",
-    "catalog": "Catalogus",
     "submitATool": "Een tool indienen",
     "admin": "Admin",
     "adminApiCatalog": "API-catalogus",
-    "adminRepairerReports": "Meldingen reparateurs"
+    "adminRepairerReports": "Meldingen reparateurs",
+    "adminContributors": "Bijdragersaccounts",
+    "myRepairers": "Mijn reparateurs",
+    "adminRepairerProposals": "Voorgestelde reparateurs",
+    "adminDemoData": "Demogegevens",
+    "myContributions": "Mijn bijdragen",
+    "find": "Vinden",
+    "contribute": "Bijdragen",
+    "impact": "Impact"
   },
   "header": {
     "menu": "Menu",
@@ -313,7 +318,12 @@
       "os": "Besturingssysteem",
       "keyboard": "Toetsenbord",
       "sim": "Simkaart"
-    }
+    },
+    "addVariant": "Variant toevoegen",
+    "editVariant": "Deze variant bewerken",
+    "photoDeleted": "Foto verwijderd.",
+    "contribute": "Bijdragen",
+    "editModel": "Model bewerken"
   },
   "personalDevices": {
     "loadFailed": "Uw apparaten konden niet worden geladen.",
@@ -389,13 +399,17 @@
     "validation": {
       "brandRequired": "Het merk is verplicht",
       "nameRequired": "Het model is verplicht",
-      "eanFormat": "Een barcode telt 8 tot 14 cijfers"
+      "eanFormat": "Een barcode telt 8 tot 14 cijfers",
+      "demoEan": "Een democode begint met 2"
     },
     "eanHint": "Optioneel: de barcode, als u die hebt.",
+    "demoEanHint": "Democode: 8 tot 14 cijfers die met 2 beginnen, zelf verzonnen.",
     "productCodeHint": "Optioneel: de referentie van de fabrikant.",
     "created": "{{name}} is aan de catalogus toegevoegd.",
     "existed": "{{name}} stond al in de catalogus: hier is het.",
-    "photosFailed": "De foto's konden niet worden toegevoegd."
+    "photosFailed": "De foto's konden niet worden toegevoegd.",
+    "demoCodeKnown": "Deze code of referentie staat al in de catalogus: verzin een andere.",
+    "generateEan": "Genereren"
   },
   "repairMap": {
     "title": "Een plek vinden",
@@ -481,7 +495,8 @@
     "markersInArea_other": "{{count}} plekken in dit gebied, {{shown}} getoond.",
     "zoomForDetail": "Zoom in om ze allemaal te zien.",
     "mapSearch": "Kaartzoekactie",
-    "recenter": "Centreer op mijn locatie"
+    "recenter": "Centreer op mijn locatie",
+    "proposeRepairer": "Reparateur voorstellen"
   },
   "repairerDetails": {
     "address": "Adres",
@@ -498,7 +513,9 @@
     "openInMaps": "Openen in Google Maps",
     "loadingRoute": "Route-informatie laden...",
     "routeError": "Kan route-informatie niet laden.",
-    "backToMap": "Terug naar kaart"
+    "backToMap": "Terug naar kaart",
+    "pendingNotice": "Deze reparateur wacht op goedkeuring door een beheerder: alleen u ziet hem.",
+    "rejectedNotice": "Dit voorstel is afgewezen. U kunt het verbeteren en opnieuw indienen via \"Mijn reparateurs\"."
   },
   "repairerProfile": {
     "title": "Mijn werkplaats",
@@ -702,6 +719,31 @@
     "reportedOn": "Gemeld op",
     "markReviewed": "Markeer als verwerkt",
     "dismiss": "Afwijzen"
+  },
+  "adminContributors": {
+    "title": "Admin — Bijdragersaccounts",
+    "subtitle": "Accounts van de bedrijven die demonstratiegegevens invoeren: alles wat ze aanmaken, wordt als zodanig gemarkeerd.",
+    "newAccount": "Nieuw account",
+    "invitationHint": "De bijdrager kiest een wachtwoord via de link in de e-mail. Kwijtgeraakt? Via „Wachtwoord vergeten” komt er een nieuwe.",
+    "email": "E-mailadres",
+    "emailInvalid": "Ongeldig e-mailadres.",
+    "firstName": "Voornaam contactpersoon",
+    "lastName": "Achternaam contactpersoon",
+    "language": "Taal van de e-mails",
+    "create": "Aanmaken en uitnodiging versturen",
+    "created": "Uitnodiging verstuurd naar {{email}}.",
+    "alreadyExists": "Dit adres heeft al een account.",
+    "createError": "Dit account kon niet worden aangemaakt.",
+    "loadError": "De accounts konden niet worden geladen.",
+    "accounts": "Bestaande accounts",
+    "none": "Nog geen bijdragersaccount.",
+    "createdOn": "Aangemaakt op",
+    "wouldRemove": "Wat het opschonen voor dit account zou verwijderen",
+    "pendingChanges": "Wijzigingen die op goedkeuring wachten",
+    "languageHint": "De uitnodiging, daarna elke e-mail die het account ontvangt.",
+    "emailsIn": "e-mails: {{language}}",
+    "entries": "Wat het heeft ingevoerd",
+    "noEntries": "Dit account heeft nog niets ingevoerd."
   },
   "apiToolDetail": {
     "backToCatalog": "Terug naar catalogus",
@@ -1289,7 +1331,6 @@
     "viewFullSheet": "Volledig apparaatprofiel bekijken",
     "removeConfirmTitle": "Apparaat verwijderen",
     "removeConfirmDesc": "Weet u zeker dat u het huidige apparaat wilt verwijderen?",
-    "noPhotos": "Geen foto's beschikbaar voor dit apparaat.",
     "closeLightbox": "Lightbox sluiten",
     "noMultimedia": "Geen multimedia-inhoud beschikbaar.",
     "multimediaError": "Fout bij laden van multimedia-inhoud.",
@@ -1795,5 +1836,224 @@
     "unavailable": "Op dit apparaat is geen camera beschikbaar.",
     "startFailed": "De scanner kon niet starten. Typ het nummer in plaats daarvan.",
     "switchCamera": "Andere camera"
+  },
+  "demo": {
+    "badge": "Demo",
+    "hint": "Demonstratiegegevens, ingevoerd om de site uit te proberen"
+  },
+  "modelEdit": {
+    "title": "Model bewerken",
+    "saved": "Model opgeslagen.",
+    "nameTaken": "Een ander model heeft deze naam al.",
+    "brandAndName": "Merk en model zijn verplicht."
+  },
+  "variantForm": {
+    "titleAdd": "Variant toevoegen",
+    "titleEdit": "Variant bewerken",
+    "eanHint": "De barcode, als u die hebt.",
+    "codesHint": "Een barcode of een referentie: minstens één van beide.",
+    "properties": "Kenmerken",
+    "propertiesHint": "Vul in wat u weet. Getallen in de aangegeven eenheid.",
+    "otherProperties": "Andere kenmerken",
+    "propertyName": "Naam",
+    "propertyValue": "Waarde",
+    "addProperty": "Kenmerk toevoegen",
+    "numberInvalid": "Een getal, in de aangegeven eenheid",
+    "needsCode": "Geef een barcode of een referentie op.",
+    "codeKnown": "Deze barcode of referentie staat al in de catalogus.",
+    "seeModel": "Dat model bekijken",
+    "notYours": "Alleen de auteur of een beheerder kan dit wijzigen.",
+    "photoNotYours": "Alleen wie de foto heeft toegevoegd, of een beheerder, kan hem verwijderen.",
+    "added": "Variant toegevoegd.",
+    "saved": "Variant opgeslagen.",
+    "fixProperties": "Corrigeer de rood gemarkeerde kenmerken."
+  },
+  "devicePhotos": {
+    "catalogue": "Catalogusfoto",
+    "added": "Toegevoegde foto's",
+    "addedHint": "Zichtbaar bij alle varianten van dit model.",
+    "addFirst": "Eerste foto toevoegen",
+    "enlarge": "Foto vergroten",
+    "deleteConfirm": "Deze foto verwijderen?",
+    "definitions": "{{n}} resoluties",
+    "chooseDefinition": "Kies een resolutie"
+  },
+  "repairerForm": {
+    "titleNew": "Reparateur voorstellen",
+    "titleEdit": "Reparateur bewerken",
+    "intro": "Hij verschijnt op de kaart zodra een beheerder hem heeft goedgekeurd.",
+    "introPublished": "Uw wijzigingen worden zichtbaar zodra een beheerder ze heeft goedgekeurd; tot dan toont de kaart de huidige versie.",
+    "introAdmin": "Als beheerder wordt wat u opslaat meteen gepubliceerd.",
+    "pendingChange": "Er wacht al een wijziging op goedkeuring: opslaan vervangt die.",
+    "sectionPlace": "De plek",
+    "name": "Naam",
+    "activity": "Activiteit",
+    "description": "Beschrijving",
+    "sectionAddress": "Adres",
+    "searchAddress": "Adres zoeken",
+    "searchPlaceholder": "Straat, nummer, plaats…",
+    "street": "Straat en nummer",
+    "postalCode": "Postcode",
+    "city": "Plaats",
+    "country": "Land",
+    "latitude": "Breedtegraad",
+    "longitude": "Lengtegraad",
+    "pinHint": "Kies een adres uit de lijst en versleep zo nodig de speld, of klik op de kaart.",
+    "pinMissing": "Zet de plek op de kaart: kies een adres uit de lijst of klik op de kaart.",
+    "sectionContact": "Contact",
+    "website": "Website",
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "devices": "Gerepareerde apparaten",
+    "devicesPlaceholder": "Kies de soorten apparaten",
+    "submitNew": "Voorstel versturen",
+    "submitEdit": "Opslaan",
+    "sent": "Voorstel verstuurd. Het verschijnt op de kaart zodra het is goedgekeurd.",
+    "published": "Reparateur gepubliceerd.",
+    "changeSent": "Wijziging verstuurd. Ze wordt zichtbaar zodra ze is goedgekeurd.",
+    "saved": "Wijzigingen opgeslagen.",
+    "notYours": "Alleen wie deze reparateur voorstelde, of een beheerder, kan hem wijzigen.",
+    "required": "Vul de naam, de straat, de plaats en het land in.",
+    "fieldRequired": "Verplicht"
+  },
+  "myRepairers": {
+    "title": "Mijn reparateurs",
+    "intro": "De plekken die u voorstelde, en hoe het met hun goedkeuring staat.",
+    "propose": "Reparateur voorstellen",
+    "empty": "U hebt nog geen reparateur voorgesteld.",
+    "status": {
+      "pending": "Wacht op goedkeuring",
+      "published": "Gepubliceerd",
+      "rejected": "Afgewezen"
+    },
+    "proposedOn": "Voorgesteld op {{date}}",
+    "view": "Bekijken",
+    "edit": "Bewerken",
+    "withdraw": "Intrekken",
+    "withdrawConfirm": "Dit voorstel intrekken? Het wordt verwijderd.",
+    "withdrawn": "Voorstel ingetrokken.",
+    "rejectedHint": "Afgewezen door een beheerder. Bewerk het om het opnieuw in te dienen.",
+    "changePending": "Een wijziging van {{date}} wacht op goedkeuring.",
+    "changeRejected": "Uw laatste wijziging is afgewezen.",
+    "reason": "Reden: {{note}}"
+  },
+  "adminRepairerProposals": {
+    "title": "Voorgestelde reparateurs",
+    "intro": "Op de site voorgestelde reparateurs, en de wijzigingen van hun auteurs, komen pas op de kaart nadat ze hier zijn goedgekeurd.",
+    "empty": "Niets te beoordelen.",
+    "newPlaces": "Nieuwe plekken",
+    "changes": "Wijzigingen",
+    "proposedOn": "verstuurd op {{date}}",
+    "seeOnMap": "Bekijk op de kaart",
+    "field": "Veld",
+    "before": "Nu",
+    "after": "Voorgesteld",
+    "publish": "Publiceren",
+    "apply": "Toepassen",
+    "reject": "Afwijzen",
+    "reason": "Reden van afwijzing",
+    "reasonHint": "Optioneel. Getoond aan wie het voorstelde.",
+    "confirmReject": "Afwijzing bevestigen",
+    "done": {
+      "proposal": {
+        "publish": "Reparateur gepubliceerd.",
+        "reject": "Voorstel afgewezen."
+      },
+      "revision": {
+        "apply": "Wijziging toegepast.",
+        "reject": "Wijziging afgewezen."
+      }
+    },
+    "stale": "Er is intussen iets gewijzigd: de lijst is opnieuw geladen, controleer ze opnieuw.",
+    "proposedBy": "door",
+    "select": "Selecteren",
+    "selectAll": "Alles selecteren",
+    "publishSelected": "Selectie publiceren ({{count}})",
+    "applySelected": "Selectie toepassen ({{count}})",
+    "bulkDone": {
+      "proposal_one": "{{count}} reparateur gepubliceerd.",
+      "proposal_other": "{{count}} reparateurs gepubliceerd.",
+      "revision_one": "{{count}} wijziging toegepast.",
+      "revision_other": "{{count}} wijzigingen toegepast."
+    },
+    "bulkSkipped_one": "{{count}} kon niet worden verwerkt. De wachtrij is herladen: controleer het voor u het opnieuw probeert.",
+    "bulkSkipped_other": "{{count}} konden niet worden verwerkt. De wachtrij is herladen: controleer ze voor u het opnieuw probeert.",
+    "refused": "Onlangs afgewezen",
+    "refusedHint": "Een afwijzing die een vergissing was, maakt u hier ongedaan. Zoals bij elke beslissing krijgt de auteur een e-mail.",
+    "refusedOn": "Afgewezen op {{date}}",
+    "reasonGiven": "reden: {{note}}",
+    "publishAnyway": "Toch publiceren",
+    "applyAnyway": "Toch toepassen",
+    "publishAnywayConfirm": "Deze reparateur toch publiceren ondanks de afwijzing? De auteur krijgt een e-mail.",
+    "applyAnywayConfirm": "Deze wijziging toch toepassen ondanks de afwijzing? De auteur krijgt een e-mail."
+  },
+  "adminDemoData": {
+    "title": "Demogegevens",
+    "intro": "Alles wat de bijdragers invoerden, wat ernaar verwijst, en hun accounts, in één keer verwijderd.",
+    "wouldRemove": "Wat het opschonen zou verwijderen",
+    "done": "Verwijderd",
+    "nothing": "Geen demogegevens meer.",
+    "accountsGroup": "Accounts",
+    "catalogueGroup": "Catalogus",
+    "repairersGroup": "Reparateurs",
+    "contagionGroup": "Verwijzend naar demogegevens",
+    "lines": {
+      "accounts": "Bijdragersaccounts",
+      "models": "Modellen",
+      "variants": "Varianten",
+      "photos": "Foto's (en hun bestanden)",
+      "adoptedModels": "Demomodellen behouden, omdat er een echte variant bij kwam",
+      "touchedModels": "Echte modellen herberekend",
+      "repairers": "Reparateurs",
+      "ownerships": "Persoonlijke apparaten",
+      "journeys": "Reparatietrajecten",
+      "records": "Reparatiegegevens",
+      "subscriptions": "Abonnementen op tutorials"
+    },
+    "ofRealUsers": "waarvan {{n}} van echte gebruikers",
+    "irreversible": "Dit kan niet ongedaan worden gemaakt.",
+    "dumpFirst": "Maak eerst een back-up van de database.",
+    "contagionWarning": "Echte gebruikers verliezen de persoonlijke apparaten en trajecten die naar demogegevens verwijzen.",
+    "typeWord": "Typ {{word}} om te bevestigen",
+    "purge": "Opschonen",
+    "purged": "Demogegevens opgeschoond.",
+    "filesLeft": "{{n}} fotobestanden konden niet worden verwijderd: zie de logboeken van de gateway.",
+    "stopped": "Het opschonen is gestopt. Wat verwijderd is, blijft verwijderd; start het opnieuw om af te ronden."
+  },
+  "contributions": {
+    "title": "Mijn bijdragen",
+    "intro": "De modellen en varianten die u hebt ingevoerd, nieuwste eerst.",
+    "add": "Apparaat toevoegen",
+    "empty": "U hebt nog geen model of variant ingevoerd.",
+    "repairersElsewhere": "De reparateurs die u hebt voorgesteld, staan in",
+    "kinds": {
+      "models": "Modellen",
+      "variants": "Varianten",
+      "repairers": "Reparateurs"
+    },
+    "none": {
+      "models": "Geen modellen.",
+      "variants": "Geen varianten.",
+      "repairers": "Geen reparateurs."
+    },
+    "variantCount_one": "{{count}} variant",
+    "variantCount_other": "{{count}} varianten",
+    "createdOn": "aangemaakt op {{date}}",
+    "code": "Barcode {{code}}",
+    "noCode": "Geen barcode",
+    "changeWaiting": "wijziging in afwachting",
+    "loadMore": "Meer tonen ({{shown}} van {{total}})"
+  },
+  "contributorGuide": {
+    "title": "Welkom bij de demonstratiecampagne",
+    "intro": "Wat u invoert, vult Service Hub tijdens de campagne: apparaten en reparateurs, zo realistisch mogelijk.",
+    "rules": {
+      "what": "Voer apparaatmodellen in, hun varianten (kleur, capaciteit…) met hun kenmerken en foto’s, en reparateurs.",
+      "ean": "Een barcode (EAN) begint met 2: de knop “Genereren” in het formulier maakt een vrije aan.",
+      "photos": "Foto’s: alleen uw eigen, of onder een vrije licentie. Geen afbeeldingen van de site van een fabrikant of verkoper: wat u invoert, is openbaar.",
+      "repairers": "Een reparateur verschijnt op de kaart zodra een beheerder hem goedkeurt; bij elke beslissing krijgt u een e-mail.",
+      "emails": "Abonnementen op tutorials versturen echte e-mails: gebruik een adres dat u leest.",
+      "purge": "Alles wat u invoert, draagt het label “Demo” en wordt aan het einde van de campagne verwijderd."
+    }
   }
 }

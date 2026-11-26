@@ -26,6 +26,8 @@ import { ApiCatalogGatewayModule } from './api-catalog/api-catalog.module';
 import { IssueTagModule } from './issue-tag/issue-tag.module';
 import { RepairMonitorModule } from './repair-monitor/repair-monitor.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { DemoDataModule } from './demo-data/demo-data.module';
+import { ContributionsModule } from './contributions/contributions.module';
 
 @Module({
   imports: [
@@ -59,6 +61,8 @@ import { NotificationsModule } from './notifications/notifications.module';
     IssueTagModule,
     RepairMonitorModule,
     NotificationsModule,
+    DemoDataModule,
+    ContributionsModule,
   ],
   controllers: [AppController, LogsController],
   providers: [

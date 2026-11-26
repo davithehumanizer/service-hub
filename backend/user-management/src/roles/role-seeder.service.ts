@@ -34,9 +34,27 @@ const permissionsUser = [
   'api_catalog.submit',
   // contribute a repair record to the open dataset
   'repair.submit',
+  // propose a repairer, shown once an administrator publishes it
+  'repairer.propose',
 ];
 
 const permissionsRepairer = [...permissionsUser, 'repairer.profile.manage'];
+
+// A company paid to enter demonstration data: what it creates is marked as
+// such and purged with it (docs/demo-data.md). Not built on `user`, so
+// that it holds only what is listed here.
+const permissionsContributor = [
+  ...permissionGuest,
+  'user.me',
+  'user.update',
+  // its personal devices, shown wherever a signed-in user's are
+  'ownership.get_user_devices',
+  'ownership.assign_device',
+  'ownership.remove_device',
+  'device.create',
+  'device.photos.upload',
+  'repairer.propose',
+];
 
 const permissionsAdmin = [
   ...permissionsUser,
@@ -63,12 +81,21 @@ const permissionsAdmin = [
   'repair.admin',
   // repairer report moderation
   'repairer.reports.admin',
+  // publish proposed repairers and their changes
+  'repairer.proposals.admin',
+  // contributor accounts
+  'contributor.admin',
+  // the one purge of demonstration data, contributor accounts included
+  'demo_data.purge',
+  // name the outside source of models and variants created through the API
+  'device.source.set',
 ];
 
 const ROLES: Array<{ name: string; permissions: string[] }> = [
   { name: 'guest', permissions: permissionGuest },
   { name: 'user', permissions: permissionsUser },
   { name: 'repairer', permissions: permissionsRepairer },
+  { name: 'contributor', permissions: permissionsContributor },
   { name: 'admin', permissions: permissionsAdmin },
 ];
 

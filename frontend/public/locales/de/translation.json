@@ -8,21 +8,26 @@
     "repairJourney": "Reparaturpfad",
     "assistant": "Informationsagent",
     "sourceCode": "Quellcode",
-    "tools": "Werkzeuge",
     "devices": "Geräte",
     "spareParts": "Ersatzteile",
     "repairMap": "Reparaturkarte",
     "tutorials": "Tutorials",
     "impactCalculator": "Impact-Rechner",
     "repairMonitor": "Repair Monitor",
-    "repairer": "Reparateur",
     "myWorkshop": "Meine Werkstatt",
     "apiCatalog": "Community-Katalog",
-    "catalog": "Katalog",
     "submitATool": "Tool einreichen",
     "admin": "Admin",
     "adminApiCatalog": "API-Katalog",
-    "adminRepairerReports": "Reparaturmeldungen"
+    "adminRepairerReports": "Reparaturmeldungen",
+    "adminContributors": "Mitwirkenden-Konten",
+    "myRepairers": "Meine Reparaturbetriebe",
+    "adminRepairerProposals": "Vorgeschlagene Betriebe",
+    "adminDemoData": "Demodaten",
+    "myContributions": "Meine Beiträge",
+    "find": "Finden",
+    "contribute": "Beitragen",
+    "impact": "Wirkung"
   },
   "header": {
     "menu": "Menü",
@@ -313,7 +318,12 @@
       "os": "Betriebssystem",
       "keyboard": "Tastatur",
       "sim": "SIM-Karte"
-    }
+    },
+    "addVariant": "Variante hinzufügen",
+    "editVariant": "Diese Variante bearbeiten",
+    "photoDeleted": "Foto gelöscht.",
+    "contribute": "Mitwirken",
+    "editModel": "Modell bearbeiten"
   },
   "personalDevices": {
     "loadFailed": "Ihre Geräte konnten nicht geladen werden.",
@@ -389,13 +399,17 @@
     "validation": {
       "brandRequired": "Die Marke ist ein Pflichtfeld",
       "nameRequired": "Das Modell ist ein Pflichtfeld",
-      "eanFormat": "Ein Barcode hat 8 bis 14 Ziffern"
+      "eanFormat": "Ein Barcode hat 8 bis 14 Ziffern",
+      "demoEan": "Ein Demo-Code beginnt mit 2"
     },
     "eanHint": "Optional: sein Barcode, falls vorhanden.",
+    "demoEanHint": "Demo-Code: 8 bis 14 Ziffern, die mit 2 beginnen, frei erfunden.",
     "productCodeHint": "Optional: die Referenz des Herstellers.",
     "created": "{{name}} wurde dem Katalog hinzugefügt.",
     "existed": "{{name}} war bereits im Katalog: Hier ist es.",
-    "photosFailed": "Die Fotos konnten nicht hinzugefügt werden."
+    "photosFailed": "Die Fotos konnten nicht hinzugefügt werden.",
+    "demoCodeKnown": "Dieser Code oder diese Referenz ist bereits im Katalog: Denken Sie sich einen anderen aus.",
+    "generateEan": "Erzeugen"
   },
   "repairMap": {
     "title": "Einen Ort finden",
@@ -481,7 +495,8 @@
     "markersInArea_other": "{{count}} Orte in diesem Bereich, {{shown}} angezeigt.",
     "zoomForDetail": "Zoomen Sie hinein, um alle zu sehen.",
     "mapSearch": "Kartensuche",
-    "recenter": "Auf meinen Standort zentrieren"
+    "recenter": "Auf meinen Standort zentrieren",
+    "proposeRepairer": "Betrieb vorschlagen"
   },
   "repairerDetails": {
     "address": "Adresse",
@@ -498,7 +513,9 @@
     "openInMaps": "In Google Maps öffnen",
     "loadingRoute": "Routendaten werden geladen...",
     "routeError": "Routeninformationen konnten nicht geladen werden.",
-    "backToMap": "Zurück zur Karte"
+    "backToMap": "Zurück zur Karte",
+    "pendingNotice": "Dieser Betrieb wartet auf die Freigabe durch einen Administrator: Nur Sie sehen ihn.",
+    "rejectedNotice": "Dieser Vorschlag wurde abgelehnt. Sie können ihn unter „Meine Reparaturbetriebe\" korrigieren und erneut senden."
   },
   "repairerProfile": {
     "title": "Meine Werkstatt",
@@ -702,6 +719,31 @@
     "reportedOn": "Gemeldet am",
     "markReviewed": "Als bearbeitet markieren",
     "dismiss": "Verwerfen"
+  },
+  "adminContributors": {
+    "title": "Admin — Mitwirkenden-Konten",
+    "subtitle": "Die Konten der Unternehmen, die Demonstrationsdaten erfassen: alles, was sie anlegen, wird entsprechend markiert.",
+    "newAccount": "Neues Konto",
+    "invitationHint": "Die Person wählt ihr Passwort über den Link in der E-Mail. Geht er verloren, schickt „Passwort vergessen“ einen neuen.",
+    "email": "E-Mail-Adresse",
+    "emailInvalid": "Ungültige E-Mail-Adresse.",
+    "firstName": "Vorname der Kontaktperson",
+    "lastName": "Nachname der Kontaktperson",
+    "language": "Sprache der E-Mails",
+    "create": "Anlegen und Einladung senden",
+    "created": "Einladung an {{email}} gesendet.",
+    "alreadyExists": "Für diese Adresse gibt es bereits ein Konto.",
+    "createError": "Dieses Konto konnte nicht angelegt werden.",
+    "loadError": "Die Konten konnten nicht geladen werden.",
+    "accounts": "Bestehende Konten",
+    "none": "Noch kein Mitwirkenden-Konto.",
+    "createdOn": "Angelegt am",
+    "wouldRemove": "Was die Bereinigung für dieses Konto löschen würde",
+    "pendingChanges": "Änderungen, die auf Freigabe warten",
+    "languageHint": "Die Einladung, dann jede E-Mail, die das Konto erhält.",
+    "emailsIn": "E-Mails: {{language}}",
+    "entries": "Seine Eingaben",
+    "noEntries": "Dieses Konto hat noch nichts eingegeben."
   },
   "apiToolDetail": {
     "backToCatalog": "Zurück zum Katalog",
@@ -1289,7 +1331,6 @@
     "viewFullSheet": "Vollständiges Geräteprofil ansehen",
     "removeConfirmTitle": "Gerät entfernen",
     "removeConfirmDesc": "Sind Sie sicher, dass Sie das aktuelle Gerät entfernen möchten?",
-    "noPhotos": "Keine Fotos für dieses Gerät verfügbar.",
     "closeLightbox": "Lightbox schließen",
     "noMultimedia": "Kein Multimediainhalt verfügbar.",
     "multimediaError": "Fehler beim Laden des Multimediainhalts.",
@@ -1795,5 +1836,224 @@
     "unavailable": "Auf diesem Gerät ist keine Kamera verfügbar.",
     "startFailed": "Der Scanner konnte nicht starten. Geben Sie stattdessen die Nummer ein.",
     "switchCamera": "Kamera wechseln"
+  },
+  "demo": {
+    "badge": "Demo",
+    "hint": "Demodaten, erfasst, um die Website auszuprobieren"
+  },
+  "modelEdit": {
+    "title": "Modell bearbeiten",
+    "saved": "Modell gespeichert.",
+    "nameTaken": "Ein anderes Modell trägt bereits diesen Namen.",
+    "brandAndName": "Marke und Modell sind Pflichtfelder."
+  },
+  "variantForm": {
+    "titleAdd": "Variante hinzufügen",
+    "titleEdit": "Variante bearbeiten",
+    "eanHint": "Ihr Barcode, falls vorhanden.",
+    "codesHint": "Ein Barcode oder eine Referenz: mindestens eines von beiden.",
+    "properties": "Merkmale",
+    "propertiesHint": "Füllen Sie aus, was Sie wissen. Zahlen in der angegebenen Einheit.",
+    "otherProperties": "Weitere Merkmale",
+    "propertyName": "Name",
+    "propertyValue": "Wert",
+    "addProperty": "Merkmal hinzufügen",
+    "numberInvalid": "Eine Zahl in der angegebenen Einheit",
+    "needsCode": "Geben Sie einen Barcode oder eine Referenz an.",
+    "codeKnown": "Dieser Barcode oder diese Referenz ist bereits im Katalog.",
+    "seeModel": "Dieses Modell ansehen",
+    "notYours": "Nur die Person, die es angelegt hat, oder ein Administrator kann es ändern.",
+    "photoNotYours": "Nur wer das Foto hinzugefügt hat oder ein Administrator kann es löschen.",
+    "added": "Variante hinzugefügt.",
+    "saved": "Variante gespeichert.",
+    "fixProperties": "Korrigieren Sie die rot markierten Merkmale."
+  },
+  "devicePhotos": {
+    "catalogue": "Katalogfoto",
+    "added": "Hinzugefügte Fotos",
+    "addedHint": "Bei allen Varianten dieses Modells sichtbar.",
+    "addFirst": "Erstes Foto hinzufügen",
+    "enlarge": "Foto vergrößern",
+    "deleteConfirm": "Dieses Foto löschen?",
+    "definitions": "{{n}} Auflösungen",
+    "chooseDefinition": "Auflösung wählen"
+  },
+  "repairerForm": {
+    "titleNew": "Reparaturbetrieb vorschlagen",
+    "titleEdit": "Betrieb bearbeiten",
+    "intro": "Er erscheint auf der Karte, sobald ein Administrator ihn freigegeben hat.",
+    "introPublished": "Ihre Änderungen werden sichtbar, sobald ein Administrator sie freigegeben hat; bis dahin zeigt die Karte die aktuelle Version.",
+    "introAdmin": "Als Administrator wird, was Sie speichern, sofort veröffentlicht.",
+    "pendingChange": "Eine Änderung wartet bereits auf Freigabe: Speichern ersetzt sie.",
+    "sectionPlace": "Der Ort",
+    "name": "Name",
+    "activity": "Tätigkeit",
+    "description": "Beschreibung",
+    "sectionAddress": "Adresse",
+    "searchAddress": "Adresse suchen",
+    "searchPlaceholder": "Straße, Hausnummer, Ort…",
+    "street": "Straße und Hausnummer",
+    "postalCode": "Postleitzahl",
+    "city": "Ort",
+    "country": "Land",
+    "latitude": "Breitengrad",
+    "longitude": "Längengrad",
+    "pinHint": "Wählen Sie eine Adresse aus der Liste und verschieben Sie die Nadel bei Bedarf, oder klicken Sie auf die Karte.",
+    "pinMissing": "Setzen Sie den Ort auf die Karte: Wählen Sie eine Adresse aus der Liste oder klicken Sie auf die Karte.",
+    "sectionContact": "Kontakt",
+    "website": "Website",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "devices": "Reparierte Geräte",
+    "devicesPlaceholder": "Gerätearten auswählen",
+    "submitNew": "Vorschlag senden",
+    "submitEdit": "Speichern",
+    "sent": "Vorschlag gesendet. Er erscheint auf der Karte, sobald er freigegeben ist.",
+    "published": "Betrieb veröffentlicht.",
+    "changeSent": "Änderung gesendet. Sie wird sichtbar, sobald sie freigegeben ist.",
+    "saved": "Änderungen gespeichert.",
+    "notYours": "Nur wer diesen Betrieb vorgeschlagen hat, oder ein Administrator, kann ihn ändern.",
+    "required": "Geben Sie Name, Straße, Ort und Land an.",
+    "fieldRequired": "Pflichtfeld"
+  },
+  "myRepairers": {
+    "title": "Meine Reparaturbetriebe",
+    "intro": "Die Orte, die Sie vorgeschlagen haben, und der Stand ihrer Freigabe.",
+    "propose": "Betrieb vorschlagen",
+    "empty": "Sie haben noch keinen Betrieb vorgeschlagen.",
+    "status": {
+      "pending": "Wartet auf Freigabe",
+      "published": "Veröffentlicht",
+      "rejected": "Abgelehnt"
+    },
+    "proposedOn": "Vorgeschlagen am {{date}}",
+    "view": "Ansehen",
+    "edit": "Bearbeiten",
+    "withdraw": "Zurückziehen",
+    "withdrawConfirm": "Diesen Vorschlag zurückziehen? Er wird gelöscht.",
+    "withdrawn": "Vorschlag zurückgezogen.",
+    "rejectedHint": "Von einem Administrator abgelehnt. Bearbeiten Sie ihn, um ihn erneut zu senden.",
+    "changePending": "Eine am {{date}} gesendete Änderung wartet auf Freigabe.",
+    "changeRejected": "Ihre letzte Änderung wurde abgelehnt.",
+    "reason": "Grund: {{note}}"
+  },
+  "adminRepairerProposals": {
+    "title": "Vorgeschlagene Betriebe",
+    "intro": "Auf der Website vorgeschlagene Betriebe und die Änderungen ihrer Autoren erscheinen erst auf der Karte, wenn sie hier freigegeben sind.",
+    "empty": "Nichts zu prüfen.",
+    "newPlaces": "Neue Orte",
+    "changes": "Änderungen",
+    "proposedOn": "gesendet am {{date}}",
+    "seeOnMap": "Auf der Karte ansehen",
+    "field": "Feld",
+    "before": "Aktuell",
+    "after": "Vorgeschlagen",
+    "publish": "Veröffentlichen",
+    "apply": "Übernehmen",
+    "reject": "Ablehnen",
+    "reason": "Grund der Ablehnung",
+    "reasonHint": "Optional. Wird dem Verfasser angezeigt.",
+    "confirmReject": "Ablehnung bestätigen",
+    "done": {
+      "proposal": {
+        "publish": "Betrieb veröffentlicht.",
+        "reject": "Vorschlag abgelehnt."
+      },
+      "revision": {
+        "apply": "Änderung übernommen.",
+        "reject": "Änderung abgelehnt."
+      }
+    },
+    "stale": "Inzwischen hat sich etwas geändert: Die Liste wurde neu geladen, bitte erneut prüfen.",
+    "proposedBy": "von",
+    "select": "Auswählen",
+    "selectAll": "Alle auswählen",
+    "publishSelected": "Auswahl veröffentlichen ({{count}})",
+    "applySelected": "Auswahl übernehmen ({{count}})",
+    "bulkDone": {
+      "proposal_one": "{{count}} Betrieb veröffentlicht.",
+      "proposal_other": "{{count}} Betriebe veröffentlicht.",
+      "revision_one": "{{count}} Änderung übernommen.",
+      "revision_other": "{{count}} Änderungen übernommen."
+    },
+    "bulkSkipped_one": "{{count}} konnte nicht bearbeitet werden. Die Liste wurde neu geladen: Prüfen Sie es, bevor Sie es erneut versuchen.",
+    "bulkSkipped_other": "{{count}} konnten nicht bearbeitet werden. Die Liste wurde neu geladen: Prüfen Sie sie, bevor Sie es erneut versuchen.",
+    "refused": "Kürzlich abgelehnt",
+    "refusedHint": "Eine versehentliche Ablehnung lässt sich hier zurücknehmen. Wie bei jeder Entscheidung erhält der Autor eine E-Mail.",
+    "refusedOn": "Abgelehnt am {{date}}",
+    "reasonGiven": "Grund: {{note}}",
+    "publishAnyway": "Trotzdem veröffentlichen",
+    "applyAnyway": "Trotzdem übernehmen",
+    "publishAnywayConfirm": "Diesen Betrieb trotz der Ablehnung veröffentlichen? Der Autor erhält eine E-Mail.",
+    "applyAnywayConfirm": "Diese Änderung trotz der Ablehnung übernehmen? Der Autor erhält eine E-Mail."
+  },
+  "adminDemoData": {
+    "title": "Demodaten",
+    "intro": "Alles, was die Beitragenden eingegeben haben, was darauf verweist, und ihre Konten, in einem Durchgang gelöscht.",
+    "wouldRemove": "Was die Bereinigung löschen würde",
+    "done": "Gelöscht",
+    "nothing": "Keine Demodaten mehr.",
+    "accountsGroup": "Konten",
+    "catalogueGroup": "Katalog",
+    "repairersGroup": "Reparaturbetriebe",
+    "contagionGroup": "Auf Demodaten verweisend",
+    "lines": {
+      "accounts": "Beitragendenkonten",
+      "models": "Modelle",
+      "variants": "Varianten",
+      "photos": "Fotos (und ihre Dateien)",
+      "adoptedModels": "Behaltene Demomodelle, denen eine echte Variante beitrat",
+      "touchedModels": "Neu berechnete echte Modelle",
+      "repairers": "Reparaturbetriebe",
+      "ownerships": "Persönliche Geräte",
+      "journeys": "Reparaturverläufe",
+      "records": "Reparaturdatensätze",
+      "subscriptions": "Tutorial-Abonnements"
+    },
+    "ofRealUsers": "davon {{n}} echter Nutzer",
+    "irreversible": "Dies kann nicht rückgängig gemacht werden.",
+    "dumpFirst": "Sichern Sie zuerst die Datenbank.",
+    "contagionWarning": "Echte Nutzer verlieren die persönlichen Geräte und Verläufe, die auf Demodaten verweisen.",
+    "typeWord": "Zur Bestätigung {{word}} eingeben",
+    "purge": "Bereinigen",
+    "purged": "Demodaten bereinigt.",
+    "filesLeft": "{{n}} Fotodateien konnten nicht gelöscht werden: siehe die Protokolle des Gateways.",
+    "stopped": "Die Bereinigung wurde abgebrochen. Was gelöscht ist, bleibt gelöscht; erneut starten, um sie abzuschließen."
+  },
+  "contributions": {
+    "title": "Meine Beiträge",
+    "intro": "Die Modelle und Varianten, die Sie eingegeben haben, neueste zuerst.",
+    "add": "Gerät hinzufügen",
+    "empty": "Sie haben noch kein Modell und keine Variante eingegeben.",
+    "repairersElsewhere": "Die Betriebe, die Sie vorgeschlagen haben, finden Sie unter",
+    "kinds": {
+      "models": "Modelle",
+      "variants": "Varianten",
+      "repairers": "Betriebe"
+    },
+    "none": {
+      "models": "Keine Modelle.",
+      "variants": "Keine Varianten.",
+      "repairers": "Keine Betriebe."
+    },
+    "variantCount_one": "{{count}} Variante",
+    "variantCount_other": "{{count}} Varianten",
+    "createdOn": "erstellt am {{date}}",
+    "code": "Barcode {{code}}",
+    "noCode": "Kein Barcode",
+    "changeWaiting": "Änderung wartet",
+    "loadMore": "Mehr anzeigen ({{shown}} von {{total}})"
+  },
+  "contributorGuide": {
+    "title": "Willkommen zur Demonstrationskampagne",
+    "intro": "Ihre Eingaben füllen Service Hub für die Dauer der Kampagne: Geräte und Betriebe, so realistisch wie möglich.",
+    "rules": {
+      "what": "Geben Sie Gerätemodelle ein, ihre Varianten (Farbe, Kapazität …) mit Merkmalen und Fotos, sowie Reparaturbetriebe.",
+      "ean": "Ein Barcode (EAN) beginnt mit 2: Die Schaltfläche „Erzeugen“ im Formular erstellt einen freien.",
+      "photos": "Fotos: nur eigene oder unter freier Lizenz. Keine Bilder von Hersteller- oder Händlerseiten: Ihre Eingaben sind öffentlich.",
+      "repairers": "Ein Betrieb erscheint auf der Karte, sobald ein Administrator ihn freigibt; bei jeder Entscheidung erhalten Sie eine E-Mail.",
+      "emails": "Tutorial-Abonnements versenden echte E-Mails: Verwenden Sie eine Adresse, die Sie lesen.",
+      "purge": "Alles, was Sie eingeben, trägt das Abzeichen „Demo“ und wird am Ende der Kampagne gelöscht."
+    }
   }
 }

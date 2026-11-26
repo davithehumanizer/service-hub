@@ -164,6 +164,192 @@ describe('UserService', () => {
     });
   });
 
+  describe('createContributor', () => {
+    it('opens a verified account whose password is chosen from the link sent', async () => {
+      const role = { id: 5, name: 'contributor' } as any;
+      profileRepository.create.mockImplementation((p) => p);
+      profileRepository.save.mockImplementation(async (p) => ({ id: 3, ...p }));
+      userRepository.create.mockImplementation((u) => u);
+      userRepository.save.mockImplementation(async (u) => ({ id: 9, ...u }));
+
+      const user: any = await service.createContributor(
+        'saisie@acme.example',
+        role,
+        { firstName: 'Ana' },
+        'de',
+      );
+
+      expect(user).toMatchObject({
+        email: 'saisie@acme.example',
+        role,
+        isVerified: true,
+        confirmationToken: null,
+        // The invitation's language is the account's, for every email after.
+        profile: { firstName: 'Ana', onboardingCompleted: true, language: 'de' },
+      });
+      expect(user.resetToken).toMatch(/^[0-9a-f]{64}$/);
+      // A hash of a password nobody was told.
+      expect(user.password).toMatch(/^\$2[aby]\$/);
+      const [, mail] = notificationsClient.emit.mock.calls[0];
+      expect(mail.to).toBe('saisie@acme.example');
+      expect(mail.subject).toBe('Ihr Mitwirkenden-Konto für Service Hub');
+      expect(mail.text).toContain(
+        `http://mock-frontend.com/reset-password/${user.resetToken}`,
+      );
+    });
+
+    it('writes the invitation in English for a language it does not have', () => {
+      service.sendContributorInvitation('a@b.example', 't', 'xx');
+      const [, mail] = notificationsClient.emit.mock.calls[0];
+      expect(mail.subject).toBe('Your Service Hub contributor account');
+    });
+  });
+
+  describe('summariesOf', () => {
+    it('names the accounts with their role, nothing secret', async () => {
+      userRepository.find.mockResolvedValue([
+        {
+          id: 9,
+          email: 'a@demo.test',
+          password: 'hash',
+          role: { name: 'contributor' },
+          profile: { firstName: 'Ana' },
+        },
+        { id: 4, email: 'b@example.com', role: null, profile: null },
+      ]);
+      expect(await service.summariesOf([9, 4])).toEqual([
+        { id: 9, email: 'a@demo.test', role: 'contributor', firstName: 'Ana', lastName: null },
+        { id: 4, email: 'b@example.com', role: null, firstName: null, lastName: null },
+      ]);
+    });
+
+    it('reads nothing for no ids', async () => {
+      expect(await service.summariesOf([])).toEqual([]);
+      expect(userRepository.find).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('notifyRepairerDecision', () => {
+    const decision = {
+      userId: 9,
+      repairerId: 'r1',
+      repairerName: 'Atelier',
+    };
+
+    it("emails a publication in the account's language, with a link to it", async () => {
+      userRepository.findOne.mockResolvedValue({
+        id: 9,
+        email: 'a@demo.test',
+        profile: { language: 'nl' },
+      });
+      await service.notifyRepairerDecision({ ...decision, decision: 'published' });
+      const [pattern, mail] = notificationsClient.emit.mock.calls[0];
+      expect(pattern).toEqual({ cmd: 'send_email' });
+      expect(mail.to).toBe('a@demo.test');
+      expect(mail.subject).toBe('Uw reparateur staat op de kaart: Atelier');
+      expect(mail.text).toContain('http://mock-frontend.com/app/repairer/r1');
+    });
+
+    it('sends a refusal to the page where it can be corrected', async () => {
+      userRepository.findOne.mockResolvedValue({ id: 9, email: 'a@demo.test', profile: null });
+      await service.notifyRepairerDecision({ ...decision, decision: 'rejected', note: 'Closed' });
+      const [, mail] = notificationsClient.emit.mock.calls[0];
+      expect(mail.text).toContain('Reason: Closed');
+      expect(mail.text).toContain('http://mock-frontend.com/app/my-repairers');
+    });
+
+    it('tells nobody when the account is gone', async () => {
+      userRepository.findOne.mockResolvedValue(null);
+      await service.notifyRepairerDecision({ ...decision, decision: 'applied' });
+      expect(notificationsClient.emit).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('purgeContributors', () => {
+    let query: jest.Mock;
+
+    beforeEach(() => {
+      userRepository.find.mockResolvedValue([
+        { id: 9, email: 'a@demo.test' },
+        { id: 12, email: 'b@demo.test' },
+      ]);
+      query = jest.fn(async (sql: string) => {
+        if (sql.includes('SELECT profile_id')) return [{ profile_id: 41 }, { profile_id: 42 }];
+        if (sql.includes('to_regclass')) return [{ present: true }];
+        return [];
+      });
+      (userRepository as any).manager = {
+        transaction: jest.fn(async (work: (m: unknown) => unknown) => work({ query })),
+        query,
+      };
+    });
+
+    it('only names them in a preview', async () => {
+      expect(await service.purgeContributors(true)).toEqual({
+        ids: [9, 12],
+        emails: ['a@demo.test', 'b@demo.test'],
+      });
+      expect(query).not.toHaveBeenCalled();
+    });
+
+    it('deletes them, their sessions and their profiles, which do not follow by cascade', async () => {
+      expect((await service.purgeContributors(false)).ids).toEqual([9, 12]);
+      const deletes = query.mock.calls
+        .filter(([sql]) => sql.startsWith('DELETE'))
+        .map(([sql, params]) => [sql.split(' ').slice(0, 3).join(' '), params[0]]);
+      expect(deletes).toEqual([
+        ['DELETE FROM user_refresh_tokens', [9, 12]],
+        ['DELETE FROM oauth_authorization_codes', [9, 12]],
+        ['DELETE FROM oauth_refresh_tokens', [9, 12]],
+        ['DELETE FROM users', [9, 12]],
+        ['DELETE FROM user_profiles', [41, 42]],
+      ]);
+    });
+
+    it("leaves alone OAuth tables a database does not have", async () => {
+      query.mockImplementation(async (sql: string) =>
+        sql.includes('to_regclass') ? [{ present: false }] : [],
+      );
+      await service.purgeContributors(false);
+      expect(query.mock.calls.some(([sql]) => sql.includes('DELETE FROM oauth'))).toBe(false);
+    });
+
+    it('does nothing when there are none', async () => {
+      userRepository.find.mockResolvedValue([]);
+      expect(await service.purgeContributors(false)).toEqual({ ids: [], emails: [] });
+      expect(query).not.toHaveBeenCalled();
+    });
+
+    it('deletes only the accounts the purge started with', async () => {
+      await service.purgeContributors(false, [12]);
+      const users = query.mock.calls.find(([sql]) => sql.startsWith('DELETE FROM users'));
+      expect(users[1]).toEqual([[12]]);
+    });
+
+    it("revokes the contributors' sessions first, and only theirs", async () => {
+      await service.revokeContributorSessions([9, 4]);
+      expect(query).toHaveBeenCalledWith(
+        'DELETE FROM user_refresh_tokens WHERE user_id = ANY($1::int[])',
+        [[9]],
+      );
+      query.mockClear();
+      await service.revokeContributorSessions([4]);
+      expect(query).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('findByRole', () => {
+    it('reads the accounts of a role, newest first', async () => {
+      userRepository.find.mockResolvedValue([{ id: 9 }]);
+      expect(await service.findByRole('contributor')).toEqual([{ id: 9 }]);
+      expect(userRepository.find).toHaveBeenCalledWith({
+        where: { role: { name: 'contributor' } },
+        relations: ['profile'],
+        order: { created_at: 'DESC' },
+      });
+    });
+  });
+
   describe('sendConfirmationEmail', () => {
     it('should call emit on the notificationsClient', () => {
       const email = 'user@example.com';
@@ -296,8 +482,11 @@ describe('UserService', () => {
       expect(userRepository.findOne).toHaveBeenCalledWith({ where: { email } });
       expect(bcrypt.hash).toHaveBeenCalledWith(newPassword, 10);
       expect(userRepository.save).toHaveBeenCalledWith({
-        ...mockUser,
+        id: 1,
+        email,
         password: hashed,
+        // The link cannot set the password a second time.
+        resetToken: null,
       });
     });
 

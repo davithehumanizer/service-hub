@@ -15,6 +15,8 @@ export type DevicePhoto = {
   url: string;
   key: string;
   createdAt: string;
+  /** Uploaded by a contributor. */
+  isDemo?: boolean;
 };
 
 export type Device = {
@@ -49,6 +51,8 @@ export type Device = {
   /** What tells it from its model's other variants. */
   variant_label?: string | null;
   is_refurbished?: boolean;
+  /** Entered by a contributor: demonstration data. */
+  is_demo?: boolean;
   /** The model's picture, for a model carried with no variant. */
   thumbnail?: string;
 };

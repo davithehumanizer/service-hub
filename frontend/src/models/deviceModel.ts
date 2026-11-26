@@ -26,6 +26,8 @@ export type DeviceModel = {
   }[];
   /** Its variants' colours, as Icecat names them; "Aluminium,Black" is two-tone. */
   colours: string[];
+  /** Entered by a contributor: demonstration data. */
+  is_demo?: boolean;
 };
 
 export type DeviceModelPage = {
@@ -53,7 +55,34 @@ export type DeviceModelVariant = {
   /** The label's parts by key, { storage: "256 GB", colour: "Black" }. */
   variant_parts?: Record<string, string> | null;
   is_refurbished: boolean;
+  /** Entered by a contributor: demonstration data. */
+  is_demo?: boolean;
+  /** On a model's page: whether the reader may change it. */
+  editable?: boolean;
 };
+
+/** A technical property as the catalogue stores it: Icecat's name, its value. */
+export type VariantProperty = { property_name: string; property_value: string };
+
+/** A variant entered under a model, or what changes in one. */
+export type VariantInput = {
+  ean?: string;
+  product_code?: string;
+  /** Replace all of them when sent. */
+  technicalProperties?: VariantProperty[];
+};
+
+/** A picture of the model itself. */
+export type DeviceModelPhoto = {
+  id: string;
+  url: string;
+  is_demo: boolean;
+  /** Whether the reader may delete it: theirs, or an administrator. */
+  deletable: boolean;
+};
+
+/** A refusal of the API; a conflict names the model meant. */
+export type ApiRefusal = { statusCode?: number; message: string; modelId?: number };
 
 /** A part a model's variants differ in, each value counted among the
  *  variants the other parts chosen leave; 0 when they rule it out. */
@@ -80,4 +109,7 @@ export type DeviceModelDetail = DeviceModel & {
   facets: VariantFacet[];
   /** How many variants the parts tell apart: 8 of 61. */
   configurations: number;
+  /** Whether the reader may change it: its author, or an administrator. */
+  editable: boolean;
+  photos: DeviceModelPhoto[];
 };

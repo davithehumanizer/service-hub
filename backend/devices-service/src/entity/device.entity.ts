@@ -18,6 +18,10 @@ import { DevicePhoto } from './device-photo.entity';
 import { DeviceModel } from './device-model.entity';
 
 @Entity('devices')
+// Only what was entered by hand has an author: a small index.
+@Index('devices_created_by_idx', ['created_by'], {
+  where: '"created_by" IS NOT NULL',
+})
 export class Device {
   @PrimaryGeneratedColumn()
   device_id: number;
@@ -89,6 +93,15 @@ export class Device {
 
   @Column({ default: false })
   is_refurbished: boolean;
+
+  /** The user who entered it; null for an import. Not read back: the
+   * entry is public, its author is not. */
+  @Column({ type: 'integer', nullable: true, select: false })
+  created_by: number | null;
+
+  /** Created by a contributor: demonstration data, purged with them. */
+  @Column({ default: false })
+  is_demo: boolean;
 
   @Index('devices_source_idx')
   @Column({ default: 'UNKNOWN' }) // Peut être 'CSV', 'API', 'Manuel'

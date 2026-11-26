@@ -51,6 +51,7 @@ import { StatsFilterDto } from './dto/stats-filter.dto';
 import { FlexibleAuthGuard } from '../auth/flexible-auth.guard';
 import { PermissionsGuard } from '../auth/permission.guard';
 import { Permissions } from '../auth/permission.decorator';
+import { Author, authorOf } from '../auth/author';
 import { FluentLoggerService } from '../common/fluent-logger.service';
 import { csvUploadOptions } from '../common/upload.constraints';
 import { DeviceModelResolver } from '../devices/device-model-resolver.service';
@@ -437,7 +438,7 @@ export class RepairMonitorController {
     }
     let modelId = journey.modelId;
     if (modelId == null) {
-      modelId = await this.modelOfTypedDevice(journey);
+      modelId = await this.modelOfTypedDevice(journey, authorOf(req));
       // Named in the catalogue now: a device of it owned already can be
       // offered instead, the journey's model telling which.
       await this.send(this.repairMonitorService, 'adopt_journey_model', {
@@ -497,7 +498,10 @@ export class RepairMonitorController {
    * The catalogue's model of a device typed in by hand: the one of that
    * name, or one made, as "Add a device" makes it, in the journey's category.
    */
-  private async modelOfTypedDevice(journey: JourneyDevice): Promise<number> {
+  private async modelOfTypedDevice(
+    journey: JourneyDevice,
+    author: Author,
+  ): Promise<number> {
     const categories = await this.send<
       { id: number; name: string; canonicalName?: string }[]
     >(this.devicesService, 'get_device_categories', {});
@@ -513,6 +517,7 @@ export class RepairMonitorController {
           name: (journey.modelType ?? '').trim(),
           categories: category ? [category.id] : [],
         },
+        author,
       },
     );
     return model.id;

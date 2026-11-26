@@ -31,6 +31,19 @@ export class DeviceModelPhoto {
   @Column()
   url: string;
 
+  /** The user who uploaded it. */
+  @Column({
+    name: 'created_by',
+    type: 'integer',
+    nullable: true,
+    select: false,
+  })
+  createdBy: number | null;
+
+  /** Uploaded by a contributor: demonstration data, purged with them. */
+  @Column({ name: 'is_demo', default: false })
+  isDemo: boolean;
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 }

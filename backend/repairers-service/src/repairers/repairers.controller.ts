@@ -5,6 +5,8 @@ import { MessagePattern, RpcException } from '@nestjs/microservices';
 import { IRepairersService } from './interfaces/repairers-service.interface';
 import { RepairerImporterService } from './services/repairerImporter.service';
 import { RepairerReportsService } from './services/repairer-reports.service';
+import { RepairerProposalsService } from './services/repairer-proposals.service';
+import { Editor, NO_EDITOR } from '../types/author';
 import { RepairerSearchDto } from './types/repairer-search.dto';
 import { RepairerReportStatus } from './constants/repairer-report-status';
 import { MapBounds } from './services/repairers.service';
@@ -16,6 +18,7 @@ export class RepairersController {
     private readonly repairersService: IRepairersService,
     private readonly repairersImporterService: RepairerImporterService,
     private readonly repairerReportsService: RepairerReportsService,
+    private readonly repairerProposalsService: RepairerProposalsService,
   ) {}
 
   @MessagePattern({ cmd: 'get_repairers' })
@@ -77,10 +80,10 @@ export class RepairersController {
   }
 
   @MessagePattern({ cmd: 'get_repairer' })
-  async getRepairer(@Body() body: { id: string }) {
-    const { id } = body;
+  async getRepairer(@Body() body: { id: string; viewer?: Editor }) {
+    const { id, viewer } = body;
     try {
-      return await this.repairersService.findOne(id);
+      return await this.repairersService.findOne(id, viewer ?? NO_EDITOR);
     } catch (error) {
       throw new RpcException(error.message || 'Failed to get repairer');
     }
@@ -98,11 +101,152 @@ export class RepairersController {
   }
 
   @MessagePattern({ cmd: 'delete_repairer' })
-  async deleteRepairer(id: string) {
+  async deleteRepairer(@Body() body: { id: string }) {
     try {
-      return await this.repairersService.delete(id);
+      return await this.repairersService.delete(body.id);
     } catch (error) {
       throw new RpcException(error.message || 'Failed to delete repairer');
+    }
+  }
+
+  /** Previews (`dryRun`) or carries out the repairers' part of the purge. */
+  @MessagePattern({ cmd: 'purge_demo_repairers' })
+  async purgeDemoRepairers(@Body() body: { dryRun: boolean }) {
+    try {
+      return await this.repairersService.purgeDemo(body?.dryRun !== false);
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to purge demo repairers');
+    }
+  }
+
+  @MessagePattern({ cmd: 'demo_repairer_stats_of_contributor' })
+  async demoRepairerStatsOfContributor(@Body() body: { contributorId: number }) {
+    try {
+      return await this.repairersService.demoStatsOf(body.contributorId);
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to count demo repairers');
+    }
+  }
+
+  @MessagePattern({ cmd: 'propose_repairer' })
+  async proposeRepairer(
+    @Body() body: { changes: Record<string, any>; editor: Editor },
+  ) {
+    try {
+      return await this.repairerProposalsService.propose(
+        body.changes,
+        body.editor,
+      );
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to propose repairer');
+    }
+  }
+
+  @MessagePattern({ cmd: 'change_repairer_proposal' })
+  async changeRepairerProposal(
+    @Body() body: { id: string; changes: Record<string, any>; editor: Editor },
+  ) {
+    try {
+      return await this.repairerProposalsService.change(
+        body.id,
+        body.changes,
+        body.editor,
+      );
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to change repairer');
+    }
+  }
+
+  @MessagePattern({ cmd: 'withdraw_repairer_proposal' })
+  async withdrawRepairerProposal(@Body() body: { id: string; editor: Editor }) {
+    try {
+      return await this.repairerProposalsService.withdraw(body.id, body.editor);
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to withdraw repairer');
+    }
+  }
+
+  @MessagePattern({ cmd: 'get_my_repairers' })
+  async getMyRepairers(@Body() body: { editor: Editor }) {
+    try {
+      return await this.repairerProposalsService.mine(body.editor);
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to get your repairers');
+    }
+  }
+
+  @MessagePattern({ cmd: 'get_pending_repairer_proposals' })
+  async getPendingRepairerProposals() {
+    try {
+      return await this.repairerProposalsService.pending();
+    } catch (error) {
+      throw new RpcException(
+        error.message || 'Failed to get pending repairer proposals',
+      );
+    }
+  }
+
+  @MessagePattern({ cmd: 'count_pending_repairer_proposals' })
+  async countPendingRepairerProposals() {
+    try {
+      return { count: await this.repairerProposalsService.pendingCount() };
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to count proposals');
+    }
+  }
+
+  @MessagePattern({ cmd: 'get_repairers_of_author' })
+  async getRepairersOfAuthor(@Body() body: { authorId: number }) {
+    try {
+      return await this.repairerProposalsService.ofAuthor(body.authorId);
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to get the repairers');
+    }
+  }
+
+  @MessagePattern({ cmd: 'review_repairer_proposal' })
+  async reviewRepairerProposal(
+    @Body()
+    body: {
+      id: string;
+      decision: 'publish' | 'reject';
+      note?: string | null;
+      editor: Editor;
+      version: string;
+    },
+  ) {
+    try {
+      return await this.repairerProposalsService.reviewProposal(
+        body.id,
+        body.decision,
+        body.note ?? null,
+        body.editor,
+        body.version,
+      );
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to review proposal');
+    }
+  }
+
+  @MessagePattern({ cmd: 'review_repairer_revision' })
+  async reviewRepairerRevision(
+    @Body()
+    body: {
+      id: string;
+      decision: 'apply' | 'reject';
+      note?: string | null;
+      editor: Editor;
+    },
+  ) {
+    try {
+      return await this.repairerProposalsService.reviewRevision(
+        body.id,
+        body.decision,
+        body.note ?? null,
+        body.editor,
+      );
+    } catch (error) {
+      throw new RpcException(error.message || 'Failed to review change');
     }
   }
 

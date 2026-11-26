@@ -1,6 +1,7 @@
 import { Filter } from 'src/types/Filter';
 import { Device } from '../../entity/device.entity';
 import { DevicePhoto } from '../../entity/device-photo.entity';
+import { Author, Editor } from '../../types/author';
 
 export interface IDevicesService {
   findAll(locale?: string): Promise<Device[]>;
@@ -53,6 +54,11 @@ export interface IDevicesService {
   addDevicePhotos(
     deviceId: number,
     photoUrls: { url: string; key: string }[],
+    author?: Author,
   ): Promise<DevicePhoto[]>;
-  deleteDevicePhoto(photoId: string): Promise<{ key: string }>;
+  deleteDevicePhoto(
+    photoId: string,
+    editor?: Editor,
+    deviceId?: number,
+  ): Promise<{ key: string }>;
 }

@@ -22,6 +22,7 @@ import { Button, Pagination, SegmentedControl } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Input, Select } from "@windmill/react-ui";
 import { getCountryName } from "../utils/countryMapper";
+import DemoBadge from "../components/Devices/DemoBadge";
 import { getIssueLabel } from "../utils/issueMapping";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import marker from'../assets/img/marker-icon.png';
@@ -200,6 +201,7 @@ const RepairMapPage = () => {
   const userLatitude = useSelector((state: RootState) => state.auth.latitude);
   const userLongitude = useSelector((state: RootState) => state.auth.longitude);
   const geolocationSource = useSelector((state: RootState) => state.auth.geolocationSource);
+  const signedIn = useSelector((state: RootState) => !!state.auth.user);
   const wizardIssues = useSelector((state: RootState) => state.repairWorkflow.issues);
 
   const mapRef = useRef<any>(null); // Add ref for the map
@@ -796,6 +798,17 @@ const RepairMapPage = () => {
               </p>
             </div>
           </div>
+          {signedIn && (
+            <Button
+              component={Link}
+              to="/app/repairers/new"
+              variant="outline"
+              size="xs"
+              leftSection={<span className="material-symbols-outlined text-base">add_location_alt</span>}
+            >
+              {t('repairMap.proposeRepairer')}
+            </Button>
+          )}
           {/* <div className="hidden lg:block">
             <div className="w-32 h-32 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/30 dark:to-purple-800/30 rounded-xl flex items-center justify-center">
               <span className="material-symbols-outlined text-4xl text-purple-600 dark:text-purple-400">location_searching</span>
@@ -1087,7 +1100,10 @@ const RepairMapPage = () => {
                     hoveredRepairer?.repairer_id === repairer.repairer_id ? 'bg-purple-100 dark:bg-purple-900' : ''
                   }`}>
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-semibold text-gray-900 dark:text-white">{repairer.name}</h3>
+                    <h3 className="font-semibold text-gray-900 dark:text-white">
+                      {repairer.name}
+                      {repairer.is_demo && <span className="ml-2 align-middle"><DemoBadge size="xs" /></span>}
+                    </h3>
                     <button
                       type="button"
                       title={t('repairMap.reportIrrelevant.button')}

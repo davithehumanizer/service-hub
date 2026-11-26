@@ -16,6 +16,7 @@ import marker from'../assets/img/marker-icon.png';
 import markerhighlight from'../assets/img/marker-icon-highlight.png';
 import { ADEME_DATASET, isAdemeSource } from '../utils/dataAttribution';
 import { partnerActivities } from '../utils/partnerTypes';
+import DemoBadge from '../components/Devices/DemoBadge';
 
 const startIcon = new L.Icon({
   iconUrl: marker,
@@ -202,7 +203,16 @@ const RepairerDetails = () => {
                   {t(`repairMap.partnerTypeOptions.${activity}`)}
                 </Badge>
               ))}
+              {/* A flex box: inline, the badge sat on the title's text line, below the others. */}
+              {repairer.is_demo && <span className="ml-3 flex"><DemoBadge size="md" /></span>}
             </h1>
+            {/* Only its author or an administrator gets here before it is published. */}
+            {repairer.status && repairer.status !== 'published' && (
+              <div className="mb-4 rounded-lg border border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900 dark:bg-opacity-20 px-4 py-3 text-sm text-yellow-800 dark:text-yellow-200">
+                {t(repairer.status === 'pending' ? 'repairerDetails.pendingNotice' : 'repairerDetails.rejectedNotice')}
+                {repairer.review_note && <p className="mt-1">{t('myRepairers.reason', { note: repairer.review_note })}</p>}
+              </div>
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex items-start">
                 <span className="material-symbols-outlined text-green-600 dark:text-green-400 mr-3 text-2xl mt-1">location_on</span>

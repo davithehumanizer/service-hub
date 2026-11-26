@@ -12,6 +12,8 @@ const Devices = lazy(() => import("../pages/Devices"));
 const DeviceDetails = lazy(() => import("../pages/DeviceDetails"));
 const ModelDetails = lazy(() => import("../pages/ModelDetails"));
 const CreateDevice = lazy(() => import("../pages/CreateDevice"));
+const ModelEditPage = lazy(() => import("../pages/ModelEditPage"));
+const VariantForm = lazy(() => import("../pages/VariantForm"));
 const IfixitTutorials = lazy(() => import("../pages/IfixitTutorials"));
 const FixometerPage = lazy(() => import("../pages/FixometerPage"));
 const ImpactDetailsPage = lazy(() => import("../pages/ImpactDetailsPage"));
@@ -34,6 +36,17 @@ const AdminApiCatalogPage = lazy(() => import("../pages/AdminApiCatalogPage"));
 const AdminRepairerReportsPage = lazy(
   () => import("../pages/AdminRepairerReportsPage"),
 );
+const AdminContributorsPage = lazy(
+  () => import("../pages/AdminContributorsPage"),
+);
+const AdminRepairerProposalsPage = lazy(
+  () => import("../pages/AdminRepairerProposalsPage"),
+);
+const RepairerForm = lazy(() => import("../pages/RepairerForm"));
+const AdminDemoDataPage = lazy(() => import("../pages/AdminDemoDataPage"));
+const AdminContributorDetailsPage = lazy(() => import("../pages/AdminContributorDetailsPage"));
+const MyRepairersPage = lazy(() => import("../pages/MyRepairersPage"));
+const MyContributionsPage = lazy(() => import("../pages/MyContributionsPage"));
 const RepairMonitorPage = lazy(() => import("../pages/RepairMonitorPage"));
 const MyRepairs = lazy(() => import("../pages/MyRepairs"));
 const AssistantPage = lazy(() => import("../pages/AssistantPage"));
@@ -83,6 +96,22 @@ const routes = [
     component: RepairerDetails, // view rendered
   },
   {
+    path: "/repairers/new",
+    component: RepairerForm,
+  },
+  {
+    path: "/repairers/:id/edit",
+    component: RepairerForm,
+  },
+  {
+    path: "/my-contributions",
+    component: MyContributionsPage,
+  },
+  {
+    path: "/my-repairers",
+    component: MyRepairersPage,
+  },
+  {
     path: "/devices/", // the url
     component: Devices, // view rendered
   },
@@ -93,6 +122,18 @@ const routes = [
   {
     path: "/model/:id",
     component: ModelDetails,
+  },
+  {
+    path: "/model/:id/edit",
+    component: ModelEditPage,
+  },
+  {
+    path: "/model/:id/variants/new",
+    component: VariantForm,
+  },
+  {
+    path: "/model/:id/variants/:variantId/edit",
+    component: VariantForm,
   },
   {
     path: "/create-device",
@@ -157,6 +198,22 @@ const routes = [
   {
     path: "/admin/repairer-reports",
     component: AdminRepairerReportsPage,
+  },
+  {
+    path: "/admin/contributors",
+    component: AdminContributorsPage,
+  },
+  {
+    path: "/admin/contributors/:id",
+    component: AdminContributorDetailsPage,
+  },
+  {
+    path: "/admin/repairer-proposals",
+    component: AdminRepairerProposalsPage,
+  },
+  {
+    path: "/admin/demo-data",
+    component: AdminDemoDataPage,
   },
   {
     path: "/spare-parts",

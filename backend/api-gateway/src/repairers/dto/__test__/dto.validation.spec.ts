@@ -7,6 +7,12 @@ import { RepairerFilterDto } from '../repairer-filter.dto';
 import { CreateRepairerDeviceDto } from '../create-repairer-device.dto';
 import { PaginationQueryDto } from '../pagination-query.dto';
 import { MapBoundsQueryDto } from '../map-bounds-query.dto';
+import {
+  ChangeRepairerProposalDto,
+  ProposeRepairerDto,
+  ReviewRepairerProposalDto,
+  ReviewRepairerRevisionDto,
+} from '../propose-repairer.dto';
 
 describe('Repairer DTO validation (helps when enabling ValidationPipe)', () => {
   it('accepts a valid CreateRepairerDto shape', async () => {
@@ -179,5 +185,51 @@ describe('Repairer DTO validation (helps when enabling ValidationPipe)', () => {
     // ensure 'name' is flagged as missing or invalid
     const props = errors.map((e) => e.property);
     expect(props).toContain('name');
+  });
+});
+
+describe('Repairer proposal DTO validation', () => {
+  const PROPOSAL = {
+    name: 'Repair Café Fives',
+    address: '18 rue Pierre Legrand',
+    city: 'Lille',
+    country: 'FR',
+    latitude: 50.6292,
+    longitude: 3.0573,
+    partner_type: 'repairer',
+    device_types: ['laptop', 'toaster'],
+    email: null,
+  };
+  const errorsOf = async (cls: any, payload: object) =>
+    (await validate(plainToInstance(cls, payload) as object)).map((e) => e.property);
+
+  it('accepts a complete proposal, an optional field left null', async () => {
+    expect(await errorsOf(ProposeRepairerDto, PROPOSAL)).toEqual([]);
+  });
+
+  it('wants a place on the map, a known activity and known device types', async () => {
+    const { latitude, ...unplaced } = PROPOSAL;
+    expect(await errorsOf(ProposeRepairerDto, unplaced)).toEqual(['latitude']);
+    expect(
+      await errorsOf(ProposeRepairerDto, { ...PROPOSAL, partner_type: 'shop', device_types: ['phone'], name: '' }),
+    ).toEqual(['name', 'partner_type', 'device_types']);
+  });
+
+  it('takes only what changes', async () => {
+    expect(await errorsOf(ChangeRepairerProposalDto, { city: 'Roubaix' })).toEqual([]);
+    expect(await errorsOf(ChangeRepairerProposalDto, { country: 'France' })).toEqual(['country']);
+  });
+
+  it('wants a website with its scheme', async () => {
+    expect(await errorsOf(ProposeRepairerDto, { ...PROPOSAL, website: 'https://atelier.fr' })).toEqual([]);
+    expect(await errorsOf(ProposeRepairerDto, { ...PROPOSAL, website: 'www.atelier.fr' })).toEqual(['website']);
+    expect(await errorsOf(ProposeRepairerDto, { ...PROPOSAL, website: 'javascript:alert(1)' })).toEqual(['website']);
+  });
+
+  it('reviews with a known decision, naming the version seen', async () => {
+    expect(await errorsOf(ReviewRepairerProposalDto, { decision: 'publish', version: 'a1' })).toEqual([]);
+    expect(await errorsOf(ReviewRepairerProposalDto, { decision: 'publish' })).toEqual(['version']);
+    expect(await errorsOf(ReviewRepairerProposalDto, { decision: 'apply', version: 'a1' })).toEqual(['decision']);
+    expect(await errorsOf(ReviewRepairerRevisionDto, { decision: 'apply', note: 'ok' })).toEqual([]);
   });
 });

@@ -8,7 +8,7 @@ import { ASSISTANT_ENABLED } from '../assistant';
  * `routes/index.js`
  */
 
-export type UserRole = 'customer' | 'repairer' | 'admin' | 'all';
+export type UserRole = 'customer' | 'repairer' | 'admin' | 'contributor' | 'all';
 
 export interface IRoute {
   path: string;
@@ -35,6 +35,8 @@ export interface IStandaloneRoute extends IRoute {
 
 export type ISidebarEntry = IStandaloneRoute | IRouteGroup;
 
+// By intent: find, contribute, see the impact. What one entered sits
+// together under "Contribute", not among the things to look up.
 const routes: ISidebarEntry[] = [
   {
     type: 'standalone',
@@ -60,53 +62,6 @@ const routes: ISidebarEntry[] = [
     translationKey: 'nav.myRepairs',
     roles: ['all'],
   },
-  {
-    type: 'group',
-    name: 'Tools',
-    translationKey: 'nav.tools',
-    icon: 'build',
-    color: 'blue',
-    routes: [
-      { path: '/app/devices', icon: 'devices', name: 'Devices', translationKey: 'nav.devices', roles: ['all'], color: 'blue' },
-      { path: '/app/spare-parts', icon: 'build_circle', name: 'Spare Parts', translationKey: 'nav.spareParts', roles: ['all'], color: 'orange' },
-      { path: '/app/repair-map', icon: 'map', name: 'Repair Map', translationKey: 'nav.repairMap', roles: ['all'], color: 'purple' },
-      { path: '/app/ifixit-tutorials', icon: 'menu_book', name: 'Tutorials', translationKey: 'nav.tutorials', roles: ['all'], color: 'orange' },
-      { path: '/app/fixometer', icon: 'eco', name: 'Impact calculator', translationKey: 'nav.impactCalculator', roles: ['all'], color: 'green' },
-      { path: '/app/repair-monitor', icon: 'monitoring', name: 'Repair Monitor', translationKey: 'nav.repairMonitor', roles: ['all'], color: 'teal' },
-    ],
-  },
-  {
-    type: 'group',
-    name: 'Repairer',
-    translationKey: 'nav.repairer',
-    icon: 'store',
-    color: 'orange',
-    routes: [
-      { path: '/app/repairer-profile', icon: 'handyman', name: 'My Workshop', translationKey: 'nav.myWorkshop', roles: ['repairer'] },
-    ],
-  },
-  {
-    type: 'group',
-    name: 'API Catalog',
-    translationKey: 'nav.apiCatalog',
-    icon: 'api',
-    color: 'purple',
-    routes: [
-      { path: '/app/api-catalog', icon: 'hub', name: 'Catalog', translationKey: 'nav.catalog', roles: ['all'] },
-      { path: '/app/submit-tool', icon: 'add_circle', name: 'Submit a Tool', translationKey: 'nav.submitATool', roles: ['customer', 'repairer'] },
-    ],
-  },
-  {
-    type: 'group',
-    name: 'Admin',
-    translationKey: 'nav.admin',
-    icon: 'admin_panel_settings',
-    color: 'red',
-    routes: [
-      { path: '/app/admin/api-catalog', icon: 'hub', name: 'API Catalog', translationKey: 'nav.adminApiCatalog', roles: ['admin'], color: 'red' },
-      { path: '/app/admin/repairer-reports', icon: 'flag', name: 'Repairer Reports', translationKey: 'nav.adminRepairerReports', roles: ['admin'], color: 'red' },
-    ],
-  },
   ...(ASSISTANT_ENABLED
     ? [
         {
@@ -119,6 +74,59 @@ const routes: ISidebarEntry[] = [
         } as IStandaloneRoute,
       ]
     : []),
+  {
+    type: 'group',
+    name: 'Find',
+    translationKey: 'nav.find',
+    icon: 'search',
+    color: 'blue',
+    routes: [
+      { path: '/app/devices', icon: 'devices', name: 'Devices', translationKey: 'nav.devices', roles: ['all'], color: 'blue' },
+      { path: '/app/ifixit-tutorials', icon: 'menu_book', name: 'Tutorials', translationKey: 'nav.tutorials', roles: ['all'], color: 'orange' },
+      { path: '/app/spare-parts', icon: 'build_circle', name: 'Spare Parts', translationKey: 'nav.spareParts', roles: ['all'], color: 'orange' },
+      { path: '/app/repair-map', icon: 'map', name: 'Repair Map', translationKey: 'nav.repairMap', roles: ['all'], color: 'purple' },
+      { path: '/app/api-catalog', icon: 'hub', name: 'Community Catalog', translationKey: 'nav.apiCatalog', roles: ['all'], color: 'purple' },
+    ],
+  },
+  {
+    type: 'group',
+    name: 'Contribute',
+    translationKey: 'nav.contribute',
+    icon: 'volunteer_activism',
+    color: 'customgreen',
+    routes: [
+      { path: '/app/my-contributions', icon: 'library_add', name: 'My Contributions', translationKey: 'nav.myContributions', roles: ['customer', 'repairer', 'admin', 'contributor'], color: 'customgreen' },
+      { path: '/app/my-repairers', icon: 'add_location_alt', name: 'My Repairers', translationKey: 'nav.myRepairers', roles: ['customer', 'repairer', 'admin', 'contributor'], color: 'customgreen' },
+      { path: '/app/submit-tool', icon: 'add_circle', name: 'Submit a Tool', translationKey: 'nav.submitATool', roles: ['customer', 'repairer'], color: 'customgreen' },
+      { path: '/app/repairer-profile', icon: 'handyman', name: 'My Workshop', translationKey: 'nav.myWorkshop', roles: ['repairer'], color: 'customgreen' },
+    ],
+  },
+  {
+    type: 'group',
+    name: 'Impact',
+    translationKey: 'nav.impact',
+    icon: 'insights',
+    color: 'green',
+    routes: [
+      { path: '/app/fixometer', icon: 'eco', name: 'Impact calculator', translationKey: 'nav.impactCalculator', roles: ['all'], color: 'green' },
+      { path: '/app/repair-monitor', icon: 'monitoring', name: 'Repair Monitor', translationKey: 'nav.repairMonitor', roles: ['all'], color: 'teal' },
+    ],
+  },
+  {
+    type: 'group',
+    name: 'Admin',
+    translationKey: 'nav.admin',
+    icon: 'admin_panel_settings',
+    color: 'red',
+    // The daily work first, the purge last.
+    routes: [
+      { path: '/app/admin/repairer-proposals', icon: 'pending_actions', name: 'Repairer Proposals', translationKey: 'nav.adminRepairerProposals', roles: ['admin'], color: 'red' },
+      { path: '/app/admin/repairer-reports', icon: 'flag', name: 'Repairer Reports', translationKey: 'nav.adminRepairerReports', roles: ['admin'], color: 'red' },
+      { path: '/app/admin/contributors', icon: 'group_add', name: 'Contributor Accounts', translationKey: 'nav.adminContributors', roles: ['admin'], color: 'red' },
+      { path: '/app/admin/api-catalog', icon: 'hub', name: 'API Catalog', translationKey: 'nav.adminApiCatalog', roles: ['admin'], color: 'red' },
+      { path: '/app/admin/demo-data', icon: 'delete_sweep', name: 'Demo Data', translationKey: 'nav.adminDemoData', roles: ['admin'], color: 'red' },
+    ],
+  },
 ];
 
 export default routes;

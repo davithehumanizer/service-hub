@@ -42,8 +42,8 @@ export class User {
   @Column({ nullable: true, type: 'varchar' })
   confirmationToken?: string | null;
 
-  @Column({ nullable: true })
-  resetToken?: string;
+  @Column({ nullable: true, type: 'varchar' })
+  resetToken?: string | null;
 
   @OneToOne(() => UserProfile, (profile) => profile.user, { cascade: true })
   @JoinColumn({ name: 'profile_id' })

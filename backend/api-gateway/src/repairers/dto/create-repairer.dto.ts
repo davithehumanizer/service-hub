@@ -12,6 +12,7 @@ import {
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { PARTNER_TYPE_WHITELIST } from '../constants/partner-type-whitelist';
+import { CreditSourceField } from './credit-source';
 
 export class CreateRepairerDto {
   static name = 'Repairer.Create';
@@ -79,9 +80,7 @@ export class CreateRepairerDto {
   @IsNumber()
   longitude?: number;
 
-  @ApiProperty({ description: 'Source', required: false })
-  @IsOptional()
-  @IsString()
+  @CreditSourceField()
   source?: string;
 
   @ApiProperty({

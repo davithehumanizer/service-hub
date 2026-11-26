@@ -13,6 +13,8 @@ import { RepairerSearchDto } from '../types/repairer-search.dto';
 import { RepairerSearchService } from '../../search/repairer-search.service';
 import { getCountryCode, getCountryName } from '../../utils/country-mapper';
 import { partnerTypesMatching } from '../constants/partner-type-whitelist';
+import { PUBLISHED } from '../constants/repairer-status';
+import { Editor, NO_EDITOR, mayEdit } from '../../types/author';
 
 /** Geographic bounds of the visible map, as Leaflet reports them. */
 export interface MapBounds {
@@ -31,6 +33,25 @@ export interface MapBounds {
  * than silently showing a subset.
  */
 export const MARKER_LIMIT = 500;
+
+/**
+ * The text columns a free search looks in. LOWER() on one of the integer,
+ * boolean or date columns fails the whole query.
+ */
+const SEARCHED_COLUMNS = [
+  'repairer_import_id',
+  'name',
+  'description',
+  'address',
+  'country',
+  'postal_code',
+  'city',
+  'website',
+  'email',
+  'phone',
+  'source',
+  'partner_type',
+];
 
 /** One marker: the least a map needs to draw a pin and open the right sheet. */
 export interface RepairerMarker {
@@ -63,6 +84,7 @@ export class RepairersService implements IRepairersService {
    */
   async findAll(): Promise<Repairer[]> {
     return this.repairerRepository.find({
+      where: { status: PUBLISHED },
       relations: ['repairerDevices'],
       // take: 20,
     });
@@ -127,7 +149,7 @@ export class RepairersService implements IRepairersService {
 
         if (ids.length > 0) {
           data = await this.repairerRepository.find({
-            where: { repairer_id: In(ids) },
+            where: { repairer_id: In(ids), status: PUBLISHED },
             relations: ['repairerDevices'],
           });
 
@@ -159,7 +181,8 @@ export class RepairersService implements IRepairersService {
     // DB logic — runs when device_type filter is present, lat/lon provided, or ES failed
     const queryBuilder = this.repairerRepository
       .createQueryBuilder('repairer')
-      .leftJoinAndSelect('repairer.repairerDevices', 'repairerDevices');
+      .leftJoinAndSelect('repairer.repairerDevices', 'repairerDevices')
+      .andWhere('repairer.status = :published', { published: PUBLISHED });
 
     if (filters?.country) {
       const isoCode = getCountryCode(filters.country) ?? filters.country;
@@ -321,7 +344,8 @@ export class RepairersService implements IRepairersService {
     const queryBuilder = this.repairerRepository
       .createQueryBuilder('repairer')
       .where('repairer.latitude IS NOT NULL')
-      .andWhere('repairer.longitude IS NOT NULL');
+      .andWhere('repairer.longitude IS NOT NULL')
+      .andWhere('repairer.status = :published', { published: PUBLISHED });
 
     this.applyBounds(queryBuilder, bounds);
 
@@ -413,15 +437,31 @@ export class RepairersService implements IRepairersService {
    * @returns The Repairer entity.
    * @throws Error if repairer is not found.
    */
-  async findOne(id: string): Promise<Repairer> {
+  async findOne(id: string, viewer: Editor = NO_EDITOR): Promise<Repairer> {
     const repairer = await this.repairerRepository.findOne({
       where: { repairer_id: id },
       relations: ['repairerDevices'],
     });
-    if (!repairer) {
+    // Not yet published: seen by its author and the administrators alone.
+    if (
+      !repairer ||
+      (repairer.status !== PUBLISHED &&
+        !viewer.admin &&
+        !mayEdit(viewer, await this.authorOf(id)))
+    ) {
       throw new Error(`Repairer with id ${id} not found`);
     }
     return repairer;
+  }
+
+  /** Who created it: a column no public read returns. */
+  async authorOf(id: string): Promise<number | null> {
+    const row = await this.repairerRepository
+      .createQueryBuilder('repairer')
+      .select('repairer.created_by', 'created_by')
+      .where('repairer.repairer_id = :id', { id })
+      .getRawOne();
+    return row?.created_by ?? null;
   }
 
   /**
@@ -431,9 +471,30 @@ export class RepairersService implements IRepairersService {
    * @returns The updated Repairer entity.
    */
   async update(id: string, data: Partial<Repairer>): Promise<Repairer> {
-    await this.repairerRepository.update(id, data);
-    const updated = await this.findOne(id);
-    await this.repairerSearchService.indexRepairer(updated);
+    const { repairerDevices, ...fields } = data;
+    if (Object.keys(fields).length > 0) {
+      await this.repairerRepository.update(id, fields);
+    }
+    // update() does not write a relation: the device types are replaced here.
+    if (repairerDevices) {
+      await this.repairerDeviceRepository
+        .createQueryBuilder()
+        .delete()
+        .where('repairer_id = :id', { id })
+        .execute();
+      await this.repairerDeviceRepository.save(
+        repairerDevices.map(({ device_type }) =>
+          this.repairerDeviceRepository.create({
+            device_type,
+            repairer: { repairer_id: id },
+          }),
+        ),
+      );
+    }
+    const updated = await this.findOne(id, { ...NO_EDITOR, admin: true });
+    if (updated.status === PUBLISHED) {
+      await this.repairerSearchService.indexRepairer(updated);
+    }
     return updated;
   }
 
@@ -442,8 +503,54 @@ export class RepairersService implements IRepairersService {
    * @param id The repairer ID.
    */
   async delete(id: string): Promise<{ message: string }> {
-    await this.repairerRepository.delete(id);
+    const { affected } = await this.repairerRepository.delete(id);
+    if (!affected) {
+      throw new Error(`Repairer with id ${id} not found`);
+    }
+    await this.repairerSearchService.removeRepairer(id);
     return { message: 'Repairer deleted' };
+  }
+
+  /**
+   * The repairers contributors entered, previewed (`dryRun`) or removed in
+   * the one purge of demonstration data (docs/demo-data.md, §4.4). Their
+   * revisions, device types and reports follow by cascade.
+   */
+  async purgeDemo(dryRun: boolean): Promise<{ repairers: number }> {
+    const demo = await this.repairerRepository.find({
+      where: { is_demo: true },
+      select: { repairer_id: true, status: true },
+    });
+    if (!dryRun && demo.length > 0) {
+      await this.repairerRepository.delete(demo.map((r) => r.repairer_id));
+      // Only a published one was ever indexed.
+      for (const r of demo.filter((r) => r.status === PUBLISHED)) {
+        await this.repairerSearchService.removeRepairer(r.repairer_id);
+      }
+    }
+    return { repairers: demo.length };
+  }
+
+  /** The repairers one contributor proposed, by status, and their waiting changes. */
+  async demoStatsOf(contributorId: number): Promise<{
+    repairers: number;
+    pending: number;
+    published: number;
+    rejected: number;
+    revisions: number;
+  }> {
+    const [row] = await this.repairerRepository.query(
+      `SELECT count(*)::int AS repairers,
+              count(*) FILTER (WHERE r.status = 'pending')::int AS pending,
+              count(*) FILTER (WHERE r.status = 'published')::int AS published,
+              count(*) FILTER (WHERE r.status = 'rejected')::int AS rejected,
+              (SELECT count(*)::int FROM repairer_revisions v
+                WHERE v.created_by = $1 AND v.status = 'pending') AS revisions
+         FROM repairers r
+        WHERE r.is_demo AND r.created_by = $1`,
+      [contributorId],
+    );
+    return row;
   }
 
   /**
@@ -458,6 +565,7 @@ export class RepairersService implements IRepairersService {
       .createQueryBuilder('repairer')
       .select('DISTINCT repairer.country', 'country')
       .where('repairer.country IS NOT NULL')
+      .andWhere('repairer.status = :published', { published: PUBLISHED })
       .getRawMany();
 
     // 2️⃣ Retrieve distinct device types (case-insensitive) along with the
@@ -469,6 +577,7 @@ export class RepairersService implements IRepairersService {
       .addSelect('rd.device_type', 'device_type')
       .addSelect('COUNT(DISTINCT repairer.repairer_id)', 'count')
       .where('rd.device_type IS NOT NULL')
+      .andWhere('repairer.status = :published', { published: PUBLISHED })
       .groupBy('LOWER(rd.device_type)')
       .addGroupBy('rd.device_type')
       .getRawMany();
@@ -556,24 +665,16 @@ export class RepairersService implements IRepairersService {
     // Initialize query builder
     const queryBuilder = this.repairerRepository
       .createQueryBuilder('repairer')
-      .leftJoinAndSelect('repairer.repairerDevices', 'repairerDevice');
+      .leftJoinAndSelect('repairer.repairerDevices', 'repairerDevice')
+      .andWhere('repairer.status = :published', { published: PUBLISHED });
 
     if (search) {
       // Try to resolve search term as a country name to also match ISO codes in DB
       const countryCodeFromSearch = getCountryCode(search);
 
-      const searchConditions = this.repairerRepository.metadata.columns
-        .map((column) => {
-          // Exclude columns that are not strings or are IDs
-          if (
-            column.type == 'uuid' ||
-            column.type == 'decimal' ||
-            column.isPrimary
-          )
-            return '';
-          return `LOWER(${column.databaseName}) LIKE :search`;
-        })
-        .filter(Boolean);
+      const searchConditions = SEARCHED_COLUMNS.map(
+        (column) => `LOWER(repairer.${column}) LIKE :search`,
+      );
 
       if (searchConditions.length > 0) {
         queryBuilder.andWhere(
@@ -681,7 +782,9 @@ export class RepairersService implements IRepairersService {
     latitude: number,
     longitude: number,
   ): Promise<{ repairer: Repairer; distance: number } | null> {
-    const allRepairers = await this.repairerRepository.find();
+    const allRepairers = await this.repairerRepository.find({
+      where: { status: PUBLISHED },
+    });
 
     let nearestRepairer: Repairer | null = null;
     let minDistance = Infinity;

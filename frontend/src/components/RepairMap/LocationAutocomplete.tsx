@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { searchPlaces } from '../../utils/photon';
 
 export interface PickedLocation {
   latitude: number;
@@ -14,27 +15,11 @@ interface LocationAutocompleteProps {
   near?: { latitude: number; longitude: number } | null;
 }
 
-/** The project's countries, as Photon spells them. */
-const COUNTRIES = new Set(['BE', 'CH', 'DE', 'FR', 'LU', 'NL']);
 const MIN_CHARS = 3;
 const DEBOUNCE_MS = 300;
 const MAX_RESULTS = 5;
-/** Photon translates place names into these; any other language gets local names. */
-const PHOTON_LANGUAGES = new Set(['en', 'de', 'fr']);
 
-const labelOf = (p: any): string => {
-  const place = [p.postcode, p.name].filter(Boolean).join(' ') || p.city || '';
-  const around = [p.city !== p.name ? p.city : null, p.state].filter(Boolean).join(', ');
-  return [place, around, p.countrycode].filter(Boolean).join(', ');
-};
-
-/**
- * Address field with suggestions from Photon (komoot, OpenStreetMap data).
- * Nominatim's usage policy forbids autocomplete, and it cannot tell which
- * "6211" is meant; Photon ranks results by distance from `near`, which puts
- * Maastricht first for someone in Aachen. The position is rounded to about
- * 10 km before it leaves the browser: enough to rank, not to locate anyone.
- */
+/** Address field with suggestions from Photon: see `searchPlaces`. */
 const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({ onSelect, onCancel, near }) => {
   const { t, i18n } = useTranslation();
   const [query, setQuery] = useState('');
@@ -52,27 +37,12 @@ const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({ onSelect, o
     setIsSearching(true);
     setError('');
     try {
-      const lang = i18n.language?.slice(0, 2);
-      const params = new URLSearchParams({ q: value, limit: '15' });
-      if (lang && PHOTON_LANGUAGES.has(lang)) params.set('lang', lang);
-      if (near) {
-        params.set('lat', near.latitude.toFixed(1));
-        params.set('lon', near.longitude.toFixed(1));
-      }
-      const response = await fetch(`https://photon.komoot.io/api/?${params}`, { signal: controller.signal });
-      const data = await response.json();
-      const seen = new Set<string>();
-      const results: PickedLocation[] = [];
-      for (const feature of data.features ?? []) {
-        const p = feature.properties ?? {};
-        if (!COUNTRIES.has(p.countrycode)) continue;
-        const label = labelOf(p);
-        if (!label || seen.has(label)) continue;
-        seen.add(label);
-        const [longitude, latitude] = feature.geometry.coordinates;
-        results.push({ latitude, longitude, label });
-        if (results.length === MAX_RESULTS) break;
-      }
+      const results = await searchPlaces(value, {
+        language: i18n.language,
+        near,
+        signal: controller.signal,
+        max: MAX_RESULTS,
+      });
       setSuggestions(results);
       setActiveIndex(results.length > 0 ? 0 : -1);
       if (results.length === 0) setError(t('repairMap.addressNotFound'));

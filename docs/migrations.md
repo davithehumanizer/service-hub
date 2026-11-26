@@ -41,6 +41,9 @@ in devices-service, where `AddUrnToDevicesAndCategories1732012800000` finds its
 columns already there and the whole batch rolls back. Locally, keep synchronize
 on rather than migrate. Checked on a fresh clone on 2026-11-25.
 
+A shareable dump avoids both: it brings the schema and its `migrations` table
+(`scripts/shareable-dump/README.md`).
+
 ## Path resolution
 
 Entity and migration globs are resolved from the config file's own location:
@@ -111,6 +114,12 @@ Everything below is idempotent and none of it touches the `devices` table
 `AddRepairerPartnerType` adds a `NOT NULL DEFAULT 'repairer'` column. On
 PostgreSQL 11+ that is a metadata-only change — no table rewrite — so 33k rows
 are not a concern. The database image is `pgvector/pgvector:pg14`.
+
+One exception to "none of it touches `devices`": `AddAuthorIndexes1793284485182`
+(devices-service, lot 5 of `docs/demo-data.md`) builds two partial indexes on
+`devices.created_by` and `device_models.created_by`. The build reads the 1.1 M
+devices once under a SHARE lock: reads go on, writes to the table wait for the
+few seconds it takes. The deploy's maintenance window covers it.
 
 ## OIDC is live: order of operations
 

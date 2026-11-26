@@ -5,6 +5,7 @@ import { swatchBackground } from "../../utils/colours";
 import ColourSwatches from "./ColourSwatches";
 import DeviceIcon from "./DeviceIcon";
 import DeviceImage from "./DeviceImage";
+import DemoBadge from "./DemoBadge";
 
 /**
  * A device model in a list of results: one card per model, however many
@@ -76,6 +77,11 @@ const ModelCard = ({
               {model.name}
             </h3>
             <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{model.brand}</p>
+            {model.is_demo && (
+              <div className="mt-1">
+                <DemoBadge size="xs" />
+              </div>
+            )}
           </div>
         </div>
 

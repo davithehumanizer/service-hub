@@ -36,11 +36,14 @@ export class AllExceptionsFilter extends BaseExceptionFilter {
       (exception as Error).stack,
     );
 
+    const modelId = (message as any)?.modelId;
     response.status(status).json({
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
       message: (message as any)?.message || message,
+      // A conflict over a device model names the one meant, for a link.
+      ...(typeof modelId === 'number' ? { modelId } : {}),
     });
   }
 }

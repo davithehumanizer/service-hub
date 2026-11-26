@@ -4,12 +4,22 @@ import {
   Column,
   OneToMany,
   AfterLoad,
+  CreateDateColumn,
+  Index,
 } from 'typeorm';
 import { RepairerDevice } from './repairer-device.entity';
 import { getCountryName } from '../utils/country-mapper';
 import { DEFAULT_PARTNER_TYPE } from './constants/partner-type-whitelist';
+import { PUBLISHED } from './constants/repairer-status';
 
 @Entity('repairers')
+// The administrators' queue and "my repairers": a few rows among thousands.
+@Index('repairers_unpublished_idx', ['status'], {
+  where: `"status" <> 'published'`,
+})
+@Index('repairers_created_by_idx', ['created_by'], {
+  where: `"created_by" IS NOT NULL`,
+})
 export class Repairer {
   @PrimaryGeneratedColumn('uuid')
   repairer_id: string;
@@ -20,7 +30,7 @@ export class Repairer {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   description: string;
 
   @Column()
@@ -29,7 +39,7 @@ export class Repairer {
   @Column()
   country: string;
 
-  @Column()
+  @Column({ nullable: true })
   postal_code: string;
 
   @Column()
@@ -57,6 +67,34 @@ export class Repairer {
   // — see partner-type-whitelist.ts
   @Column({ default: DEFAULT_PARTNER_TYPE })
   partner_type: string;
+
+  /** The user who created it; null for an import. Not read back: the
+   * repairer is public, its author is not. */
+  @Column({ type: 'integer', nullable: true, select: false })
+  created_by: number | null;
+
+  /** Created by a contributor: demonstration data, purged with them. */
+  @Column({ default: false })
+  is_demo: boolean;
+
+  // 'pending' | 'published' | 'rejected' — see constants/repairer-status.ts.
+  // Only a published repairer is shown; imports are published at once.
+  @Column({ default: PUBLISHED })
+  status: string;
+
+  /** Why an administrator refused it, shown to its author. */
+  @Column({ type: 'text', nullable: true })
+  review_note: string | null;
+
+  @Column({ type: 'integer', nullable: true, select: false })
+  reviewed_by: number | null;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  reviewed_at: Date | null;
+
+  /** Null for the repairers there before it was recorded. */
+  @CreateDateColumn({ type: 'timestamptz', nullable: true })
+  created_at: Date | null;
 
   /** Virtual field: populated after load via @AfterLoad, not stored in DB */
   countryName?: string;

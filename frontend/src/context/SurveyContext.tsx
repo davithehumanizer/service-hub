@@ -1,6 +1,8 @@
 import React, { useState, useCallback, createContext, useContext } from 'react';
+import { useSelector } from 'react-redux';
 import SurveyWidget, { SurveyConfig } from '../components/Survey/SurveyWidget';
 import api from '../services/api';
+import { selectUserType } from '../stores/authSlice';
 
 interface SurveyContextValue {
   triggerSurvey: (triggerKey: string) => void;
@@ -23,8 +25,14 @@ interface SurveyProviderProps {
 
 export const SurveyProvider: React.FC<SurveyProviderProps> = ({ children }) => {
   const [survey, setSurvey] = useState<SurveyConfig | null>(null);
+  const userType = useSelector(selectUserType);
 
   const triggerSurvey = useCallback(async (triggerKey: string) => {
+    // Responses carry no author, so the demo purge could never remove a
+    // contributor's: they are not asked.
+    if (userType === 'contributor') {
+      return;
+    }
     // Check if already dismissed in this session
     const dismissedKey = `survey_dismissed_${triggerKey}`;
     if (sessionStorage.getItem(dismissedKey)) {
@@ -40,7 +48,7 @@ export const SurveyProvider: React.FC<SurveyProviderProps> = ({ children }) => {
     } catch {
       // No survey for this trigger.
     }
-  }, []);
+  }, [userType]);
 
   const closeSurvey = useCallback(() => {
     if (survey) {

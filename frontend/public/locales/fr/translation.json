@@ -8,21 +8,26 @@
     "repairJourney": "Parcours de réparation",
     "assistant": "Agent d'information",
     "sourceCode": "Code source",
-    "tools": "Outils",
     "devices": "Appareils",
     "spareParts": "Pièces détachées",
     "repairMap": "Carte des réparateurs",
     "tutorials": "Tutoriels",
     "impactCalculator": "Calculateur d'impact",
     "repairMonitor": "Repair Monitor",
-    "repairer": "Réparateur",
     "myWorkshop": "Mon atelier",
     "apiCatalog": "Catalogue communautaire",
-    "catalog": "Catalogue",
     "submitATool": "Proposer un outil",
     "admin": "Admin",
     "adminApiCatalog": "Catalogue API",
-    "adminRepairerReports": "Signalements réparateurs"
+    "adminRepairerReports": "Signalements réparateurs",
+    "adminContributors": "Comptes contributeurs",
+    "myRepairers": "Mes réparateurs",
+    "adminRepairerProposals": "Propositions de réparateurs",
+    "adminDemoData": "Données de démonstration",
+    "myContributions": "Mes contributions",
+    "find": "Trouver",
+    "contribute": "Contribuer",
+    "impact": "Impact"
   },
   "header": {
     "menu": "Menu",
@@ -313,7 +318,12 @@
       "os": "Système d'exploitation",
       "keyboard": "Clavier",
       "sim": "Carte SIM"
-    }
+    },
+    "addVariant": "Ajouter une variante",
+    "editVariant": "Modifier cette variante",
+    "photoDeleted": "Photo supprimée.",
+    "contribute": "Contribuer",
+    "editModel": "Modifier le modèle"
   },
   "personalDevices": {
     "loadFailed": "Vos appareils n'ont pas pu être chargés.",
@@ -389,13 +399,17 @@
     "validation": {
       "brandRequired": "La marque est obligatoire",
       "nameRequired": "Le modèle est obligatoire",
-      "eanFormat": "Un code-barres compte de 8 à 14 chiffres"
+      "eanFormat": "Un code-barres compte de 8 à 14 chiffres",
+      "demoEan": "Un code de démonstration commence par 2"
     },
     "eanHint": "Facultatif : son code-barres, si vous l'avez.",
+    "demoEanHint": "Code de démonstration : 8 à 14 chiffres commençant par 2, à inventer.",
     "productCodeHint": "Facultatif : la référence du fabricant.",
     "created": "{{name}} a été ajouté au catalogue.",
     "existed": "{{name}} était déjà au catalogue : le voici.",
-    "photosFailed": "Les photos n'ont pas pu être ajoutées."
+    "photosFailed": "Les photos n'ont pas pu être ajoutées.",
+    "demoCodeKnown": "Ce code ou cette référence existe déjà au catalogue : inventez-en un autre.",
+    "generateEan": "Générer"
   },
   "repairMap": {
     "title": "Trouver un lieu",
@@ -481,7 +495,8 @@
     "markersInArea_other": "{{count}} lieux dans cette zone, {{shown}} affichés.",
     "zoomForDetail": "Zoomez pour tous les voir.",
     "mapSearch": "recherche sur la carte",
-    "recenter": "Recentrer sur ma position"
+    "recenter": "Recentrer sur ma position",
+    "proposeRepairer": "Proposer un réparateur"
   },
   "repairerDetails": {
     "address": "Adresse",
@@ -498,7 +513,9 @@
     "openInMaps": "Ouvrir dans Google Maps",
     "loadingRoute": "Chargement des données d'itinéraire...",
     "routeError": "Impossible de charger les informations d'itinéraire.",
-    "backToMap": "Retour à la carte"
+    "backToMap": "Retour à la carte",
+    "pendingNotice": "Ce réparateur attend la validation d'un administrateur : vous seul le voyez.",
+    "rejectedNotice": "Cette proposition a été refusée. Vous pouvez la corriger et la renvoyer depuis « Mes réparateurs »."
   },
   "repairerProfile": {
     "title": "Mon atelier",
@@ -702,6 +719,31 @@
     "reportedOn": "Signalé le",
     "markReviewed": "Marquer comme traité",
     "dismiss": "Rejeter"
+  },
+  "adminContributors": {
+    "title": "Admin — Comptes contributeurs",
+    "subtitle": "Les comptes des entreprises qui saisissent des données de démonstration : tout ce qu'elles créent est marqué comme tel.",
+    "newAccount": "Nouveau compte",
+    "invitationHint": "Le contributeur choisit son mot de passe depuis le lien reçu par e-mail. S'il le perd, « Mot de passe oublié » lui en renvoie un.",
+    "email": "Adresse e-mail",
+    "emailInvalid": "Adresse e-mail invalide.",
+    "firstName": "Prénom du contact",
+    "lastName": "Nom du contact",
+    "language": "Langue de ses e-mails",
+    "create": "Créer et envoyer l'invitation",
+    "created": "Invitation envoyée à {{email}}.",
+    "alreadyExists": "Cette adresse a déjà un compte.",
+    "createError": "Impossible de créer ce compte.",
+    "loadError": "Impossible de charger les comptes.",
+    "accounts": "Comptes existants",
+    "none": "Aucun compte contributeur pour l'instant.",
+    "createdOn": "Créé le",
+    "wouldRemove": "Ce que la purge supprimerait pour ce compte",
+    "pendingChanges": "Modifications en attente de validation",
+    "languageHint": "L’invitation, puis chaque e-mail que le compte recevra.",
+    "emailsIn": "e-mails : {{language}}",
+    "entries": "Ses saisies",
+    "noEntries": "Ce compte n’a encore rien saisi."
   },
   "apiToolDetail": {
     "backToCatalog": "Retour au catalogue",
@@ -1289,7 +1331,6 @@
     "viewFullSheet": "Voir la fiche complète",
     "removeConfirmTitle": "Supprimer l'appareil",
     "removeConfirmDesc": "Êtes-vous sûr de vouloir supprimer l'appareil actuel ?",
-    "noPhotos": "Aucune photo disponible pour cet appareil.",
     "closeLightbox": "Fermer la visionneuse",
     "noMultimedia": "Aucun contenu multimédia disponible.",
     "multimediaError": "Erreur lors du chargement du contenu multimédia.",
@@ -1795,5 +1836,224 @@
     "unavailable": "Aucune caméra n'est disponible sur cet appareil.",
     "startFailed": "Le scanner n'a pas pu démarrer. Saisissez le numéro à la place.",
     "switchCamera": "Changer de caméra"
+  },
+  "demo": {
+    "badge": "Démo",
+    "hint": "Donnée de démonstration, saisie pour essayer le site"
+  },
+  "modelEdit": {
+    "title": "Modifier le modèle",
+    "saved": "Modèle enregistré.",
+    "nameTaken": "Un autre modèle porte déjà ce nom.",
+    "brandAndName": "La marque et le modèle sont obligatoires."
+  },
+  "variantForm": {
+    "titleAdd": "Ajouter une variante",
+    "titleEdit": "Modifier la variante",
+    "eanHint": "Son code-barres, si vous l'avez.",
+    "codesHint": "Un code-barres ou une référence : au moins l'un des deux.",
+    "properties": "Caractéristiques",
+    "propertiesHint": "Remplissez celles que vous connaissez. Les nombres s'écrivent dans l'unité indiquée.",
+    "otherProperties": "Autres caractéristiques",
+    "propertyName": "Nom",
+    "propertyValue": "Valeur",
+    "addProperty": "Ajouter une caractéristique",
+    "numberInvalid": "Un nombre, dans l'unité indiquée",
+    "needsCode": "Indiquez un code-barres ou une référence.",
+    "codeKnown": "Ce code-barres ou cette référence existe déjà au catalogue.",
+    "seeModel": "Voir ce modèle",
+    "notYours": "Seul son auteur ou un administrateur peut le modifier.",
+    "photoNotYours": "Seuls l'auteur de la photo ou un administrateur peuvent la supprimer.",
+    "added": "Variante ajoutée.",
+    "saved": "Variante enregistrée.",
+    "fixProperties": "Corrigez les caractéristiques signalées en rouge."
+  },
+  "devicePhotos": {
+    "catalogue": "Photo du catalogue",
+    "added": "Photos ajoutées",
+    "addedHint": "Visibles sous toutes les variantes de ce modèle.",
+    "addFirst": "Ajouter la première photo",
+    "enlarge": "Agrandir la photo",
+    "deleteConfirm": "Supprimer cette photo ?",
+    "definitions": "{{n}} définitions",
+    "chooseDefinition": "Choisir une définition"
+  },
+  "repairerForm": {
+    "titleNew": "Proposer un réparateur",
+    "titleEdit": "Modifier le réparateur",
+    "intro": "Il apparaîtra sur la carte une fois validé par un administrateur.",
+    "introPublished": "Vos modifications seront visibles une fois validées par un administrateur ; d'ici là, la carte garde la version actuelle.",
+    "introAdmin": "En tant qu'administrateur, ce que vous enregistrez est publié aussitôt.",
+    "pendingChange": "Une modification attend déjà d'être validée : enregistrer la remplace.",
+    "sectionPlace": "Le lieu",
+    "name": "Nom",
+    "activity": "Activité",
+    "description": "Description",
+    "sectionAddress": "Adresse",
+    "searchAddress": "Rechercher l'adresse",
+    "searchPlaceholder": "Numéro, rue, ville…",
+    "street": "Rue et numéro",
+    "postalCode": "Code postal",
+    "city": "Ville",
+    "country": "Pays",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "pinHint": "Choisissez une adresse dans la liste, puis déplacez l'épingle si besoin, ou cliquez sur la carte.",
+    "pinMissing": "Placez le lieu sur la carte : choisissez une adresse dans la liste ou cliquez sur la carte.",
+    "sectionContact": "Contact",
+    "website": "Site web",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "devices": "Appareils réparés",
+    "devicesPlaceholder": "Choisissez les types d'appareils",
+    "submitNew": "Envoyer la proposition",
+    "submitEdit": "Enregistrer",
+    "sent": "Proposition envoyée. Elle apparaîtra sur la carte une fois validée.",
+    "published": "Réparateur publié.",
+    "changeSent": "Modification envoyée. Elle sera visible une fois validée.",
+    "saved": "Modifications enregistrées.",
+    "notYours": "Seul l'auteur de ce réparateur ou un administrateur peut le modifier.",
+    "required": "Renseignez le nom, la rue, la ville et le pays.",
+    "fieldRequired": "Obligatoire"
+  },
+  "myRepairers": {
+    "title": "Mes réparateurs",
+    "intro": "Les lieux que vous avez proposés, et où en est leur validation.",
+    "propose": "Proposer un réparateur",
+    "empty": "Vous n'avez encore proposé aucun réparateur.",
+    "status": {
+      "pending": "En attente de validation",
+      "published": "Publié",
+      "rejected": "Refusé"
+    },
+    "proposedOn": "Proposé le {{date}}",
+    "view": "Voir la fiche",
+    "edit": "Modifier",
+    "withdraw": "Retirer",
+    "withdrawConfirm": "Retirer cette proposition ? Elle sera supprimée.",
+    "withdrawn": "Proposition retirée.",
+    "rejectedHint": "Refusé par un administrateur. Modifiez-le pour le renvoyer.",
+    "changePending": "Une modification envoyée le {{date}} attend d'être validée.",
+    "changeRejected": "Votre dernière modification a été refusée.",
+    "reason": "Motif : {{note}}"
+  },
+  "adminRepairerProposals": {
+    "title": "Propositions de réparateurs",
+    "intro": "Les réparateurs proposés sur le site, et les modifications de leurs auteurs, n'arrivent sur la carte qu'une fois validés ici.",
+    "empty": "Rien à valider.",
+    "newPlaces": "Nouveaux lieux",
+    "changes": "Modifications",
+    "proposedOn": "envoyé le {{date}}",
+    "seeOnMap": "Voir sur la carte",
+    "field": "Champ",
+    "before": "Actuel",
+    "after": "Proposé",
+    "publish": "Publier",
+    "apply": "Appliquer",
+    "reject": "Refuser",
+    "reason": "Motif du refus",
+    "reasonHint": "Facultatif. Montré à l'auteur de la proposition.",
+    "confirmReject": "Confirmer le refus",
+    "done": {
+      "proposal": {
+        "publish": "Réparateur publié.",
+        "reject": "Proposition refusée."
+      },
+      "revision": {
+        "apply": "Modification appliquée.",
+        "reject": "Modification refusée."
+      }
+    },
+    "stale": "Elle a changé entre-temps : la liste est rechargée, vérifiez-la de nouveau.",
+    "proposedBy": "par",
+    "select": "Sélectionner",
+    "selectAll": "Tout sélectionner",
+    "publishSelected": "Publier la sélection ({{count}})",
+    "applySelected": "Appliquer la sélection ({{count}})",
+    "bulkDone": {
+      "proposal_one": "{{count}} réparateur publié.",
+      "proposal_other": "{{count}} réparateurs publiés.",
+      "revision_one": "{{count}} modification appliquée.",
+      "revision_other": "{{count}} modifications appliquées."
+    },
+    "bulkSkipped_one": "{{count}} n’a pas pu être traité. La file est rechargée : vérifiez-le avant de réessayer.",
+    "bulkSkipped_other": "{{count}} n’ont pas pu être traités. La file est rechargée : vérifiez-les avant de réessayer.",
+    "refused": "Refusés récemment",
+    "refusedHint": "Un refus fait par erreur se rattrape ici. Comme pour toute décision, l’auteur est prévenu par e-mail.",
+    "refusedOn": "Refusé le {{date}}",
+    "reasonGiven": "motif : {{note}}",
+    "publishAnyway": "Publier quand même",
+    "applyAnyway": "Appliquer quand même",
+    "publishAnywayConfirm": "Publier ce réparateur malgré le refus ? Son auteur en est prévenu par e-mail.",
+    "applyAnywayConfirm": "Appliquer cette modification malgré le refus ? Son auteur en est prévenu par e-mail."
+  },
+  "adminDemoData": {
+    "title": "Données de démonstration",
+    "intro": "Tout ce que les contributeurs ont saisi, ce qui y renvoie, et leurs comptes, supprimés en une seule purge.",
+    "wouldRemove": "Ce que la purge supprimerait",
+    "done": "Supprimé",
+    "nothing": "Aucune donnée de démonstration.",
+    "accountsGroup": "Comptes",
+    "catalogueGroup": "Catalogue",
+    "repairersGroup": "Réparateurs",
+    "contagionGroup": "Renvoyant à des données de démonstration",
+    "lines": {
+      "accounts": "Comptes contributeurs",
+      "models": "Modèles",
+      "variants": "Variantes",
+      "photos": "Photos (et leurs fichiers)",
+      "adoptedModels": "Modèles de démo gardés, une vraie variante les ayant rejoints",
+      "touchedModels": "Vrais modèles recalculés",
+      "repairers": "Réparateurs",
+      "ownerships": "Appareils personnels",
+      "journeys": "Parcours de réparation",
+      "records": "Relevés de réparation",
+      "subscriptions": "Abonnements aux tutoriels"
+    },
+    "ofRealUsers": "dont {{n}} de vrais utilisateurs",
+    "irreversible": "Cette opération est irréversible.",
+    "dumpFirst": "Faites d'abord une sauvegarde de la base.",
+    "contagionWarning": "De vrais utilisateurs perdent les appareils personnels et parcours qui renvoient à des données de démonstration.",
+    "typeWord": "Tapez {{word}} pour confirmer",
+    "purge": "Purger",
+    "purged": "Données de démonstration purgées.",
+    "filesLeft": "{{n}} fichiers de photos n'ont pas pu être supprimés : voir les journaux de la passerelle.",
+    "stopped": "La purge s'est arrêtée. Ce qui est supprimé le reste ; relancez-la pour terminer."
+  },
+  "contributions": {
+    "title": "Mes contributions",
+    "intro": "Les modèles et variantes que vous avez saisis, les plus récents d’abord.",
+    "add": "Ajouter un appareil",
+    "empty": "Vous n’avez encore saisi aucun modèle ni aucune variante.",
+    "repairersElsewhere": "Les réparateurs que vous avez proposés sont dans",
+    "kinds": {
+      "models": "Modèles",
+      "variants": "Variantes",
+      "repairers": "Réparateurs"
+    },
+    "none": {
+      "models": "Aucun modèle.",
+      "variants": "Aucune variante.",
+      "repairers": "Aucun réparateur."
+    },
+    "variantCount_one": "{{count}} variante",
+    "variantCount_other": "{{count}} variantes",
+    "createdOn": "créé le {{date}}",
+    "code": "Code-barres {{code}}",
+    "noCode": "Sans code-barres",
+    "changeWaiting": "modification en attente",
+    "loadMore": "Afficher plus ({{shown}} sur {{total}})"
+  },
+  "contributorGuide": {
+    "title": "Bienvenue dans la campagne de démonstration",
+    "intro": "Vos saisies remplissent le Service Hub le temps de la campagne : appareils et réparateurs, au plus près du réel.",
+    "rules": {
+      "what": "Saisissez des modèles d’appareils, leurs variantes (couleur, capacité…) avec leurs caractéristiques et des photos, et des réparateurs.",
+      "ean": "Un code-barres (EAN) commence par 2 : le bouton « Générer » du formulaire en crée un libre.",
+      "photos": "Photos : seulement les vôtres, ou sous licence libre. Pas d’image copiée d’un site de fabricant ou de vendeur : vos saisies sont publiques.",
+      "repairers": "Un réparateur apparaît sur la carte une fois validé par un administrateur ; vous recevez un e-mail à chaque décision.",
+      "emails": "Les abonnements aux tutoriels envoient de vrais e-mails : utilisez une adresse que vous lisez.",
+      "purge": "Tout ce que vous saisissez porte le badge « Démo » et sera supprimé à la fin de la campagne."
+    }
   }
 }

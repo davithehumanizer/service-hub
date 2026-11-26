@@ -59,6 +59,36 @@ describe('AllExceptionsFilter', () => {
     expect(mockLogger.error).toHaveBeenCalled();
   });
 
+  it('keeps the model a conflict names, for a link to it', () => {
+    const json = jest.fn();
+    const host = {
+      switchToHttp: () => ({
+        getResponse: () => ({ status: () => ({ json }) }),
+        getRequest: () => ({ url: '/api/v2/device-models/3' }),
+      }),
+    } as unknown as ArgumentsHost;
+
+    filter.catch(
+      new HttpException(
+        {
+          statusCode: 409,
+          message: 'Model 12 already has this name',
+          modelId: 12,
+        },
+        HttpStatus.CONFLICT,
+      ),
+      host,
+    );
+
+    expect(json).toHaveBeenCalledWith(
+      expect.objectContaining({
+        statusCode: HttpStatus.CONFLICT,
+        message: 'Model 12 already has this name',
+        modelId: 12,
+      }),
+    );
+  });
+
   it('should catch unknown error and return 500', () => {
     const mockJson = jest.fn();
     const mockStatus = jest.fn().mockReturnValue({ json: mockJson });

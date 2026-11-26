@@ -12,6 +12,9 @@ describe('DeviceModelsController', () => {
     createModel: jest.fn(),
     addModelPhotos: jest.fn(),
     deleteModelPhoto: jest.fn(),
+    addVariant: jest.fn(),
+    updateModel: jest.fn(),
+    updateVariant: jest.fn(),
   };
   const controller = new DeviceModelsController(
     models as unknown as ModelsService,
@@ -58,14 +61,66 @@ describe('DeviceModelsController', () => {
 
   it('passes a model to create, its photos and a photo to delete', async () => {
     const model = { brand: 'Fairphone', name: 'Fairphone 5' };
-    await controller.createModel({ model, locale: 'fr' });
-    expect(models.createModel).toHaveBeenCalledWith(model, 'fr');
+    const author = { created_by: 42, is_demo: true };
+    await controller.createModel({ model, locale: 'fr', author });
+    expect(models.createModel).toHaveBeenCalledWith(model, 'fr', author);
 
     const photoUrls = [{ url: 'u.jpg', key: 'k' }];
-    await controller.addModelPhotos({ modelId: 5, photoUrls });
-    expect(models.addModelPhotos).toHaveBeenCalledWith(5, photoUrls);
+    await controller.addModelPhotos({ modelId: 5, photoUrls, author });
+    expect(models.addModelPhotos).toHaveBeenCalledWith(5, photoUrls, author);
 
-    await controller.deleteModelPhoto({ modelId: 5, photoId: 'p' });
-    expect(models.deleteModelPhoto).toHaveBeenCalledWith(5, 'p');
+    const editor = { ...author, admin: false };
+    await controller.deleteModelPhoto({ modelId: 5, photoId: 'p', editor });
+    expect(models.deleteModelPhoto).toHaveBeenCalledWith(5, 'p', editor);
+  });
+
+  it('passes a variant to add, and the changes of a model or a variant', async () => {
+    const author = { created_by: 42, is_demo: true };
+    const editor = { ...author, admin: false };
+    const variant = { ean: '2000000000017' };
+
+    await controller.addVariant({ modelId: 3, variant, author });
+    expect(models.addVariant).toHaveBeenCalledWith(3, variant, author);
+
+    await controller.updateModel({
+      modelId: 3,
+      changes: { name: 'X' },
+      editor,
+    });
+    expect(models.updateModel).toHaveBeenCalledWith(3, { name: 'X' }, editor);
+
+    await controller.updateVariant({
+      modelId: 3,
+      variantId: 8,
+      changes: variant,
+      editor,
+    });
+    expect(models.updateVariant).toHaveBeenCalledWith(3, 8, variant, editor);
+  });
+
+  it('sends a refused change back as an RPC error', async () => {
+    models.updateModel.mockRejectedValue(
+      new Error('Model 12 already has this name'),
+    );
+    await expect(
+      controller.updateModel({
+        modelId: 3,
+        changes: {},
+        editor: { created_by: 1, is_demo: false, admin: true },
+      }),
+    ).rejects.toEqual(new RpcException('Model 12 already has this name'));
+    models.addVariant.mockRejectedValue(new Error(''));
+    await expect(
+      controller.addVariant({ modelId: 3, variant: {} }),
+    ).rejects.toEqual(new RpcException('Failed to add the variant'));
+    models.updateVariant.mockRejectedValue(new Error(''));
+    await expect(
+      controller.updateVariant({
+        modelId: 3,
+        variantId: 8,
+        changes: {},
+        editor: { created_by: 1, is_demo: false, admin: true },
+      }),
+    ).rejects.toEqual(new RpcException('Failed to update the variant'));
   });
 });

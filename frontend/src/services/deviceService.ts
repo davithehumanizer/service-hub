@@ -125,6 +125,18 @@ export const deviceService = {
     }
   },
 
+  addPhotos: async (deviceId: number, files: File[]): Promise<void> => {
+    try {
+      const formData = new FormData();
+      files.forEach((file) => formData.append("photos", file));
+      await api.post(`${API_URL}/v1/devices/${deviceId}/photos`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+    } catch (error: any) {
+      throw error.response?.data?.message || "Failed to upload photos";
+    }
+  },
+
   deletePhoto: async (deviceId: number, photoId: string): Promise<void> => {
     try {
       await api.delete(`${API_URL}/v1/devices/${deviceId}/photos/${photoId}`);

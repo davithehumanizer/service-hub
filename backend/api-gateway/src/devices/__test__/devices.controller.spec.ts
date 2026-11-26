@@ -107,7 +107,7 @@ describe('DevicesController', () => {
     const created = { id: 999, ...body };
     mockClientProxy.send.mockReturnValue(of(created));
 
-    const res = await controller.createDevice(body);
+    const res = await controller.createDevice(body, {});
     expect(res).toEqual(created);
     expect(mockClientProxy.send).toHaveBeenCalledWith(
       { cmd: 'create_device' },
@@ -133,6 +133,7 @@ describe('DevicesController', () => {
 
     const res = await controller.createDevice(
       body as unknown as CreateDeviceDto,
+      {},
     );
     expect(res).toEqual(created);
     // ensure legacy field was converted to categories array
@@ -142,10 +143,30 @@ describe('DevicesController', () => {
     );
   });
 
+  it('records who creates a device', async () => {
+    mockClientProxy.send.mockReturnValue(of({}));
+    await controller.createDevice({ ean: '4006381333931' } as CreateDeviceDto, {
+      user: { id: 42, role: { name: 'user' } },
+    });
+    expect(mockClientProxy.send).toHaveBeenCalledWith(
+      { cmd: 'create_device' },
+      expect.objectContaining({ created_by: 42, is_demo: false }),
+    );
+  });
+
+  it('sends a contributor to the model route, which checks their codes', async () => {
+    await expect(
+      controller.createDevice({ ean: '4006381333931' } as CreateDeviceDto, {
+        user: { id: 42, role: { name: 'contributor' } },
+      }),
+    ).rejects.toMatchObject({ status: HttpStatus.FORBIDDEN });
+    expect(mockClientProxy.send).not.toHaveBeenCalled();
+  });
+
   it('should throw on createDevice error', async () => {
     mockClientProxy.send.mockReturnValue(throwError(() => new Error('fail')));
     await expect(
-      controller.createDevice({} as CreateDeviceDto),
+      controller.createDevice({} as CreateDeviceDto, {}),
     ).rejects.toThrow(HttpException);
   });
 
@@ -306,5 +327,32 @@ describe('DevicesController', () => {
     await expect(
       controller.updateDevice(1, {} as CreateDeviceDto),
     ).rejects.toThrow(HttpException);
+  });
+
+  it("deletes a device's photo as its editor, 403 for another", async () => {
+    mockClientProxy.send.mockReturnValue(of({ key: 'devices/7/a.png' }));
+    const req = { user: { id: 42, role: { name: 'contributor' } } };
+
+    expect(await controller.deleteDevicePhoto(7, 'p', req)).toEqual({
+      success: true,
+    });
+    expect(mockClientProxy.send).toHaveBeenCalledWith(
+      { cmd: 'delete_device_photo' },
+      {
+        photoId: 'p',
+        deviceId: 7,
+        editor: { created_by: 42, is_demo: true, admin: false },
+      },
+    );
+
+    mockClientProxy.send.mockReturnValue(
+      throwError(
+        () =>
+          new Error('Only its author or an administrator may delete this photo'),
+      ),
+    );
+    await expect(
+      controller.deleteDevicePhoto(7, 'p', req),
+    ).rejects.toMatchObject({ status: HttpStatus.FORBIDDEN });
   });
 });

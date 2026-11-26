@@ -36,6 +36,7 @@ import { ResetPasswordRequestDto } from './dto/reset-password-request.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import { ResetPasswordWithTokenDto } from './dto/reset-password-with-token.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
+import { CreateContributorDto } from './dto/create-contributor.dto';
 import { UserResponseDto } from './dto/response/user-response.dto';
 import { ConfirmAccountResponseDto } from './dto/response/confirm-account-response.dto';
 import { ResetPasswordResponseDto } from './dto/response/reset-password-response.dto';
@@ -276,6 +277,71 @@ export class UsersController {
       this.logger.error('getAllUsers error: ' + error?.message, error?.stack);
       throw new HttpException(
         error?.message || 'Failed to get users',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('contributor.admin')
+  @Version('1')
+  @Post('contributors')
+  @ApiOperation({
+    summary: 'Create a contributor account',
+    description:
+      'For a company paid to enter demonstration data: whatever it creates is marked as such. The account is verified, and its holder chooses a password from the link emailed.',
+  })
+  @ApiBody({ type: CreateContributorDto })
+  @ApiResponse({
+    status: 201,
+    description: 'Account created, invitation sent.',
+    type: UserResponseDto,
+  })
+  @ApiResponse({ status: 403, description: 'Not an administrator.' })
+  @ApiResponse({
+    status: 409,
+    description: 'The address already has an account.',
+  })
+  async createContributor(@Body() body: CreateContributorDto) {
+    this.logger.log('createContributor called', { email: body.email });
+    try {
+      return await firstValueFrom(
+        this.userService.send({ cmd: 'create_contributor' }, body),
+      );
+    } catch (error) {
+      this.logger.error(
+        'createContributor error: ' + error?.message,
+        error?.stack,
+      );
+      throw new HttpException(
+        error?.message || 'Failed to create contributor account',
+        error?.message === 'USER_ALREADY_EXISTS'
+          ? HttpStatus.CONFLICT
+          : HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
+  @UseGuards(FlexibleAuthGuard, PermissionsGuard)
+  @Permissions('contributor.admin')
+  @Version('1')
+  @Get('contributors')
+  @ApiOperation({ summary: 'List the contributor accounts, newest first' })
+  @ApiResponse({ status: 200, type: [UserResponseDto] })
+  @ApiResponse({ status: 403, description: 'Not an administrator.' })
+  async getContributors() {
+    this.logger.log('getContributors called');
+    try {
+      return await firstValueFrom(
+        this.userService.send({ cmd: 'get_contributors' }, {}),
+      );
+    } catch (error) {
+      this.logger.error(
+        'getContributors error: ' + error?.message,
+        error?.stack,
+      );
+      throw new HttpException(
+        error?.message || 'Failed to get contributors',
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }

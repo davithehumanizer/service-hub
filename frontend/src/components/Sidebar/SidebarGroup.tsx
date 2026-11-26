@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IRouteGroup, IRoute, UserRole } from '../../routes/sidebar';
+import { usePendingProposals } from '../../hooks/usePendingProposals';
 
 // This group's children used to be a hard {open && <ul>} — no transition of
 // any kind, so it always popped open/shut instantly. max-height is animated
@@ -9,6 +10,7 @@ import { IRouteGroup, IRoute, UserRole } from '../../routes/sidebar';
 // value, so the reveal actually takes the full duration instead of racing
 // past the real content height and sitting idle for the remainder.
 const LEAVE_DURATION_MS = 200;
+const ENTER_DURATION_MS = 300;
 
 interface Props {
   group: IRouteGroup;
@@ -63,6 +65,14 @@ const colorMap: Record<ColorKey, { header: string; hover: string; active: string
   },
 };
 
+const PROPOSALS_PATH = '/app/admin/repairer-proposals';
+
+const Waiting: React.FC<{ count: number }> = ({ count }) => (
+  <span className="ml-auto px-2 rounded-full bg-red-600 text-white text-xs font-bold leading-5 normal-case tracking-normal">
+    {count}
+  </span>
+);
+
 const isRoleVisible = (route: IRoute, userType: UserRole | null): boolean => {
   if (!route.roles || route.roles.includes('all')) return true;
   if (userType && route.roles.includes(userType)) return true;
@@ -77,6 +87,11 @@ const SidebarGroup: React.FC<Props> = ({ group, userType, globalDevice }) => {
 
   const hasActiveChild = visibleRoutes.some((r) =>
     location.pathname.startsWith(r.path),
+  );
+
+  // What waits in the repairer queue, on its entry and, closed, on its group.
+  const waiting = usePendingProposals(
+    userType === 'admin' && visibleRoutes.some((r) => r.path === PROPOSALS_PATH),
   );
 
   const [open, setOpen] = useState(hasActiveChild);
@@ -112,7 +127,10 @@ const SidebarGroup: React.FC<Props> = ({ group, userType, globalDevice }) => {
     const raf = requestAnimationFrame(() => {
       setMaxHeight(listRef.current ? listRef.current.scrollHeight : 0);
     });
-    return () => cancelAnimationFrame(raf);
+    // Then no cap: a label that wraps later (the icon font arriving, another
+    // language) would otherwise be cut off at the height measured here.
+    const uncap = setTimeout(() => setMaxHeight(Infinity), ENTER_DURATION_MS);
+    return () => { cancelAnimationFrame(raf); clearTimeout(uncap); };
   }, [open, mounted]);
 
   // Every hook above must run on every render — bailing out before them
@@ -166,11 +184,14 @@ const SidebarGroup: React.FC<Props> = ({ group, userType, globalDevice }) => {
           </span>
           <span className={`text-left leading-tight ${colors.header}`}>{t(group.translationKey)}</span>
         </span>
-        <span
-          className={`material-symbols-outlined text-xl leading-none transform transition-transform duration-200 ${open ? 'rotate-180' : ''} ${colors.header}`}
-          aria-hidden="true"
-        >
-          expand_more
+        <span className="flex items-center gap-2">
+          {!open && waiting > 0 && <Waiting count={waiting} />}
+          <span
+            className={`material-symbols-outlined text-xl leading-none transform transition-transform duration-200 ${open ? 'rotate-180' : ''} ${colors.header}`}
+            aria-hidden="true"
+          >
+            expand_more
+          </span>
         </span>
       </button>
 
@@ -210,6 +231,7 @@ const SidebarGroup: React.FC<Props> = ({ group, userType, globalDevice }) => {
                     {route.icon}
                   </span>
                   <span className="ml-3">{t(route.translationKey)}</span>
+                  {route.path === PROPOSALS_PATH && waiting > 0 && <Waiting count={waiting} />}
                 </NavLink>
               </li>
             );

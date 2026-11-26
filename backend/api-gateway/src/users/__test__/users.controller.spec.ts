@@ -51,6 +51,51 @@ describe('UsersController', () => {
     );
   });
 
+  it('leaves contributor accounts to administrators', () => {
+    for (const handler of [
+      controller.createContributor,
+      controller.getContributors,
+    ]) {
+      expect(Reflect.getMetadata('permissions', handler)).toEqual([
+        'contributor.admin',
+      ]);
+    }
+  });
+
+  it('creates a contributor account, 409 when the address has one', async () => {
+    const body = { email: 'saisie@acme.example', locale: 'de' };
+    mockClientProxy.send.mockReturnValue(of({ id: 7 }));
+    expect(await controller.createContributor(body)).toEqual({ id: 7 });
+    expect(mockClientProxy.send).toHaveBeenCalledWith(
+      { cmd: 'create_contributor' },
+      body,
+    );
+
+    mockClientProxy.send.mockReturnValue(
+      throwError(() => new Error('USER_ALREADY_EXISTS')),
+    );
+    await expect(controller.createContributor(body)).rejects.toMatchObject({
+      status: HttpStatus.CONFLICT,
+    });
+
+    mockClientProxy.send.mockReturnValue(throwError(() => new Error('down')));
+    await expect(controller.createContributor(body)).rejects.toMatchObject({
+      status: HttpStatus.INTERNAL_SERVER_ERROR,
+    });
+  });
+
+  it('lists the contributor accounts', async () => {
+    mockClientProxy.send.mockReturnValue(of([{ id: 7 }]));
+    expect(await controller.getContributors()).toEqual([{ id: 7 }]);
+    expect(mockClientProxy.send).toHaveBeenCalledWith(
+      { cmd: 'get_contributors' },
+      {},
+    );
+
+    mockClientProxy.send.mockReturnValue(throwError(() => new Error('down')));
+    await expect(controller.getContributors()).rejects.toThrow(HttpException);
+  });
+
   it('should throw on register error', async () => {
     const body = { email: 'a', password: 'b', profile: {} };
     mockClientProxy.send.mockReturnValue(throwError(() => new Error('fail')));

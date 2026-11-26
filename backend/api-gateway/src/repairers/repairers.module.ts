@@ -4,11 +4,14 @@ import { RepairersController } from './repairers.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { RolesModule } from 'src/roles/roles.module';
 import { AuthModule } from 'src/auth/auth.module';
+import { UsersModule } from 'src/users/users.module';
 
 @Module({
   imports: [
     RolesModule,
     AuthModule,
+    // Who proposed a repairer, and telling them what was decided.
+    UsersModule,
     ClientsModule.registerAsync([
       {
         name: 'REPAIRERS_SERVICE',

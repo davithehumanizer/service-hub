@@ -27,6 +27,10 @@ export class UserProfile {
   @Column({ nullable: true })
   country: string;
 
+  /** Language of the emails it is sent: en, fr, nl or de; English if none. */
+  @Column({ type: 'varchar', length: 2, nullable: true })
+  language: string | null;
+
   @Column({
     type: process.env.NODE_ENV === 'test' ? 'datetime' : 'timestamp',
     default: () => 'CURRENT_TIMESTAMP',
