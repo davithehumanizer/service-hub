@@ -25,7 +25,10 @@ function ForgotPassword() {
 
     try {
       const response = await authService.resetPasswordRequest(email);
-      if (response.ok) {
+      if (response.ok && response.data?.emailSent === false) {
+        setError(t('auth.forgotPassword.notSent'));
+        handleError(t('auth.forgotPassword.notSent'));
+      } else if (response.ok) {
         setRequestSent(true);
       } else {
         setError(response.error || 'Failed to send reset link.');

@@ -16,13 +16,13 @@ export class MailerController {
     html?: string;
   }) {
     try {
-      await this.mailerService.sendMail({
+      // The service reports a failure rather than throwing it.
+      return await this.mailerService.sendMail({
         to: data.to,
         subject: data.subject,
         text: data.text,
         html: data.html,
       });
-      return { success: true, message: 'Email envoyé avec succès' };
     } catch (error) {
       return { success: false, message: error.message };
     }

@@ -104,7 +104,8 @@
       "sendResetLink": "Send reset link",
       "sending": "Sending...",
       "backToLogin": "Back to Login",
-      "resetSent": "A password reset link has been sent to your email."
+      "resetSent": "A password reset link has been sent to your email.",
+      "notSent": "The email with the link could not be sent. Please try again later."
     },
     "resetPassword": {
       "title": "Reset Password",
@@ -732,6 +733,7 @@
     "language": "Language of its emails",
     "create": "Create and send the invitation",
     "created": "Invitation sent to {{email}}.",
+    "createdNoInvitation": "Account created for {{email}}, but the invitation email could not be sent. Once email works again, “Forgot password” on the sign-in page will send a new link.",
     "alreadyExists": "This address already has an account.",
     "createError": "Could not create this account.",
     "loadError": "Could not load the accounts.",

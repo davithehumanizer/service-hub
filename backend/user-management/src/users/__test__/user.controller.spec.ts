@@ -80,10 +80,13 @@ describe('UserController', () => {
       const role = { id: 5, name: 'contributor' };
       roleService.findByName?.mockResolvedValue(role);
       userService.createContributor = jest.fn().mockResolvedValue({
-        id: 9,
-        email: body.email,
-        password: 'hash',
-        resetToken: 'token',
+        user: {
+          id: 9,
+          email: body.email,
+          password: 'hash',
+          resetToken: 'token',
+        },
+        invitationSent: false,
       });
 
       const result = await controller.createContributor({
@@ -98,7 +101,11 @@ describe('UserController', () => {
         { firstName: 'Ana', lastName: undefined },
         'fr',
       );
-      expect(result).toMatchObject({ id: 9, email: body.email });
+      expect(result).toMatchObject({
+        id: 9,
+        email: body.email,
+        invitationSent: false,
+      });
       expect(result).not.toHaveProperty('password');
       expect(result).not.toHaveProperty('resetToken');
     });
@@ -490,12 +497,25 @@ describe('UserController', () => {
       const user = { email: 'test@test.com' };
       userService.findByEmail?.mockResolvedValue(user);
       userService.update?.mockResolvedValue(user);
-      userService.sendResetPasswordEmail?.mockResolvedValue(undefined);
+      userService.sendResetPasswordEmail?.mockResolvedValue(true);
 
       const result = await controller.resetPasswordRequest({
         email: 'test@test.com',
       });
-      expect(result).toEqual({ message: 'Reset password email sent' });
+      expect(result).toEqual({
+        message: 'Reset password email sent',
+        emailSent: true,
+      });
+    });
+
+    it('says when the email did not leave', async () => {
+      userService.findByEmail?.mockResolvedValue({ email: 'test@test.com' });
+      userService.sendResetPasswordEmail?.mockResolvedValue(false);
+
+      const result = await controller.resetPasswordRequest({
+        email: 'test@test.com',
+      });
+      expect(result).toMatchObject({ emailSent: false });
     });
 
     it('should throw if user not found', async () => {

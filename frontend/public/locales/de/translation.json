@@ -104,7 +104,8 @@
       "sendResetLink": "Reset-Link senden",
       "sending": "Senden...",
       "backToLogin": "Zurück zur Anmeldung",
-      "resetSent": "Ein Passwort-Reset-Link wurde an Ihre E-Mail-Adresse gesendet."
+      "resetSent": "Ein Passwort-Reset-Link wurde an Ihre E-Mail-Adresse gesendet.",
+      "notSent": "Die E-Mail mit dem Link konnte nicht gesendet werden. Bitte versuchen Sie es später erneut."
     },
     "resetPassword": {
       "title": "Passwort zurücksetzen",
@@ -732,6 +733,7 @@
     "language": "Sprache der E-Mails",
     "create": "Anlegen und Einladung senden",
     "created": "Einladung an {{email}} gesendet.",
+    "createdNoInvitation": "Konto für {{email}} angelegt, aber die Einladungs-E-Mail konnte nicht gesendet werden. Sobald der E-Mail-Versand wieder funktioniert, schickt „Passwort vergessen“ auf der Anmeldeseite einen neuen Link.",
     "alreadyExists": "Für diese Adresse gibt es bereits ein Konto.",
     "createError": "Dieses Konto konnte nicht angelegt werden.",
     "loadError": "Die Konten konnten nicht geladen werden.",

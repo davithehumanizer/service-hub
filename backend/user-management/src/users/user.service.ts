@@ -7,6 +7,7 @@ import * as bcrypt from 'bcryptjs';
 import * as crypto from 'crypto';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { ConfigService } from '@nestjs/config';
+import { firstValueFrom } from 'rxjs';
 import { Role } from 'src/roles/role.entity';
 import { RefreshTokenService } from '../auth/refresh-token.service';
 import {
@@ -93,7 +94,7 @@ export class UserService {
     role: Role,
     profileData: Partial<Pick<UserProfile, 'firstName' | 'lastName'>>,
     locale = 'en',
-  ): Promise<User> {
+  ): Promise<{ user: User; invitationSent: boolean }> {
     const profile = await this.profileRepository.save(
       this.profileRepository.create({
         ...profileData,
@@ -113,8 +114,12 @@ export class UserService {
         resetToken,
       }),
     );
-    this.sendContributorInvitation(email, resetToken, locale);
-    return user;
+    const invitationSent = await this.sendContributorInvitation(
+      email,
+      resetToken,
+      locale,
+    );
+    return { user, invitationSent };
   }
 
   /** Who these accounts are, as an administrator's screen names them. */
@@ -342,10 +347,14 @@ export class UserService {
   }
 
   /**
-   * Sends a password reset email to the user with a reset link.
-   * Uses the NOTIFICATIONS_SERVICE microservice.
+   * Sends a password reset email to the user with a reset link, and says
+   * whether it left: the page must not announce a link that never went.
    */
-  sendResetPasswordEmail(email: string, token: string, locale = 'en') {
+  async sendResetPasswordEmail(
+    email: string,
+    token: string,
+    locale = 'en',
+  ): Promise<boolean> {
     const frontendUrl =
       this.configService.get<string>('FRONTEND_URL') || 'http://localhost:3010';
     const resetUrl = `${frontendUrl}/reset-password/${token}`;
@@ -364,21 +373,23 @@ export class UserService {
     };
     const tpl = templates[locale] ?? templates['en'];
 
-    const response = this.notificationsClient.emit(
-      { cmd: 'send_email' },
-      {
-        to: email,
-        subject: tpl.subject,
-        text: `${tpl.cta}: ${resetUrl}`,
-        html: `<p>${tpl.cta}: <a href="${resetUrl}">${resetUrl}</a></p>`,
-      },
-    );
-    console.log('sendResetPasswordEmail', response);
-    return response;
+    return this.sendAwaited({
+      to: email,
+      subject: tpl.subject,
+      text: `${tpl.cta}: ${resetUrl}`,
+      html: `<p>${tpl.cta}: <a href="${resetUrl}">${resetUrl}</a></p>`,
+    });
   }
 
-  /** The link a new contributor chooses their password from. */
-  sendContributorInvitation(email: string, token: string, locale = 'en') {
+  /**
+   * The link a new contributor chooses their password from, and whether it
+   * left: the administrator is told.
+   */
+  async sendContributorInvitation(
+    email: string,
+    token: string,
+    locale = 'en',
+  ): Promise<boolean> {
     const frontendUrl =
       this.configService.get<string>('FRONTEND_URL') || 'http://localhost:3010';
     const url = `${frontendUrl}/reset-password/${token}`;
@@ -403,15 +414,29 @@ export class UserService {
     };
     const tpl = templates[locale] ?? templates['en'];
 
-    return this.notificationsClient.emit(
-      { cmd: 'send_email' },
-      {
-        to: email,
-        subject: tpl.subject,
-        text: `${tpl.cta}: ${url}`,
-        html: `<p>${tpl.cta}: <a href="${url}">${url}</a></p>`,
-      },
-    );
+    return this.sendAwaited({
+      to: email,
+      subject: tpl.subject,
+      text: `${tpl.cta}: ${url}`,
+      html: `<p>${tpl.cta}: <a href="${url}">${url}</a></p>`,
+    });
+  }
+
+  /** Sends an email and says whether it left. */
+  private async sendAwaited(mail: {
+    to: string;
+    subject: string;
+    text: string;
+    html: string;
+  }): Promise<boolean> {
+    try {
+      const result = await firstValueFrom(
+        this.notificationsClient.send({ cmd: 'send_email' }, mail),
+      );
+      return result?.success === true;
+    } catch {
+      return false;
+    }
   }
 
   /**

@@ -10,6 +10,7 @@ import { ConfigService } from '@nestjs/config';
 import * as bcrypt from 'bcryptjs';
 import { RecaptchaService } from '../../recaptcha/recaptcha.service';
 import { RefreshTokenService } from '../../auth/refresh-token.service';
+import { of, throwError } from 'rxjs';
 
 const mockUserRepository = () => ({
   create: jest.fn(),
@@ -26,6 +27,7 @@ const mockProfileRepository = () => ({
 
 const mockClientProxy = () => ({
   emit: jest.fn(),
+  send: jest.fn(() => of({ success: true })),
 });
 
 const mockConfigService = () => ({
@@ -172,13 +174,14 @@ describe('UserService', () => {
       userRepository.create.mockImplementation((u) => u);
       userRepository.save.mockImplementation(async (u) => ({ id: 9, ...u }));
 
-      const user: any = await service.createContributor(
+      const { user, invitationSent }: any = await service.createContributor(
         'saisie@acme.example',
         role,
         { firstName: 'Ana' },
         'de',
       );
 
+      expect(invitationSent).toBe(true);
       expect(user).toMatchObject({
         email: 'saisie@acme.example',
         role,
@@ -190,7 +193,7 @@ describe('UserService', () => {
       expect(user.resetToken).toMatch(/^[0-9a-f]{64}$/);
       // A hash of a password nobody was told.
       expect(user.password).toMatch(/^\$2[aby]\$/);
-      const [, mail] = notificationsClient.emit.mock.calls[0];
+      const [, mail] = (notificationsClient.send.mock.calls[0] as any[]);
       expect(mail.to).toBe('saisie@acme.example');
       expect(mail.subject).toBe('Ihr Mitwirkenden-Konto für Service Hub');
       expect(mail.text).toContain(
@@ -198,10 +201,34 @@ describe('UserService', () => {
       );
     });
 
-    it('writes the invitation in English for a language it does not have', () => {
-      service.sendContributorInvitation('a@b.example', 't', 'xx');
-      const [, mail] = notificationsClient.emit.mock.calls[0];
+    it('writes the invitation in English for a language it does not have', async () => {
+      await service.sendContributorInvitation('a@b.example', 't', 'xx');
+      const [, mail] = (notificationsClient.send.mock.calls[0] as any[]);
       expect(mail.subject).toBe('Your Service Hub contributor account');
+    });
+
+    it('sends the reset link in the language asked, and says it left', async () => {
+      expect(await service.sendResetPasswordEmail('a@b.example', 't', 'fr')).toBe(
+        true,
+      );
+      const [, mail] = (notificationsClient.send.mock.calls[0] as any[]);
+      expect(mail.subject).toBe('Réinitialisez votre mot de passe');
+      expect(mail.text).toContain('http://mock-frontend.com/reset-password/t');
+    });
+
+    it('says when the invitation did not leave', async () => {
+      notificationsClient.send.mockReturnValueOnce(
+        of({ success: false, message: 'ECONNREFUSED' }),
+      );
+      expect(await service.sendContributorInvitation('a@b.example', 't')).toBe(
+        false,
+      );
+      notificationsClient.send.mockReturnValueOnce(
+        throwError(() => new Error('Connection closed')),
+      );
+      expect(await service.sendContributorInvitation('a@b.example', 't')).toBe(
+        false,
+      );
     });
   });
 

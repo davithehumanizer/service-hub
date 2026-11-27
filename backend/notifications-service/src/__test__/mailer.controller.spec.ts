@@ -31,6 +31,14 @@ describe('MailerController', () => {
     expect(result.success).toBe(true);
   });
 
+  it('passes on a failure the service reports', async () => {
+    jest
+      .spyOn(mailerService, 'sendMail')
+      .mockResolvedValueOnce({ success: false, message: 'ECONNREFUSED' });
+    const result = await controller.sendEmail({ to: 'a@b.com', subject: 's' });
+    expect(result).toEqual({ success: false, message: 'ECONNREFUSED' });
+  });
+
   it('should handle error and return failure', async () => {
     jest
       .spyOn(mailerService, 'sendMail')

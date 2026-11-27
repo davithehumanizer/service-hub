@@ -75,7 +75,11 @@ const AdminContributorsPage: React.FC = () => {
         locale,
       });
       setContributors((prev) => [created, ...prev]);
-      setNotice(t('adminContributors.created', { email: address }));
+      if (created.invitationSent) {
+        setNotice(t('adminContributors.created', { email: address }));
+      } else {
+        setError(t('adminContributors.createdNoInvitation', { email: address }));
+      }
       setEmail('');
       setFirstName('');
       setLastName('');

@@ -118,13 +118,14 @@ export class UserController {
       }
       const role = await this.roleService.findByName('contributor');
       if (!role) throw new RpcException('Contributor role not found');
-      const user = await this.userService.createContributor(
-        body.email,
-        role,
-        { firstName: body.firstName, lastName: body.lastName },
-        body.locale,
-      );
-      return toSafeUser(user);
+      const { user, invitationSent } =
+        await this.userService.createContributor(
+          body.email,
+          role,
+          { firstName: body.firstName, lastName: body.lastName },
+          body.locale,
+        );
+      return { ...toSafeUser(user), invitationSent };
     } catch (error) {
       throw new RpcException(
         error.message || 'Failed to create contributor account',
@@ -370,13 +371,17 @@ export class UserController {
       const resetToken = crypto.randomBytes(32).toString('hex');
       user.resetToken = resetToken;
       await this.userService.update(user);
-      this.userService.sendResetPasswordEmail(
+      const emailSent = await this.userService.sendResetPasswordEmail(
         body.email,
         resetToken,
         body.locale ?? 'en',
       );
-      console.log('Mail sent');
-      return { message: 'Reset password email sent' };
+      return {
+        message: emailSent
+          ? 'Reset password email sent'
+          : 'Reset password email could not be sent',
+        emailSent,
+      };
     } catch (error) {
       throw new RpcException(
         error.message || 'Failed to send reset password email',

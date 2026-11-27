@@ -104,7 +104,8 @@
       "sendResetLink": "Reset-link versturen",
       "sending": "Versturen...",
       "backToLogin": "Terug naar inloggen",
-      "resetSent": "Er is een wachtwoord-reset-link naar uw e-mailadres gestuurd."
+      "resetSent": "Er is een wachtwoord-reset-link naar uw e-mailadres gestuurd.",
+      "notSent": "De e-mail met de link kon niet worden verstuurd. Probeer het later opnieuw."
     },
     "resetPassword": {
       "title": "Wachtwoord opnieuw instellen",
@@ -732,6 +733,7 @@
     "language": "Taal van de e-mails",
     "create": "Aanmaken en uitnodiging versturen",
     "created": "Uitnodiging verstuurd naar {{email}}.",
+    "createdNoInvitation": "Account aangemaakt voor {{email}}, maar de uitnodigingsmail kon niet worden verstuurd. Zodra e-mail weer werkt, stuurt „Wachtwoord vergeten” op de inlogpagina een nieuwe link.",
     "alreadyExists": "Dit adres heeft al een account.",
     "createError": "Dit account kon niet worden aangemaakt.",
     "loadError": "De accounts konden niet worden geladen.",

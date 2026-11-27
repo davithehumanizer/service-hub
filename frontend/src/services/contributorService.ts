@@ -26,7 +26,9 @@ export const contributorService = {
       throw error.response?.data?.message || "Failed to list contributors";
     }
   },
-  async create(contributor: NewContributor): Promise<Contributor> {
+  async create(
+    contributor: NewContributor,
+  ): Promise<Contributor & { invitationSent: boolean }> {
     try {
       const response = await api.post(
         `${API_URL}/v1/users/contributors`,
