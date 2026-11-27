@@ -84,7 +84,7 @@ function ForgotPassword() {
                   </p>
                   <Link to="/login">
                     <Button className="mt-4" tag={"button"}>
-                      Back to Login
+                      {t('auth.forgotPassword.backToLogin')}
                     </Button>
                   </Link>
                 </div>
