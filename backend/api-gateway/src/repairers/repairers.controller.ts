@@ -641,12 +641,16 @@ export class RepairersController {
     description: 'Returns the repairer with the given ID.',
     schema: { $ref: getSchemaPath(RepairerDto) },
   })
+  @ApiResponse({ status: 400, description: 'The id is not a UUID.' })
   @ApiResponse({
     status: 404,
     description: 'No such repairer, or not yet published and not yours.',
   })
   @ApiResponse({ status: 500, description: 'Internal Server Error.' })
-  async getRepairer(@Param('id') id: string, @Req() req: any) {
+  async getRepairer(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Req() req: any,
+  ) {
     this.logger.log('getRepairer called', { id });
     return this.call(
       'get_repairer',
@@ -670,9 +674,10 @@ export class RepairersController {
     description: 'Repairer updated successfully.',
     schema: { $ref: getSchemaPath(RepairerDto) },
   })
+  @ApiResponse({ status: 400, description: 'The id is not a UUID.' })
   @ApiResponse({ status: 500, description: 'Internal Server Error.' })
   async updateRepairer(
-    @Param('id') id: string,
+    @Param('id', ParseUUIDPipe) id: string,
     @Body() body: UpdateRepairerDto,
   ) {
     this.logger.log('updateRepairer called', { id, ...body });
@@ -698,9 +703,10 @@ export class RepairersController {
   @ApiOperation({ summary: 'Delete a repairer' })
   @ApiParam({ name: 'id', type: 'string', description: 'Repairer ID' })
   @ApiResponse({ status: 200, description: 'Repairer deleted successfully.' })
+  @ApiResponse({ status: 400, description: 'The id is not a UUID.' })
   @ApiResponse({ status: 404, description: 'No such repairer.' })
   @ApiResponse({ status: 500, description: 'Internal Server Error.' })
-  async deleteRepairer(@Param('id') id: string) {
+  async deleteRepairer(@Param('id', ParseUUIDPipe) id: string) {
     this.logger.log('deleteRepairer called', { id });
     return this.call('delete_repairer', { id }, 'Failed to delete repairer');
   }
@@ -752,9 +758,10 @@ export class RepairersController {
   @ApiParam({ name: 'id', type: 'string', description: 'Repairer ID' })
   @ApiBody({ type: ReportRepairerDto })
   @ApiResponse({ status: 201, description: 'Report submitted successfully.' })
+  @ApiResponse({ status: 400, description: 'The id is not a UUID.' })
   @ApiResponse({ status: 500, description: 'Internal Server Error.' })
   async reportRepairer(
-    @Param('id') id: string,
+    @Param('id', ParseUUIDPipe) id: string,
     @Body() body: ReportRepairerDto,
   ) {
     this.logger.log('reportRepairer called', { id, ...body });
