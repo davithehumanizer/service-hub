@@ -189,22 +189,24 @@ const RepairerDetails = () => {
       <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 mb-8 mt-4">
         <div className="flex flex-col gap-8">
           <div className="p-6">
-            <h1 className="text-3xl font-bold mb-4 flex items-center text-gray-800 dark:text-white">
-              <span className="material-symbols-outlined mr-3 text-blue-600 dark:text-blue-400">business</span>
-              {repairer.name}
+            {/* Wraps: on a narrow screen the badges go below the name instead of being cut. */}
+            <h1 className="text-3xl font-bold mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-gray-800 dark:text-white">
+              <span className="flex items-center">
+                <span className="material-symbols-outlined mr-3 text-blue-600 dark:text-blue-400">business</span>
+                {repairer.name}
+              </span>
               {partnerActivities(repairer.partner_type).map((activity) => (
                 <Badge
                   key={activity}
                   variant="filled"
                   color={activity === 'recycler' ? 'green' : activity === 'reuse' ? 'teal' : 'blue'}
                   size="md"
-                  className="ml-3"
                 >
                   {t(`repairMap.partnerTypeOptions.${activity}`)}
                 </Badge>
               ))}
               {/* A flex box: inline, the badge sat on the title's text line, below the others. */}
-              {repairer.is_demo && <span className="ml-3 flex"><DemoBadge size="md" /></span>}
+              {repairer.is_demo && <span className="flex"><DemoBadge size="md" /></span>}
             </h1>
             {/* Only its author or an administrator gets here before it is published. */}
             {repairer.status && repairer.status !== 'published' && (

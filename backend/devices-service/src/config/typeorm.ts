@@ -35,9 +35,10 @@ const config: DataSourceOptions = isTest
       entities: [here('../**/*.entity{.ts,.js}')],
       migrations: [here('../migrations/[0-9]*-*{.ts,.js}')],
       synchronize,
-      // TYPEORM_LOGGING=false for batch commands: models:assign over 1.12 M
-      // entries would log every query with its parameters.
-      logging: process.env.TYPEORM_LOGGING !== 'false',
+      // Failures only: every query would log its parameters (addresses,
+      // tokens). TYPEORM_LOGGING=false silences them too, for batch commands.
+      logging:
+        process.env.TYPEORM_LOGGING === 'false' ? false : ['error', 'warn'],
     };
 
 const connectionSource = new DataSource(config);

@@ -104,7 +104,8 @@
       "sendResetLink": "Envoyer le lien de réinitialisation",
       "sending": "Envoi en cours...",
       "backToLogin": "Retour à la connexion",
-      "resetSent": "Un lien de réinitialisation a été envoyé à votre adresse e-mail."
+      "resetSent": "Un lien de réinitialisation a été envoyé à votre adresse e-mail.",
+      "notSent": "L'e-mail contenant le lien n'a pas pu être envoyé. Réessayez plus tard."
     },
     "resetPassword": {
       "title": "Réinitialiser le mot de passe",
@@ -732,6 +733,7 @@
     "language": "Langue de ses e-mails",
     "create": "Créer et envoyer l'invitation",
     "created": "Invitation envoyée à {{email}}.",
+    "createdNoInvitation": "Compte créé pour {{email}}, mais l'e-mail d'invitation n'a pas pu partir. Une fois l'envoi rétabli, « Mot de passe oublié » sur la page de connexion lui enverra un nouveau lien.",
     "alreadyExists": "Cette adresse a déjà un compte.",
     "createError": "Impossible de créer ce compte.",
     "loadError": "Impossible de charger les comptes.",

@@ -34,7 +34,8 @@ const config: DataSourceOptions = isTest
       entities: [here("../**/*.entity{.ts,.js}")],
       migrations: [here("../migrations/[0-9]*-*{.ts,.js}")],
       synchronize,
-      logging: true,
+      // Failures only: every query would log its parameters (addresses, tokens).
+      logging: ["error", "warn"],
     };
 
 const connectionSource = new DataSource(config);

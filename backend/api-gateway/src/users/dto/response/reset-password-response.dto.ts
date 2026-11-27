@@ -9,8 +9,9 @@ export class ResetPasswordResponseDto {
   message: string;
 
   @ApiProperty({
-    description: 'User email',
-    example: 'user@example.com',
+    description:
+      'Whether the email with the link left. When false a new request can be made later.',
+    example: true,
   })
-  email: string;
+  emailSent: boolean;
 }

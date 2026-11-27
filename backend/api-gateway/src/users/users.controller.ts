@@ -38,6 +38,7 @@ import { ResetPasswordWithTokenDto } from './dto/reset-password-with-token.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 import { CreateContributorDto } from './dto/create-contributor.dto';
 import { UserResponseDto } from './dto/response/user-response.dto';
+import { ContributorCreatedResponseDto } from './dto/response/contributor-created-response.dto';
 import { ConfirmAccountResponseDto } from './dto/response/confirm-account-response.dto';
 import { ResetPasswordResponseDto } from './dto/response/reset-password-response.dto';
 import { UpdateProfileResponseDto } from './dto/response/update-profile-response.dto';
@@ -167,7 +168,7 @@ export class UsersController {
   @ApiBody({ type: ResetPasswordRequestDto })
   @ApiResponse({
     status: 201,
-    description: 'Password reset email sent.',
+    description: 'Link saved; `emailSent` says whether the email left.',
     type: ResetPasswordResponseDto,
   })
   @ApiResponse({ status: 400, description: 'Bad Request.' })
@@ -294,8 +295,8 @@ export class UsersController {
   @ApiBody({ type: CreateContributorDto })
   @ApiResponse({
     status: 201,
-    description: 'Account created, invitation sent.',
-    type: UserResponseDto,
+    description: 'Account created; `invitationSent` says whether the email left.',
+    type: ContributorCreatedResponseDto,
   })
   @ApiResponse({ status: 403, description: 'Not an administrator.' })
   @ApiResponse({
