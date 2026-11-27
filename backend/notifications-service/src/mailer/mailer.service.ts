@@ -13,7 +13,9 @@ export class MailerService {
     text?: string;
     html?: string;
   }) {
-    console.log('Sending email...', data);
+    // Never the body: a reset or invitation link carries its token.
+    const summary = { to: data.to, subject: data.subject };
+    console.log('Sending email...', summary);
     try {
       await this.mailerService.sendMail({
         from: process.env.MAIL_FROM || 'Contact Service-hub <contact@care2repair.eu>',
@@ -26,7 +28,7 @@ export class MailerService {
       console.log('Error sending email:', e);
       return { success: false, message: e.message };
     }
-    console.log('Email sent!', data);
+    console.log('Email sent!', summary);
     return { success: true, message: 'Email envoyé avec succès' };
   }
 }
